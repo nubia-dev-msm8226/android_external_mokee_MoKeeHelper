@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">魔趣助手</string>
+    <string name="title_activity_lock_screen">一键锁屏</string>
+    <string name="title_activity_tips_help">使用问答</string>
+
+</resources>
