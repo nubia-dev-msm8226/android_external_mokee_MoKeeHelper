@@ -2,7 +2,26 @@
 <resources>
 
     <string name="app_name">魔趣助手</string>
-    <string name="title_activity_lock_screen">一键锁屏</string>
-    <string name="title_activity_tips_help">使用问答</string>
+    <string name="mokee_center_title">魔趣中心</string>
+    <string name="mokee_support_title">支持中心</string>
+    <string name="mokee_updater_title">系统升级</string>
+    <string name="lock_screen_title">一键锁屏</string>
+    <string name="tips_help_title">使用问答</string>
+    <string name="mokee_website_title">项目首页</string>
+    <string name="mokee_website_summary">访问魔趣开源计划主页获得最新资讯</string>
+    <string name="mokee_forum_title">交流论坛</string>
+    <string name="mokee_forum_summary">前往魔趣论坛寻求帮助或分享心得</string>
+    <string name="mokee_issues_title">问题反馈</string>
+    <string name="mokee_issues_summary">反馈报告手机使用问题以便我们改进系统</string>
+    <string name="mokee_statistics_title">魔趣统计</string>
+    <string name="mokee_statistics_summary">查看支持的机型和用户数</string>
+    <string name="mokee_review_title">代码审核</string>
+    <string name="mokee_review_summary">看看魔趣正在开发哪些新功能</string>
+    <string name="mokee_github_title">项目开源</string>
+    <string name="mokee_github_summary">查看和下载魔趣源代码</string>
+    <string name="mokee_wiki_title">魔趣百科</string>
+    <string name="mokee_wiki_summary">魔趣开源计划的百科全书，由大家共同维护</string>
+    <string name="mokee_contributor_title">贡献人员</string>
+    <string name="mokee_contributor_summary">查看哪些人为魔趣开源计划贡献了自己的力量</string>
 
 </resources>

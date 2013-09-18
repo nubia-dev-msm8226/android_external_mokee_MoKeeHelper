@@ -2,8 +2,27 @@
 <resources>
 
     <string name="app_name">MoKeeHelper</string>
-    <string name="title_activity_lock_screen">LockScreen</string>
-    <string name="title_activity_tips_help">Tips &amp; Help</string>
+    <string name="mokee_center_title">MoKee Center</string>
+    <string name="mokee_support_title">Support</string>
+    <string name="mokee_updater_title">Updater</string>
+    <string name="lock_screen_title">LockScreen</string>
+    <string name="tips_help_title">Tips &amp; Help</string>
     <string name="tips_help_url">http://bbs.mfunz.com/forum-280-1.html</string>
+    <string name="mokee_website_title">MoKee Website</string>
+    <string name="mokee_website_summary">Visit MoKee Website</string>
+    <string name="mokee_forum_title">MoKee Forum</string>
+    <string name="mokee_forum_summary">Visit MoKee Forum</string>
+    <string name="mokee_issues_title">MoKee Issues</string>
+    <string name="mokee_issues_summary">Visit MoKee Issues</string>
+    <string name="mokee_statistics_title">MoKee Statistics</string>
+    <string name="mokee_statistics_summary">Visit MoKee Statistics</string>
+    <string name="mokee_review_title">MoKee Review</string>
+    <string name="mokee_review_summary">Visit MoKee Review</string>
+    <string name="mokee_github_title">MoKee Github</string>
+    <string name="mokee_github_summary">Visit MoKee Github</string>
+    <string name="mokee_wiki_title">MoKee Wiki</string>
+    <string name="mokee_wiki_summary">View MoKee Wiki</string>
+    <string name="mokee_contributor_title">MoKee Contributors</string>
+    <string name="mokee_contributor_summary">View MoKee Contributors List</string>
 
 </resources>
