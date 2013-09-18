@@ -24,5 +24,14 @@
     <string name="mokee_wiki_summary">View MoKee Wiki</string>
     <string name="mokee_contributor_title">MoKee Contributors</string>
     <string name="mokee_contributor_summary">View MoKee Contributors List</string>
+    <string name="mokee_version_title">MoKee Version</string>
+    <string name="mokee_version_type_title">Version Type</string>
+    <string name="mokee_version_info_title">Version Info</string>
+    <string name="mokee_extensions_components_title">Extensions Components</string>
+    <string name="mokee_info_default">Unknown</string>
+    <string name="mokee_version_type_release">Release</string>
+    <string name="mokee_version_type_experimental">Experimental</string>
+    <string name="mokee_version_type_nightly">Nightly</string>
+    <string name="mokee_version_type_unofficial">Unofficial</string>
 
 </resources>

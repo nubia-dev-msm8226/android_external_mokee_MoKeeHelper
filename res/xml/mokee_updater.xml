@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/mokee_version_info_title" >
+        <PreferenceScreen
+            android:key="mokee_version"
+            android:title="@string/mokee_version_title" />
+        <PreferenceScreen
+            android:key="mokee_version_type"
+            android:title="@string/mokee_version_type_title" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/mokee_extensions_components_title" >
+    </PreferenceCategory>
+
+</PreferenceScreen>
