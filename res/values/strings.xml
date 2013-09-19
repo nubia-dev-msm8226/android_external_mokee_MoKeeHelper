@@ -28,10 +28,15 @@
     <string name="mokee_version_type_title">Version Type</string>
     <string name="mokee_version_info_title">Version Info</string>
     <string name="mokee_extensions_components_title">Extensions Components</string>
+    <string name="google_mobile_service_title">Google Mobile Service</string>
     <string name="mokee_info_default">Unknown</string>
     <string name="mokee_version_type_release">Release</string>
     <string name="mokee_version_type_experimental">Experimental</string>
     <string name="mokee_version_type_nightly">Nightly</string>
     <string name="mokee_version_type_unofficial">Unofficial</string>
+    <string name="downloaded_update_summary">Downloaded</string>
+    <string name="installed_update_summary">Installed</string>
+    <string name="available_updates_title">Available updates</string>
+    <string name="tmp_entry">Comming Soon!</string>
 
 </resources>

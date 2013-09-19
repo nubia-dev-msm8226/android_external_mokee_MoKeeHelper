@@ -9,8 +9,20 @@
             android:key="mokee_version_type"
             android:title="@string/mokee_version_type_title" />
     </PreferenceCategory>
-    
-    <PreferenceCategory android:title="@string/mokee_extensions_components_title" >
+    <PreferenceCategory
+        android:key="available_updates"
+        android:title="@string/available_updates_title" >
+        <PreferenceScreen
+            android:key="tmp_entry"
+            android:title="@string/tmp_entry" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="mokee_extensions_components"
+        android:title="@string/mokee_extensions_components_title" >
+        <PreferenceScreen
+            android:key="google_mobile_service"
+            android:summary="@string/installed_update_summary"
+            android:title="@string/google_mobile_service_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

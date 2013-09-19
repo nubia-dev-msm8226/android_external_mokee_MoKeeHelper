@@ -27,10 +27,14 @@
     <string name="mokee_version_type_title">版本类型</string>
     <string name="mokee_version_info_title">版本信息</string>
     <string name="mokee_extensions_components_title">扩展组件</string>
+    <string name="google_mobile_service_title">谷歌服务包</string>
     <string name="mokee_info_default">未知</string>
     <string name="mokee_version_type_release">正式发布版</string>
     <string name="mokee_version_type_experimental">测试阶段版</string>
     <string name="mokee_version_type_nightly">每夜编译版</string>
     <string name="mokee_version_type_unofficial">非官方版本</string>
-
+    <string name="downloaded_update_summary">已下载</string>
+    <string name="installed_update_summary">已安装</string>
+    <string name="available_updates_title">可用更新</string>
+    <string name="tmp_entry">功能开发中,敬请期待</string>
 </resources>

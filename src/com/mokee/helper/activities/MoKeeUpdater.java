@@ -17,28 +17,53 @@
 package com.mokee.helper.activities;
 
 import com.mokee.helper.R;
+import com.mokee.helper.utils.Utils;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemProperties;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 
 public class MoKeeUpdater extends PreferenceFragment {
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
     private static final String KEY_MOKEE_VERSION_TYPE = "mokee_version_type";
+    private static final String KEY_MOKEE_EXTENSIONS_COMPONENTS = "mokee_extensions_components";
+    private static final String KEY_GOOGLE_MOBILE_SERVICE = "google_mobile_service";
+
+    private static final String GOOGLE_MOBILE_SERVICE_PACKAGE_NAME = "com.google.android.gms";
+
+    private PreferenceCategory mExtensionsList;
+
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.mokee_updater);
-
+        mContext = getActivity().getBaseContext();
         setValueSummary(KEY_MOKEE_VERSION, "ro.mk.version");
         setStringSummary(KEY_MOKEE_VERSION_TYPE, getMoKeeVersionType());
+
+        mExtensionsList = (PreferenceCategory) findPreference(KEY_MOKEE_EXTENSIONS_COMPONENTS);
+        refreshExtensionsList();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    private void refreshExtensionsList() {
+        // Check Google Mobile Service
+        if (!Utils.isApkInstalled(GOOGLE_MOBILE_SERVICE_PACKAGE_NAME, mContext)) {
+            Preference gmsDefaultPreference = (Preference) mExtensionsList
+                    .findPreference(KEY_GOOGLE_MOBILE_SERVICE);
+            mExtensionsList.removePreference(gmsDefaultPreference);
+        }
+
     }
 
     private String getMoKeeVersionType() {
