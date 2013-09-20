@@ -16,6 +16,8 @@
 
 package com.mokee.helper.utils;
 
+import com.mokee.helper.R;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -36,6 +38,19 @@ public class Utils {
         } else {
             return true;
         }
+    }
+
+    public static String getMoKeeVersionTypeString(String version, Context context) {
+        String MoKeeVersionType = version.substring(version.lastIndexOf("-") + 1,
+                version.length()).toLowerCase();
+        if (MoKeeVersionType.equals("release"))
+            return context.getString(R.string.mokee_version_type_release);
+        else if (MoKeeVersionType.equals("experimental"))
+            return context.getString(R.string.mokee_version_type_experimental);
+        else if (MoKeeVersionType.equals("nightly"))
+            return context.getString(R.string.mokee_version_type_nightly);
+        else
+            return context.getString(R.string.mokee_version_type_unofficial);
     }
 
 }

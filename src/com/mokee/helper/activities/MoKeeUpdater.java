@@ -51,11 +51,6 @@ public class MoKeeUpdater extends PreferenceFragment {
         refreshExtensionsList();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     private void refreshExtensionsList() {
         // Check Google Mobile Service
         if (!Utils.isApkInstalled(GOOGLE_MOBILE_SERVICE_PACKAGE_NAME, mContext)) {
@@ -73,16 +68,7 @@ public class MoKeeUpdater extends PreferenceFragment {
         if (MoKeeVersion.equals(getString(R.string.mokee_info_default))) {
             return MoKeeVersion;
         } else {
-            MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1,
-                    MoKeeVersion.length()).toLowerCase();
-            if (MoKeeVersionType.equals("release"))
-                return getString(R.string.mokee_version_type_release);
-            else if (MoKeeVersionType.equals("experimental"))
-                return getString(R.string.mokee_version_type_experimental);
-            else if (MoKeeVersionType.equals("nightly"))
-                return getString(R.string.mokee_version_type_nightly);
-            else if (MoKeeVersionType.equals("unofficial"))
-                return getString(R.string.mokee_version_type_unofficial);
+            MoKeeVersionType = Utils.getMoKeeVersionTypeString(MoKeeVersion, mContext);
         }
         return MoKeeVersionType;
     }
