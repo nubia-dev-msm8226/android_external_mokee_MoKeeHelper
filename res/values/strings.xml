@@ -2,18 +2,18 @@
 <resources>
 
     <string name="app_name">MoKeeHelper</string>
-    
-    <!-- Fragment Strings -->
+
+    <!-- Fragment -->
     <string name="mokee_center_title">MoKee Center</string>
     <string name="mokee_support_title">Support</string>
     <string name="mokee_updater_title">Updater</string>
-    
-    <!-- Lockscreen and Tips Strings -->
+
+    <!-- Lockscreen and Tips -->
     <string name="lock_screen_title">LockScreen</string>
     <string name="tips_help_title">Tips &amp; Help</string>
     <string name="tips_help_url">http://bbs.mfunz.com/forum-280-1.html</string>
 
-    <!-- WebSite and URL Strings -->
+    <!-- WebSite and URL -->
     <string name="mokee_website_title">MoKee Website</string>
     <string name="mokee_website_summary">Visit MoKee Website</string>
     <string name="mokee_forum_title">MoKee Forum</string>
@@ -34,22 +34,25 @@
     <string name="mokee_version_type_title">Version Type</string>
     <string name="mokee_version_info_title">Version Info</string>
 
-    <!-- Extensions Strings -->
+    <!-- Extensions -->
     <string name="mokee_extensions_components_title">Extensions Components</string>
     <string name="google_mobile_service_title">Google Mobile Service</string>
 
-    <!-- Version Strings -->
+    <!-- Version -->
     <string name="mokee_info_default">Unknown</string>
     <string name="mokee_version_type_release">Release</string>
     <string name="mokee_version_type_experimental">Experimental</string>
     <string name="mokee_version_type_nightly">Nightly</string>
     <string name="mokee_version_type_unofficial">Unofficial</string>
+
+    <!-- Download -->
     <string name="downloaded_update_summary">Downloaded</string>
     <string name="installed_update_summary">Installed</string>
     <string name="available_updates_title">Available updates</string>
     <string name="tmp_entry">Comming Soon!</string>
+    <string name="tmp_entry1">努力开发中~~~~~~~~</string>
 
-    <!-- Menu Strings -->
+    <!-- Menu -->
     <string name="menu_refresh">Refresh</string>
 
 </resources>

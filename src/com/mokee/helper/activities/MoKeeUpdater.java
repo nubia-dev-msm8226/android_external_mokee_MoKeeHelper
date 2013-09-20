@@ -25,6 +25,7 @@ import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 
 public class MoKeeUpdater extends PreferenceFragment {
 
@@ -36,6 +37,10 @@ public class MoKeeUpdater extends PreferenceFragment {
     private static final String GOOGLE_MOBILE_SERVICE_PACKAGE_NAME = "com.google.android.gms";
 
     private PreferenceCategory mExtensionsList;
+    
+    //Building Demo
+    public static PreferenceScreen mTmpEntry;
+    private static final String KEY_TMP_ENTRY = "tmp_entry";
 
     private Context mContext;
 
@@ -48,6 +53,7 @@ public class MoKeeUpdater extends PreferenceFragment {
         setStringSummary(KEY_MOKEE_VERSION_TYPE, getMoKeeVersionType());
 
         mExtensionsList = (PreferenceCategory) findPreference(KEY_MOKEE_EXTENSIONS_COMPONENTS);
+        mTmpEntry = (PreferenceScreen) findPreference(KEY_TMP_ENTRY);
         refreshExtensionsList();
     }
 

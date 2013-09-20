@@ -69,6 +69,15 @@ public class MoKeeCenter extends FragmentActivity {
         return true;
     }
     
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_refresh:
+                MoKeeUpdater.mTmpEntry.setTitle(R.string.tmp_entry1);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public static void refreshMenuItem(int position) {
         refreshMenuItem.setVisible(position == 0);
     }
