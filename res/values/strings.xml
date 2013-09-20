@@ -15,19 +15,19 @@
 
     <!-- WebSite and URL -->
     <string name="mokee_website_title">MoKee Website</string>
-    <string name="mokee_website_summary">Visit MoKee Website</string>
+    <string name="mokee_website_summary">Visit the official website</string>
     <string name="mokee_forum_title">MoKee Forum</string>
-    <string name="mokee_forum_summary">Visit MoKee Forum</string>
+    <string name="mokee_forum_summary">Visit the MoKee Forum</string>
     <string name="mokee_issues_title">MoKee Bug Tracker</string>
-    <string name="mokee_issues_summary">Visit MoKee Bug Tracker</string>
+    <string name="mokee_issues_summary">Visit the bug tracker</string>
     <string name="mokee_statistics_title">MoKee Statistics</string>
-    <string name="mokee_statistics_summary">Visit MoKee Statistics</string>
+    <string name="mokee_statistics_summary">View MoKee Statistics</string>
     <string name="mokee_review_title">MoKee Gerrit</string>
-    <string name="mokee_review_summary">Visit MoKee Gerrit</string>
+    <string name="mokee_review_summary">Visit the MoKee Gerrit</string>
     <string name="mokee_github_title">MoKee Github</string>
-    <string name="mokee_github_summary">Visit MoKee Github</string>
+    <string name="mokee_github_summary">Visit the MoKee Github</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
-    <string name="mokee_wiki_summary">View MoKee Wiki</string>
+    <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_contributor_title">MoKee Contributors</string>
     <string name="mokee_contributor_summary">View MoKee Contributors List</string>
     <string name="mokee_version_title">MoKee Version</string>
@@ -35,8 +35,8 @@
     <string name="mokee_version_info_title">Version Info</string>
 
     <!-- Extensions -->
-    <string name="mokee_extensions_components_title">Extensions Components</string>
-    <string name="google_mobile_service_title">Google Mobile Service</string>
+    <string name="mokee_extensions_components_title">Extras</string>
+    <string name="google_mobile_service_title">Google Apps</string>
 
     <!-- Version -->
     <string name="mokee_info_default">Unknown</string>
