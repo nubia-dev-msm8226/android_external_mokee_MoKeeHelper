@@ -50,7 +50,7 @@ public class MoKeeCenter extends FragmentActivity {
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
         bar.setDisplayHomeAsUpEnabled(true);
-        bar.setTitle(R.string.app_name);
+        bar.setTitle(R.string.mokee_center_title);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
