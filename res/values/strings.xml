@@ -18,12 +18,12 @@
     <string name="mokee_website_summary">Visit MoKee Website</string>
     <string name="mokee_forum_title">MoKee Forum</string>
     <string name="mokee_forum_summary">Visit MoKee Forum</string>
-    <string name="mokee_issues_title">MoKee Issues</string>
-    <string name="mokee_issues_summary">Visit MoKee Issues</string>
+    <string name="mokee_issues_title">MoKee Bug Tracker</string>
+    <string name="mokee_issues_summary">Visit MoKee Bug Tracker</string>
     <string name="mokee_statistics_title">MoKee Statistics</string>
     <string name="mokee_statistics_summary">Visit MoKee Statistics</string>
-    <string name="mokee_review_title">MoKee Review</string>
-    <string name="mokee_review_summary">Visit MoKee Review</string>
+    <string name="mokee_review_title">MoKee Gerrit</string>
+    <string name="mokee_review_summary">Visit MoKee Gerrit</string>
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit MoKee Github</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
