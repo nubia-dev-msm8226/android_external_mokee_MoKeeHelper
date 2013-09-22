@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">魔趣助手</string>
@@ -26,7 +26,7 @@
     <string name="mokee_version_title">魔趣版本</string>
     <string name="mokee_version_type_title">版本類型</string>
     <string name="mokee_version_info_title">版本信息</string>
-    <string name="mokee_extensions_components_title">擴展組件</string>
+    <string name="mokee_extras_title">擴展組件</string>
     <string name="google_mobile_service_title">Google服務包</string>
     <string name="mokee_info_default">未知</string>
     <string name="mokee_version_type_release">正式發布版</string>

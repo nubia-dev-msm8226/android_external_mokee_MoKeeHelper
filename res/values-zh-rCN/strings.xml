@@ -34,7 +34,7 @@
     <string name="mokee_version_info_title">版本信息</string>
 
     <!-- Extensions -->
-    <string name="mokee_extensions_components_title">扩展组件</string>
+    <string name="mokee_extras_title">扩展组件</string>
     <string name="google_mobile_service_title">谷歌服务包</string>
 
     <!-- Version -->

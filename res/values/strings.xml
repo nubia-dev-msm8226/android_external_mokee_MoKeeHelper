@@ -35,7 +35,7 @@
     <string name="mokee_version_info_title">Version Info</string>
 
     <!-- Extensions -->
-    <string name="mokee_extensions_components_title">Extras</string>
+    <string name="mokee_extras_title">Extras</string>
     <string name="google_mobile_service_title">Google Apps</string>
 
     <!-- Version -->

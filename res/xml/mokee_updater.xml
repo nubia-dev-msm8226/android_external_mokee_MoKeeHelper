@@ -17,8 +17,8 @@
             android:title="@string/tmp_entry" />
     </PreferenceCategory>
     <PreferenceCategory
-        android:key="mokee_extensions_components"
-        android:title="@string/mokee_extensions_components_title" >
+        android:key="mokee_extras_title"
+        android:title="@string/mokee_extras_title" >
         <PreferenceScreen
             android:key="google_mobile_service"
             android:summary="@string/installed_update_summary"
