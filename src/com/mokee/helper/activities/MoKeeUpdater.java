@@ -36,9 +36,9 @@ public class MoKeeUpdater extends PreferenceFragment {
 
     private static final String GOOGLE_MOBILE_SERVICE_PACKAGE_NAME = "com.google.android.gms";
 
-    private PreferenceCategory mExtensionsList;
-    
-    //Building Demo
+    private PreferenceCategory mExtrasList;
+
+    // Building Demo
     public static PreferenceScreen mTmpEntry;
     private static final String KEY_TMP_ENTRY = "tmp_entry";
 

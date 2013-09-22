@@ -27,4 +27,8 @@
 
     <color name="transparent_background">#00000000</color>
 
+    <style name="UpdatesPreferenceStyle">
+        <item name="android:layout">@layout/preference_updates</item>
+    </style>
+
 </resources>

@@ -25,11 +25,11 @@ import android.os.SystemClock;
 public class LockScreen extends Activity {
 
     private PowerManager mPowerManager;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPowerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
+        mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mPowerManager.goToSleep(SystemClock.uptimeMillis());
         finish();
     }
