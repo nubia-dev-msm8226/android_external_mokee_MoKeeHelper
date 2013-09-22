@@ -45,10 +45,7 @@
     <string name="mokee_version_type_nightly">Nightly</string>
     <string name="mokee_version_type_unofficial">Unofficial</string>
 
-    <!-- Download -->
-    <string name="downloaded_update_summary">Downloaded</string>
-    <string name="installed_update_summary">Installed</string>
-    <string name="available_updates_title">Available updates</string>
+    <!-- Tmp -->
     <string name="tmp_entry">Comming Soon!</string>
     <string name="tmp_entry1">努力开发中~~~~~~~~</string>
 
@@ -60,5 +57,16 @@
     <string name="failed_to_load_changelog">Unable to load changelog</string>
     <string name="changelog_dialog_title">Changelog</string>
     <string name="loading_changelog">Loading\u2026</string>
+
+    <!-- deleting -->
+    <string name="confirm_delete_dialog_title">Delete file</string>
+    <string name="confirm_delete_dialog_message">Delete the selected update file?</string>
+
+    <!-- Settings strings -->
+    <string name="available_updates_title">Available updates</string>
+    <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
+    <string name="new_update_summary">New</string>
+    <string name="downloaded_update_summary">Downloaded</string>
+    <string name="installed_update_summary">Installed</string>
 
 </resources>
