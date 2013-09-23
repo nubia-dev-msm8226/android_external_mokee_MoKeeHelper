@@ -66,7 +66,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
     private ImageView mUpdatesButton;
     private TextView mTitleText;
     private TextView mSummaryText;
-    private View mUpdatesPref;
+    private View mExtrasPref;
     private ProgressBar mProgressBar;
 
     private OnClickListener mButtonClickListener = new OnClickListener() {
@@ -109,9 +109,9 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
         mSummaryText = (TextView) view.findViewById(android.R.id.summary);
         mProgressBar = (ProgressBar) view.findViewById(R.id.download_progress_bar);
 
-        mUpdatesPref = view.findViewById(R.id.updates_pref);
-        mUpdatesPref.setOnClickListener(this);
-        mUpdatesPref.setOnLongClickListener(this);
+        mExtrasPref = view.findViewById(R.id.updates_pref);
+        mExtrasPref.setOnClickListener(this);
+        mExtrasPref.setOnLongClickListener(this);
 
         // Update the views
         updatePreferenceViews();
@@ -174,7 +174,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
             new AlertDialog.Builder(context)
                     .setTitle(R.string.changelog_dialog_title)
                     .setView(view)
-                    .setPositiveButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.dialog_close, null)
                     .show();
         }
     }
@@ -198,7 +198,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 
     @Override
     public String toString() {
-        return "UpdatePreference [mUpdateInfo=" + mExtraInfo + ", mStyle=" + mStyle + "]";
+        return "ExtraPreference [mExtraInfo=" + mExtraInfo + ", mStyle=" + mStyle + "]";
     }
 
     @Override
@@ -217,14 +217,14 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 
     public void setOnReadyListener(OnReadyListener listener) {
         mOnReadyListener = listener;
-        if (mUpdatesPref != null && listener != null) {
+        if (mExtrasPref != null && listener != null) {
             listener.onReady(this);
         }
     }
 
     public void setStyle(int style) {
         mStyle = style;
-        if (mUpdatesPref != null) {
+        if (mExtrasPref != null) {
             showStyle();
         }
     }
@@ -258,21 +258,21 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
             mUpdatesButton.setEnabled(false);
             mUpdatesButton.setAlpha(DISABLED_ALPHA);
         }
-        if (mUpdatesPref != null) {
-            mUpdatesPref.setEnabled(false);
-            mUpdatesPref.setBackgroundColor(0);
+        if (mExtrasPref != null) {
+            mExtrasPref.setEnabled(false);
+            mExtrasPref.setBackgroundColor(0);
         }
     }
 
     private void updatePreferenceViews() {
-        if (mUpdatesPref != null) {
-            mUpdatesPref.setEnabled(true);
-            mUpdatesPref.setLongClickable(true);
+        if (mExtrasPref != null) {
+            mExtrasPref.setEnabled(true);
+            mExtrasPref.setLongClickable(true);
 
             final boolean enabled = isEnabled();
-            mUpdatesPref.setOnClickListener(enabled ? this : null);
+            mExtrasPref.setOnClickListener(enabled ? this : null);
             if (!enabled) {
-                mUpdatesPref.setBackgroundColor(0);
+                mExtrasPref.setBackgroundColor(0);
             }
 
             // Set the title text

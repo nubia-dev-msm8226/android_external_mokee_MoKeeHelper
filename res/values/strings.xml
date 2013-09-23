@@ -49,8 +49,11 @@
     <string name="tmp_entry">Comming Soon!</string>
     <string name="tmp_entry1">努力开发中~~~~~~~~</string>
 
-    <!-- Menu -->
+    <!-- Menu and dialog box strings -->
     <string name="menu_refresh">Refresh</string>
+    <string name="dialog_update">Update</string>
+    <string name="dialog_install">Install</string>
+    <string name="dialog_close">Close</string>
 
     <!-- ChangeLog -->
     <string name="no_changelog_alert">No changelog available</string>
@@ -58,15 +61,59 @@
     <string name="changelog_dialog_title">Changelog</string>
     <string name="loading_changelog">Loading\u2026</string>
 
-    <!-- deleting -->
-    <string name="confirm_delete_dialog_title">Delete file</string>
-    <string name="confirm_delete_dialog_message">Delete the selected update file?</string>
-
     <!-- Settings strings -->
     <string name="available_updates_title">Available updates</string>
     <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
     <string name="new_update_summary">New</string>
     <string name="downloaded_update_summary">Downloaded</string>
     <string name="installed_update_summary">Installed</string>
+
+    <!-- Update checking -->
+    <string name="checking_for_updates">Checking for updates</string>
+    <string name="no_updates_found">No new updates found</string>
+    <string name="not_new_updates_found_ticker">New updates are available</string>
+    <string name="not_new_updates_found_title">New updates</string>
+
+    <plurals name="not_new_updates_found_body">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> update available for download</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> updates available for download</item>
+    </plurals>
+    <plurals name="not_additional_count">
+        <item quantity="other">+ <xliff:g id="count">%d</xliff:g> more</item>
+    </plurals>
+
+    <string name="not_action_download">Download</string>
+    <string name="data_connection_required">A data connection is required.</string>
+
+    <!-- Downloads -->
+    <string name="confirm_download_cancelation_dialog_title">Cancel download</string>
+    <string name="confirm_download_cancelation_dialog_message">Cancel the current download?</string>
+    <string name="download_cancelled">Download cancelled</string>
+    <string name="download_already_running">A download is already running</string>
+    <string name="unable_to_download_file">Unable to download the update file</string>
+    <string name="download_not_found">Download not found</string>
+    <string name="not_download_success">Update downloaded successfully</string>
+    <string name="not_download_failure">Update download was unsuccessful</string>
+    <string name="not_action_install_update">Reboot and install</string>
+    <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
+
+    <!-- deleting -->
+    <string name="confirm_delete_dialog_title">Delete file</string>
+    <string name="confirm_delete_dialog_message">Delete the selected update file?</string>
+    <string name="confirm_delete_all_dialog_message">Delete all downloaded update files?</string>
+    <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> deleted</string>
+    <string name="delete_updates_failure_message">There was an error deleting the update file</string>
+    <string name="delete_updates_noFolder_message">Update folder not found</string>
+    <string name="delete_updates_success_message">All downloaded updates deleted</string>
+
+    <!-- Apply install and update strings -->
+    <string name="apply_install_dialog_title">Apply install</string>
+    <string name="apply_install_dialog_text">You are about to install <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Install, the device will restart itself in recovery mode to install the zip.\n
+        \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+    <string name="apply_update_dialog_title">Apply update</string>
+    <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n
+        \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+    <string name="apply_trying_to_get_root_access">Trying to get root access to reboot in recovery mode</string>
+    <string name="apply_unable_to_reboot_toast">Unable to reboot into recovery</string>
 
 </resources>
