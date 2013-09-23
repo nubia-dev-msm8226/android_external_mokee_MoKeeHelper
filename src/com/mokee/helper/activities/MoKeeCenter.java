@@ -74,9 +74,10 @@ public class MoKeeCenter extends FragmentActivity {
         switch (item.getItemId()) {
             case R.id.menu_refresh:
                 MoKeeUpdater.mTmpEntry.setTitle(R.string.tmp_entry1);
+                break;
             case android.R.id.home:
                 onBackPressed();
-                return true;
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
