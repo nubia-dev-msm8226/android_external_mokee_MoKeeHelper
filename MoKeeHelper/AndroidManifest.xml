@@ -37,8 +37,8 @@
         <activity
             android:name="com.mokee.helper.activities.LockScreen"
             android:icon="@drawable/ic_lockscreen"
-            android:label="@string/lock_screen_title"
-            android:theme="@style/Transparent" >
+            android:label="@string/mokee_lock_screen_title"
+            android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,7 +48,7 @@
             android:name="com.mokee.helper.activities.TipsHelp"
             android:icon="@drawable/ic_forum"
             android:label="@string/tips_help_title"
-            android:theme="@style/Transparent" >
+            android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

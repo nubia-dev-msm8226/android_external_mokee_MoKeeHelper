@@ -9,7 +9,7 @@
     <string name="mokee_updater_title">Updater</string>
 
     <!-- Lockscreen and Tips -->
-    <string name="lock_screen_title">LockScreen</string>
+    <string name="mokee_lock_screen_title">LockScreen</string>
     <string name="tips_help_title">Tips &amp; Help</string>
     <string name="tips_help_url">http://bbs.mfunz.com/forum-280-1.html</string>
 

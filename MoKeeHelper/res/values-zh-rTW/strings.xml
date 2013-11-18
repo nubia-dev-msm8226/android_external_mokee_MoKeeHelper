@@ -5,7 +5,7 @@
     <string name="mokee_center_title">魔趣中心</string>
     <string name="mokee_support_title">支持中心</string>
     <string name="mokee_updater_title">系統升級</string>
-    <string name="lock_screen_title">一鍵鎖屏</string>
+    <string name="mokee_lock_screen_title">一鍵鎖屏</string>
     <string name="tips_help_title">使用問答</string>
     <string name="mokee_website_title">項目首頁</string>
     <string name="mokee_website_summary">訪問魔趣開源計劃主頁獲得最新資訊</string>

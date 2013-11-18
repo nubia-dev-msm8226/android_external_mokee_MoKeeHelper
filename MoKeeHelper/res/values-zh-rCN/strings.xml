@@ -9,7 +9,7 @@
     <string name="mokee_updater_title">系统升级</string>
 
     <!-- Lockscreen and Tips -->
-    <string name="lock_screen_title">一键锁屏</string>
+    <string name="mokee_lock_screen_title">一键锁屏</string>
     <string name="tips_help_title">使用问答</string>
 
     <!-- WebSite and URL -->

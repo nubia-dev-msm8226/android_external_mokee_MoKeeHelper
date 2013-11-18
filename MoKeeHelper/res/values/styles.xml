@@ -17,15 +17,13 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="Transparent" parent="android:Theme">
+    <style name="ActivityTransparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:colorForeground">#fff</item>
     </style>
-
-    <color name="transparent_background">#00000000</color>
 
     <style name="UpdatesPreferenceStyle">
         <item name="android:layout">@layout/preference_updates</item>
