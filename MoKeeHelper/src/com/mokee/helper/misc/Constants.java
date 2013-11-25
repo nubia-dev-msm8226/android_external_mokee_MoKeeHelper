@@ -1,23 +1,26 @@
 /*
- * Copyright (C) 2012 The Mokee OpenSource Project
+ * Copyright (C) 2013 The MoKee OpenSource Project
  *
- * * Licensed under the GNU GPLv2 license
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * The text of the license can be found in the LICENSE file
- * or at https://www.gnu.org/licenses/gpl-2.0.txt
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.mokee.helper.misc;
 
 public class Constants {
-	//mk
-//    public static final String UPDATES_FOLDER = "mkupdater";
-    public static final String EXTRAS_FOLDER = "mkextras";
-//    public static final String DOWNLOAD_ID = "download_id";
-//    public static final String DOWNLOAD_MD5 = "download_md5";
-	
+
     // Download related
     public static final String UPDATES_FOLDER = "mkupdater";
+    public static final String EXTRAS_FOLDER = "mkextras";
     public static final String DOWNLOAD_ID = "download_id";
     public static final String DOWNLOAD_MD5 = "download_md5";
 
@@ -27,8 +30,8 @@ public class Constants {
     public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
     public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
-    public static final String PREF_ROM_ALL="pref_update_all";
-    public static final String PREF_ROM_OTA="pref_update_ota";
+    public static final String PREF_ROM_ALL = "pref_update_all";
+    public static final String PREF_ROM_OTA = "pref_update_ota";
 
     // Update Check items
     public static final String BOOT_CHECK_COMPLETED = "boot_check_completed";

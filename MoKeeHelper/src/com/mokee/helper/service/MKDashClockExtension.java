@@ -1,13 +1,20 @@
 /*
- * Copyright (C) 2012 The Mokee OpenSource Project
+ * Copyright (C) 2013 The MoKee OpenSource Project
  *
- * * Licensed under the GNU GPLv2 license
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * The text of the license can be found in the LICENSE file
- * or at https://www.gnu.org/licenses/gpl-2.0.txt
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.mokee.helper.updater.service;
+package com.mokee.helper.service;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,7 +31,7 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeUpdater;
 import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.MokeeUpdateInfo;
+import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.utils.Utils;
 
@@ -45,7 +52,7 @@ public class MKDashClockExtension extends DashClockExtension {
 
     @Override
     protected void onUpdateData(int reason) {
-        LinkedList<MokeeUpdateInfo> updates = State.loadMKState(this);
+        LinkedList<UpdateInfo> updates = State.loadMKState(this);
 
         Log.d(TAG, "Update dash clock for " + updates.size() + " updates");
 
@@ -53,24 +60,22 @@ public class MKDashClockExtension extends DashClockExtension {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        if(!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA, true))//ota暂时不进行排序
-        	{
-        		Collections.sort(updates, new Comparator<MokeeUpdateInfo>()
-        					{
-        						@Override
-        						public int compare(MokeeUpdateInfo lhs, MokeeUpdateInfo rhs)
-        							{
-        								/* sort by date descending */
-        								int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
-        								int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
-        								if (lhsDate == rhsDate)
-        									{
-        										return 0;
-        									}
-        								return lhsDate < rhsDate ? 1 : -1;
-        							}
-        					});
-        	}
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA,
+                true))// ota暂时不进行排序
+        {
+            Collections.sort(updates, new Comparator<UpdateInfo>() {
+                @Override
+                public int compare(UpdateInfo lhs, UpdateInfo rhs) {
+                    /* sort by date descending */
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
+                    if (lhsDate == rhsDate) {
+                        return 0;
+                    }
+                    return lhsDate < rhsDate ? 1 : -1;
+                }
+            });
+        }
         final int count = updates.size();
         final Resources res = getResources();
         StringBuilder expandedBody = new StringBuilder();
@@ -87,7 +92,8 @@ public class MKDashClockExtension extends DashClockExtension {
                 .visible(!updates.isEmpty())
                 .icon(R.drawable.ic_tab_installed)
                 .status(res.getQuantityString(R.plurals.extension_status, count, count))
-                .expandedTitle(res.getQuantityString(R.plurals.extension_expandedTitle, count, count))
+                .expandedTitle(
+                        res.getQuantityString(R.plurals.extension_expandedTitle, count, count))
                 .expandedBody(expandedBody.toString())
                 .clickIntent(intent));
     }

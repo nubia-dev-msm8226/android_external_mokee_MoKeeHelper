@@ -17,12 +17,13 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- MKUpdate Config Strings -->
-    <string name="conf_update_server_url_def" translatable="false">http://ota.mfunz.com/full.php</string>
-    <string name="conf_update_ota_server_url_def" translatable="false">http://ota.mfunz.com/ota.php</string>
-    <string name="conf_changelog_url" translatable="false">http://localhost/changelog.xml</string>
-    <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/forum-280-1.html</string>
-
-    <bool name="alternateIsInternal">false</bool>
+    <plurals name="extension_status">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个可用更新</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个可用更新</item>
+    </plurals>
+    <plurals name="extension_expandedTitle">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个 Mokee 更新</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个 Mokee 更新</item>
+    </plurals>
 
 </resources>

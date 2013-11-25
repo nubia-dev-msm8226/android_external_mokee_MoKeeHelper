@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The MoKee OpenSource Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">魔趣助手</string>
@@ -12,7 +28,7 @@
     <string name="mokee_lock_screen_title">一键锁屏</string>
     <string name="tips_help_title">使用问答</string>
 
-    <!-- WebSite and URL -->
+    <!-- WebSite -->
     <string name="mokee_website_title">项目首页</string>
     <string name="mokee_website_summary">访问魔趣开源计划主页获得最新资讯</string>
     <string name="mokee_forum_title">交流论坛</string>
@@ -29,9 +45,11 @@
     <string name="mokee_wiki_summary">魔趣开源计划的百科全书，由大家共同维护</string>
     <string name="mokee_contributor_title">贡献人员</string>
     <string name="mokee_contributor_summary">查看哪些人为魔趣开源计划贡献了自己的力量</string>
+
+    <string name="mokee_version_info_title">版本信息</string>
     <string name="mokee_version_title">魔趣版本</string>
     <string name="mokee_version_type_title">版本类型</string>
-    <string name="mokee_version_info_title">版本信息</string>
+    <string name="mokee_last_check_title">最后检查</string>
 
     <!-- Extensions -->
     <string name="mokee_extras_title">扩展组件</string>
@@ -43,22 +61,21 @@
     <string name="mokee_version_type_experimental">测试阶段版</string>
     <string name="mokee_version_type_nightly">每夜编译版</string>
     <string name="mokee_version_type_unofficial">非官方版本</string>
+    <string name="mokee_version_type_all">全部版本</string>
 
     <!-- Download -->
     <string name="downloaded_update_summary">已下载</string>
     <string name="installed_update_summary">已安装</string>
     <string name="available_updates_title">可用更新</string>
-    <string name="tmp_entry">功能开发中,敬请期待</string>
-    <string name="tmp_entry1">很努力的开发中~~~~~~~~</string>
 
     <!-- Menu -->
     <string name="menu_refresh">刷新</string>
+
     <!-- Update -->
     <string name="display_name">更新</string>
     <string name="unknown">未知</string>
     <string name="menu_delete">删除</string>
     <string name="menu_delete_all">删除下载</string>
-    <string name="menu_system_info">系统信息</string>
     <string name="dialog_ok">确认</string>
     <string name="dialog_cancel">取消</string>
     <string name="dialog_yes">是</string>
@@ -118,28 +135,17 @@
     <string name="delete_updates_failure_message">删除更新时发生了错误</string>
     <string name="delete_updates_noFolder_message">未找到更新所在的文件夹</string>
     <string name="delete_updates_success_message">所有已下载的更新文件已被删除</string>
-    <string name="sysinfo_device">设备:</string>
-    <string name="sysinfo_running">目前运行:</string>
-    <string name="sysinfo_last_check">最后一次检查时间:</string>
     <string name="no_changelog_alert">无可用的更改记录</string>
     <string name="failed_to_load_changelog">无法读取更改记录</string>
     <string name="changelog_dialog_title">更改记录</string>
     <string name="extension_label">Mokee 更新</string>
     <string name="extension_description">显示有多少个可用的新更新。</string>
 
-    <plurals name="extension_status">
-        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个更新</item>
-        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个更新</item>
-    </plurals>
-    <plurals name="extension_expandedTitle">
-        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个 Mokee 更新</item>
-        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个 Mokee 更新</item>
-    </plurals>
-	<!-- pref -->
-	<string name="pref_update_all_title">全部更新</string>
-	<string name="pref_update_all_summary">获取所有版本(包括旧版)</string>
-	<string name="pref_update_all_new_summary">获取新版</string>
-	<string name="pref_update_ota" >OTA更新</string>
-	<string name="pref_update_ota_summary" >获取OTA更新</string>
-	
+    <!-- pref -->
+    <string name="pref_update_all_title">全部更新</string>
+    <string name="pref_update_all_summary">获取所有版本(包括旧版)</string>
+    <string name="pref_update_all_new_summary">获取新版</string>
+    <string name="pref_update_ota">OTA更新</string>
+    <string name="pref_update_ota_summary">获取OTA更新</string>
+
 </resources>
