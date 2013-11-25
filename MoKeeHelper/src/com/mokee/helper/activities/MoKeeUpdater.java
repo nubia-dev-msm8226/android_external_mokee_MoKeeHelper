@@ -107,34 +107,24 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
 
-    private BroadcastReceiver mReceiver = new BroadcastReceiver()
-    {
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent)
-        {
+        public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
 
-            if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action))
-            {
+            if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
                 mDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 mUpdateHandler.post(mUpdateProgress);
-            } else if (UpdateCheckService.ACTION_CHECK_FINISHED.equals(action))
-            {
-                if (mProgressDialog != null)
-                {
+            } else if (UpdateCheckService.ACTION_CHECK_FINISHED.equals(action)) {
+                if (mProgressDialog != null) {
                     mProgressDialog.dismiss();
                     mProgressDialog = null;
 
                     int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
-                    if (count == 0)
-                    {
-                        Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT)
-                                .show();
-                    } else if (count < 0)
-                    {
-                        Toast.makeText(mContext, R.string.update_check_failed,
-                                Toast.LENGTH_LONG)
-                                .show();
+                    if (count == 0) {
+                        Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT).show();
+                    } else if (count < 0) {
+                        Toast.makeText(mContext, R.string.update_check_failed, Toast.LENGTH_LONG).show();
                     }
                 }
                 updateLayout();
@@ -186,24 +176,19 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         isRomALl(mUpdateAll.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
         setSummaryFromString(KEY_MOKEE_VERSION_TYPE, getMoKeeVersionType());
-        Date lastCheck = new Date(mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0));
-        String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
-        String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
-        setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
-
-        /*
-         * TODO: add this back once we have a way of doing backups that is not
-         * recovery specific mBackupRom = (CheckBoxPreference)
-         * findPreference(Constants.BACKUP_PREF);
-         * mBackupRom.setChecked(mPrefs.getBoolean(Constants.BACKUP_PREF,
-         * true));
-         */
+        updateLastCheckPreference();
 
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         final ActionBar bar = mContext.getActionBar();
         bar.setDisplayHomeAsUpEnabled(true);
         this.setHasOptionsMenu(true);
-        // Turn on the Options Menu
+    }
+
+    public void updateLastCheckPreference() {
+        Date lastCheck = new Date(mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0));
+        String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
+        String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
+        setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
     }
 
     @Override
@@ -338,6 +323,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     }
 
     private void updateLayout() {
+        updateLastCheckPreference();
         // Read existing Updates
         LinkedList<String> existingFiles = new LinkedList<String>();
 
@@ -822,11 +808,9 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
 
     private void isRomALl(boolean value) {
         if (value) {
-            mUpdateAll
-                    .setSummary(mContext.getResources().getText(R.string.pref_update_all_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_update_all_summary));
         } else {
-            mUpdateAll.setSummary(mContext.getResources().getText(
-                    R.string.pref_update_all_new_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_update_all_new_summary));
         }
     }
 }
