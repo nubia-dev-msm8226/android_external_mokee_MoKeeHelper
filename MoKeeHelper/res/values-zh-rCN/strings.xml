@@ -82,7 +82,7 @@
     <string name="old_update_summary">旧版本</string>
     <string name="update_check_title">检查更新频率</string>
     <string name="check_manual">手动</string>
-    <string name="nightly_alert">You have selected to include nightly updates in this list. These are unsupported and should be used with caution.</string>
+    <string name="nightly_alert">你选择了检查每夜版本更新，这是开发阶段的版本，包含最新的功能但可能存在BUG，请谨慎使用。</string>
     <string name="nightly_alert_title">Caution</string>
     <string name="update_type_title">更新类型</string>
 
@@ -103,7 +103,7 @@
     <string name="no_updates_found">没有找到新的更新</string>
     <string name="not_new_updates_found_ticker">找到了可用的更新</string>
     <string name="not_new_updates_found_title">新的更新</string>
-    <string name="update_check_failed">The update check failed. Please check your internet connection and try again later.</string>
+    <string name="update_check_failed">升级检查失败，请检查你的互联网连接并重试。</string>
     <string name="not_action_download">下载</string>
     <string name="data_connection_required">需要一个有效的数据链接</string>
 
