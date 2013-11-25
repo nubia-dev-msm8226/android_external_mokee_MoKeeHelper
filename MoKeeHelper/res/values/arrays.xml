@@ -60,4 +60,14 @@
         <item quantity="other">+ <xliff:g id="count">%d</xliff:g> more</item>
     </plurals>
 
+    <plurals name="extension_status">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> update</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> updates</item>
+    </plurals>
+
+    <plurals name="extension_expandedTitle">
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> MoKee update</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> MoKee updates</item>
+    </plurals>
+
 </resources>
