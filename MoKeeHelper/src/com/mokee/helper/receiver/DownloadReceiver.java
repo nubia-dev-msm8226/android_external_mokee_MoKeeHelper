@@ -150,7 +150,8 @@ public class DownloadReceiver extends BroadcastReceiver {
         int failureMessageResId = -1;
         File updateFile = null;
 
-        Intent updateIntent = new Intent(context, MoKeeCenter.class);
+        Intent updateIntent = new Intent();
+        updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 

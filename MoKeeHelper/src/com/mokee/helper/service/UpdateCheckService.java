@@ -164,7 +164,8 @@ public class UpdateCheckService extends IntentService {
         if (realUpdateCount != 0 && !app.isMainActivityActive()) {
             // There are updates available
             // The notification should launch the main app
-            Intent i = new Intent(this, MoKeeCenter.class);
+            Intent i = new Intent();
+            i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
             i.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, true);
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                     PendingIntent.FLAG_ONE_SHOT);
@@ -192,19 +193,16 @@ public class UpdateCheckService extends IntentService {
             // }
             // }
             realUpdates.addAll(availableUpdates);
+            // ota暂时不进行排序
             if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-                    Constants.PREF_ROM_OTA, true))// ota暂时不进行排序
-            {
-                Collections.sort(realUpdates, new Comparator<UpdateInfo>()
-                {
+                    Constants.PREF_ROM_OTA, true)) {
+                Collections.sort(realUpdates, new Comparator<UpdateInfo>() {
                     @Override
-                    public int compare(UpdateInfo lhs, UpdateInfo rhs)
-                    {
+                    public int compare(UpdateInfo lhs, UpdateInfo rhs) {
                         /* sort by date descending */
                         int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
                         int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
-                        if (lhsDate == rhsDate)
-                        {
+                        if (lhsDate == rhsDate) {
                             return 0;
                         }
                         return lhsDate < rhsDate ? 1 : -1;
@@ -215,16 +213,13 @@ public class UpdateCheckService extends IntentService {
                     .setBigContentTitle(text);
             int added = 0, count = realUpdates.size();
 
-            for (UpdateInfo ui : realUpdates)
-            {
-                if (added < EXPANDED_NOTIF_UPDATE_COUNT)
-                {
+            for (UpdateInfo ui : realUpdates) {
+                if (added < EXPANDED_NOTIF_UPDATE_COUNT) {
                     inbox.addLine(ui.getName());
                     added++;
                 }
             }
-            if (added != count)
-            {
+            if (added != count) {
                 inbox.setSummaryText(res.getQuantityString(R.plurals.not_additional_count, count
                         - added, count
                         - added));
@@ -232,8 +227,7 @@ public class UpdateCheckService extends IntentService {
             builder.setStyle(inbox);
             builder.setNumber(availableUpdates.size());
 
-            if (count == 1)
-            {
+            if (count == 1) {
                 i = new Intent(this, DownloadReceiver.class);
                 i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
                 i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) realUpdates.getFirst());
@@ -254,19 +248,16 @@ public class UpdateCheckService extends IntentService {
         sendBroadcast(finishedIntent);
     }
 
-    private void addRequestHeaders(HttpRequestBase request)
-    {
+    private void addRequestHeaders(HttpRequestBase request) {
         String userAgent = Utils.getUserAgentString(this);
-        if (userAgent != null)
-        {
+        if (userAgent != null) {
             request.addHeader("User-Agent", userAgent);
         }
         request.addHeader("Cache-Control", "no-cache");
     }
 
     private LinkedList<UpdateInfo> getMKAvailableUpdatesAndFillIntent(Intent intent)
-            throws IOException
-    {
+            throws IOException {
         // Get the type of update we should check for
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, 0);// 版本类型参数
@@ -277,23 +268,20 @@ public class UpdateCheckService extends IntentService {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("device_name", Utils.getDeviceType()));// 设备名称
         params.add(new BasicNameValuePair("device_version", Utils.getInstalledVersion()));
-        if (!isOTA)
-        {
+        if (!isOTA) {
             updateServerUri = URI.create(getString(R.string.conf_update_server_url_def));
             // params.add(new BasicNameValuePair("device_version",
             // "MK43.1-edison-131106-RELEASE.zip"));
             params.add(new BasicNameValuePair("device_officail", String.valueOf(updateType)));
             params.add(new BasicNameValuePair("rom_all", String.valueOf(rom_all)));
-        } else
-        {
+        } else {
             updateServerUri = URI.create(getString(R.string.conf_update_ota_server_url_def));
         }
         HttpPost request = new HttpPost(updateServerUri);
         request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
         addRequestHeaders(request);
         HttpEntity entity = mHttpExecutor.execute(request);
-        if (entity == null || mHttpExecutor.isAborted())
-        {
+        if (entity == null || mHttpExecutor.isAborted()) {
             return null;
         }
         LinkedList<UpdateInfo> lastUpdates = State.loadMKState(this);
@@ -301,8 +289,7 @@ public class UpdateCheckService extends IntentService {
         String json = EntityUtils.toString(entity, "UTF-8");
         System.out.println(json);
         LinkedList<UpdateInfo> updates = parseMKJSON(json, updateType, isOTA);
-        if (mHttpExecutor.isAborted())
-        {
+        if (mHttpExecutor.isAborted()) {
             return null;
         }
         intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
@@ -314,64 +301,51 @@ public class UpdateCheckService extends IntentService {
         return updates;
     }
 
-    private LinkedList<UpdateInfo> parseMKJSON(String jsonString, int updateType, boolean isOTA)
-    {
+    private LinkedList<UpdateInfo> parseMKJSON(String jsonString, int updateType, boolean isOTA) {
         LinkedList<UpdateInfo> updates = new LinkedList<UpdateInfo>();
-        try
-        {
+        try {
             JSONArray[] jsonArrays = new JSONArray[2];
-            if (!isOTA && updateType == Constants.UPDATE_TYPE_ALL)// 判断全部
-            {
+            // 判断全部
+            if (!isOTA && updateType == Constants.UPDATE_TYPE_ALL) {
                 JSONObject jsonObject = new JSONObject(jsonString);
-                if (jsonObject.has("RELEASE"))
-                {
+                if (jsonObject.has("RELEASE")) {
                     jsonArrays[0] = jsonObject.getJSONArray("RELEASE");
                 }
-                if (jsonObject.has("NIGHTLY"))
-                {
+                if (jsonObject.has("NIGHTLY")) {
                     jsonArrays[1] = jsonObject.getJSONArray("NIGHTLY");
                 }
-            } else
-            {
+            } else {
                 JSONArray updateList = new JSONArray(jsonString);
                 jsonArrays[0] = updateList;
                 int length = updateList.length();
                 Log.d(TAG, "Got update JSON data with " + length + " entries");
             }
-            for (int i = 0; i < jsonArrays.length; i++)
-            {
+            for (int i = 0; i < jsonArrays.length; i++) {
                 JSONArray jsonArray = jsonArrays[i];
-                if (jsonArray != null)
-                {
-                    for (int j = 0; j < jsonArray.length(); j++)
-                    {
-                        if (mHttpExecutor.isAborted())
-                        {
+                if (jsonArray != null) {
+                    for (int j = 0; j < jsonArray.length(); j++) {
+                        if (mHttpExecutor.isAborted()) {
                             break;
                         }
-                        if (jsonArray.isNull(j))
-                        {
+                        if (jsonArray.isNull(j)) {
                             continue;
                         }
                         JSONObject item = jsonArray.getJSONObject(j);
                         UpdateInfo info = parseUpdateMKJSONObject(item, updateType);
-                        if (info != null)
-                        {
+                        if (info != null) {
                             updates.add(info);
                         }
                     }
                 }
             }
-        } catch (JSONException e)
-        {
+        } catch (JSONException e) {
             Log.e(TAG, "Error in JSON result", e);
         }
         return updates;
     }
 
     private UpdateInfo parseUpdateMKJSONObject(JSONObject obj, int updateType)
-            throws JSONException
-    {
+            throws JSONException {
         String name = obj.getString("name");
         String rom = obj.getString("rom");
         String md5 = obj.getString("md5");
@@ -379,54 +353,44 @@ public class UpdateCheckService extends IntentService {
         UpdateInfo mui = new UpdateInfo(log, md5, name, rom);
         // fetch change log after checking whether to include this build to
         // avoid useless network traffic
-        if (!mui.getChangeLogFile(this).exists())
-        {
+        if (!mui.getChangeLogFile(this).exists()) {
             fetchMkChangeLog(mui, mui.getLog());
         }
         return mui;
     }
 
-    private void fetchMkChangeLog(UpdateInfo info, String url)
-    {
+    private void fetchMkChangeLog(UpdateInfo info, String url) {
         Log.d(TAG, "Getting change log for " + info + ", url " + url);
 
         BufferedReader reader = null;
         BufferedWriter writer = null;
         boolean finished = false;
 
-        try
-        {
+        try {
             HttpGet request = new HttpGet(URI.create(url));
             addRequestHeaders(request);
 
             HttpEntity entity = mHttpExecutor.execute(request);
             writer = new BufferedWriter(new FileWriter(info.getChangeLogFile(this)));
 
-            if (entity != null)
-            {
+            if (entity != null) {
                 reader = new BufferedReader(new InputStreamReader(entity.getContent()), 2 * 1024);
                 boolean categoryMatch = false, hasData = false;
                 String line;
 
-                while ((line = reader.readLine()) != null)
-                {
+                while ((line = reader.readLine()) != null) {
                     line = line.trim();
-                    if (mHttpExecutor.isAborted())
-                    {
+                    if (mHttpExecutor.isAborted()) {
                         break;
                     }
-                    if (line.isEmpty())
-                    {
+                    if (line.isEmpty()) {
                         continue;
                     }
 
-                    if (line.startsWith("="))
-                    {
+                    if (line.startsWith("=")) {
                         categoryMatch = !categoryMatch;
-                    } else if (categoryMatch)
-                    {
-                        if (hasData)
-                        {
+                    } else if (categoryMatch) {
+                        if (hasData) {
                             writer.append("<br />");
                         }
                         writer.append("<b><u>");
@@ -434,77 +398,61 @@ public class UpdateCheckService extends IntentService {
                         writer.append("</u></b>");
                         writer.append("<br />");
                         hasData = true;
-                    } else if (line.startsWith("*"))
-                    {
+                    } else if (line.startsWith("*")) {
                         writer.append("<br /><b>");
                         writer.append(line.replaceAll("\\*", ""));
                         writer.append("</b>");
                         writer.append("<br />");
                         hasData = true;
-                    } else
-                    {
+                    } else {
                         writer.append("&#8226;&nbsp;");
                         writer.append(line);
                         writer.append("<br />");
                         hasData = true;
                     }
                 }
-            } else
-            {
+            } else {
                 writer.write("");
             }
             finished = true;
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             Log.e(TAG, "Downloading change log for " + info + " failed", e);
             // keeping finished at false will delete the partially written file
             // below
-        } finally
-        {
-            if (reader != null)
-            {
-                try
-                {
+        } finally {
+            if (reader != null) {
+                try {
                     reader.close();
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     // ignore, not much we can do anyway
                 }
             }
-            if (writer != null)
-            {
-                try
-                {
+            if (writer != null) {
+                try {
                     writer.close();
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     // ignore, not much we can do anyway
                 }
             }
         }
 
-        if (!finished)
-        {
+        if (!finished) {
             info.getChangeLogFile(this).delete();
         }
     }
 
-    private static class HttpRequestExecutor
-    {
+    private static class HttpRequestExecutor {
         private HttpClient mHttpClient;
         private HttpRequestBase mRequest;
         private boolean mAborted;
 
-        public HttpRequestExecutor()
-        {
+        public HttpRequestExecutor() {
             mHttpClient = new DefaultHttpClient();
             mAborted = false;
         }
 
-        public HttpEntity execute(HttpRequestBase request) throws IOException
-        {
-            synchronized (this)
-            {
+        public HttpEntity execute(HttpRequestBase request) throws IOException {
+            synchronized (this) {
                 mAborted = false;
                 mRequest = request;
             }
@@ -512,30 +460,25 @@ public class UpdateCheckService extends IntentService {
             HttpResponse response = mHttpClient.execute(request);
             HttpEntity entity = null;
 
-            if (!mAborted && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
-            {
+            if (!mAborted && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 entity = response.getEntity();
             }
 
-            synchronized (this)
-            {
+            synchronized (this) {
                 mRequest = null;
             }
 
             return entity;
         }
 
-        public synchronized void abort()
-        {
-            if (mRequest != null)
-            {
+        public synchronized void abort() {
+            if (mRequest != null) {
                 mRequest.abort();
             }
             mAborted = true;
         }
 
-        public synchronized boolean isAborted()
-        {
+        public synchronized boolean isAborted() {
             return mAborted;
         }
     }

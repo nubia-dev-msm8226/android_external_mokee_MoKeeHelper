@@ -16,7 +16,7 @@
 
 package com.mokee.helper.adapters;
 
-import com.mokee.helper.activities.MoKeeCenter;
+import java.util.ArrayList;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -27,8 +27,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-
-import java.util.ArrayList;
 
 public class TabsAdapter extends FragmentPagerAdapter
         implements ActionBar.TabListener, ViewPager.OnPageChangeListener {

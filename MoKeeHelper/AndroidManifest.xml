@@ -63,6 +63,10 @@
         <activity
             android:name="com.mokee.helper.activities.MoKeeCenter"
             android:label="@string/mokee_center_title" >
+            <intent-filter>
+                <action android:name="com.mokee.mkupdater.action.MOKEE_CENTER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <service
             android:name="com.mokee.helper.service.MKDashClockExtension"
