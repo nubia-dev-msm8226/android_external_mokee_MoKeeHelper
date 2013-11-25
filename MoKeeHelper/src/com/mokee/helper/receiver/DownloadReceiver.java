@@ -100,7 +100,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         request.addRequestHeader("Cache-Control", "no-cache");
 
-        request.setTitle(context.getString(R.string.app_name));
+        request.setTitle(context.getString(R.string.mokee_updater_title));
         request.setDestinationUri(Uri.parse(fullFilePath));
         request.setAllowedOverRoaming(false);
         request.setVisibleInDownloadsUi(false);

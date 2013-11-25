@@ -17,8 +17,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">MoKeeHelper</string>
-
     <!-- Fragment -->
     <string name="mokee_center_title">MoKee Center</string>
     <string name="mokee_support_title">Support</string>
