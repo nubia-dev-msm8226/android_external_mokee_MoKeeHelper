@@ -189,7 +189,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         Date lastCheck = new Date(mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0));
         String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
         String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
-        setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + time);
+        setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
 
         /*
          * TODO: add this back once we have a way of doing backups that is not
