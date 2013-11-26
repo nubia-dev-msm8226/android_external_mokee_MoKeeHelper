@@ -101,8 +101,8 @@
     <!-- Update checking -->
     <string name="checking_for_updates">正在检查更新</string>
     <string name="no_updates_found">没有找到新的更新</string>
-    <string name="not_new_updates_found_ticker">找到了可用的更新</string>
-    <string name="not_new_updates_found_title">新的更新</string>
+    <string name="not_new_updates_found_ticker">找到了可用的系统更新</string>
+    <string name="not_new_updates_found_title">新的系统更新</string>
     <string name="update_check_failed">升级检查失败，请检查你的数据连接并重试。</string>
     <string name="not_action_download">下载</string>
     <string name="data_connection_required">需要一个有效的数据链接</string>
