@@ -44,10 +44,12 @@
     <string name="mokee_contributor_title">MoKee Contributors</string>
     <string name="mokee_contributor_summary">View MoKee Contributors List</string>
 
+    <!-- Base Info -->
     <string name="mokee_version_info_title">Version Info</string>
     <string name="mokee_version_title">MoKee Version</string>
     <string name="mokee_version_type_title">Version Type</string>
     <string name="mokee_last_check_title">Last Check</string>
+    <string name="mokee_last_check_never">Never</string>
 
     <!-- Extensions -->
     <string name="mokee_extras_title">Extras</string>

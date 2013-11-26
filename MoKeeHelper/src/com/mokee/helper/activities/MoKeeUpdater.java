@@ -185,10 +185,15 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     }
 
     public void updateLastCheckPreference() {
-        Date lastCheck = new Date(mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0));
-        String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
-        String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
-        setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
+        long lastCheckTime = mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
+        if (lastCheckTime == 0) {
+            setSummaryFromString(KEY_MOKEE_LAST_CHECK, getString(R.string.mokee_last_check_never));
+        } else {
+            Date lastCheck = new Date(lastCheckTime);
+            String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
+            String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
+            setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
+        }
     }
 
     @Override

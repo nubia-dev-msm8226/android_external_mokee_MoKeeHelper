@@ -71,8 +71,7 @@ import com.mokee.helper.utils.Utils;
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
 
-    // Set this to true if the update service should check for smaller, test
-    // updates
+    // Set this to true if the update service should check for smaller, test updates
     // This is for internal testing only
     private static final boolean TESTING_DOWNLOAD = false;
 

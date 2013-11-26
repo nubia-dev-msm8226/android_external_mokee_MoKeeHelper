@@ -44,10 +44,12 @@
     <string name="mokee_contributor_title">贡献人员</string>
     <string name="mokee_contributor_summary">查看哪些人为魔趣开源计划贡献了自己的力量</string>
 
+    <!-- Base Info -->
     <string name="mokee_version_info_title">版本信息</string>
     <string name="mokee_version_title">魔趣版本</string>
     <string name="mokee_version_type_title">版本类型</string>
     <string name="mokee_last_check_title">最后检查</string>
+    <string name="mokee_last_check_never">从未</string>
 
     <!-- Extensions -->
     <string name="mokee_extras_title">扩展组件</string>
