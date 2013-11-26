@@ -134,7 +134,6 @@ public class UpdateCheckService extends IntentService {
         LinkedList<UpdateInfo> availableUpdates;
         try {
             availableUpdates = getMKAvailableUpdatesAndFillIntent(finishedIntent);
-            System.out.println("availableUpdates:" + availableUpdates.size());
         } catch (IOException e) {
             Log.e(TAG, "Could not check for updates", e);
             availableUpdates = null;
