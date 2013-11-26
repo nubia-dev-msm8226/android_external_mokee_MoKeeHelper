@@ -18,8 +18,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <plurals name="not_new_updates_found_body">
-        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个可下载的更新</item>
-        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个可下载的更新</item>
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个可下载的系统更新</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个可下载的系统更新</item>
     </plurals>
 
     <plurals name="not_additional_count">
@@ -27,8 +27,8 @@
     </plurals>
 
     <plurals name="extension_status">
-        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个可用更新</item>
-        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个可用更新</item>
+        <item quantity="one"><xliff:g id="count">%d</xliff:g> 个可用的系统更新</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 个可用的系统更新</item>
     </plurals>
 
     <plurals name="extension_expandedTitle">
