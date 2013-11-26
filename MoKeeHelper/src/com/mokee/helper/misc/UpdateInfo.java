@@ -65,7 +65,7 @@ public class UpdateInfo implements Parcelable, Serializable {
     }
 
     public File getChangeLogFile(Context context) {
-        return new File(context.getCacheDir(), name + ".changelog");
+        return new File(context.getCacheDir(), name + ".html");
     }
 
     @Override
