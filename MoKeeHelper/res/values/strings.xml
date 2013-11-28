@@ -85,7 +85,9 @@
     <string name="update_check_title">Check update freq</string>
     <string name="check_manual">Manual</string>
     <string name="nightly_alert">You have selected to include nightly updates in this list. These are unsupported and should be used with caution.</string>
-    <string name="nightly_alert_title">Caution</string>
+    <string name="experimenter_alert">你选择了检查测试版本更新，这是测试阶段的版本，包含一些实验性的功能但可能存在BUG，请谨慎使用。</string>
+    <string name="all_alert">你选择了检查全部版本更新，该列表中的每夜版是一个开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
+    <string name="alert_title">Caution</string>
     <string name="update_type_title">Update type</string>
 
     <!-- ChangeLog -->

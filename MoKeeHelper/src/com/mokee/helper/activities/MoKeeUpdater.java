@@ -156,7 +156,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(KEY_MOKEE_VERSION)) {
+        if (preference.getKey().equals(KEY_MOKEE_VERSION_TYPE)) {
             // Don't enable experimental option for secondary users.
             if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
             
@@ -843,11 +843,23 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             return true;
         } else if (preference == mUpdateType) {
             final int value = Integer.valueOf((String) newValue);
-            if (value == Constants.UPDATE_TYPE_NIGHTLY || value == Constants.UPDATE_TYPE_BETA
+            if (value == Constants.UPDATE_TYPE_NIGHTLY || value == Constants.UPDATE_TYPE_EXPERIMENTAL
                     || value == Constants.UPDATE_TYPE_ALL) {
+                int messageId = 0;
+                switch (value) {
+                    case 1:
+                        messageId = R.string.nightly_alert;
+                        break;
+                    case 2:
+                        messageId = R.string.experimenter_alert;
+                        break;
+                    case 3:
+                        messageId = R.string.all_alert;
+                        break;
+                }
                 new AlertDialog.Builder(mContext)
-                        .setTitle(R.string.nightly_alert_title)
-                        .setMessage(R.string.nightly_alert)
+                        .setTitle(R.string.alert_title)
+                        .setMessage(messageId)
                         .setPositiveButton(getString(R.string.dialog_ok),
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {

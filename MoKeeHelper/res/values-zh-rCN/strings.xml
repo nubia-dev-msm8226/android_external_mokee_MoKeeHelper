@@ -84,8 +84,10 @@
     <string name="old_update_summary">比当前版本旧</string>
     <string name="update_check_title">检查更新频率</string>
     <string name="check_manual">手动</string>
-    <string name="nightly_alert">你选择了检查每夜版本更新，这是开发阶段的版本，包含最新的功能但可能存在BUG，请谨慎使用。</string>
-    <string name="nightly_alert_title">警告</string>
+    <string name="nightly_alert">你选择了检查每夜版本更新，这是开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
+    <string name="experimenter_alert">你选择了检查测试版本更新，这是测试阶段的版本，包含一些实验性的功能但可能存在BUG，请谨慎使用。</string>
+    <string name="all_alert">你选择了检查全部版本更新，该列表中的每夜版是一个开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
+    <string name="alert_title">警告</string>
     <string name="update_type_title">更新类型</string>
 
     <!-- ChangeLog -->
