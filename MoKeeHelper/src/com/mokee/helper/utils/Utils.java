@@ -38,6 +38,7 @@ import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
 import android.os.storage.StorageVolume;
 import android.os.SystemProperties;
+
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
@@ -90,18 +91,25 @@ public class Utils {
             return true;
         }
     }
-
-    public static String getMoKeeVersionTypeString(String version, Context context) {
-        String MoKeeVersionType = version.substring(version.lastIndexOf("-") + 1, version.length())
-                .toLowerCase();
+    
+    public static String getMoKeeVersionTypeString(Context mContext) {
+        String MoKeeVersionType = getMoKeeVersionType();
         if (MoKeeVersionType.equals("release"))
-            return context.getString(R.string.mokee_version_type_release);
+            return mContext.getString(R.string.mokee_version_type_release);
         else if (MoKeeVersionType.equals("experimental"))
-            return context.getString(R.string.mokee_version_type_experimental);
+            return mContext.getString(R.string.mokee_version_type_experimental);
         else if (MoKeeVersionType.equals("nightly"))
-            return context.getString(R.string.mokee_version_type_nightly);
+            return mContext.getString(R.string.mokee_version_type_nightly);
+        else if (MoKeeVersionType.equals("unofficial"))
+            return mContext.getString(R.string.mokee_version_type_unofficial);
         else
-            return context.getString(R.string.mokee_version_type_unofficial);
+            return mContext.getString(R.string.mokee_info_default);
+    }
+
+    public static String getMoKeeVersionType() {
+        String MoKeeVersion = Utils.getInstalledVersion();
+        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1, MoKeeVersion.length()).toLowerCase();
+        return MoKeeVersionType;
     }
 
     public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)

@@ -45,6 +45,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -52,6 +53,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -86,13 +88,19 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     private Activity mContext;
 
     private boolean mStartUpdateVisible = false;
-    // add
-    // intent extras
+
+    // add intent extras
     public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
 
     private static final String UPDATES_CATEGORY = "updates_category";
+
+    private static final int TAPS_TO_BE_A_EXPERIMENTER = 7;
+    private static final String EXPERIMENTAL_SHOW = "experimental_show";
+    long[] mHits = new long[3];
+    int mExpHitCountdown;
+    Toast mExpHitToast;
 
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
@@ -139,6 +147,56 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     };
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
+                        TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
+        mExpHitToast = null;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference.getKey().equals(KEY_MOKEE_VERSION)) {
+            // Don't enable experimental option for secondary users.
+            if (UserHandle.myUserId() != UserHandle.USER_OWNER) return true;
+            
+            if (mExpHitCountdown > 0) {
+                mExpHitCountdown--;
+                if (mExpHitCountdown == 0) {
+                    mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, true).apply();
+                    if (mExpHitToast != null) {
+                        mExpHitToast.cancel();
+                    }
+                    mExpHitToast = Toast.makeText(mContext, R.string.show_exp_on,
+                            Toast.LENGTH_LONG);
+                    mExpHitToast.show();
+                    String[] entries = mContext.getResources().getStringArray(R.array.update_type_entries);
+                    String[] entryValues = mContext.getResources().getStringArray(R.array.update_type_values);
+                    mUpdateType.setEntries(entries);
+                    mUpdateType.setEntryValues(entryValues);
+                } else if (mExpHitCountdown > 0
+                        && mExpHitCountdown < (TAPS_TO_BE_A_EXPERIMENTER - 2)) {
+                    if (mExpHitToast != null) {
+                        mExpHitToast.cancel();
+                    }
+                    mExpHitToast = Toast.makeText(mContext, getResources().getQuantityString(
+                            R.plurals.show_exp_countdown, mExpHitCountdown, mExpHitCountdown),
+                            Toast.LENGTH_SHORT);
+                    mExpHitToast.show();
+                }
+            } else if (mExpHitCountdown < 0) {
+                if (mExpHitToast != null) {
+                    mExpHitToast.cancel();
+                }
+                mExpHitToast = Toast.makeText(mContext, R.string.show_exp_already,
+                        Toast.LENGTH_LONG);
+                mExpHitToast.show();
+            }
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
@@ -153,20 +211,22 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-        if (mUpdateCheck != null)
-        {
+        if (mUpdateCheck != null) {
             int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
             mUpdateCheck.setValue(String.valueOf(check));
             mUpdateCheck.setSummary(mapCheckValue(check));
             mUpdateCheck.setOnPreferenceChangeListener(this);
         }
 
-        if (mUpdateType != null)
-        {
+        if (mUpdateType != null) {
             int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
             mUpdateType.setValue(String.valueOf(type));
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
             mUpdateType.setOnPreferenceChangeListener(this);
+            if (!mPrefs.getBoolean(EXPERIMENTAL_SHOW,
+                    TextUtils.equals(Utils.getMoKeeVersionType(), "experimental"))) {
+                    setUpdateTypeEntiries();
+            }
         }
         mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_OTA, true));
         mUpdateAll.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_ALL, false));
@@ -175,13 +235,27 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         isOTA(mUpdateOTA.isChecked());
         isRomALl(mUpdateAll.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
-        setSummaryFromString(KEY_MOKEE_VERSION_TYPE, getMoKeeVersionType());
+        setSummaryFromString(KEY_MOKEE_VERSION_TYPE, Utils.getMoKeeVersionTypeString(mContext));
         updateLastCheckPreference();
 
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         final ActionBar bar = mContext.getActionBar();
         bar.setDisplayHomeAsUpEnabled(true);
         this.setHasOptionsMenu(true);
+    }
+
+    public void setUpdateTypeEntiries() {
+        int index = 2;
+        String[] entries = mContext.getResources().getStringArray(R.array.update_type_entries);
+        String[] newEntries = new String[entries.length - 1];
+        System.arraycopy(entries, 0, newEntries, 0, index);
+        System.arraycopy(entries, index + 1, newEntries, index, newEntries.length - index);
+        String[] entryValues = mContext.getResources().getStringArray(R.array.update_type_values);
+        String[] newEntriesValues = new String[entryValues.length - 1];
+        System.arraycopy(entryValues, 0, newEntriesValues, 0, index);
+        System.arraycopy(entryValues, index + 1, newEntriesValues, index, newEntriesValues.length - index);
+        mUpdateType.setEntries(newEntries);
+        mUpdateType.setEntryValues(newEntriesValues);
     }
 
     public void updateLastCheckPreference() {
@@ -232,17 +306,6 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         mUpdateHandler.post(mUpdateProgress);
     }
 
-    private String getMoKeeVersionType() {
-        String MoKeeVersion = Utils.getInstalledVersion();
-        String MoKeeVersionType;
-        if (MoKeeVersion.equals(getString(R.string.mokee_info_default))) {
-            return MoKeeVersion;
-        } else {
-            MoKeeVersionType = Utils.getMoKeeVersionTypeString(MoKeeVersion, mContext);
-        }
-        return MoKeeVersionType;
-    }
-
     private void setSummaryFromString(String preference, String value) {
         try {
             findPreference(preference).setSummary(value);
@@ -251,8 +314,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         }
     }
 
-    private void setSummaryFromProperty(String preference, String property)
-    {
+    private void setSummaryFromProperty(String preference, String property) {
         try {
             findPreference(preference).setSummary(
                     SystemProperties.get(property, getString(R.string.mokee_info_default)));

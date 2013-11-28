@@ -30,43 +30,43 @@
     </PreferenceCategory>
 
     <ListPreference
+        android:key="pref_update_check_interval"
+        android:title="@string/update_check_title"
         android:dialogTitle="@string/update_check_title"
         android:entries="@array/update_check_entries"
         android:entryValues="@array/update_check_values"
-        android:key="pref_update_check_interval"
-        android:persistent="false"
-        android:title="@string/update_check_title" />
+        android:persistent="false" />
 
     <CheckBoxPreference
         android:key="pref_update_ota"
-        android:summary="@string/pref_update_ota_summary"
-        android:title="@string/pref_update_ota" />
+        android:title="@string/pref_update_ota"
+        android:summary="@string/pref_update_ota_summary" />
 
     <ListPreference
+        android:key="pref_update_types"
+        android:title="@string/update_type_title"
         android:dialogTitle="@string/update_type_title"
         android:entries="@array/update_type_entries"
         android:entryValues="@array/update_type_values"
-        android:key="pref_update_types"
-        android:persistent="false"
-        android:title="@string/update_type_title" />
+        android:persistent="false" />
 
     <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
     <CheckBoxPreference
-        android:dependency="pref_update_types"
         android:key="pref_update_all"
-        android:title="@string/pref_update_all_title" />
+        android:title="@string/pref_update_all_title"
+        android:dependency="pref_update_types" />
 
     <PreferenceCategory
         android:key="updates_category"
-        android:title="@string/available_updates_title" >
-    </PreferenceCategory>
+        android:title="@string/available_updates_title" />
+
     <PreferenceCategory
         android:key="mokee_extras_title"
         android:title="@string/mokee_extras_title" >
         <PreferenceScreen
             android:key="google_mobile_service"
-            android:summary="@string/installed_update_summary"
-            android:title="@string/google_mobile_service_title" />
+            android:title="@string/google_mobile_service_title"
+            android:summary="@string/installed_update_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
