@@ -464,6 +464,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         String installedZip = Utils.getInstalledVersion() + ".zip";
         boolean isNew = true;// 判断新旧版本
         int nowDate = Integer.valueOf(Utils.subBuildDate(installedZip));
+        int nowVersion = Integer.valueOf(Utils.subMoKeeVersion(installedZip));
         boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
         // Add the updates
         for (UpdateInfo ui : updates) {
@@ -473,7 +474,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             int style = 3;
             if (isRomAll && !mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
                 int itemDate = Integer.valueOf(Utils.subBuildDate(ui.getName()));
-                isNew = itemDate > nowDate ? true : false;
+                int itemVersion = Integer.valueOf(Utils.subMoKeeVersion(ui.getName()));
+                isNew = itemDate > nowDate && itemVersion > nowVersion ? true : false;
             }
             if (isDownloading) {
                 // In progress download

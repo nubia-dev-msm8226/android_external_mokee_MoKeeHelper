@@ -290,4 +290,11 @@ public class Utils {
         }
         return date;
     }
+
+    public static String subMoKeeVersion(String name) {
+        String[] strs = name.split("-");
+        String version = strs[0];
+        version = version.substring(2, 4);
+        return version;
+    }
 }
