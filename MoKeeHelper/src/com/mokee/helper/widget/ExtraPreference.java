@@ -108,8 +108,7 @@ public class ExtraPreference extends Preference implements OnClickListener,
 
         mTitleText = (TextView) view.findViewById(android.R.id.title);
         mSummaryText = (TextView) view.findViewById(android.R.id.summary);
-        mProgressBar = (ProgressBar) view
-                .findViewById(R.id.download_progress_bar);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.download_progress_bar);
 
         mExtrasPref = view.findViewById(R.id.updates_pref);
         mExtrasPref.setOnClickListener(this);

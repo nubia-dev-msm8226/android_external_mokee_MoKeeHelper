@@ -71,8 +71,7 @@ import com.mokee.helper.utils.Utils;
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
 
-    // Set this to true if the update service should check for smaller, test
-    // updates
+    // Set this to true if the update service should check for smaller, test updates
     // This is for internal testing only
     private static final boolean TESTING_DOWNLOAD = false;
 
@@ -125,8 +124,7 @@ public class UpdateCheckService extends IntentService {
         if (!Utils.isOnline(this)) {
             // Only check for updates if the device is actually connected to a
             // network
-            Log.i(TAG,
-                    "Could not check for updates. Not connected to the network.");
+            Log.i(TAG, "Could not check for updates. Not connected to the network.");
             return;
         }
         // Start the update check

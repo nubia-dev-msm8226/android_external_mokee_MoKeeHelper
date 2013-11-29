@@ -58,12 +58,10 @@
 
     <PreferenceCategory
         android:key="updates_category"
-        android:title="@string/available_updates_title" >
-    </PreferenceCategory>
-        <PreferenceCategory
+        android:title="@string/available_updates_title" />
+
+    <PreferenceCategory
         android:key="updates_extras"
-        android:title="@string/mokee_extras_title" 
-        >
-    </PreferenceCategory>
+        android:title="@string/mokee_extras_title" />
 
 </PreferenceScreen>
