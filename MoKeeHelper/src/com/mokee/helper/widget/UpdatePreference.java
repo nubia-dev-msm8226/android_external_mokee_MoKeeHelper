@@ -188,7 +188,7 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
 
     private void confirmDelete() {
         new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
-                .setMessage(R.string.confirm_delete_dialog_message)
+                .setMessage(R.string.confirm_delete_updates_dialog_message)
                 .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

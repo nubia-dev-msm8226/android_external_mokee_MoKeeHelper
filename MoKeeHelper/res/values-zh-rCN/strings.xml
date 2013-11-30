@@ -61,7 +61,7 @@
     <string name="mokee_version_type_unofficial">非官方版本</string>
     <string name="mokee_version_type_all">全部版本</string>
 
-    <!-- Download -->
+    <!-- State -->
     <string name="downloaded_update_summary">已下载</string>
     <string name="installed_update_summary">已安装</string>
     <string name="available_updates_title">可用更新</string>
@@ -127,8 +127,10 @@
 
     <!-- deleting -->
     <string name="confirm_delete_dialog_title">删除文件</string>
-    <string name="confirm_delete_dialog_message">您确定要删除此更新文件？</string>
-    <string name="confirm_delete_all_dialog_message">您确定要删除所有已下载的更新文件？</string>
+    <string name="confirm_delete_updates_dialog_message">您确定要删除此更新文件？</string>
+    <string name="confirm_delete_updates_all_dialog_message">您确定要删除所有已下载的更新文件？</string>
+    <string name="confirm_delete_extras_dialog_message">您确定要删除此扩展组件？</string>
+    <string name="confirm_delete_extras_all_dialog_message">您确定要删除所有已下载的扩展组件？</string>
     <string name="delete_single_update_success_message">更新 <xliff:g id="filename">%s</xliff:g> 已被删除</string>
     <string name="delete_updates_failure_message">删除更新包时发生了错误</string>
     <string name="delete_updates_noFolder_message">未找到更新包所在的文件夹</string>

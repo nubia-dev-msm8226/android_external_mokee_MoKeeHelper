@@ -178,7 +178,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 
     private void confirmDelete() {
         new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
-                .setMessage(R.string.confirm_delete_dialog_message)
+                .setMessage(R.string.confirm_delete_extras_dialog_message)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

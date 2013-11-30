@@ -387,7 +387,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
 
     private void confirmDeleteAll() {
         new AlertDialog.Builder(mContext).setTitle(R.string.confirm_delete_dialog_title)
-                .setMessage(R.string.confirm_delete_all_dialog_message)
+                .setMessage(R.string.confirm_delete_extras_all_dialog_message)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
