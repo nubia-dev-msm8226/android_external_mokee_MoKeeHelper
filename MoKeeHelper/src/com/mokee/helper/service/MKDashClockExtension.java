@@ -31,7 +31,7 @@ import com.google.android.apps.dashclock.api.ExtensionData;
 import com.mokee.helper.R;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.UpdateInfo;
+import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.utils.Utils;
 
@@ -52,7 +52,7 @@ public class MKDashClockExtension extends DashClockExtension {
 
     @Override
     protected void onUpdateData(int reason) {
-        LinkedList<UpdateInfo> updates = State.loadMKState(this, State.UPDATE_FILENAME);
+        LinkedList<ItemInfo> updates = State.loadMKState(this, State.UPDATE_FILENAME);
 
         Log.d(TAG, "Update dash clock for " + updates.size() + " updates");
 
@@ -62,9 +62,9 @@ public class MKDashClockExtension extends DashClockExtension {
         if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA,
                 true))// ota暂时不进行排序
         {
-            Collections.sort(updates, new Comparator<UpdateInfo>() {
+            Collections.sort(updates, new Comparator<ItemInfo>() {
                 @Override
-                public int compare(UpdateInfo lhs, UpdateInfo rhs) {
+                public int compare(ItemInfo lhs, ItemInfo rhs) {
                     /* sort by date descending */
                     int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
                     int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));

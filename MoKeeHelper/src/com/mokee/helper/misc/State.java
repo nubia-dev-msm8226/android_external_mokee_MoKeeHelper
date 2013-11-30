@@ -34,7 +34,7 @@ public class State {
     public static final String UPDATE_FILENAME = "mkupdater.state";
     public static final String EXTRAS_FILENAME = "mkextras.state";
 
-    public static void saveMKState(Context context, LinkedList<UpdateInfo> availableUpdates,
+    public static void saveMKState(Context context, LinkedList<ItemInfo> availableUpdates,
             String fileName) {
         ObjectOutputStream oos = null;
         FileOutputStream fos = null;
@@ -62,8 +62,8 @@ public class State {
 
     //
     @SuppressWarnings("unchecked")
-    public static LinkedList<UpdateInfo> loadMKState(Context context, String fileName) {
-        LinkedList<UpdateInfo> availableUpdates = new LinkedList<UpdateInfo>();
+    public static LinkedList<ItemInfo> loadMKState(Context context, String fileName) {
+        LinkedList<ItemInfo> availableUpdates = new LinkedList<ItemInfo>();
         ObjectInputStream ois = null;
         FileInputStream fis = null;
         try {
@@ -73,7 +73,7 @@ public class State {
 
             Object o = ois.readObject();
             if (o != null && o instanceof LinkedList<?>) {
-                availableUpdates = (LinkedList<UpdateInfo>) o;
+                availableUpdates = (LinkedList<ItemInfo>) o;
             }
         } catch (ClassNotFoundException e) {
             Log.e(TAG, "Unable to load stored class", e);

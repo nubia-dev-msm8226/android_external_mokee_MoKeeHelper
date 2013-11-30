@@ -32,7 +32,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -52,20 +51,20 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.mokee.helper.R;
 import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
-import com.mokee.helper.misc.UpdateInfo;
+import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
-import com.mokee.helper.widget.UpdatePreference;
+import com.mokee.helper.widget.ItemPreference;
 
 public class MoKeeExtrasFragment extends PreferenceFragment implements OnPreferenceChangeListener,
-        UpdatePreference.OnReadyListener, UpdatePreference.OnActionListener {
+        ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
     private static String TAG = "MoKeeExtrasFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
@@ -80,7 +79,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";// 扩展
     private SharedPreferences mPrefs;
     private PreferenceCategory mMokeeExtrasList;
-    private UpdatePreference mDownloadingPreference;
+    private ItemPreference mDownloadingPreference;
     private File mUpdateFolder;// ,mExtrasFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
@@ -231,7 +230,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
                     }
                     break;
                 case DownloadManager.STATUS_FAILED:
-                    mDownloadingPreference.setStyle(UpdatePreference.STYLE_EXTRAS_NEW);
+                    mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
                     resetDownloadState();
                     break;
             }
@@ -269,7 +268,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         Utils.cancelNotification(MoKeeApplication.getContext());
 
         // Build list of updates
-        final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
+        final LinkedList<ItemInfo> availableUpdates = State.loadMKState(
                 MoKeeApplication.getContext(), State.EXTRAS_FILENAME);
         // Update the preference list
         refreshExtrasPreferences(availableUpdates);
@@ -285,7 +284,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
 
                 for (File file : files) {
                     boolean updateExists = false;
-                    for (UpdateInfo info : availableUpdates) {
+                    for (ItemInfo info : availableUpdates) {
                         if (file.getName().startsWith(info.name)) {
                             updateExists = true;
                             break;
@@ -299,14 +298,14 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         }.start();
     }
 
-    private void refreshExtrasPreferences(LinkedList<UpdateInfo> updates) {
+    private void refreshExtrasPreferences(LinkedList<ItemInfo> updates) {
         if (mMokeeExtrasList == null) {
             return;
         }
         // Clear the list
         mMokeeExtrasList.removeAll();
         // Add the updates
-        for (UpdateInfo ui : updates) {
+        for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
             boolean isDownloading = ui.getName().equals(mFileName);
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), false);
@@ -319,17 +318,17 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
             int style = 3;
             if (isDownloading) {
                 // In progress download
-                style = UpdatePreference.STYLE_DOWNLOADING;
+                style = ItemPreference.STYLE_DOWNLOADING;
             } else if (isInstall) {
                 // This is the currently installed version
-                style = UpdatePreference.STYLE_INSTALLED;
+                style = ItemPreference.STYLE_INSTALLED;
             } else if (!isLocalFile) {
-                style = UpdatePreference.STYLE_EXTRAS_NEW;
+                style = ItemPreference.STYLE_EXTRAS_NEW;
             } else if (isLocalFile) {
-                style = UpdatePreference.STYLE_DOWNLOADED;
+                style = ItemPreference.STYLE_DOWNLOADED;
             }
 
-            UpdatePreference up = new UpdatePreference(mContext, ui, style);
+            ItemPreference up = new ItemPreference(mContext, ui, style);
             up.setOnActionListener(this);
             up.setKey(ui.getName());
 
@@ -454,8 +453,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
 
         String fileName = new File(fullPathName).getName();
 
-        // Find the matching preference so we can retrieve the UpdateInfo
-        UpdatePreference pref;
+        // Find the matching preference so we can retrieve the ItemInfo
+        ItemPreference pref;
         // pref = (UpdatePreference) mUpdatesList.findPreference(fileName);
         // if (pref != null)
         // {
@@ -463,9 +462,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         // // Change
         // onStartUpdate(pref);
         // }
-        pref = (UpdatePreference) mMokeeExtrasList.findPreference(fileName);// extars
+        pref = (ItemPreference) mMokeeExtrasList.findPreference(fileName);// extars
         if (pref != null) {
-            pref.setStyle(UpdatePreference.STYLE_DOWNLOADED);// download over
+            pref.setStyle(ItemPreference.STYLE_DOWNLOADED);// download over
             // Change
             onStartUpdate(pref);
         }
@@ -526,7 +525,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     }
 
     @Override
-    public void onStartDownload(UpdatePreference pref) {
+    public void onStartDownload(ItemPreference pref) {
         // If there is no internet connection, display a message and return.
         if (!Utils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
@@ -541,12 +540,12 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         // We have a match, get ready to trigger the download
         mDownloadingPreference = pref;
 
-        UpdateInfo ui = mDownloadingPreference.getUpdateInfo();
+        ItemInfo ui = mDownloadingPreference.getItemInfo();
         if (ui == null) {
             return;
         }
 
-        mDownloadingPreference.setStyle(UpdatePreference.STYLE_DOWNLOADING);
+        mDownloadingPreference.setStyle(ItemPreference.STYLE_DOWNLOADING);
         mFileName = ui.getName();
         mDownloading = true;
 
@@ -554,16 +553,16 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         Intent intent = new Intent(mContext, DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXPAND);
+        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
         mContext.sendBroadcast(intent);
 
         mUpdateHandler.post(mUpdateProgress);
     }
 
     @Override
-    public void onStopDownload(final UpdatePreference pref) {
+    public void onStopDownload(final ItemPreference pref) {
         if (!mDownloading || mFileName == null || mDownloadId < 0) {
-            pref.setStyle(UpdatePreference.STYLE_NEW);
+            pref.setStyle(ItemPreference.STYLE_NEW);
             resetDownloadState();
             return;
         }
@@ -574,7 +573,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        pref.setStyle(UpdatePreference.STYLE_NEW);
+                        pref.setStyle(ItemPreference.STYLE_NEW);
 
                         // We are OK to stop download, trigger it
                         mDownloadManager.remove(mDownloadId);
@@ -592,8 +591,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     }
 
     @Override
-    public void onStartUpdate(UpdatePreference pref) {
-        final UpdateInfo updateInfo = pref.getUpdateInfo();
+    public void onStartUpdate(ItemPreference pref) {
+        final ItemInfo itemInfo = pref.getItemInfo();
 
         // Prevent the dialog from being triggered more than once
         if (mStartUpdateVisible) {
@@ -601,27 +600,27 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         }
         mStartUpdateVisible = true;
         // Get the message body right
-        String dialogBody = getString(R.string.apply_update_dialog_text, updateInfo.getName());
+        String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getName());
         // Display the dialog
         new AlertDialog.Builder(mContext).setTitle(R.string.apply_update_dialog_title)
                 .setMessage(dialogBody)
                 .setPositiveButton(R.string.dialog_update, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (TextUtils.isEmpty(updateInfo.getDescription())
-                                || updateInfo.getName().endsWith(".zip")) {
+                        if (TextUtils.isEmpty(itemInfo.getDescription())
+                                || itemInfo.getName().endsWith(".zip")) {
                             try {
-                                Utils.triggerUpdate(mContext, updateInfo.getName(), false);
+                                Utils.triggerUpdate(mContext, itemInfo.getName(), false);
                             } catch (IOException e) {
                                 Log.e(TAG, "Unable to reboot into recovery mode", e);
                                 Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,
                                         Toast.LENGTH_SHORT).show();
                             }
-                        } else if (updateInfo.getName().endsWith(".apk")) {
+                        } else if (itemInfo.getName().endsWith(".apk")) {
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setDataAndType(
                                     Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath()
-                                            + "/" + updateInfo.getName()),
+                                            + "/" + itemInfo.getName()),
                                     "application/vnd.android.package-archive");
                             startActivity(i);
                         }
@@ -635,7 +634,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     }
 
     @Override
-    public void onDeleteUpdate(UpdatePreference pref) {
+    public void onDeleteUpdate(ItemPreference pref) {
         final String fileName = pref.getKey();
 
         if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()) {
@@ -662,7 +661,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     }
 
     @Override
-    public void onReady(UpdatePreference pref) {
+    public void onReady(ItemPreference pref) {
         pref.setOnReadyListener(null);
         mUpdateHandler.post(mUpdateProgress);
     }

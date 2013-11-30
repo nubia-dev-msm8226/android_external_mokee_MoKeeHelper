@@ -17,7 +17,6 @@
 package com.mokee.helper.receiver;
 
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.misc.Constants;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,7 +31,6 @@ public class NotificationClickReceiver extends BroadcastReceiver {
         i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        i.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         context.startActivity(i);
     }
 }

@@ -26,7 +26,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class UpdateInfo implements Parcelable, Serializable {
+public class ItemInfo implements Parcelable, Serializable {
 
     private static final long serialVersionUID = 1L;
     public String log;
@@ -37,7 +37,7 @@ public class UpdateInfo implements Parcelable, Serializable {
     public String description;
     public String checkflag;
 
-    public UpdateInfo(String log, String md5, String name, String rom) {
+    public ItemInfo(String log, String md5, String name, String rom) {
         super();
         this.log = log;
         this.md5 = md5;
@@ -45,7 +45,7 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.rom = rom;
     }
 
-    public UpdateInfo(String log, String md5, String name, String rom, String description,
+    public ItemInfo(String log, String md5, String name, String rom, String description,
             String checkflag) {
         super();
         this.log = log;
@@ -56,7 +56,7 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.checkflag = checkflag;
     }
 
-    public UpdateInfo(String name) {
+    public ItemInfo(String name) {
         this(null, null, name, null);
         initializeName(name);
     }
@@ -86,13 +86,13 @@ public class UpdateInfo implements Parcelable, Serializable {
         return 0;
     }
 
-    public static final Parcelable.Creator<UpdateInfo> CREATOR = new Parcelable.Creator<UpdateInfo>() {
-        public UpdateInfo createFromParcel(Parcel in) {
-            return new UpdateInfo(in);
+    public static final Parcelable.Creator<ItemInfo> CREATOR = new Parcelable.Creator<ItemInfo>() {
+        public ItemInfo createFromParcel(Parcel in) {
+            return new ItemInfo(in);
         }
 
-        public UpdateInfo[] newArray(int size) {
-            return new UpdateInfo[size];
+        public ItemInfo[] newArray(int size) {
+            return new ItemInfo[size];
         }
     };
 
@@ -130,7 +130,7 @@ public class UpdateInfo implements Parcelable, Serializable {
         return uiName.replaceAll("-" + deviceType + "-?", "");
     }
 
-    private UpdateInfo(Parcel in) {
+    private ItemInfo(Parcel in) {
         readFromParcel(in);
     }
 
