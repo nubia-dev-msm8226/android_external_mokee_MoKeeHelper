@@ -21,7 +21,7 @@
     <string name="mokee_center_title">魔趣中心</string>
     <string name="mokee_support_title">支持中心</string>
     <string name="mokee_updater_title">系统升级</string>
-     <string name="mokee_expand_title">扩展组件</string>
+    <string name="mokee_extras_title">扩展组件</string>
 
     <!-- Lockscreen and Tips -->
     <string name="mokee_lock_screen_title">一键锁屏</string>
@@ -51,11 +51,7 @@
     <string name="mokee_version_type_title">版本类型</string>
     <string name="mokee_last_check_title">最后检查</string>
     <string name="mokee_last_check_never">从未</string>
-
-    <!-- Extensions -->
-    <string name="mokee_expand_info_title">扩展信息</string>
-    <string name="mokee_extras_title">扩展组件</string>
-    <string name="google_mobile_service_title">谷歌服务包</string>
+    <string name="mokee_extras_info_title">扩展信息</string>
 
     <!-- Version -->
     <string name="mokee_info_default">未知</string>
@@ -82,7 +78,7 @@
     <string name="dialog_cancel">取消</string>
     <string name="dialog_close">关闭</string>
     <string name="no_available_updates_intro">最后一次检测并未找到可用的更新。请使用刷新按钮来手动检查更新试试。</string>
-    <string name="no_available_expand_intro">最后一次检测并未找到可用的扩展。请使用刷新按钮来手动检查更新试试。</string>
+    <string name="no_available_extras_intro">最后一次检测并未找到可用的扩展。请使用刷新按钮来手动检查更新试试。</string>
     <string name="new_update_summary">比当前版本新</string>
     <string name="old_update_summary">比当前版本旧</string>
     <string name="update_check_title">检查更新频率</string>
@@ -105,9 +101,11 @@
     <string name="check_bi_weekly">两周一次</string>
     <string name="check_monthly">每月一次</string>
 
-    <!-- Update checking -->
+    <!-- checking -->
     <string name="checking_for_updates">正在检查更新</string>
     <string name="no_updates_found">没有找到新的更新</string>
+    <string name="checking_for_extras">正在检查扩展组件</string>
+    <string name="no_extras_found">没有找到新的扩展组件</string>
     <string name="not_new_updates_found_ticker">找到了可用的系统更新</string>
     <string name="not_new_updates_found_title">新的系统更新</string>
     <string name="update_check_failed">升级检查失败，请检查你的数据连接并重试。</string>
@@ -132,9 +130,12 @@
     <string name="confirm_delete_dialog_message">您确定要删除此更新文件？</string>
     <string name="confirm_delete_all_dialog_message">您确定要删除所有已下载的更新文件？</string>
     <string name="delete_single_update_success_message">更新 <xliff:g id="filename">%s</xliff:g> 已被删除</string>
-    <string name="delete_updates_failure_message">删除更新时发生了错误</string>
-    <string name="delete_updates_noFolder_message">未找到更新所在的文件夹</string>
-    <string name="delete_updates_success_message">所有已下载的更新文件已被删除</string>
+    <string name="delete_updates_failure_message">删除更新包时发生了错误</string>
+    <string name="delete_updates_noFolder_message">未找到更新包所在的文件夹</string>
+    <string name="delete_updates_success_message">所有已下载的更新包已被删除</string>
+    <string name="delete_extras_failure_message">删除扩展组件时发生了错误</string>
+    <string name="delete_extras_noFolder_message">未找到扩展组件所在的文件夹</string>
+    <string name="delete_extras_success_message">所有已下载的扩展组件包已被删除</string>
 
     <!-- extension -->
     <string name="extension_label">魔趣更新</string>

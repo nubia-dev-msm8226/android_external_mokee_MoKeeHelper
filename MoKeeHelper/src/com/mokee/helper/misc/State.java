@@ -32,7 +32,7 @@ public class State {
 
     private static final String TAG = "State";
     public static final String UPDATE_FILENAME = "mkupdater.state";
-    public static final String EXPAND_FILENAME = "mkexpand.state";
+    public static final String EXTRAS_FILENAME = "mkextras.state";
 
     public static void saveMKState(Context context, LinkedList<UpdateInfo> availableUpdates,
             String fileName) {

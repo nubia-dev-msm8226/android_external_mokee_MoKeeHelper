@@ -33,7 +33,7 @@ public class UpdateInfo implements Parcelable, Serializable {
     public String md5;
     public String name;
     public String rom;
-    // expand
+    // extras
     public String description;
     public String checkflag;
 

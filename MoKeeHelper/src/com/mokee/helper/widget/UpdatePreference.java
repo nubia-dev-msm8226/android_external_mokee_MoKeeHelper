@@ -43,7 +43,7 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
     public static final int STYLE_DOWNLOADING = 2;
     public static final int STYLE_DOWNLOADED = 3;
     public static final int STYLE_INSTALLED = 4;
-    public static final int STYLE_EXPAND_NEW = 11;
+    public static final int STYLE_EXTRAS_NEW = 11;
     public static final int STYLE_OLD = 0;// 旧版本
 
     public interface OnActionListener {
@@ -91,7 +91,7 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
                     break;
                 case STYLE_OLD:
                     mOnActionListener.onStartDownload(UpdatePreference.this);
-                case STYLE_EXPAND_NEW:
+                case STYLE_EXTRAS_NEW:
                     mOnActionListener.onStartDownload(UpdatePreference.this);
                     break;
             }
@@ -139,7 +139,7 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
 
             case STYLE_DOWNLOADING:
             case STYLE_NEW:
-            case STYLE_EXPAND_NEW:
+            case STYLE_EXTRAS_NEW:
             case STYLE_OLD:
             default:
                 // Do nothing for now
@@ -327,7 +327,7 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
                 mSummaryText.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.GONE);
                 break;
-            case STYLE_EXPAND_NEW:
+            case STYLE_EXTRAS_NEW:
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
                 mUpdatesButton.setEnabled(true);
                 mSummaryText.setVisibility(View.VISIBLE);

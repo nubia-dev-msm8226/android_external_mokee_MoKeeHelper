@@ -20,7 +20,7 @@ import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeSupportFragment;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
-import com.mokee.helper.fragments.MoKeeExpandFragment;
+import com.mokee.helper.fragments.MoKeeExtrasFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
 
@@ -56,8 +56,8 @@ public class MoKeeCenter extends FragmentActivity {
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
                 MoKeeUpdaterFragment.class, null);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_expand_title),
-                MoKeeExpandFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_extras_title),
+                MoKeeExtrasFragment.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
                 MoKeeSupportFragment.class, null);
         if (savedInstanceState != null) {

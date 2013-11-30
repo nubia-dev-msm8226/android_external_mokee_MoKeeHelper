@@ -31,10 +31,10 @@ public class Constants {
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
     public static final String PREF_ROM_ALL = "pref_update_all";
     public static final String PREF_ROM_OTA = "pref_update_ota";
-    public static final String PREF_EXPAND_UPDATE = "mokee_extras_update";
+    public static final String PREF_EXTRAS_UPDATE = "mokee_extras_update";
     public static final String PREF_EXPANG_LIST = "updates_extras";
     public static final String PREF_LAST_UPDATE_CHECK = "pref_last_update_check";
-    public static final String PREF_LAST_EXPAND_CHECK = "pref_last_expand_check";
+    public static final String PREF_LAST_EXTRAS_CHECK = "pref_last_extras_check";
 
     // Update Check items
     public static final String BOOT_CHECK_COMPLETED = "boot_check_completed";
@@ -53,6 +53,6 @@ public class Constants {
     public static final int UPDATE_TYPE_ALL = 3;
     // intentFlag
     public static final int INTENT_FLAG_GET_UPDATE = 1024;
-    public static final int INTENT_FLAG_GET_EXPAND = 1025;
+    public static final int INTENT_FLAG_GET_EXTRAS = 1025;
 
 }

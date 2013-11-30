@@ -62,7 +62,7 @@ import android.util.Log;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.fragments.MoKeeExpandFragment;
+import com.mokee.helper.fragments.MoKeeExtrasFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.UpdateInfo;
@@ -91,8 +91,8 @@ public class UpdateCheckService extends IntentService {
     public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
-    // max. number of updates listed in the expanded notification
-    private static final int EXPANDED_NOTIF_UPDATE_COUNT = 4;
+    // max. number of updates listed in the extras notification
+    private static final int EXTRAS_NOTIF_UPDATE_COUNT = 4;
     private int flag;
     private HttpRequestExecutor mHttpExecutor;
 
@@ -210,7 +210,7 @@ public class UpdateCheckService extends IntentService {
                 int added = 0, count = realUpdates.size();
 
                 for (UpdateInfo ui : realUpdates) {
-                    if (added < EXPANDED_NOTIF_UPDATE_COUNT) {
+                    if (added < EXTRAS_NOTIF_UPDATE_COUNT) {
                         inbox.addLine(ui.getName());
                         added++;
                     }
@@ -238,9 +238,9 @@ public class UpdateCheckService extends IntentService {
                 NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 nm.notify(R.string.not_new_updates_found_title, builder.build());
             }
-        } else if (flag == Constants.INTENT_FLAG_GET_EXPAND) {
+        } else if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
             try {
-                availableUpdates = getMKAvailableExpandAndFillIntent(finishedIntent);
+                availableUpdates = getMKAvailableExtrasAndFillIntent(finishedIntent);
             } catch (IOException e) {
                 Log.e(TAG, "Could not check for updates", e);
                 availableUpdates = null;
@@ -256,7 +256,7 @@ public class UpdateCheckService extends IntentService {
             // true
             Date d = new Date();
             PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
-                    .putLong(Constants.PREF_LAST_EXPAND_CHECK, d.getTime()).apply();
+                    .putLong(Constants.PREF_LAST_EXTRAS_CHECK, d.getTime()).apply();
 
             int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
             MoKeeApplication app = (MoKeeApplication) getApplicationContext();
@@ -271,7 +271,7 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MoKeeExpandFragment.EXTRA_EXPAND_LIST_UPDATED, true);
+                i.putExtra(MoKeeExtrasFragment.EXTRA_EXTRAS_LIST_UPDATED, true);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
@@ -299,7 +299,7 @@ public class UpdateCheckService extends IntentService {
                         .setBigContentTitle(text);
                 int added = 0, count = realUpdates.size();
                 for (UpdateInfo ui : realUpdates) {
-                    if (added < EXPANDED_NOTIF_UPDATE_COUNT) {
+                    if (added < EXTRAS_NOTIF_UPDATE_COUNT) {
                         inbox.addLine(ui.getName());
                         added++;
                     }
@@ -398,13 +398,13 @@ public class UpdateCheckService extends IntentService {
      * @return
      * @throws IOException
      */
-    private LinkedList<UpdateInfo> getMKAvailableExpandAndFillIntent(Intent intent)
+    private LinkedList<UpdateInfo> getMKAvailableExtrasAndFillIntent(Intent intent)
             throws IOException {
         // Get the type of update we should check for
         // Get the actual ROM Update Server URL
         URI updateServerUri;
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        updateServerUri = URI.create(getString(R.string.conf_update_expand_server_url_def));
+        updateServerUri = URI.create(getString(R.string.conf_update_extras_server_url_def));
         params.add(new BasicNameValuePair("mk_version", String.valueOf(Utils.getInstalledVersion()
                 .split("-")[0])));
         HttpPost request = new HttpPost(updateServerUri);
@@ -419,18 +419,18 @@ public class UpdateCheckService extends IntentService {
             return null;
         }
         // LinkedList<UpdateInfo> lastUpdates =
-        // State.loadMKState(this,State.EXPAND_FILENAME);
+        // State.loadMKState(this,State.EXTRAS_FILENAME);
         // Read the ROM Infos
         String json = EntityUtils.toString(entity, "UTF-8");
-        LinkedList<UpdateInfo> updates = parseMKExpandJSON(json);
+        LinkedList<UpdateInfo> updates = parseMKExtrasJSON(json);
         if (mHttpExecutor.isAborted()) {
             return null;
         }
         intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_REAL_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_NEW_UPDATE_COUNT, updates.size());
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXPAND);
-        State.saveMKState(this, updates, State.EXPAND_FILENAME);
+        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
+        State.saveMKState(this, updates, State.EXTRAS_FILENAME);
 
         return updates;
     }
@@ -486,7 +486,7 @@ public class UpdateCheckService extends IntentService {
         return updates;
     }
 
-    private LinkedList<UpdateInfo> parseMKExpandJSON(String jsonString) {
+    private LinkedList<UpdateInfo> parseMKExtrasJSON(String jsonString) {
         LinkedList<UpdateInfo> updates = new LinkedList<UpdateInfo>();
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
@@ -508,7 +508,7 @@ public class UpdateCheckService extends IntentService {
                             continue;
                         }
                         JSONObject item = jsonArray.getJSONObject(j);
-                        UpdateInfo info = parseExpandMKJSONObject(item);
+                        UpdateInfo info = parseExtrasMKJSONObject(item);
                         if (info != null) {
                             updates.add(info);
                         }
@@ -528,7 +528,7 @@ public class UpdateCheckService extends IntentService {
      * @return
      * @throws JSONException
      */
-    private UpdateInfo parseExpandMKJSONObject(JSONObject obj) throws JSONException {
+    private UpdateInfo parseExtrasMKJSONObject(JSONObject obj) throws JSONException {
         String name = obj.getString("name");
         String rom = obj.getString("download");
         String md5 = obj.getString("md5");

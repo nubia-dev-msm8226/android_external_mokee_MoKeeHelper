@@ -21,7 +21,7 @@
     <string name="mokee_center_title">MoKee Center</string>
     <string name="mokee_support_title">Support</string>
     <string name="mokee_updater_title">Updater</string>
-    <string name="mokee_expand_title">Expand</string>
+    <string name="mokee_extras_title">Extras</string>
 
     <!-- Lockscreen and Tips -->
     <string name="mokee_lock_screen_title">LockScreen</string>
@@ -51,11 +51,7 @@
     <string name="mokee_version_type_title">Version Type</string>
     <string name="mokee_last_check_title">Last Check</string>
     <string name="mokee_last_check_never">Never</string>
-
-    <!-- Extensions -->
-    <string name="mokee_expand_info_title">Extras Info</string>
-    <string name="mokee_extras_title">Extras</string>
-    <string name="google_mobile_service_title">Google Apps</string>
+    <string name="mokee_extras_info_title">Extras Info</string>
 
     <!-- Version -->
     <string name="mokee_info_default">Unknown</string>
@@ -82,7 +78,7 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_close">Close</string>
     <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
-    <string name="no_available_expand_intro">The last check did not find any available updates. To manually check for new expand, use the Refresh button.</string>
+    <string name="no_available_extras_intro">The last check did not find any available updates. To manually check for new extras, use the Refresh button.</string>
     <string name="new_update_summary">New</string>
     <string name="old_update_summary">Old</string>
     <string name="update_check_title">Check update freq</string>
@@ -105,9 +101,11 @@
     <string name="check_bi_weekly">Once every fortnight</string>
     <string name="check_monthly">Once every month</string>
 
-    <!-- Update checking -->
+    <!-- checking -->
     <string name="checking_for_updates">Checking for updates</string>
     <string name="no_updates_found">No new updates found</string>
+    <string name="checking_for_extras">Checking for extras</string>
+    <string name="no_extras_found">No new extras found</string>
     <string name="not_new_updates_found_ticker">New updates are available</string>
     <string name="not_new_updates_found_title">New updates</string>
     <string name="update_check_failed">The update check failed. Please check your internet connection and try again later.</string>
@@ -135,6 +133,10 @@
     <string name="delete_updates_failure_message">There was an error deleting the update file</string>
     <string name="delete_updates_noFolder_message">Update folder not found</string>
     <string name="delete_updates_success_message">All downloaded updates deleted</string>
+    <string name="delete_extras_failure_message">There was an error deleting the extras file</string>
+    <string name="delete_extras_noFolder_message">Extras folder not found</string>
+    <string name="delete_extras_success_message">All downloaded extras deleted</string>
+
     <!-- extension -->
     <string name="extension_label">MoKee Updater</string>
     <string name="extension_description">Displays available updates</string>

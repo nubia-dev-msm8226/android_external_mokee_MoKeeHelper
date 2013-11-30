@@ -103,10 +103,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private CheckBoxPreference mUpdateAll, mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
-    // private PreferenceScreen mExpandUpdate;
+    // private PreferenceScreen mEXTRASUpdate;
     private PreferenceCategory mUpdatesList;
     private UpdatePreference mDownloadingPreference;
-    private File mUpdateFolder;// ,mExpandFolder;
+    private File mUpdateFolder;// ,mEXTRASFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
     private int flag;
@@ -545,7 +545,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             return;
         }
         mProgressDialog = new ProgressDialog(mContext);
-        mProgressDialog.setTitle(R.string.checking_for_updates);
+        mProgressDialog.setTitle(R.string.mokee_updater_title);
         mProgressDialog.setMessage(getString(R.string.checking_for_updates));
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(true);

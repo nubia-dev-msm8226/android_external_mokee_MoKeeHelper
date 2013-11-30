@@ -63,9 +63,9 @@ import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.UpdatePreference;
 
-public class MoKeeExpandFragment extends PreferenceFragment implements OnPreferenceChangeListener,
+public class MoKeeExtrasFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         UpdatePreference.OnReadyListener, UpdatePreference.OnActionListener {
-    private static String TAG = "MoKeeExpandFragment";
+    private static String TAG = "MoKeeExtrasFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
     private DownloadManager mDownloadManager;
@@ -76,11 +76,11 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
     private Activity mContext;
     private boolean mStartUpdateVisible = false;
 
-    public static final String EXTRA_EXPAND_LIST_UPDATED = "expand_list_updated";// 扩展
+    public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";// 扩展
     private SharedPreferences mPrefs;
-    private PreferenceCategory mMokeeExpandList;
+    private PreferenceCategory mMokeeExtrasList;
     private UpdatePreference mDownloadingPreference;
-    private File mUpdateFolder;// ,mExpandFolder;
+    private File mUpdateFolder;// ,mExtrasFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
     int mExpHitCountdown;
@@ -95,9 +95,9 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_EXPAND);
+            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
 
-            if (flag == Constants.INTENT_FLAG_GET_EXPAND) {
+            if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
                     mDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                     mUpdateHandler.post(mUpdateProgress);
@@ -109,18 +109,18 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
                         int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT,
                                 -1);
                         if (count == 0) {
-                            Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT)
+                            Toast.makeText(mContext, R.string.no_extras_found, Toast.LENGTH_SHORT)
                                     .show();
                         } else if (count < 0) {
                             Toast.makeText(mContext, R.string.update_check_failed,
                                     Toast.LENGTH_LONG).show();
                         }
                     }
-                    expandLayout();
+                    extrasLayout();
                 } else if (MoKeeCenter.BR_ONNewIntent.equals(action)) {
                     // 唤醒
                     if (intent.getBooleanExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED, false)) {
-                        expandLayout();
+                        extrasLayout();
                     }
                     checkForDownloadCompleted(intent);
                 }
@@ -143,11 +143,11 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         mContext = getActivity();
         mDownloadManager = (DownloadManager) mContext.getSystemService(mContext.DOWNLOAD_SERVICE);
         // Load the layouts
-        addPreferencesFromResource(R.xml.mokee_expand);
-        mMokeeExpandList = (PreferenceCategory) findPreference(Constants.PREF_EXPANG_LIST);// 扩展列表
-        // mExpandUpdate = (PreferenceScreen)
-        // findPreference(Constants.PREF_EXPAND_UPDATE);// 获取扩展
-        // mExpandUpdate.setOnPreferenceClickListener(this);
+        addPreferencesFromResource(R.xml.mokee_extras);
+        mMokeeExtrasList = (PreferenceCategory) findPreference(Constants.PREF_EXPANG_LIST);// 扩展列表
+        // mExtrasUpdate = (PreferenceScreen)
+        // findPreference(Constants.PREF_EXTRAS_UPDATE);// 获取扩展
+        // mExtrasUpdate.setOnPreferenceClickListener(this);
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         updateLastCheckPreference();
@@ -172,7 +172,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_REFRESH:
-                checkForUpdates(Constants.INTENT_FLAG_GET_EXPAND);
+                checkForUpdates(Constants.INTENT_FLAG_GET_EXTRAS);
                 return true;
             case MENU_DELETE_ALL:
                 confirmDeleteAll();
@@ -230,7 +230,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
                     }
                     break;
                 case DownloadManager.STATUS_FAILED:
-                    mDownloadingPreference.setStyle(UpdatePreference.STYLE_EXPAND_NEW);
+                    mDownloadingPreference.setStyle(UpdatePreference.STYLE_EXTRAS_NEW);
                     resetDownloadState();
                     break;
             }
@@ -250,7 +250,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         mDownloadingPreference = null;
     }
 
-    private void expandLayout() {
+    private void extrasLayout() {
         updateLastCheckPreference();
         // Read existing Updates
         LinkedList<String> existingFiles = new LinkedList<String>();
@@ -268,9 +268,9 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
 
         // Build list of updates
         final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
-                MoKeeApplication.getContext(), State.EXPAND_FILENAME);
+                MoKeeApplication.getContext(), State.EXTRAS_FILENAME);
         // Update the preference list
-        refreshExpandPreferences(availableUpdates);
+        refreshExtrasPreferences(availableUpdates);
 
         // Prune obsolete change log files
         new Thread() {
@@ -297,12 +297,12 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         }.start();
     }
 
-    private void refreshExpandPreferences(LinkedList<UpdateInfo> updates) {
-        if (mMokeeExpandList == null) {
+    private void refreshExtrasPreferences(LinkedList<UpdateInfo> updates) {
+        if (mMokeeExtrasList == null) {
             return;
         }
         // Clear the list
-        mMokeeExpandList.removeAll();
+        mMokeeExtrasList.removeAll();
         // Add the updates
         for (UpdateInfo ui : updates) {
             // Determine the preference style and create the preference
@@ -321,7 +321,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
                 // This is the currently installed version
                 style = UpdatePreference.STYLE_INSTALLED;
             } else if (!isLocalFile) {
-                style = UpdatePreference.STYLE_EXPAND_NEW;
+                style = UpdatePreference.STYLE_EXTRAS_NEW;
             } else if (isLocalFile) {
                 style = UpdatePreference.STYLE_DOWNLOADED;
             }
@@ -337,15 +337,15 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
                 mDownloading = true;
             }
             // Add to the list
-            mMokeeExpandList.addPreference(up);
+            mMokeeExtrasList.addPreference(up);
         }
         // If no updates are in the list, show the default message
-        if (mMokeeExpandList.getPreferenceCount() == 0) {
+        if (mMokeeExtrasList.getPreferenceCount() == 0) {
             Preference pref = new Preference(mContext);
             pref.setLayoutResource(R.layout.preference_empty_list);
-            pref.setTitle(R.string.no_available_expand_intro);
+            pref.setTitle(R.string.no_available_extras_intro);
             pref.setEnabled(false);
-            mMokeeExpandList.addPreference(pref);
+            mMokeeExtrasList.addPreference(pref);
         }
     }
 
@@ -363,8 +363,8 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
             return;
         }
         mProgressDialog = new ProgressDialog(mContext);
-        mProgressDialog.setTitle(R.string.checking_for_updates);
-        mProgressDialog.setMessage(getString(R.string.checking_for_updates));
+        mProgressDialog.setTitle(R.string.mokee_extras_title);
+        mProgressDialog.setMessage(getString(R.string.checking_for_extras));
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(true);
         mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -393,7 +393,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
                     public void onClick(DialogInterface dialog, int which) {
                         // We are OK to delete, trigger it
                         deleteOldUpdates();
-                        expandLayout();
+                        extrasLayout();
                     }
                 }).setNegativeButton(R.string.dialog_cancel, null).show();
     }
@@ -405,15 +405,15 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
             deleteDir(mUpdateFolder);
             mUpdateFolder.mkdir();
             success = true;
-            Toast.makeText(mContext, R.string.delete_updates_success_message, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, R.string.delete_extras_success_message, Toast.LENGTH_SHORT)
                     .show();
         } else if (!mUpdateFolder.exists()) {
             success = false;
-            Toast.makeText(mContext, R.string.delete_updates_noFolder_message, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
                     .show();
         } else {
             success = false;
-            Toast.makeText(mContext, R.string.delete_updates_failure_message, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
                     .show();
         }
         return success;
@@ -460,7 +460,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         // // Change
         // onStartUpdate(pref);
         // }
-        pref = (UpdatePreference) mMokeeExpandList.findPreference(fileName);// expand
+        pref = (UpdatePreference) mMokeeExtrasList.findPreference(fileName);// extars
         if (pref != null) {
             pref.setStyle(UpdatePreference.STYLE_DOWNLOADED);// download over
             // Change
@@ -501,7 +501,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
         if (mDownloadId < 0 || mFileName == null) {
             resetDownloadState();
         }
-        expandLayout();
+        extrasLayout();
         IntentFilter filter = new IntentFilter(UpdateCheckService.ACTION_CHECK_FINISHED);
         filter.addAction(DownloadReceiver.ACTION_DOWNLOAD_STARTED);
         filter.addAction(MoKeeCenter.BR_ONNewIntent);// 唤醒
@@ -640,15 +640,15 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
             String message = getString(R.string.delete_single_update_success_message, fileName);
             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
         } else if (!mUpdateFolder.exists()) {
-            Toast.makeText(mContext, R.string.delete_updates_noFolder_message, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
                     .show();
         } else {
-            Toast.makeText(mContext, R.string.delete_updates_failure_message, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
                     .show();
         }
 
         // Update the list
-        expandLayout();
+        extrasLayout();
     }
 
     @Override
@@ -658,7 +658,7 @@ public class MoKeeExpandFragment extends PreferenceFragment implements OnPrefere
     }
 
     public void updateLastCheckPreference() {
-        long lastCheckTime = mPrefs.getLong(Constants.PREF_LAST_EXPAND_CHECK, 0);
+        long lastCheckTime = mPrefs.getLong(Constants.PREF_LAST_EXTRAS_CHECK, 0);
         if (lastCheckTime == 0) {
             Utils.setSummaryFromString(this, KEY_MOKEE_LAST_CHECK,
                     getString(R.string.mokee_last_check_never));
