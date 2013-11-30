@@ -23,8 +23,8 @@ import android.os.Bundle;
 
 import com.mokee.helper.activities.MoKeeCenter;
 
-public class UpdateApplication extends com.baidu.frontia.FrontiaApplication
-        implements Application.ActivityLifecycleCallbacks {
+public class MokeeApplication extends com.baidu.frontia.FrontiaApplication implements
+        Application.ActivityLifecycleCallbacks {
     private static Context context;
     private boolean mMainActivityActive;
 

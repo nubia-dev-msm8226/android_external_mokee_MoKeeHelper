@@ -45,8 +45,8 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.rom = rom;
     }
 
-    public UpdateInfo(String log, String md5, String name, String rom,
-            String description, String checkflag) {
+    public UpdateInfo(String log, String md5, String name, String rom, String description,
+            String checkflag) {
         super();
         this.log = log;
         this.md5 = md5;

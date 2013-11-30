@@ -36,8 +36,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-public class ExtraPreference extends Preference implements OnClickListener,
-        OnLongClickListener {
+public class ExtraPreference extends Preference implements OnClickListener, OnLongClickListener {
     private static final float DISABLED_ALPHA = 0.4f;
     public static final int STYLE_NEW = 1;
     public static final int STYLE_DOWNLOADING = 2;
@@ -146,17 +145,14 @@ public class ExtraPreference extends Preference implements OnClickListener,
 
         if (!changeLog.exists()) {
             // Change log could not be fetched
-            Toast.makeText(context, R.string.failed_to_load_changelog,
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.failed_to_load_changelog, Toast.LENGTH_SHORT).show();
         } else if (changeLog.length() == 0) {
             // Change log is empty
-            Toast.makeText(context, R.string.no_changelog_alert,
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.no_changelog_alert, Toast.LENGTH_SHORT).show();
         } else {
             // Prepare the dialog box content
             final LayoutInflater inflater = LayoutInflater.from(context);
-            final View view = inflater
-                    .inflate(R.layout.change_log_dialog, null);
+            final View view = inflater.inflate(R.layout.change_log_dialog, null);
             final View progressContainer = view.findViewById(R.id.progress);
             final NotifyingWebView changeLogView = (NotifyingWebView) view
                     .findViewById(R.id.changelog);
@@ -175,35 +171,28 @@ public class ExtraPreference extends Preference implements OnClickListener,
             changeLogView.loadUrl(Uri.fromFile(changeLog).toString());
 
             // Prepare the dialog box
-            new AlertDialog.Builder(context)
-                    .setTitle(R.string.changelog_dialog_title).setView(view)
-                    .setPositiveButton(R.string.dialog_close, null).show();
+            new AlertDialog.Builder(context).setTitle(R.string.changelog_dialog_title)
+                    .setView(view).setPositiveButton(R.string.dialog_close, null).show();
         }
     }
 
     private void confirmDelete() {
-        new AlertDialog.Builder(getContext())
-                .setTitle(R.string.confirm_delete_dialog_title)
+        new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
                 .setMessage(R.string.confirm_delete_dialog_message)
-                .setPositiveButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                    int which) {
-                                // We are OK to delete, trigger it
-                                if (mOnActionListener != null) {
-                                    mOnActionListener
-                                            .onDeleteUpdate(ExtraPreference.this);
-                                }
-                            }
-                        }).setNegativeButton(android.R.string.cancel, null)
-                .show();
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // We are OK to delete, trigger it
+                        if (mOnActionListener != null) {
+                            mOnActionListener.onDeleteUpdate(ExtraPreference.this);
+                        }
+                    }
+                }).setNegativeButton(android.R.string.cancel, null).show();
     }
 
     @Override
     public String toString() {
-        return "ExtraPreference [mExtraInfo=" + mExtraInfo + ", mStyle="
-                + mStyle + "]";
+        return "ExtraPreference [mExtraInfo=" + mExtraInfo + ", mStyle=" + mStyle + "]";
     }
 
     @Override

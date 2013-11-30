@@ -29,7 +29,7 @@ import android.util.Log;
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
 import com.mokee.helper.R;
-import com.mokee.helper.activities.MoKeeUpdater;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.misc.State;
@@ -52,26 +52,22 @@ public class MKDashClockExtension extends DashClockExtension {
 
     @Override
     protected void onUpdateData(int reason) {
-        LinkedList<UpdateInfo> updates = State.loadMKState(this,
-                State.UPDATE_FILENAME);
+        LinkedList<UpdateInfo> updates = State.loadMKState(this, State.UPDATE_FILENAME);
 
         Log.d(TAG, "Update dash clock for " + updates.size() + " updates");
 
-        Intent intent = new Intent(this, MoKeeUpdater.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_NEW_TASK
+        Intent intent = new Intent(this, MoKeeUpdaterFragment.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-                Constants.PREF_ROM_OTA, true))// ota暂时不进行排序
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA,
+                true))// ota暂时不进行排序
         {
             Collections.sort(updates, new Comparator<UpdateInfo>() {
                 @Override
                 public int compare(UpdateInfo lhs, UpdateInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs
-                            .getName()));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs
-                            .getName()));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }
@@ -94,17 +90,14 @@ public class MKDashClockExtension extends DashClockExtension {
         publishUpdate(new ExtensionData()
                 .visible(!updates.isEmpty())
                 .icon(R.drawable.ic_tab_installed)
-                .status(res.getQuantityString(R.plurals.extension_status,
-                        count, count))
+                .status(res.getQuantityString(R.plurals.extension_status, count, count))
                 .expandedTitle(
-                        res.getQuantityString(
-                                R.plurals.extension_expandedTitle, count, count))
+                        res.getQuantityString(R.plurals.extension_expandedTitle, count, count))
                 .expandedBody(expandedBody.toString()).clickIntent(intent));
     }
 
     @Override
-    public int onStartCommand(final Intent intent, final int flags,
-            final int startId) {
+    public int onStartCommand(final Intent intent, final int flags, final int startId) {
         if (TextUtils.equals(intent.getAction(), ACTION_DATA_UPDATE)) {
             if (mInitialized) {
                 onUpdateData(UPDATE_REASON_CONTENT_CHANGED);

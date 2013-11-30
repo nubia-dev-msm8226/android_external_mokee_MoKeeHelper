@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -59,9 +60,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.mokee.helper.R;
-import com.mokee.helper.UpdateApplication;
+import com.mokee.helper.MokeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.activities.MoKeeUpdater;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
+import com.mokee.helper.fragments.MokeeExpandFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.misc.State;
@@ -90,6 +92,10 @@ public class UpdateCheckService extends IntentService {
     // the first time
     public static final String EXTRA_NEW_UPDATE_COUNT = "new_update_count";
 
+    // add intent extras
+    public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";
+    public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
+    public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
     // max. number of updates listed in the expanded notification
     private static final int EXPANDED_NOTIF_UPDATE_COUNT = 4;
     private int flag;
@@ -108,10 +114,8 @@ public class UpdateCheckService extends IntentService {
                     mHttpExecutor.abort();
                 }
             }
-
             return START_NOT_STICKY;
         }
-
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -148,45 +152,38 @@ public class UpdateCheckService extends IntentService {
             // is
             // true
             Date d = new Date();
-            PreferenceManager
-                    .getDefaultSharedPreferences(UpdateCheckService.this)
-                    .edit()
-                    .putLong(Constants.LAST_UPDATE_CHECK_PREF, d.getTime())
+            PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
+                    .putLong(Constants.PREF_LAST_UPDATE_CHECK, d.getTime())
                     .putBoolean(Constants.BOOT_CHECK_COMPLETED, true).apply();
 
-            int realUpdateCount = finishedIntent.getIntExtra(
-                    EXTRA_REAL_UPDATE_COUNT, 0);
-            UpdateApplication app = (UpdateApplication) getApplicationContext();
+            int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
+            MokeeApplication app = (MokeeApplication) getApplicationContext();
 
             // Write to log
-            Log.i(TAG, "The update check successfully completed at " + d
-                    + " and found " + availableUpdates.size() + " updates ("
-                    + realUpdateCount + " newer than installed)");
+            Log.i(TAG, "The update check successfully completed at " + d + " and found "
+                    + availableUpdates.size() + " updates (" + realUpdateCount
+                    + " newer than installed)");
 
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, true);
-                PendingIntent contentIntent = PendingIntent.getActivity(this,
-                        0, i, PendingIntent.FLAG_ONE_SHOT);
+                i.putExtra(EXTRA_UPDATE_LIST_UPDATED, true);
+                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
+                        PendingIntent.FLAG_ONE_SHOT);
 
                 Resources res = getResources();
-                String text = res.getQuantityString(
-                        R.plurals.not_new_updates_found_body, realUpdateCount,
-                        realUpdateCount);
+                String text = res.getQuantityString(R.plurals.not_new_updates_found_body,
+                        realUpdateCount, realUpdateCount);
 
                 // Get the notification ready
                 Notification.Builder builder = new Notification.Builder(this)
                         .setSmallIcon(R.drawable.ic_mokee_updater)
                         .setWhen(System.currentTimeMillis())
-                        .setTicker(
-                                res.getString(R.string.not_new_updates_found_ticker))
-                        .setContentTitle(
-                                res.getString(R.string.not_new_updates_found_title))
-                        .setContentText(text).setContentIntent(contentIntent)
-                        .setAutoCancel(true);
+                        .setTicker(res.getString(R.string.not_new_updates_found_ticker))
+                        .setContentTitle(res.getString(R.string.not_new_updates_found_title))
+                        .setContentText(text).setContentIntent(contentIntent).setAutoCancel(true);
 
                 LinkedList<UpdateInfo> realUpdates = new LinkedList<UpdateInfo>();
                 // for (UpdateInfo ui : availableUpdates)
@@ -198,16 +195,14 @@ public class UpdateCheckService extends IntentService {
                 // }
                 realUpdates.addAll(availableUpdates);
                 // ota暂时不进行排序
-                if (!PreferenceManager.getDefaultSharedPreferences(this)
-                        .getBoolean(Constants.PREF_ROM_OTA, true)) {
+                if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+                        Constants.PREF_ROM_OTA, true)) {
                     Collections.sort(realUpdates, new Comparator<UpdateInfo>() {
                         @Override
                         public int compare(UpdateInfo lhs, UpdateInfo rhs) {
                             /* sort by date descending */
-                            int lhsDate = Integer.valueOf(Utils
-                                    .subBuildDate(lhs.getName()));
-                            int rhsDate = Integer.valueOf(Utils
-                                    .subBuildDate(rhs.getName()));
+                            int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
+                            int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
                             if (lhsDate == rhsDate) {
                                 return 0;
                             }
@@ -215,8 +210,8 @@ public class UpdateCheckService extends IntentService {
                         }
                     });
                 }
-                Notification.InboxStyle inbox = new Notification.InboxStyle(
-                        builder).setBigContentTitle(text);
+                Notification.InboxStyle inbox = new Notification.InboxStyle(builder)
+                        .setBigContentTitle(text);
                 int added = 0, count = realUpdates.size();
 
                 for (UpdateInfo ui : realUpdates) {
@@ -226,9 +221,8 @@ public class UpdateCheckService extends IntentService {
                     }
                 }
                 if (added != count) {
-                    inbox.setSummaryText(res.getQuantityString(
-                            R.plurals.not_additional_count, count - added,
-                            count - added));
+                    inbox.setSummaryText(res.getQuantityString(R.plurals.not_additional_count,
+                            count - added, count - added));
                 }
                 builder.setStyle(inbox);
                 builder.setNumber(availableUpdates.size());
@@ -238,13 +232,11 @@ public class UpdateCheckService extends IntentService {
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
-                    PendingIntent downloadIntent = PendingIntent.getBroadcast(
-                            this, 0, i, PendingIntent.FLAG_ONE_SHOT
-                                    | PendingIntent.FLAG_UPDATE_CURRENT);
+                    PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
+                            PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_UPDATE_CURRENT);
 
                     builder.addAction(R.drawable.ic_tab_download,
-                            res.getString(R.string.not_action_download),
-                            downloadIntent);
+                            res.getString(R.string.not_action_download), downloadIntent);
                 }
 
                 // Trigger the notification
@@ -268,44 +260,36 @@ public class UpdateCheckService extends IntentService {
             // is
             // true
             Date d = new Date();
-            PreferenceManager
-                    .getDefaultSharedPreferences(UpdateCheckService.this)
-                    .edit()
-                    .putLong(Constants.PREF_LAST_EXPAND_CHECK, d.getTime())
-                    .apply();
+            PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
+                    .putLong(Constants.PREF_LAST_EXPAND_CHECK, d.getTime()).apply();
 
-            int realUpdateCount = finishedIntent.getIntExtra(
-                    EXTRA_REAL_UPDATE_COUNT, 0);
-            UpdateApplication app = (UpdateApplication) getApplicationContext();
+            int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
+            MokeeApplication app = (MokeeApplication) getApplicationContext();
 
             // Write to log
-            Log.i(TAG, "The update check successfully completed at " + d
-                    + " and found " + availableUpdates.size() + " updates ("
-                    + realUpdateCount + " newer than installed)");
+            Log.i(TAG, "The update check successfully completed at " + d + " and found "
+                    + availableUpdates.size() + " updates (" + realUpdateCount
+                    + " newer than installed)");
 
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MoKeeUpdater.EXTRA_EXPAND_LIST_UPDATED, true);
-                PendingIntent contentIntent = PendingIntent.getActivity(this,
-                        0, i, PendingIntent.FLAG_ONE_SHOT);
+                i.putExtra(MokeeExpandFragment.EXTRA_EXPAND_LIST_UPDATED, true);
+                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
+                        PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
-                String text = res.getQuantityString(
-                        R.plurals.not_new_updates_found_body, realUpdateCount,
-                        realUpdateCount);
+                String text = res.getQuantityString(R.plurals.not_new_updates_found_body,
+                        realUpdateCount, realUpdateCount);
 
                 // Get the notification ready
                 Notification.Builder builder = new Notification.Builder(this)
                         .setSmallIcon(R.drawable.ic_mokee_updater)
                         .setWhen(System.currentTimeMillis())
-                        .setTicker(
-                                res.getString(R.string.not_new_updates_found_ticker))
-                        .setContentTitle(
-                                res.getString(R.string.not_new_updates_found_title))
-                        .setContentText(text).setContentIntent(contentIntent)
-                        .setAutoCancel(true);
+                        .setTicker(res.getString(R.string.not_new_updates_found_ticker))
+                        .setContentTitle(res.getString(R.string.not_new_updates_found_title))
+                        .setContentText(text).setContentIntent(contentIntent).setAutoCancel(true);
 
                 LinkedList<UpdateInfo> realUpdates = new LinkedList<UpdateInfo>();
                 // for (UpdateInfo ui : availableUpdates)
@@ -316,8 +300,8 @@ public class UpdateCheckService extends IntentService {
                 // }
                 // }
                 realUpdates.addAll(availableUpdates);
-                Notification.InboxStyle inbox = new Notification.InboxStyle(
-                        builder).setBigContentTitle(text);
+                Notification.InboxStyle inbox = new Notification.InboxStyle(builder)
+                        .setBigContentTitle(text);
                 int added = 0, count = realUpdates.size();
                 for (UpdateInfo ui : realUpdates) {
                     if (added < EXPANDED_NOTIF_UPDATE_COUNT) {
@@ -326,9 +310,8 @@ public class UpdateCheckService extends IntentService {
                     }
                 }
                 if (added != count) {
-                    inbox.setSummaryText(res.getQuantityString(
-                            R.plurals.not_additional_count, count - added,
-                            count - added));
+                    inbox.setSummaryText(res.getQuantityString(R.plurals.not_additional_count,
+                            count - added, count - added));
                 }
                 builder.setStyle(inbox);
                 builder.setNumber(availableUpdates.size());
@@ -338,13 +321,11 @@ public class UpdateCheckService extends IntentService {
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
-                    PendingIntent downloadIntent = PendingIntent.getBroadcast(
-                            this, 0, i, PendingIntent.FLAG_ONE_SHOT
-                                    | PendingIntent.FLAG_UPDATE_CURRENT);
+                    PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
+                            PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_UPDATE_CURRENT);
 
                     builder.addAction(R.drawable.ic_tab_download,
-                            res.getString(R.string.not_action_download),
-                            downloadIntent);
+                            res.getString(R.string.not_action_download), downloadIntent);
                 }
                 // Trigger the notification
                 NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -370,11 +351,10 @@ public class UpdateCheckService extends IntentService {
      * @return
      * @throws IOException
      */
-    private LinkedList<UpdateInfo> getMKAvailableUpdatesAndFillIntent(
-            Intent intent) throws IOException {
+    private LinkedList<UpdateInfo> getMKAvailableUpdatesAndFillIntent(Intent intent)
+            throws IOException {
         // Get the type of update we should check for
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, 0);// 版本类型参数
         int rom_all = prefs.getBoolean(Constants.PREF_ROM_ALL, false) ? 1 : 0;// 全部获取参数
         boolean isOTA = prefs.getBoolean(Constants.PREF_ROM_OTA, true);
@@ -382,20 +362,15 @@ public class UpdateCheckService extends IntentService {
         URI updateServerUri;
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("device_name", Utils.getDeviceType()));// 设备名称
-        params.add(new BasicNameValuePair("device_version", Utils
-                .getInstalledVersion()));
+        params.add(new BasicNameValuePair("device_version", Utils.getInstalledVersion()));
         if (!isOTA) {
-            updateServerUri = URI
-                    .create(getString(R.string.conf_update_server_url_def));
+            updateServerUri = URI.create(getString(R.string.conf_update_server_url_def));
             // params.add(new BasicNameValuePair("device_version",
             // "MK43.1-edison-131106-RELEASE.zip"));
-            params.add(new BasicNameValuePair("device_officail", String
-                    .valueOf(updateType)));
-            params.add(new BasicNameValuePair("rom_all", String
-                    .valueOf(rom_all)));
+            params.add(new BasicNameValuePair("device_officail", String.valueOf(updateType)));
+            params.add(new BasicNameValuePair("rom_all", String.valueOf(rom_all)));
         } else {
-            updateServerUri = URI
-                    .create(getString(R.string.conf_update_ota_server_url_def));
+            updateServerUri = URI.create(getString(R.string.conf_update_ota_server_url_def));
         }
         HttpPost request = new HttpPost(updateServerUri);
         request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
@@ -428,18 +403,22 @@ public class UpdateCheckService extends IntentService {
      * @return
      * @throws IOException
      */
-    private LinkedList<UpdateInfo> getMKAvailableExpandAndFillIntent(
-            Intent intent) throws IOException {
+    private LinkedList<UpdateInfo> getMKAvailableExpandAndFillIntent(Intent intent)
+            throws IOException {
         // Get the type of update we should check for
         // Get the actual ROM Update Server URL
         URI updateServerUri;
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        updateServerUri = URI
-                .create(getString(R.string.conf_update_expand_server_url_def));
-        params.add(new BasicNameValuePair("mk_version", String.valueOf(Utils
-                .getInstalledVersion().split("-")[0])));
+        updateServerUri = URI.create(getString(R.string.conf_update_expand_server_url_def));
+        params.add(new BasicNameValuePair("mk_version", String.valueOf(Utils.getInstalledVersion()
+                .split("-")[0])));
         HttpPost request = new HttpPost(updateServerUri);
         request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+        String language = MokeeApplication.getContext().getResources().getConfiguration().locale
+                .getLanguage();
+        String country = MokeeApplication.getContext().getResources().getConfiguration().locale
+                .getCountry();
+        request.setHeader("Accept-Language", (language + "-" + country).toLowerCase());
         addRequestHeaders(request);
         HttpEntity entity = mHttpExecutor.execute(request);
         if (entity == null || mHttpExecutor.isAborted()) {
@@ -470,8 +449,7 @@ public class UpdateCheckService extends IntentService {
      * @param isOTA
      * @return
      */
-    private LinkedList<UpdateInfo> parseMKJSON(String jsonString,
-            int updateType, boolean isOTA) {
+    private LinkedList<UpdateInfo> parseMKJSON(String jsonString, int updateType, boolean isOTA) {
         LinkedList<UpdateInfo> updates = new LinkedList<UpdateInfo>();
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
@@ -501,8 +479,7 @@ public class UpdateCheckService extends IntentService {
                             continue;
                         }
                         JSONObject item = jsonArray.getJSONObject(j);
-                        UpdateInfo info = parseUpdateMKJSONObject(item,
-                                updateType);
+                        UpdateInfo info = parseUpdateMKJSONObject(item, updateType);
                         if (info != null) {
                             updates.add(info);
                         }
@@ -557,16 +534,14 @@ public class UpdateCheckService extends IntentService {
      * @return
      * @throws JSONException
      */
-    private UpdateInfo parseExpandMKJSONObject(JSONObject obj)
-            throws JSONException {
+    private UpdateInfo parseExpandMKJSONObject(JSONObject obj) throws JSONException {
         String name = obj.getString("name");
         String rom = obj.getString("download");
         String md5 = obj.getString("md5");
         String log = obj.getString("changelog");
         String description = obj.getString("description");
         String checkflag = obj.getString("checkflag");
-        UpdateInfo mui = new UpdateInfo(log, md5, name, rom, description,
-                checkflag);
+        UpdateInfo mui = new UpdateInfo(log, md5, name, rom, description, checkflag);
         // fetch change log after checking whether to include this build to
         // avoid useless network traffic
         if (!mui.getChangeLogFile(this).exists()) {
@@ -575,8 +550,7 @@ public class UpdateCheckService extends IntentService {
         return mui;
     }
 
-    private UpdateInfo parseUpdateMKJSONObject(JSONObject obj, int updateType)
-            throws JSONException {
+    private UpdateInfo parseUpdateMKJSONObject(JSONObject obj, int updateType) throws JSONException {
         String name = obj.getString("name");
         String rom = obj.getString("rom");
         String md5 = obj.getString("md5");
@@ -602,12 +576,10 @@ public class UpdateCheckService extends IntentService {
             addRequestHeaders(request);
 
             HttpEntity entity = mHttpExecutor.execute(request);
-            writer = new BufferedWriter(new FileWriter(
-                    info.getChangeLogFile(this)));
+            writer = new BufferedWriter(new FileWriter(info.getChangeLogFile(this)));
 
             if (entity != null) {
-                reader = new BufferedReader(new InputStreamReader(
-                        entity.getContent()), 2 * 1024);
+                reader = new BufferedReader(new InputStreamReader(entity.getContent()), 2 * 1024);
                 boolean categoryMatch = false, hasData = false;
                 String line;
 
@@ -693,8 +665,7 @@ public class UpdateCheckService extends IntentService {
             HttpResponse response = mHttpClient.execute(request);
             HttpEntity entity = null;
 
-            if (!mAborted
-                    && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+            if (!mAborted && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 entity = response.getEntity();
             }
 

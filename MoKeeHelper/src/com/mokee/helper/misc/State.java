@@ -34,8 +34,8 @@ public class State {
     public static final String UPDATE_FILENAME = "mkupdater.state";
     public static final String EXPAND_FILENAME = "mkexpand.state";
 
-    public static void saveMKState(Context context,
-            LinkedList<UpdateInfo> availableUpdates, String fileName) {
+    public static void saveMKState(Context context, LinkedList<UpdateInfo> availableUpdates,
+            String fileName) {
         ObjectOutputStream oos = null;
         FileOutputStream fos = null;
         try {
@@ -62,8 +62,7 @@ public class State {
 
     //
     @SuppressWarnings("unchecked")
-    public static LinkedList<UpdateInfo> loadMKState(Context context,
-            String fileName) {
+    public static LinkedList<UpdateInfo> loadMKState(Context context, String fileName) {
         LinkedList<UpdateInfo> availableUpdates = new LinkedList<UpdateInfo>();
         ObjectInputStream ois = null;
         FileInputStream fis = null;

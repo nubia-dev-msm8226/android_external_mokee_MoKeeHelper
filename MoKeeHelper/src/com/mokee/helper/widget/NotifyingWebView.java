@@ -40,8 +40,7 @@ public class NotifyingWebView extends WebView {
         super(context, attrs, defStyle);
     }
 
-    public void setOnInitialContentReadyListener(
-            OnInitialContentReadyListener listener) {
+    public void setOnInitialContentReadyListener(OnInitialContentReadyListener listener) {
         mListener = listener;
     }
 

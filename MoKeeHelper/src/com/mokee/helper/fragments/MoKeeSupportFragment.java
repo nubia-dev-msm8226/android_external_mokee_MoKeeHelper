@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mokee.helper.activities;
+package com.mokee.helper.fragments;
 
 import com.mokee.helper.R;
 
@@ -25,7 +25,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 
-public class MoKeeSupport extends PreferenceFragment {
+public class MoKeeSupportFragment extends PreferenceFragment {
 
     private static final String KEY_MOKEE_WEBSITE = "mokee_website";
     private static final String KEY_MOKEE_FORUM = "mokee_forum";
@@ -53,8 +53,7 @@ public class MoKeeSupport extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-            Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         String key = preference.getKey();
         if (key.equals(KEY_MOKEE_WEBSITE)) {
             goToURL(URL_MOKEE_WEBSITE);
