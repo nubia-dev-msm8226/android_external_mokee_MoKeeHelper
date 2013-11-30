@@ -22,9 +22,9 @@
             android:key="mokee_last_check"
             android:title="@string/mokee_last_check_title" />
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="updates_extras"
-        android:title="@string/mokee_extras_title" >
-    </PreferenceCategory>
+        android:title="@string/mokee_extras_title" />
 
 </PreferenceScreen>

@@ -58,7 +58,6 @@
 
     <PreferenceCategory
         android:key="updates_category"
-        android:title="@string/available_updates_title" >
-    </PreferenceCategory>
+        android:title="@string/available_updates_title" />
 
 </PreferenceScreen>
