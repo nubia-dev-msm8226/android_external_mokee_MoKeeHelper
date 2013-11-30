@@ -52,7 +52,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.mokee.helper.R;
-import com.mokee.helper.MokeeApplication;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
@@ -63,9 +63,9 @@ import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.UpdatePreference;
 
-public class MokeeExpandFragment extends PreferenceFragment implements OnPreferenceChangeListener,
+public class MoKeeExpandFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         UpdatePreference.OnReadyListener, UpdatePreference.OnActionListener {
-    private static String TAG = "MokeeExpandFragment";
+    private static String TAG = "MoKeeExpandFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
     private DownloadManager mDownloadManager;
@@ -265,11 +265,11 @@ public class MokeeExpandFragment extends PreferenceFragment implements OnPrefere
             }
         }
         // Clear the notification if one exists
-        Utils.cancelNotification(MokeeApplication.getContext());
+        Utils.cancelNotification(MoKeeApplication.getContext());
 
         // Build list of updates
         final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
-                MokeeApplication.getContext(), State.EXPAND_FILENAME);
+                MoKeeApplication.getContext(), State.EXPAND_FILENAME);
         // Update the preference list
         refreshExpandPreferences(availableUpdates);
 
@@ -374,7 +374,7 @@ public class MokeeExpandFragment extends PreferenceFragment implements OnPrefere
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
                 cancelIntent.setFlags(flag);
-                MokeeApplication.getContext().startService(cancelIntent);
+                MoKeeApplication.getContext().startService(cancelIntent);
                 mProgressDialog = null;
             }
         });
@@ -382,7 +382,7 @@ public class MokeeExpandFragment extends PreferenceFragment implements OnPrefere
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.setFlags(flag);// 服务识别
-        MokeeApplication.getContext().startService(checkIntent);
+        MoKeeApplication.getContext().startService(checkIntent);
         mProgressDialog.show();
     }
 

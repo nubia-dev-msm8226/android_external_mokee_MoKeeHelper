@@ -61,7 +61,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.os.SystemProperties;
 import com.mokee.helper.R;
-import com.mokee.helper.MokeeApplication;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
@@ -398,11 +398,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
         }
         // Clear the notification if one exists
-        Utils.cancelNotification(MokeeApplication.getContext());
+        Utils.cancelNotification(MoKeeApplication.getContext());
 
         // Build list of updates
         final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
-                MokeeApplication.getContext(), State.UPDATE_FILENAME);
+                MoKeeApplication.getContext(), State.UPDATE_FILENAME);
 
         if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
             Collections.sort(availableUpdates, new Comparator<UpdateInfo>() {
@@ -549,7 +549,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
                 cancelIntent.setFlags(flag);
-                MokeeApplication.getContext().startService(cancelIntent);
+                MoKeeApplication.getContext().startService(cancelIntent);
                 mProgressDialog = null;
             }
         });
@@ -557,7 +557,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.setFlags(flag);// 服务识别
-        MokeeApplication.getContext().startService(checkIntent);
+        MoKeeApplication.getContext().startService(checkIntent);
         mProgressDialog.show();
     }
 

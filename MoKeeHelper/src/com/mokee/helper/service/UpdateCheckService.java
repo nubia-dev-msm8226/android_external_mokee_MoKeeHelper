@@ -60,10 +60,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.mokee.helper.R;
-import com.mokee.helper.MokeeApplication;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
-import com.mokee.helper.fragments.MokeeExpandFragment;
+import com.mokee.helper.fragments.MoKeeExpandFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.misc.State;
@@ -157,7 +157,7 @@ public class UpdateCheckService extends IntentService {
                     .putBoolean(Constants.BOOT_CHECK_COMPLETED, true).apply();
 
             int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
-            MokeeApplication app = (MokeeApplication) getApplicationContext();
+            MoKeeApplication app = (MoKeeApplication) getApplicationContext();
 
             // Write to log
             Log.i(TAG, "The update check successfully completed at " + d + " and found "
@@ -264,7 +264,7 @@ public class UpdateCheckService extends IntentService {
                     .putLong(Constants.PREF_LAST_EXPAND_CHECK, d.getTime()).apply();
 
             int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
-            MokeeApplication app = (MokeeApplication) getApplicationContext();
+            MoKeeApplication app = (MoKeeApplication) getApplicationContext();
 
             // Write to log
             Log.i(TAG, "The update check successfully completed at " + d + " and found "
@@ -276,7 +276,7 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MokeeExpandFragment.EXTRA_EXPAND_LIST_UPDATED, true);
+                i.putExtra(MoKeeExpandFragment.EXTRA_EXPAND_LIST_UPDATED, true);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
@@ -414,9 +414,9 @@ public class UpdateCheckService extends IntentService {
                 .split("-")[0])));
         HttpPost request = new HttpPost(updateServerUri);
         request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-        String language = MokeeApplication.getContext().getResources().getConfiguration().locale
+        String language = MoKeeApplication.getContext().getResources().getConfiguration().locale
                 .getLanguage();
-        String country = MokeeApplication.getContext().getResources().getConfiguration().locale
+        String country = MoKeeApplication.getContext().getResources().getConfiguration().locale
                 .getCountry();
         request.setHeader("Accept-Language", (language + "-" + country).toLowerCase());
         addRequestHeaders(request);

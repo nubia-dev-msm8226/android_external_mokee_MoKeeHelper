@@ -37,7 +37,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.mokee.helper.R;
-import com.mokee.helper.MokeeApplication;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
@@ -203,7 +203,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
         c.close();
 
-        final MokeeApplication app = (MokeeApplication) context.getApplicationContext();
+        final MoKeeApplication app = (MoKeeApplication) context.getApplicationContext();
         if (app.isMainActivityActive()) {
             if (failureMessageResId >= 0) {
                 Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();

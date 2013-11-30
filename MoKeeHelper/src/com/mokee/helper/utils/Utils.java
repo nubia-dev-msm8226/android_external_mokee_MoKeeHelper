@@ -40,7 +40,7 @@ import android.preference.PreferenceManager;
 import android.os.storage.StorageVolume;
 import android.os.SystemProperties;
 
-import com.mokee.helper.MokeeApplication;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
