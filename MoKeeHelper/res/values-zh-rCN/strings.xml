@@ -153,10 +153,7 @@
     <string name="apply_unable_to_reboot_toast">无法重启到恢复模式</string>
 
     <!-- experimenter mode -->
-    <plurals name="show_exp_countdown">
-        <item quantity="one" msgid="5295687242294085452">只需 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
-        <item quantity="other" msgid="6722953419953594148">只需 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
-    </plurals>
     <string name="show_exp_on" msgid="1110711554982716293">您现在处于测试者模式！</string>
     <string name="show_exp_already" msgid="2151632240145446227">您已处于测试者模式，无需进行此操作。</string>
+
 </resources>

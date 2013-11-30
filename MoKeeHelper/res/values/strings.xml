@@ -153,10 +153,7 @@
     <string name="apply_unable_to_reboot_toast">Unable to reboot into recovery</string>
 
     <!-- experimenter mode -->
-    <plurals name="show_exp_countdown">
-        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling experimental settings.</item>
-        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling experimental settings.</item>
-    </plurals>
     <string name="show_exp_on">You have enabled experimental settings!</string>
     <string name="show_exp_already">No need, you have already enabled experimental settings.</string>
+
 </resources>

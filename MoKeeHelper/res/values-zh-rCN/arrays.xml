@@ -36,4 +36,9 @@
         <item quantity="other"><xliff:g id="count">%d</xliff:g> 个魔趣更新</item>
     </plurals>
 
+    <plurals name="show_exp_countdown">
+        <item quantity="one" msgid="5295687242294085452">只需 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
+        <item quantity="other" msgid="6722953419953594148">只需 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
+    </plurals>
+
 </resources>
