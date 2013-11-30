@@ -40,12 +40,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -56,12 +56,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewDebug.FlagToString;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.os.SystemProperties;
-import com.mokee.helper.R;
+
 import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
@@ -147,15 +146,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     };
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
-                : TAPS_TO_BE_A_EXPERIMENTER;
-        mExpHitToast = null;
-    }
-
-    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference.getKey().equals(KEY_MOKEE_VERSION_TYPE)) {
             // Don't enable experimental option for secondary users.
@@ -215,6 +205,14 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        // Restore normal type list
+        String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
+        if (!isExperimental) {
+            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).apply();
+        }
+
         if (mUpdateCheck != null) {
             int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
             mUpdateCheck.setValue(String.valueOf(check));
@@ -227,9 +225,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             mUpdateType.setValue(String.valueOf(type));
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
             mUpdateType.setOnPreferenceChangeListener(this);
-            if (!mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                    TextUtils.equals(Utils.getMoKeeVersionType(), "experimental"))) {
-                setUpdateTypeEntiries();
+            if (!mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
+                setNormalTypeEntiries();
             }
         }
         mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_OTA, true));
@@ -249,7 +246,16 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         this.setHasOptionsMenu(true);
     }
 
-    public void setUpdateTypeEntiries() {
+    @Override
+    public void onResume() {
+        super.onResume();
+        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
+                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
+                : TAPS_TO_BE_A_EXPERIMENTER;
+        mExpHitToast = null;
+    }    
+
+    public void setNormalTypeEntiries() {
         int index = 2;
         String[] entries = mContext.getResources().getStringArray(R.array.update_type_entries);
         String[] newEntries = new String[entries.length - 1];

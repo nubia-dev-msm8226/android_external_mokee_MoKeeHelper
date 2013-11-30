@@ -28,7 +28,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -59,14 +58,13 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.mokee.helper.R;
 import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.fragments.MoKeeExpandFragment;
 import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.misc.State;
+import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.utils.Utils;
 
