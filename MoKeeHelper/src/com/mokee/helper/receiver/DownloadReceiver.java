@@ -55,18 +55,19 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     private static final String ACTION_INSTALL_UPDATE = "com.mokee.mkupdater.action.INSTALL_UPDATE";
     private static final String EXTRA_FILENAME = "filename";
+    private static int flag;// 保存当前下载标识
 
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
         if (ACTION_START_DOWNLOAD.equals(action)) {
+            flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
             UpdateInfo ui = (UpdateInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
-            handleStartDownload(context, prefs, ui);
+            handleStartDownload(context, prefs, ui, flag);
         } else if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)) {
             long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-            handleDownloadComplete(context, prefs, id);
+            handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
             String fileName = intent.getStringExtra(EXTRA_FILENAME);
             try {
@@ -80,7 +81,8 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
     }
 
-    private void handleStartDownload(Context context, SharedPreferences prefs, UpdateInfo ui) {
+    private void handleStartDownload(Context context, SharedPreferences prefs, UpdateInfo ui,
+            int flag) {
         // If directory doesn't exist, create it
         File directory;
         if (TextUtils.isEmpty(ui.getDescription())) {
@@ -128,10 +130,11 @@ public class DownloadReceiver extends BroadcastReceiver {
 
         Intent intent = new Intent(ACTION_DOWNLOAD_STARTED);
         intent.putExtra(DownloadManager.EXTRA_DOWNLOAD_ID, downloadId);
+        intent.putExtra("flag", flag);
         context.sendBroadcast(intent);
     }
 
-    private void handleDownloadComplete(Context context, SharedPreferences prefs, long id) {
+    private void handleDownloadComplete(Context context, SharedPreferences prefs, long id, int flag) {
         long enqueued = prefs.getLong(Constants.DOWNLOAD_ID, -1);
 
         if (enqueued < 0 || id < 0 || id != enqueued) {
@@ -156,6 +159,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         int failureMessageResId = -1;
         File updateFile = null;
         Intent updateIntent = new Intent();
+        updateIntent.putExtra("flag", flag);
         updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
@@ -235,6 +239,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                 Intent installIntent = new Intent(context, DownloadReceiver.class);
                 installIntent.setAction(ACTION_INSTALL_UPDATE);
+                installIntent.putExtra("flag", flag);
                 installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
 
                 PendingIntent installPi = PendingIntent.getBroadcast(context, 0, installIntent,

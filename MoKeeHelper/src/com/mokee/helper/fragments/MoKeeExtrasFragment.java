@@ -32,6 +32,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -255,7 +256,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         // Read existing Updates
         LinkedList<String> existingFiles = new LinkedList<String>();
         mUpdateFolder = Utils.makeExtraFolder();
-        File[] files = mUpdateFolder.listFiles(new UpdateFilter(".zip"));
+        File[] files = mUpdateFolder.listFiles(new UpdateFilter(".zip|.apk"));
+        // File[] files = mUpdateFolder.listFiles();
         if (mUpdateFolder.exists() && mUpdateFolder.isDirectory() && files != null) {
             for (File file : files) {
                 if (file.isFile()) {
@@ -309,8 +311,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
             boolean isDownloading = ui.getName().equals(mFileName);
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), false);
             boolean isZip = ui.getName().endsWith(".zip");
+            boolean isApk = ui.getName().endsWith(".apk");
             boolean isInstall = false;
-            if (isZip) {
+            if (isZip || isApk) {
                 isInstall = Utils.isApkInstalled(ui.getCheckflag(), getActivity());
             }
             int style = 3;
@@ -551,6 +554,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         Intent intent = new Intent(mContext, DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
+        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXPAND);
         mContext.sendBroadcast(intent);
 
         mUpdateHandler.post(mUpdateProgress);
@@ -613,6 +617,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
                                 Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,
                                         Toast.LENGTH_SHORT).show();
                             }
+                        } else if (updateInfo.getName().endsWith(".apk")) {
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setDataAndType(
+                                    Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath()
+                                            + "/" + updateInfo.getName()),
+                                    "application/vnd.android.package-archive");
+                            startActivity(i);
                         }
                     }
                 }).setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
@@ -646,7 +657,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
             Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
                     .show();
         }
-
         // Update the list
         extrasLayout();
     }

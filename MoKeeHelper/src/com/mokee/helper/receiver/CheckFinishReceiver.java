@@ -20,6 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.MKDashClockExtension;
 
 public class CheckFinishReceiver extends BroadcastReceiver {
@@ -27,6 +28,7 @@ public class CheckFinishReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Intent i = new Intent(context, MKDashClockExtension.class);
         i.setAction(MKDashClockExtension.ACTION_DATA_UPDATE);
+        i.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         context.startService(i);
     }
 }

@@ -86,7 +86,8 @@ public class MoKeeCenter extends FragmentActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+
+        // super.onNewIntent(intent);
         Intent send = new Intent(BR_ONNewIntent);
         send.putExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED,
                 intent.getBooleanExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED, false));

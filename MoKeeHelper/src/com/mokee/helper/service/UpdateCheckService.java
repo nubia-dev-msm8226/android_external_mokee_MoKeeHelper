@@ -71,7 +71,6 @@ import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
-
     // request actions
     public static final String ACTION_CHECK = "com.mokee.mkupdater.action.CHECK";
     public static final String ACTION_CANCEL_CHECK = "com.mokee.mkupdater.action.CANCEL_CHECK";
@@ -165,6 +164,7 @@ public class UpdateCheckService extends IntentService {
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
                 i.putExtra(EXTRA_UPDATE_LIST_UPDATED, true);
+                i.putExtra("flag", flag);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
 
@@ -225,6 +225,7 @@ public class UpdateCheckService extends IntentService {
                 if (count == 1) {
                     i = new Intent(this, DownloadReceiver.class);
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
+                    i.putExtra("flag", flag);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
                     PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
@@ -271,7 +272,8 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MoKeeExtrasFragment.EXTRA_EXTRAS_LIST_UPDATED, true);
+                i.putExtra(MokeeExpandFragment.EXTRA_EXPAND_LIST_UPDATED, true);
+                i.putExtra("flag", flag);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
@@ -314,6 +316,7 @@ public class UpdateCheckService extends IntentService {
                 if (count == 1) {
                     i = new Intent(this, DownloadReceiver.class);
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
+                    i.putExtra("flag", flag);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
                     PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
@@ -496,7 +499,9 @@ public class UpdateCheckService extends IntentService {
             if (jsonObject.has("gms")) {
                 jsonArrays[0] = jsonObject.getJSONArray("gms");
             }
-
+            if (jsonObject.has("application")) {
+                jsonArrays[1] = jsonObject.getJSONArray("application");
+            }
             for (int i = 0; i < jsonArrays.length; i++) {
                 JSONArray jsonArray = jsonArrays[i];
                 if (jsonArray != null) {
