@@ -35,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mokee.helper.R;
+import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
 
 public class ItemPreference extends Preference implements OnClickListener, OnLongClickListener {
@@ -134,7 +135,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
         switch (mStyle) {
             case STYLE_DOWNLOADED:
             case STYLE_INSTALLED:
-                confirmDelete();
+                confirmDelete((Integer) v.getTag());
                 break;
 
             case STYLE_DOWNLOADING:
@@ -186,9 +187,9 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
         }
     }
 
-    private void confirmDelete() {
+    private void confirmDelete(int flag) {
         new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
-                .setMessage(R.string.confirm_delete_updates_dialog_message)
+                .setMessage(flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.confirm_delete_updates_dialog_message : R.string.confirm_delete_extras_dialog_message)
                 .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -282,9 +283,11 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             // Set the title text
             if (TextUtils.isEmpty(mItemInfo.getDescription())) {
                 mTitleText.setText(mItemInfo.getName());
+                mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
             } else {
                 mTitleText.setText(mItemInfo.getDescription());
                 mSummaryText.setText(mItemInfo.getName());
+                mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
