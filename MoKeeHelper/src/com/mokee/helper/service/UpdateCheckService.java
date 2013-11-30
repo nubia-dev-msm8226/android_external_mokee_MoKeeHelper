@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The MoKee OpenSource Project
+ * Copyright (C) 2014 The MoKee OpenSource Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -70,10 +71,6 @@ import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
-
-    // Set this to true if the update service should check for smaller, test updates
-    // This is for internal testing only
-    private static final boolean TESTING_DOWNLOAD = false;
 
     // request actions
     public static final String ACTION_CHECK = "com.mokee.mkupdater.action.CHECK";
@@ -412,10 +409,9 @@ public class UpdateCheckService extends IntentService {
                 .split("-")[0])));
         HttpPost request = new HttpPost(updateServerUri);
         request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-        String language = MoKeeApplication.getContext().getResources().getConfiguration().locale
-                .getLanguage();
-        String country = MoKeeApplication.getContext().getResources().getConfiguration().locale
-                .getCountry();
+        Locale mLocale = MoKeeApplication.getContext().getResources().getConfiguration().locale;
+        String language = mLocale.getLanguage();
+        String country = mLocale.getCountry();
         request.setHeader("Accept-Language", (language + "-" + country).toLowerCase());
         addRequestHeaders(request);
         HttpEntity entity = mHttpExecutor.execute(request);
@@ -543,7 +539,7 @@ public class UpdateCheckService extends IntentService {
         // fetch change log after checking whether to include this build to
         // avoid useless network traffic
         if (!mui.getChangeLogFile(this).exists()) {
-            fetchMkChangeLog(mui, mui.getLog());
+            fetchMKChangeLog(mui, mui.getLog());
         }
         return mui;
     }
@@ -557,12 +553,12 @@ public class UpdateCheckService extends IntentService {
         // fetch change log after checking whether to include this build to
         // avoid useless network traffic
         if (!mui.getChangeLogFile(this).exists()) {
-            fetchMkChangeLog(mui, mui.getLog());
+            fetchMKChangeLog(mui, mui.getLog());
         }
         return mui;
     }
 
-    private void fetchMkChangeLog(UpdateInfo info, String url) {
+    private void fetchMKChangeLog(UpdateInfo info, String url) {
         Log.d(TAG, "Getting change log for " + info + ", url " + url);
 
         BufferedReader reader = null;

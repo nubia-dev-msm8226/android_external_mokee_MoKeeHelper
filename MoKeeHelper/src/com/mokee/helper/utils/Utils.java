@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The MoKee OpenSource Project
+ * Copyright (C) 2014 The MoKee OpenSource Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,14 +33,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.PowerManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
+import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.os.storage.StorageVolume;
-import android.os.SystemProperties;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;

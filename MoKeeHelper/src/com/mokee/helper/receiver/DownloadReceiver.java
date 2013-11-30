@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The MoKee OpenSource Project
+ * Copyright (C) 2014 The MoKee OpenSource Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,10 +36,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.mokee.helper.R;
 import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.UpdateInfo;
 import com.mokee.helper.service.UpdateCheckService;
