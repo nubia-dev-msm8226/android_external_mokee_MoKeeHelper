@@ -598,7 +598,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         if (mStartUpdateVisible) {
             return;
         }
-        mStartUpdateVisible = true;
+        //mStartUpdateVisible = true;
         // Get the message body right
         String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getName());
         // Display the dialog
