@@ -209,7 +209,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         String MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         if (!isExperimental) {
-            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).apply();
+            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
         }
 
         if (mUpdateCheck != null) {
