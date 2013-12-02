@@ -472,7 +472,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (isRomAll && !mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
                 int itemDate = Integer.valueOf(Utils.subBuildDate(ui.getName()));
                 int itemVersion = Integer.valueOf(Utils.subMoKeeVersion(ui.getName()));
-                isNew = itemDate > nowDate && itemVersion > nowVersion ? true : false;
+                isNew = itemDate > nowDate && itemVersion >= nowVersion ? true : false;
             }
             if (isDownloading) {
                 // In progress download
