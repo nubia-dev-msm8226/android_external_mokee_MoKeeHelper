@@ -430,7 +430,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         new Thread() {
             @Override
             public void run() {
-                File[] files = mContext.getCacheDir().listFiles(new UpdateFilter(".changelog"));// mark
+                File[] files = mContext.getCacheDir().listFiles(new UpdateFilter(".html"));// mark
                 if (files == null) {
                     return;
                 }

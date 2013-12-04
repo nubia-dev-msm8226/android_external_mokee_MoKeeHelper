@@ -277,7 +277,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         new Thread() {
             @Override
             public void run() {
-                File[] files = mContext.getCacheDir().listFiles(new UpdateFilter(".changelog"));
+                File[] files = mContext.getCacheDir().listFiles(new UpdateFilter(".html"));
                 if (files == null) {
                     return;
                 }
