@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
-                android:maxLines="2"
+                android:maxLines="3"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:fadingEdge="horizontal"
                 android:textSize="17sp"/>
