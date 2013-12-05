@@ -354,14 +354,18 @@ public class UpdateCheckService extends IntentService {
             throws IOException {
         // Get the type of update we should check for
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, 0);// 版本类型参数
+        String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
+        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);// 版本类型参数
         int rom_all = prefs.getBoolean(Constants.PREF_ROM_ALL, false) ? 1 : 0;// 全部获取参数
         boolean isOTA = prefs.getBoolean(Constants.PREF_ROM_OTA, true);
         // Get the actual ROM Update Server URL
         URI updateServerUri;
         List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("device_name", Utils.getDeviceType()));// 设备名称
+        params.add(new BasicNameValuePair("device_name", Utils.getDeviceType()));
         params.add(new BasicNameValuePair("device_version", Utils.getInstalledVersion()));
+        params.add(new BasicNameValuePair("build_user", Utils.getBuildUser()));
         if (!isOTA) {
             updateServerUri = URI.create(getString(R.string.conf_update_server_url_def));
             // params.add(new BasicNameValuePair("device_version",

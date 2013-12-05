@@ -51,7 +51,9 @@ public class Constants {
     public static final int UPDATE_TYPE_RELEASE = 0;
     public static final int UPDATE_TYPE_NIGHTLY = 1;
     public static final int UPDATE_TYPE_EXPERIMENTAL = 2;
-    public static final int UPDATE_TYPE_ALL = 3;
+    public static final int UPDATE_TYPE_UNOFFICIAL = 3;
+    public static final int UPDATE_TYPE_ALL = 4;
+
     // intentFlag
     public static final int INTENT_FLAG_GET_UPDATE = 1024;
     public static final int INTENT_FLAG_GET_EXTRAS = 1025;

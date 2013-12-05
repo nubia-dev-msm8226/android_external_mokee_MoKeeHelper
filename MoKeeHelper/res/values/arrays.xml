@@ -42,6 +42,7 @@
         <item>@string/mokee_version_type_release</item>
         <item>@string/mokee_version_type_nightly</item>
         <item>@string/mokee_version_type_experimental</item>
+        <item>@string/mokee_version_type_unofficial</item>
         <item>@string/mokee_version_type_all</item>
     </string-array>
 
@@ -50,6 +51,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <plurals name="not_new_updates_found_body">

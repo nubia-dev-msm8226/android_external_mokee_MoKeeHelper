@@ -221,6 +221,10 @@ public class Utils {
         return SystemProperties.get("ro.mk.device");
     }
 
+    public static String getBuildUser() {
+        return SystemProperties.get("ro.build.user");
+    }
+
     public static String getInstalledVersion() {
         return SystemProperties.get("ro.mk.version");
     }

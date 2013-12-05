@@ -162,12 +162,18 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     mExpHitToast = Toast
                             .makeText(mContext, R.string.show_exp_on, Toast.LENGTH_LONG);
                     mExpHitToast.show();
-                    String[] entries = mContext.getResources().getStringArray(
-                            R.array.update_type_entries);
-                    String[] entryValues = mContext.getResources().getStringArray(
-                            R.array.update_type_values);
-                    mUpdateType.setEntries(entries);
-                    mUpdateType.setEntryValues(entryValues);
+                    String MoKeeVersionType = Utils.getMoKeeVersionType();
+                    boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+                    if (!isUnofficial) {
+                        setOfficialTypeEntiries();
+                    } else {
+                        String[] entries = mContext.getResources().getStringArray(
+                                R.array.update_type_entries);
+                        String[] entryValues = mContext.getResources().getStringArray(
+                                R.array.update_type_values);
+                        mUpdateType.setEntries(entries);
+                        mUpdateType.setEntryValues(entryValues);
+                    }
                 } else if (mExpHitCountdown > 0
                         && mExpHitCountdown < (TAPS_TO_BE_A_EXPERIMENTER - 2)) {
                     if (mExpHitToast != null) {
@@ -209,8 +215,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Restore normal type list
         String MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
-        if (!isExperimental) {
+        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);
+        if (!isExperimental && type == 2) {
             mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+        }
+        if (!isUnofficial && type == 3) {
+            mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
         }
 
         if (mUpdateCheck != null) {
@@ -221,10 +232,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         if (mUpdateType != null) {
-            int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
             mUpdateType.setValue(String.valueOf(type));
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
             mUpdateType.setOnPreferenceChangeListener(this);
+            if (!isUnofficial) {
+                setOfficialTypeEntiries();
+            }
             if (!mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
                 setNormalTypeEntiries();
             }
@@ -257,6 +270,21 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     public void setNormalTypeEntiries() {
         int index = 2;
+        CharSequence[] entries = mUpdateType.getEntries();
+        String[] newEntries = new String[entries.length - 1];
+        System.arraycopy(entries, 0, newEntries, 0, index);
+        System.arraycopy(entries, index + 1, newEntries, index, newEntries.length - index);
+        CharSequence[] entryValues = mUpdateType.getEntryValues();
+        String[] newEntriesValues = new String[entryValues.length - 1];
+        System.arraycopy(entryValues, 0, newEntriesValues, 0, index);
+        System.arraycopy(entryValues, index + 1, newEntriesValues, index, newEntriesValues.length
+                - index);
+        mUpdateType.setEntries(newEntries);
+        mUpdateType.setEntryValues(newEntriesValues);
+    }
+
+    public void setOfficialTypeEntiries() {
+        int index = 3;
         String[] entries = mContext.getResources().getStringArray(R.array.update_type_entries);
         String[] newEntries = new String[entries.length - 1];
         System.arraycopy(entries, 0, newEntries, 0, index);
@@ -594,10 +622,21 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private void updateUpdatesType(int type) {
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         mUpdateType.setValue(String.valueOf(type));
-        if (type ==3 && !mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
-            mUpdateType.setSummary(mUpdateType.getEntries()[type-1]);
-        }
-        else {
+        String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+        if (type == 3 && !mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+            mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
+        } else if (type == 4 && !isUnofficial) {
+            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+                mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
+            } else {
+                mUpdateType.setSummary(mUpdateType.getEntries()[type - 2]);
+            }
+        } else if (type == 4 && isUnofficial){
+            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+                mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
+            }
+        } else {
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
         }
         checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
@@ -823,6 +862,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             final int value = Integer.valueOf((String) newValue);
             if (value == Constants.UPDATE_TYPE_NIGHTLY
                     || value == Constants.UPDATE_TYPE_EXPERIMENTAL
+                    || value == Constants.UPDATE_TYPE_UNOFFICIAL
                     || value == Constants.UPDATE_TYPE_ALL) {
                 int messageId = 0;
                 switch (value) {
@@ -833,6 +873,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         messageId = R.string.experimenter_alert;
                         break;
                     case 3:
+                        messageId = R.string.unofficial_alert;
+                        break;
+                    case 4:
                         messageId = R.string.all_alert;
                         break;
                 }
