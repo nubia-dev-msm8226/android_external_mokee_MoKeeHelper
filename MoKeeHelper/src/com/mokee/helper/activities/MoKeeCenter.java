@@ -55,16 +55,16 @@ public class MoKeeCenter extends FragmentActivity {
         bar.setTitle(R.string.mokee_center_title);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
-                MoKeeUpdaterFragment.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_extras_title),
                 MoKeeExtrasFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
+                MoKeeUpdaterFragment.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
                 MoKeeSupportFragment.class, null);
         if (savedInstanceState != null) {
-            bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
+            bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 1));
         }
-
+        bar.setSelectedNavigationItem(1);
         // Turn on the Options Menu
         invalidateOptionsMenu();
     }
