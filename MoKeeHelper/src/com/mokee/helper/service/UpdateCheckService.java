@@ -64,6 +64,7 @@ import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
@@ -358,6 +359,14 @@ public class UpdateCheckService extends IntentService {
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);// 版本类型参数
+        if (!isExperimental && updateType == 2) {
+            prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            updateType = 0;
+        }
+        if (!isUnofficial && updateType == 3) {
+            prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            updateType = 0;
+        }
         int rom_all = prefs.getBoolean(Constants.PREF_ROM_ALL, false) ? 1 : 0;// 全部获取参数
         boolean isOTA = prefs.getBoolean(Constants.PREF_ROM_OTA, true);
         // Get the actual ROM Update Server URL
