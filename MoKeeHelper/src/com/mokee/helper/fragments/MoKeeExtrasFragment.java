@@ -64,8 +64,7 @@ import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.ItemPreference;
 
-public class MoKeeExtrasFragment extends PreferenceFragment implements OnPreferenceChangeListener,
-        ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
+public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
     private static String TAG = "MoKeeExtrasFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
@@ -75,23 +74,20 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     private String mFileName;
 
     private Activity mContext;
+
     private boolean mStartUpdateVisible = false;
 
-    public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";// 扩展
+    public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";
     private SharedPreferences mPrefs;
     private PreferenceCategory mMokeeExtrasList;
     private ItemPreference mDownloadingPreference;
-    private File mUpdateFolder;// ,mExtrasFolder;
+    private File mExtrasFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
-    int mExpHitCountdown;
-    Toast mExpHitToast;
 
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
 
-    private static final int TAPS_TO_BE_A_EXPERIMENTER = 7;
-    private static final String EXPERIMENTAL_SHOW = "experimental_show";
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -106,7 +102,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
                     if (mProgressDialog != null) {
                         mProgressDialog.dismiss();
                         mProgressDialog = null;
-
                         int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT,
                                 -1);
                         if (count == 0) {
@@ -128,15 +123,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
             }
         }
     };
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
-                : TAPS_TO_BE_A_EXPERIMENTER;
-        mExpHitToast = null;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -255,10 +241,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         updateLastCheckPreference();
         // Read existing Updates
         LinkedList<String> existingFiles = new LinkedList<String>();
-        mUpdateFolder = Utils.makeExtraFolder();
-        File[] files = mUpdateFolder.listFiles(new UpdateFilter(".zip|.apk"));
-        // File[] files = mUpdateFolder.listFiles();
-        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory() && files != null) {
+        mExtrasFolder = Utils.makeExtraFolder();
+        File[] files = mExtrasFolder.listFiles(new UpdateFilter(".zip|.apk"));
+        if (mExtrasFolder.exists() && mExtrasFolder.isDirectory() && files != null) {
             for (File file : files) {
                 if (file.isFile()) {
                     existingFiles.add(file.getName());
@@ -379,14 +364,14 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
 
     private boolean deleteOldUpdates() {
         boolean success;
-        // mUpdateFolder: Foldername with fullpath of SDCARD
-        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()) {
-            deleteDir(mUpdateFolder);
-            mUpdateFolder.mkdir();
+        // mExtrasFolder: Foldername with fullpath of SDCARD
+        if (mExtrasFolder.exists() && mExtrasFolder.isDirectory()) {
+            deleteDir(mExtrasFolder);
+            mExtrasFolder.mkdir();
             success = true;
             Toast.makeText(mContext, R.string.delete_extras_success_message, Toast.LENGTH_SHORT)
                     .show();
-        } else if (!mUpdateFolder.exists()) {
+        } else if (!mExtrasFolder.exists()) {
             success = false;
             Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
                     .show();
@@ -431,15 +416,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         String fileName = new File(fullPathName).getName();
 
         // Find the matching preference so we can retrieve the ItemInfo
-        ItemPreference pref;
-        // pref = (UpdatePreference) mUpdatesList.findPreference(fileName);
-        // if (pref != null)
-        // {
-        // pref.setStyle(UpdatePreference.STYLE_DOWNLOADED);// download over
-        // // Change
-        // onStartUpdate(pref);
-        // }
-        pref = (ItemPreference) mMokeeExtrasList.findPreference(fileName);// extars
+        ItemPreference pref = (ItemPreference) mMokeeExtrasList.findPreference(fileName);
         if (pref != null) {
             pref.setStyle(ItemPreference.STYLE_DOWNLOADED);// download over
             // Change
@@ -480,6 +457,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         if (mDownloadId < 0 || mFileName == null) {
             resetDownloadState();
         }
+
         extrasLayout();
         IntentFilter filter = new IntentFilter(UpdateCheckService.ACTION_CHECK_FINISHED);
         filter.addAction(DownloadReceiver.ACTION_DOWNLOAD_STARTED);
@@ -575,13 +553,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
         if (mStartUpdateVisible) {
             return;
         }
-        //mStartUpdateVisible = true;
+        mStartUpdateVisible = true;
         // Get the message body right
-        String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getName());
+        String dialogBody = getString(R.string.apply_extras_dialog_text, itemInfo.getName());
         // Display the dialog
-        new AlertDialog.Builder(mContext).setTitle(R.string.apply_update_dialog_title)
+        new AlertDialog.Builder(mContext).setTitle(R.string.apply_extras_dialog_title)
                 .setMessage(dialogBody)
-                .setPositiveButton(R.string.dialog_update, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.dialog_install, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (TextUtils.isEmpty(itemInfo.getDescription())
@@ -614,8 +592,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
     public void onDeleteUpdate(ItemPreference pref) {
         final String fileName = pref.getKey();
 
-        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()) {
-            File zipFileToDelete = new File(mUpdateFolder, fileName);
+        if (mExtrasFolder.exists() && mExtrasFolder.isDirectory()) {
+            File zipFileToDelete = new File(mExtrasFolder, fileName);
 
             if (zipFileToDelete.exists()) {
                 zipFileToDelete.delete();
@@ -626,13 +604,14 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
 
             String message = getString(R.string.delete_single_update_success_message, fileName);
             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
-        } else if (!mUpdateFolder.exists()) {
+        } else if (!mExtrasFolder.exists()) {
             Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
                     .show();
         } else {
             Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
                     .show();
         }
+
         // Update the list
         extrasLayout();
     }
@@ -655,11 +634,4 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements OnPrefere
             Utils.setSummaryFromString(this, KEY_MOKEE_LAST_CHECK, date + " " + time);
         }
     }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
 }

@@ -75,6 +75,7 @@
     <!-- Update -->
     <string name="unknown">未知</string>
     <string name="dialog_update">更新</string>
+    <string name="dialog_install">安装</string>
     <string name="dialog_ok">确认</string>
     <string name="dialog_cancel">取消</string>
     <string name="dialog_close">关闭</string>
@@ -152,9 +153,11 @@
     <string name="pref_update_ota">OTA更新</string>
     <string name="pref_update_ota_summary">获取OTA更新</string>
 
-    <!-- Apply install and update strings -->
+    <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">应用更新</string>
     <string name="apply_update_dialog_text">您将要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您选择更新，您的设备将会重启到恢复模式并安装更新。\n\n注意：此功能需要一个兼容的恢复程序。如果您没有的话，您将需要手动安装更新。</string>
+    <string name="apply_extras_dialog_title">安装扩展</string>
+    <string name="apply_extras_dialog_text">您确定要安装扩展组件 <xliff:g id="filename">%s</xliff:g> 吗？</string>
     <string name="apply_unable_to_reboot_toast">无法重启到恢复模式</string>
 
     <!-- experimenter mode -->

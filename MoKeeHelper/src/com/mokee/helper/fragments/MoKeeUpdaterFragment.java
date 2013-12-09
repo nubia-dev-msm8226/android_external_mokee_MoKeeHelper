@@ -75,7 +75,7 @@ import com.mokee.helper.widget.ItemPreference;
 public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
 
-    private static String TAG = "MoKeeUpdater";
+    private static String TAG = "MoKeeUpdaterFragment";
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
     private static final String KEY_MOKEE_VERSION_TYPE = "mokee_version_type";
@@ -104,10 +104,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private CheckBoxPreference mUpdateAll, mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
-    // private PreferenceScreen mEXTRASUpdate;
     private PreferenceCategory mUpdatesList;
     private ItemPreference mDownloadingPreference;
-    private File mUpdateFolder;// ,mEXTRASFolder;
+    private File mUpdateFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -266,7 +265,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
                 : TAPS_TO_BE_A_EXPERIMENTER;
         mExpHitToast = null;
-    }    
+    }
 
     public void setNormalTypeEntiries() {
         int index = 2;
@@ -367,6 +366,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
             DownloadManager.Query q = new DownloadManager.Query();
             q.setFilterById(mDownloadId);
+
             Cursor cursor = mDownloadManager.query(q);
             int status;
 
@@ -492,6 +492,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             } else if (isLocalFile) {
                 style = ItemPreference.STYLE_DOWNLOADED;
             }
+
             ItemPreference up = new ItemPreference(mContext, ui, style);
             up.setOnActionListener(this);
             up.setKey(ui.getName());
