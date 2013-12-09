@@ -34,31 +34,34 @@ public class ItemInfo implements Parcelable, Serializable {
     public String md5;
     public String name;
     public String rom;
+    public String length;
     // extras
     public String description;
     public String checkflag;
 
-    public ItemInfo(String log, String md5, String name, String rom) {
+    public ItemInfo(String log, String md5, String name, String rom, String length) {
         super();
         this.log = log;
         this.md5 = md5;
         this.name = name;
         this.rom = rom;
+        this.rom = length;
     }
 
     public ItemInfo(String log, String md5, String name, String rom, String description,
-            String checkflag) {
+            String checkflag, String length) {
         super();
         this.log = log;
         this.md5 = md5;
         this.name = name;
         this.rom = rom;
+        this.length = length;
         this.description = description;
         this.checkflag = checkflag;
     }
 
     public ItemInfo(String name) {
-        this(null, null, name, null);
+        this(null, null, name, null,null);
         initializeName(name);
     }
 
@@ -76,6 +79,10 @@ public class ItemInfo implements Parcelable, Serializable {
 
     public String getRom() {
         return rom;
+    }
+
+    public String getLength() {
+        return length;
     }
 
     public File getChangeLogFile(Context context) {
@@ -105,6 +112,7 @@ public class ItemInfo implements Parcelable, Serializable {
         dest.writeString(rom);
         dest.writeString(description);
         dest.writeString(checkflag);
+        dest.writeString(length);
     }
 
     private void readFromParcel(Parcel in) {
@@ -114,6 +122,7 @@ public class ItemInfo implements Parcelable, Serializable {
         rom = in.readString();
         description = in.readString();
         checkflag = in.readString();
+        length = in.readString();
     }
 
     private void initializeName(String fileName) {

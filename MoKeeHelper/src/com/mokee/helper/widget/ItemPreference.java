@@ -38,6 +38,7 @@ import android.widget.Toast;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.utils.Utils;
 
 public class ItemPreference extends Preference implements OnClickListener, OnLongClickListener {
     private static final float DISABLED_ALPHA = 0.4f;
@@ -71,6 +72,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
     private ImageView mUpdatesButton;
     private TextView mTitleText;
     private TextView mSummaryText;
+    private TextView mFileSizeText;
     private View mUpdatesPref;
     private ProgressBar mProgressBar;
 
@@ -117,6 +119,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
 
         mTitleText = (TextView) view.findViewById(android.R.id.title);
         mSummaryText = (TextView) view.findViewById(android.R.id.summary);
+        mFileSizeText = (TextView) view.findViewById(R.id.file_size);
         mProgressBar = (ProgressBar) view.findViewById(R.id.download_progress_bar);
 
         mUpdatesPref = view.findViewById(R.id.updates_pref);
@@ -290,6 +293,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setText(mItemInfo.getName());
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
+            mFileSizeText.setText(Utils.formetFileSize(Long.valueOf(mItemInfo.getLength())));
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
             showStyle();
@@ -323,6 +327,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setText(R.string.installed_update_summary);
                 mSummaryText.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.GONE);
+                mFileSizeText.setVisibility(View.INVISIBLE);
                 break;
             case STYLE_OLD:
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
