@@ -465,8 +465,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Convert the installed version name to the associated filename
         String installedZip = Utils.getInstalledVersion() + ".zip";
         boolean isNew = true;// 判断新旧版本
-        int nowDate = Integer.valueOf(Utils.subBuildDate(installedZip));
-        int nowVersion = Integer.valueOf(Utils.subMoKeeVersion(installedZip));
         boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
         // Add the updates
         for (ItemInfo ui : updates) {
@@ -475,9 +473,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), true);
             int style = 3;
             if (isRomAll && !mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
-                int itemDate = Integer.valueOf(Utils.subBuildDate(ui.getName()));
-                int itemVersion = Integer.valueOf(Utils.subMoKeeVersion(ui.getName()));
-                isNew = itemDate > nowDate && itemVersion >= nowVersion ? true : false;
+                isNew=Utils.isNewVersion(ui.getName());
             }
             if (isDownloading) {
                 // In progress download
@@ -762,7 +758,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onStopDownload(final ItemPreference pref) {
         if (!mDownloading || mFileName == null || mDownloadId < 0) {
-            pref.setStyle(ItemPreference.STYLE_NEW);
+            if(Utils.isNewVersion(pref.getItemInfo().getName())){
+                pref.setStyle(ItemPreference.STYLE_NEW);
+            }else{
+                pref.setStyle(ItemPreference.STYLE_OLD);
+            }
             resetDownloadState();
             return;
         }
@@ -773,8 +773,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        pref.setStyle(ItemPreference.STYLE_NEW);
-
+                        if(Utils.isNewVersion(pref.getItemInfo().getName())){
+                            pref.setStyle(ItemPreference.STYLE_NEW);
+                        }else{
+                            pref.setStyle(ItemPreference.STYLE_OLD);
+                        }
                         // We are OK to stop download, trigger it
                         mDownloadManager.remove(mDownloadId);
                         mUpdateHandler.removeCallbacks(mUpdateProgress);

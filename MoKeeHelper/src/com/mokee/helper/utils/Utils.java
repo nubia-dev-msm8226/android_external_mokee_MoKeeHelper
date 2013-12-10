@@ -310,6 +310,19 @@ public class Utils {
         return version;
     }
 
+    /**
+     * 判断版本新旧
+     * @param itemName
+     * @return
+     */
+    public static boolean isNewVersion(String itemName){
+        int nowDate = Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion()));
+        float nowVersion = Float.valueOf(Utils.subMoKeeVersion(Utils.getInstalledVersion()));
+        int itemDate = Integer.valueOf(Utils.subBuildDate(itemName));
+        float itemVersion = Float.valueOf(Utils.subMoKeeVersion(itemName));
+        return (itemDate > nowDate & itemVersion >= nowVersion);
+        }
+        
     public static void setSummaryFromString(PreferenceFragment prefFragment, String preference,
             String value) {
         if (prefFragment == null) {
