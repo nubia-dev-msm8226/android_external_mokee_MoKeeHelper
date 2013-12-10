@@ -45,7 +45,7 @@ public class ItemInfo implements Parcelable, Serializable {
         this.md5 = md5;
         this.name = name;
         this.rom = rom;
-        this.rom = length;
+        this.length = length;
     }
 
     public ItemInfo(String log, String md5, String name, String rom, String description,
