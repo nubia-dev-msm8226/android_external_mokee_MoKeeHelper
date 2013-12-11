@@ -37,6 +37,8 @@
     <string name="mokee_issues_summary">反馈报告手机使用问题以便我们改进系统</string>
     <string name="mokee_statistics_title">魔趣统计</string>
     <string name="mokee_statistics_summary">查看支持的机型和用户数</string>
+    <string name="mokee_changelog_title">更新日志</string>
+    <string name="mokee_changelog_summary">查看魔趣开源计划每天的功能改进清单</string>
     <string name="mokee_review_title">代码审核</string>
     <string name="mokee_review_summary">看看魔趣正在开发哪些新功能</string>
     <string name="mokee_github_title">项目开源</string>
