@@ -465,14 +465,14 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Convert the installed version name to the associated filename
         String installedZip = Utils.getInstalledVersion() + ".zip";
         boolean isNew = true;// 判断新旧版本
-        boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
+        //boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
             boolean isDownloading = ui.getName().equals(mFileName);
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), true);
             int style = 3;
-            if (isRomAll && !mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
+            if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
                 isNew=Utils.isNewVersion(ui.getName());
             }
             if (isDownloading) {
