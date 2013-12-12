@@ -77,22 +77,6 @@ public class Utils {
         nm.cancel(R.string.not_download_success);
     }
 
-    public static boolean isApkInstalled(String packagename, Context context) {
-        PackageInfo packageInfo;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(packagename, 0);
-
-        } catch (NameNotFoundException e) {
-            packageInfo = null;
-        }
-
-        if (packageInfo == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public static String getMoKeeVersionTypeString(Context mContext) {
         String MoKeeVersionType = getMoKeeVersionType();
         if (MoKeeVersionType.equals("release"))

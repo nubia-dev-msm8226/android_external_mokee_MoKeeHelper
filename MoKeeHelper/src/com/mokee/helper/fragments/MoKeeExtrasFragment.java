@@ -34,6 +34,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.mokee.util.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -275,7 +276,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
             boolean isApk = ui.getName().endsWith(".apk");
             boolean isInstall = false;
             if (isZip || isApk) {
-                isInstall = Utils.isApkInstalled(ui.getCheckflag(), getActivity());
+                isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
             }
             int style = 3;
             if (isDownloading) {
