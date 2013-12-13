@@ -30,7 +30,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
@@ -42,6 +41,7 @@ import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
@@ -296,17 +296,18 @@ public class Utils {
 
     /**
      * 判断版本新旧
+     * 
      * @param itemName
      * @return
      */
-    public static boolean isNewVersion(String itemName){
+    public static boolean isNewVersion(String itemName) {
         int nowDate = Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion()));
         float nowVersion = Float.valueOf(Utils.subMoKeeVersion(Utils.getInstalledVersion()));
         int itemDate = Integer.valueOf(Utils.subBuildDate(itemName));
         float itemVersion = Float.valueOf(Utils.subMoKeeVersion(itemName));
         return (itemDate > nowDate & itemVersion >= nowVersion);
-        }
-        
+    }
+
     public static void setSummaryFromString(PreferenceFragment prefFragment, String preference,
             String value) {
         if (prefFragment == null) {
@@ -322,7 +323,7 @@ public class Utils {
 
     /**
      * 转换文件大小
-     *
+     * 
      * @param size
      * @return
      */
@@ -339,5 +340,30 @@ public class Utils {
             fileSizeString = df.format((double) size / 1073741824) + "G";
         }
         return fileSizeString;
+    }
+
+    /**
+     * 判断网络是否可用
+     * 
+     * @param context
+     * @return
+     */
+    public static boolean isNetworkAvailable() {
+        ConnectivityManager connectivity = (ConnectivityManager) MoKeeApplication.getContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity == null) {
+            return false;
+        } else {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED
+                            || info[i].getState() == NetworkInfo.State.CONNECTING) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

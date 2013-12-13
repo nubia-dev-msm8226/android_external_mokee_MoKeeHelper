@@ -85,6 +85,9 @@
                 android:name="description"
                 android:value="@string/extension_description" />
         </service>
+
+        <service android:name="com.mokee.helper.service.DownLoadService" />
+
         <service android:name="com.mokee.helper.service.UpdateCheckService" />
 
         <receiver android:name="com.mokee.helper.receiver.UpdateCheckReceiver" >

@@ -358,9 +358,11 @@ public class UpdateCheckService extends IntentService {
         String MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);// 版本类型参数
+        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3
+                : isExperimental ? 2 : 0);// 版本类型参数
         if (!isExperimental && updateType == 2) {
-            prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false)
+                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
         if (!isUnofficial && updateType == 3) {

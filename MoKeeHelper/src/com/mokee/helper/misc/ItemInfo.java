@@ -61,7 +61,7 @@ public class ItemInfo implements Parcelable, Serializable {
     }
 
     public ItemInfo(String name) {
-        this(null, null, name, null,null);
+        this(null, null, name, null, null);
         initializeName(name);
     }
 
