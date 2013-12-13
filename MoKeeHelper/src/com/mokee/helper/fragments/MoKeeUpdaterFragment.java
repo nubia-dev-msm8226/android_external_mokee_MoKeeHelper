@@ -620,17 +620,18 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         mUpdateType.setValue(String.valueOf(type));
         String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-        if (type == 3 && !mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+        if (type == 3 && !mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
             mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
         } else if (type == 4 && !isUnofficial) {
-            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
                 mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
             } else {
                 mUpdateType.setSummary(mUpdateType.getEntries()[type - 2]);
             }
         } else if (type == 4 && isUnofficial){
-            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
                 mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
             }
         } else {
