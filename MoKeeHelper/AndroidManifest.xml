@@ -98,7 +98,7 @@
         </receiver>
         <receiver android:name="com.mokee.helper.receiver.DownloadReceiver" >
             <intent-filter>
-                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="DownLoadService_download_complete" />
                 <action android:name="com.mokee.mkupdater.action.START_DOWNLOAD" />
             </intent-filter>
         </receiver>
