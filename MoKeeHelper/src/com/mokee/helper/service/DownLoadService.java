@@ -33,7 +33,7 @@ public class DownLoadService extends IntentService {
     }
 
     public static final String ACTION_DOWNLOAD = "download";
-    public static final String ACTION_DOWNLOAD_COMPLETE = "DownLoadService_download_complete";
+    public static final String ACTION_DOWNLOAD_COMPLETE = "com.mokee.mkupdater.action.DOWNLOAD_COMPLETED";
     public static final String DOWNLOAD_TYPE = "download_type";
     public static final String DOWNLOAD_URL = "down_url";
     public static final String DOWNLOAD_FILE_PATH = "file_path";
