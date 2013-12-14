@@ -160,8 +160,8 @@ public class DownloadReceiver extends BroadcastReceiver {
         Intent intentService = new Intent(context, DownLoadService.class);
         intentService.setAction(DownLoadService.ACTION_DOWNLOAD);
         intentService.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.ADD);
-        intentService.putExtra(DownLoadService.DOWN_URL, ui.getRom());
-        intentService.putExtra(DownLoadService.FILE_PATH, fullFilePath);
+        intentService.putExtra(DownLoadService.DOWNLOAD_URL, ui.getRom());
+        intentService.putExtra(DownLoadService.DOWNLOAD_FILE_PATH, fullFilePath);
         intentService.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         intentService.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
         MoKeeApplication.getContext().startServiceAsUser(intentService, UserHandle.CURRENT);

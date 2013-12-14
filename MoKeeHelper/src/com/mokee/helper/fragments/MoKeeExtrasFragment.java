@@ -532,7 +532,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
                         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWN_URL, pref.getItemInfo().getRom());
+                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getRom());
 
                         MoKeeApplication.getContext()
                                 .startServiceAsUser(intent, UserHandle.CURRENT);

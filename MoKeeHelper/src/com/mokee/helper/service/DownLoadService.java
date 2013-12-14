@@ -28,15 +28,15 @@ public class DownLoadService extends IntentService {
     private static final String TAG = "DownLoadService";
 
     public DownLoadService() {
-        super("DownLoadService");
+        super(TAG);
         // TODO Auto-generated constructor stub
     }
 
     public static final String ACTION_DOWNLOAD = "download";
     public static final String ACTION_DOWNLOAD_COMPLETE = "DownLoadService_download_complete";
     public static final String DOWNLOAD_TYPE = "download_type";
-    public static final String DOWN_URL = "down_url";
-    public static final String FILE_PATH = "file_path";
+    public static final String DOWNLOAD_URL = "down_url";
+    public static final String DOWNLOAD_FILE_PATH = "file_path";
     public static final String DOWNLOAD_ID = "download_id";
     public static final String DOWNLOAD_FLAG = "flag";
 
@@ -48,7 +48,7 @@ public class DownLoadService extends IntentService {
     public static final int STOP = 7;
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
     private static Map<Integer, NotificationCompat.Builder> notifications = new HashMap<Integer, NotificationCompat.Builder>();// 通知队列
-    private int i = 1;
+    private static int notificationIDBase = 1024;
     private NotificationManager manager;
 
     @Override
@@ -63,8 +63,73 @@ public class DownLoadService extends IntentService {
 
         return super.onStartCommand(action, flags, startId);
     }
+    
+    @Override
+    protected void onHandleIntent(Intent action) {
+        if (action != null && ACTION_DOWNLOAD.equals(action.getAction())) {
+            int type = action.getIntExtra(DOWNLOAD_TYPE, 6);
+            String url = action.getStringExtra(DOWNLOAD_URL);
+            String filePath = action.getStringExtra(DOWNLOAD_FILE_PATH);
+            long download_id = action.getLongExtra(DOWNLOAD_ID, System.currentTimeMillis());
+            int flag = action.getIntExtra(DOWNLOAD_FLAG, 1024);
+            DownLoader downloader = null;
+            switch (type) {
+                case ADD:
+                    notificationIDBase++;
+                    downloader = downloaders.get(url);
+                    if (downloader == null) {
+                        downloader = new DownLoader(url, filePath, 4, handler);
+                        downloaders.put(url, downloader);
+                        if (!DownLoadDao.getInstance().isHasInfos(url)) {
+                            // 初次添加,初始状态
+                            DownLoadDao.getInstance().saveInfo(
+                                    new DownLoadInfo(url, flag, String.valueOf(download_id),
+                                            filePath, filePath.substring(
+                                                    filePath.lastIndexOf("/") + 1,
+                                                    filePath.length()), 0,
+                                            DownLoader.STATUS_PENDING));
+                        }
+                    }
+                    if (downloader.isDownLoading())
+                        return;
+                    DownLoadDao.getInstance().updataState(url, DownLoader.STATUS_DOWNLOADING);
+                    DownLoadInfo loadInfo = downloader.getDownLoadInfo();
+                    if (loadInfo != null) {
+                        if (!notifications.containsKey(downloader.getNotificationID())) {
+                            addNotification(notificationIDBase, R.string.mokee_updater_title);
+                            downloader.setNotificationID(notificationIDBase);
+                        }
+                        // 开始下载
+                        downloader.download();
+                    }
+                    break;
+                case PAUSE:
+                    downloader = downloaders.get(url);
+                    if (downloader != null) {
+                        downloader.pause();
+                        manager.cancel(downloader.getNotificationID());
+                        notifications.remove(downloader.getNotificationID());
+                    }
+                    break;
+            // case DELETE:
+            // downloader = downloaders.get(url);
+            // if (downloader != null)
+            // {
+            // downloader.delete(url);
+            // downloaders.remove(url);
+            // }
+            // break;
+            // case CONTINUE:
+            // break;
+            }
+        }
 
-    /* 显示下载 */
+    }
+    /**
+     * 添加通知
+     * @param id
+     * @param title
+     */
     private void addNotification(int id, int title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
@@ -86,8 +151,14 @@ public class DownLoadService extends IntentService {
         manager.notify(id, builder.build());
     }
 
-    // 更新下载进度
+    /**
+     * 定时更新通知进度
+     * @param id
+     * @param progress
+     */
     private void updateNotification(int id, int progress) {
+        if(!notifications.containsKey(id))
+            return;
         NotificationCompat.Builder notification = notifications.get(id);
         notification.setContentText(getString(R.string.download_running, progress) + "%");
         notification.setProgress(100, progress, false);
@@ -166,71 +237,5 @@ public class DownLoadService extends IntentService {
         }
     });
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    protected void onHandleIntent(Intent action) {
-        if (action != null && ACTION_DOWNLOAD.equals(action.getAction())) {
-            int type = action.getIntExtra(DOWNLOAD_TYPE, 6);
-            String url = action.getStringExtra(DOWN_URL);
-            String filePath = action.getStringExtra(FILE_PATH);
-            long download_id = action.getLongExtra(DOWNLOAD_ID, System.currentTimeMillis());
-            int flag = action.getIntExtra(DOWNLOAD_FLAG, 1024);
-            DownLoader downloader = null;
-            switch (type) {
-                case ADD:
-                    i++;
-                    downloader = downloaders.get(url);
-                    if (downloader == null) {
-                        downloader = new DownLoader(url, filePath, 4, handler);
-                        downloaders.put(url, downloader);
-                        if (!DownLoadDao.getInstance().isHasInfos(url)) {
-                            // 初次添加,初始状态
-                            DownLoadDao.getInstance().saveInfo(
-                                    new DownLoadInfo(url, flag, String.valueOf(download_id),
-                                            filePath, filePath.substring(
-                                                    filePath.lastIndexOf("/") + 1,
-                                                    filePath.length()), 0,
-                                            DownLoader.STATUS_PENDING));
-                        }
-                    }
-                    if (downloader.isDownLoading())
-                        return;
-                    DownLoadDao.getInstance().updataState(url, DownLoader.STATUS_DOWNLOADING);
-                    DownLoadInfo loadInfo = downloader.getDownLoadInfo();
-                    if (loadInfo != null) {
-                        if (!notifications.containsKey(downloader.getNotificationID())) {
-                            addNotification(i, R.string.mokee_updater_title);
-                            downloader.setNotificationID(i);
-                        }
-                        // 调用方法开始下载
-                        downloader.download();
-                    }
-                    break;
-                case PAUSE:
-                    downloader = downloaders.get(url);
-                    if (downloader != null) {
-                        downloader.pause();
-                        manager.cancel(downloader.getNotificationID());
-                        notifications.remove(downloader.getNotificationID());
-                    }
-                    break;
-            // case DELETE:
-            // downloader = downloaders.get(url);
-            // if (downloader != null)
-            // {
-            // downloader.delete(url);
-            // downloaders.remove(url);
-            // }
-            // break;
-            // case CONTINUE:
-            // break;
-            }
-        }
-
-    }
+   
 }

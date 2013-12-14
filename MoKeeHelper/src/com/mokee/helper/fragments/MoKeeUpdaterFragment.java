@@ -726,7 +726,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (mDownloading) {
             Toast.makeText(mContext, R.string.download_already_running, Toast.LENGTH_LONG).show();
             return;
@@ -781,7 +780,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
                         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWN_URL, pref.getItemInfo().getRom());
+                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getRom());
 
                         MoKeeApplication.getContext()
                                 .startServiceAsUser(intent, UserHandle.CURRENT);

@@ -46,7 +46,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
     public static final int STYLE_DOWNLOADING = 2;
     public static final int STYLE_DOWNLOADED = 3;
     public static final int STYLE_INSTALLED = 4;
-    public static final int STYLE_EXTRAS_NEW = 11;
+    public static final int STYLE_EXTRAS_NEW = 5;
     public static final int STYLE_OLD = 0;// 旧版本
 
     public interface OnActionListener {
@@ -95,6 +95,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                     break;
                 case STYLE_OLD:
                     mOnActionListener.onStartDownload(ItemPreference.this);
+                    break;
                 case STYLE_EXTRAS_NEW:
                     mOnActionListener.onStartDownload(ItemPreference.this);
                     break;
