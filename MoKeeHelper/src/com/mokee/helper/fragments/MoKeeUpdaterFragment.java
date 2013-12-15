@@ -148,6 +148,96 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     };
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+        // Load the layouts
+        addPreferencesFromResource(R.xml.mokee_updater);
+        mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
+        mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
+        mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
+        mUpdateAll = (CheckBoxPreference) findPreference(Constants.PREF_ROM_ALL);// 所有更新
+        mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
+        // Load the stored preference data
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        // Restore normal type list
+        String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
+        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+        boolean experimentalShow = mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental);
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2
+                : 0);
+        if (type == 2 && !experimentalShow) {
+            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
+                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+        }
+        if (!isUnofficial && type == 3) {
+            mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+        }
+
+        if (mUpdateCheck != null) {
+            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
+            mUpdateCheck.setValue(String.valueOf(check));
+            mUpdateCheck.setSummary(mapCheckValue(check));
+            mUpdateCheck.setOnPreferenceChangeListener(this);
+        }
+
+        if (mUpdateType != null) {
+            mUpdateType.setValue(String.valueOf(type));
+            mUpdateType.setOnPreferenceChangeListener(this);
+            if (!isUnofficial) {
+                if (experimentalShow) {
+                    setExperimentalTypeEntries();   
+                } else {
+                    setNormalTypeEntries();   
+                }
+            } else {
+                if (experimentalShow) {
+                    setAllTypeEntries();   
+                } else {
+                    setUnofficialTypeEntries();   
+                }
+            }
+            setUpdateTypeSummary(type);
+        }
+        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_OTA, true));
+        mUpdateOTA.setOnPreferenceChangeListener(this);
+        mUpdateAll.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_ALL, false));
+        mUpdateAll.setOnPreferenceChangeListener(this);
+        isOTA(mUpdateOTA.isChecked());
+        isRomAll(mUpdateAll.isChecked());
+        setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
+        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE,
+                Utils.getMoKeeVersionTypeString(mContext));
+        updateLastCheckPreference();
+
+        // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
+        final ActionBar bar = mContext.getActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+        this.setHasOptionsMenu(true);
+    }
+
+    private void setUpdateTypeSummary(int type) {
+        CharSequence[] entryValues = mUpdateType.getEntryValues();
+        CharSequence[] entries = mUpdateType.getEntries();
+        for (int i = 0; i < entryValues.length; i++) {
+            if (Integer.valueOf(entryValues[i].toString()) == type) {
+                mUpdateType.setSummary(entries[i]);
+            }
+        }
+    }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
+                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
+                : TAPS_TO_BE_A_EXPERIMENTER;
+        mExpHitToast = null;
+    }
+
+    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference.getKey().equals(KEY_MOKEE_VERSION_TYPE)) {
             // Don't enable experimental option for secondary users.
@@ -167,14 +257,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     String MoKeeVersionType = Utils.getMoKeeVersionType();
                     boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
                     if (!isUnofficial) {
-                        setOfficialTypeEntiries();
+                        setExperimentalTypeEntries();
                     } else {
-                        String[] entries = mContext.getResources().getStringArray(
-                                R.array.update_type_entries);
-                        String[] entryValues = mContext.getResources().getStringArray(
-                                R.array.update_type_values);
-                        mUpdateType.setEntries(entries);
-                        mUpdateType.setEntryValues(entryValues);
+                        setAllTypeEntries();
                     }
                 } else if (mExpHitCountdown > 0
                         && mExpHitCountdown < (TAPS_TO_BE_A_EXPERIMENTER - 2)) {
@@ -197,108 +282,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mContext = getActivity();
-        // Load the layouts
-        addPreferencesFromResource(R.xml.mokee_updater);
-        mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
-        mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
-        mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
-        mUpdateAll = (CheckBoxPreference) findPreference(Constants.PREF_ROM_ALL);// 所有更新
-        mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
-        // Load the stored preference data
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-
-        // Restore normal type list
-        String MoKeeVersionType = Utils.getMoKeeVersionType();
-        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
-        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2
-                : 0);
-        if (!isExperimental && type == 2) {
-            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
-                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
-        }
-        if (!isUnofficial && type == 3) {
-            mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
-        }
-
-        if (mUpdateCheck != null) {
-            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
-            mUpdateCheck.setValue(String.valueOf(check));
-            mUpdateCheck.setSummary(mapCheckValue(check));
-            mUpdateCheck.setOnPreferenceChangeListener(this);
-        }
-
-        if (mUpdateType != null) {
-            mUpdateType.setValue(String.valueOf(type));
-            mUpdateType.setSummary(mUpdateType.getEntries()[type]);
-            mUpdateType.setOnPreferenceChangeListener(this);
-            if (!isUnofficial) {
-                setOfficialTypeEntiries();
-            }
-            if (!mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
-                setNormalTypeEntiries();
-            }
-        }
-        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_OTA, true));
-        mUpdateAll.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_ALL, false));
-        mUpdateAll.setOnPreferenceChangeListener(this);
-        mUpdateOTA.setOnPreferenceChangeListener(this);
-        isOTA(mUpdateOTA.isChecked());
-        isRomALl(mUpdateAll.isChecked());
-        setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
-        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE,
-                Utils.getMoKeeVersionTypeString(mContext));
-        updateLastCheckPreference();
-
-        // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
-        final ActionBar bar = mContext.getActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        this.setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
-                : TAPS_TO_BE_A_EXPERIMENTER;
-        mExpHitToast = null;
-    }
-
-    public void setNormalTypeEntiries() {
-        int index = 2;
-        CharSequence[] entries = mUpdateType.getEntries();
-        String[] newEntries = new String[entries.length - 1];
-        System.arraycopy(entries, 0, newEntries, 0, index);
-        System.arraycopy(entries, index + 1, newEntries, index, newEntries.length - index);
-        CharSequence[] entryValues = mUpdateType.getEntryValues();
-        String[] newEntriesValues = new String[entryValues.length - 1];
-        System.arraycopy(entryValues, 0, newEntriesValues, 0, index);
-        System.arraycopy(entryValues, index + 1, newEntriesValues, index, newEntriesValues.length
-                - index);
-        mUpdateType.setEntries(newEntries);
-        mUpdateType.setEntryValues(newEntriesValues);
-    }
-
-    public void setOfficialTypeEntiries() {
-        int index = 3;
-        String[] entries = mContext.getResources().getStringArray(R.array.update_type_entries);
-        String[] newEntries = new String[entries.length - 1];
-        System.arraycopy(entries, 0, newEntries, 0, index);
-        System.arraycopy(entries, index + 1, newEntries, index, newEntries.length - index);
-        String[] entryValues = mContext.getResources().getStringArray(R.array.update_type_values);
-        String[] newEntriesValues = new String[entryValues.length - 1];
-        System.arraycopy(entryValues, 0, newEntriesValues, 0, index);
-        System.arraycopy(entryValues, index + 1, newEntriesValues, index, newEntriesValues.length
-                - index);
-        mUpdateType.setEntries(newEntries);
-        mUpdateType.setEntryValues(newEntriesValues);
     }
 
     public void updateLastCheckPreference() {
@@ -619,26 +602,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     private void updateUpdatesType(int type) {
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
-        mUpdateType.setValue(String.valueOf(type));
-        String MoKeeVersionType = Utils.getMoKeeVersionType();
-        boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
-        boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-        if (type == 3 && !mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
-            mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
-        } else if (type == 4 && !isUnofficial) {
-            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
-                mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
-            } else {
-                mUpdateType.setSummary(mUpdateType.getEntries()[type - 2]);
-            }
-        } else if (type == 4 && isUnofficial) {
-            if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
-
-                mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
-            }
-        } else {
-            mUpdateType.setSummary(mUpdateType.getEntries()[type]);
-        }
+        setUpdateTypeSummary(type);
         checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
     }
 
@@ -896,14 +860,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                                         updateUpdatesType(value);
                                     }
                                 }).setNegativeButton(R.string.dialog_cancel, null).show();
-                return false;
             } else {
                 updateUpdatesType(value);
             }
             return true;
         } else if (preference == mUpdateAll) {
             boolean value = (Boolean) newValue;
-            isRomALl(value);
+            isRomAll(value);
             return true;
         } else if (preference == mUpdateOTA) {
             boolean value = (Boolean) newValue;
@@ -914,7 +877,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         return false;
     }
 
-    private void isRomALl(boolean value) {
+    private void isRomAll(boolean value) {
         if (value) {
             mUpdateAll
                     .setSummary(mContext.getResources().getText(R.string.pref_update_all_summary));
@@ -922,5 +885,41 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             mUpdateAll.setSummary(mContext.getResources().getText(
                     R.string.pref_update_all_new_summary));
         }
+    }
+
+    private void setAllTypeEntries() {
+        String[] entries = mContext.getResources().getStringArray(
+                R.array.update_all_entries);
+        String[] entryValues = mContext.getResources().getStringArray(
+                R.array.update_all_values);
+        mUpdateType.setEntries(entries);
+        mUpdateType.setEntryValues(entryValues);
+    }
+
+    private void setNormalTypeEntries() {
+        String[] entries = mContext.getResources().getStringArray(
+                R.array.update_normal_entries);
+        String[] entryValues = mContext.getResources().getStringArray(
+                R.array.update_normal_values);
+        mUpdateType.setEntries(entries);
+        mUpdateType.setEntryValues(entryValues);
+    }
+
+    private void setExperimentalTypeEntries() {
+        String[] entries = mContext.getResources().getStringArray(
+                R.array.update_experimental_entries);
+        String[] entryValues = mContext.getResources().getStringArray(
+                R.array.update_experimental_values);
+        mUpdateType.setEntries(entries);
+        mUpdateType.setEntryValues(entryValues);
+    }
+
+    private void setUnofficialTypeEntries() {
+        String[] entries = mContext.getResources().getStringArray(
+                R.array.update_unofficial_entries);
+        String[] entryValues = mContext.getResources().getStringArray(
+                R.array.update_unofficial_values);
+        mUpdateType.setEntries(entries);
+        mUpdateType.setEntryValues(entryValues);
     }
 }

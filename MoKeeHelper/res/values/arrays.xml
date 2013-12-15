@@ -38,22 +38,6 @@
         <item>2419200</item>
     </string-array>
 
-    <string-array name="update_type_entries" translatable="false">
-        <item>@string/mokee_version_type_release</item>
-        <item>@string/mokee_version_type_nightly</item>
-        <item>@string/mokee_version_type_experimental</item>
-        <item>@string/mokee_version_type_unofficial</item>
-        <item>@string/mokee_version_type_all</item>
-    </string-array>
-
-    <string-array name="update_type_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <plurals name="not_new_updates_found_body">
         <item quantity="one"><xliff:g id="count">%d</xliff:g> update available for download</item>
         <item quantity="other"><xliff:g id="count">%d</xliff:g> updates available for download</item>
