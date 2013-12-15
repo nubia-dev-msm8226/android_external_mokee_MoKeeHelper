@@ -188,15 +188,15 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             mUpdateType.setOnPreferenceChangeListener(this);
             if (!isUnofficial) {
                 if (experimentalShow) {
-                    setExperimentalTypeEntries();   
+                    setExperimentalTypeEntries();
                 } else {
-                    setNormalTypeEntries();   
+                    setNormalTypeEntries();
                 }
             } else {
                 if (experimentalShow) {
-                    setAllTypeEntries();   
+                    setAllTypeEntries();
                 } else {
-                    setUnofficialTypeEntries();   
+                    setUnofficialTypeEntries();
                 }
             }
             setUpdateTypeSummary(type);
@@ -227,7 +227,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
         }
     }
-    
+
     @Override
     public void onResume() {
         super.onResume();
