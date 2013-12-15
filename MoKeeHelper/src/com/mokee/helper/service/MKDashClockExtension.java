@@ -67,8 +67,8 @@ public class MKDashClockExtension extends DashClockExtension {
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName(), false));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName(), false));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }

@@ -269,16 +269,33 @@ public class Utils {
      * @param name
      * @return
      */
-    public static String subBuildDate(String name) {
+    public static String subBuildDate(String name, boolean someVersion) {
         String[] strs = name.split("-");
         String date = strs[2];
         if (date.startsWith("20")) {
             date = date.substring(2, date.length());
         }
-        if (date.length() > 6) {
-            date = date.substring(0, 6);
+        if (!someVersion) {
+            if (date.length() > 6) {
+                date = date.substring(0, 6);
+            }
         }
         return date;
+    }
+
+    /**
+     * 截取日期长度
+     * 
+     * @param name
+     * @return
+     */
+    public static int getBuildDateLength(String name) {
+        String[] strs = name.split("-");
+        String date = strs[2];
+        if (date.startsWith("20")) {
+            date = date.substring(2, date.length());
+        }
+        return date.length();
     }
 
     /**
@@ -301,9 +318,12 @@ public class Utils {
      * @return
      */
     public static boolean isNewVersion(String itemName) {
-        int nowDate = Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion()));
+        int nowDateLength = getBuildDateLength(Utils.getInstalledVersion());
+        int itemDateLength = getBuildDateLength(itemName);
+        boolean someVersion = (nowDateLength == itemDateLength);
+        int nowDate = Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), someVersion));
+        int itemDate = Integer.valueOf(Utils.subBuildDate(itemName, someVersion));
         float nowVersion = Float.valueOf(Utils.subMoKeeVersion(Utils.getInstalledVersion()));
-        int itemDate = Integer.valueOf(Utils.subBuildDate(itemName));
         float itemVersion = Float.valueOf(Utils.subMoKeeVersion(itemName));
         return (itemDate > nowDate & itemVersion >= nowVersion);
     }
