@@ -15,6 +15,7 @@ import android.os.Message;
 import android.provider.ContactsContract.CommonDataKinds.Note;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.text.format.DateUtils;
 import android.widget.Toast;
 
 import com.mokee.helper.MoKeeApplication;
@@ -65,7 +66,7 @@ public class DownLoadService extends IntentService {
 
         return super.onStartCommand(action, flags, startId);
     }
-    
+
     @Override
     protected void onHandleIntent(Intent action) {
         if (action != null && ACTION_DOWNLOAD.equals(action.getAction())) {
@@ -80,7 +81,8 @@ public class DownLoadService extends IntentService {
                     notificationIDBase++;
                     downloader = downloaders.get(url);
                     if (downloader == null) {
-                        downloader = new DownLoader(url, filePath, 4, handler,System.currentTimeMillis());
+                        downloader = new DownLoader(url, filePath, 4, handler,
+                                System.currentTimeMillis());
                         downloaders.put(url, downloader);
                         if (!DownLoadDao.getInstance().isHasInfos(url)) {
                             // 初次添加,初始状态
@@ -98,7 +100,10 @@ public class DownLoadService extends IntentService {
                     DownLoadInfo loadInfo = downloader.getDownLoadInfo();
                     if (loadInfo != null) {
                         if (!notifications.containsKey(downloader.getNotificationID())) {
-                            addNotification(notificationIDBase,flag==Constants.INTENT_FLAG_GET_UPDATE?R.string.mokee_updater_title:R.string.mokee_extras_title);
+                            addNotification(
+                                    notificationIDBase,
+                                    flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.mokee_updater_title
+                                            : R.string.mokee_extras_title);
                             downloader.setNotificationID(notificationIDBase);
                         }
                         // 开始下载
@@ -127,17 +132,19 @@ public class DownLoadService extends IntentService {
         }
 
     }
+
     /**
      * 添加通知
+     * 
      * @param id
      * @param title
      */
     private void addNotification(int id, int title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
-        builder.setContentText(getString(R.string.download_running,0,""));
+        builder.setContentText(getString(R.string.download_running));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
-        /* 设置点击消息时，显示的界面 */ 
+        /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent();
         nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         TaskStackBuilder task = TaskStackBuilder.create(this);
@@ -147,6 +154,7 @@ public class DownLoadService extends IntentService {
         builder.setProgress(100, 0, false);
         builder.setAutoCancel(true);
         builder.setTicker(getString(title));
+        builder.setOngoing(true);
         notifications.put(id, builder);
         // Notification not = builder.build();
         // not.flags = Notification.FLAG_NO_CLEAR;
@@ -155,14 +163,17 @@ public class DownLoadService extends IntentService {
 
     /**
      * 定时更新通知进度
+     * 
      * @param id
      * @param progress
      */
-    private void updateNotification(int id, int progress,long time) {
-        if(!notifications.containsKey(id))
+    private void updateNotification(int id, int progress, long time) {
+        if (!notifications.containsKey(id))
             return;
         NotificationCompat.Builder notification = notifications.get(id);
-        notification.setContentText(getString(R.string.download_running, progress,Utils.formetOverTime(time)));
+        notification.setContentText(getString(R.string.download_remaining,
+                DateUtils.formatDuration(time)));
+        notification.setContentInfo(String.valueOf(progress) + "%");
         notification.setProgress(100, progress, false);
         manager.notify(id, notification.build());
     }
@@ -177,26 +188,26 @@ public class DownLoadService extends IntentService {
                     url = (String) msg.obj;
                     di = downloaders.get(url);
                     long allDownSize;
-                    if(di.downloadedSize!=0)//除去已緩存
+                    if (di.downloadedSize != 0)// 除去已緩存
                     {
-                        allDownSize=di.allDownSize-di.downloadedSize;
+                        allDownSize = di.allDownSize - di.downloadedSize;
                     }
-                    else{
-                        allDownSize=di.allDownSize;
+                    else {
+                        allDownSize = di.allDownSize;
                     }
-                    long endtDown=System.currentTimeMillis()-di.getStartDown();
-                    long shengyu=di.getFileSize()-di.allDownSize;
-                    long time=0;
-                    if(shengyu>0)
+                    long endtDown = System.currentTimeMillis() - di.getStartDown();
+                    long shengyu = di.getFileSize() - di.allDownSize;
+                    long time = 0;
+                    if (shengyu > 0)
                     {
-                        long meimiao=(allDownSize/endtDown);
-                         time=(shengyu/meimiao);
+                        long meimiao = (allDownSize / endtDown);
+                        time = (shengyu / meimiao);
                     }
                     if (di.allDownSize > 0 && di.getFileSize() > 0) {
                         updateNotification(
                                 msg.arg2,
                                 Integer.valueOf(String.valueOf(di.allDownSize * 100
-                                        / di.getFileSize())),time);
+                                        / di.getFileSize())), time);
                     }
                     break;
                 default:
@@ -225,5 +236,4 @@ public class DownLoadService extends IntentService {
         }
     });
 
-   
 }

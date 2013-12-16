@@ -51,7 +51,7 @@ public class DownLoader {
     private int state = STATUS_PENDING;
     private int notificationID = -1;// 存储对应通知ID;
     public long allDownSize = 0;// 总体下载大小
-    public long downloadedSize=0;
+    public long downloadedSize = 0;
     private int endThreadNum = 0;
     private long startDown;
 
@@ -121,7 +121,7 @@ public class DownLoader {
                 for (ThreadDownLoadInfo info : downInfoList) {
                     complete += info.getDownSize();
                     allDownSize += info.getDownSize();
-                    downloadedSize+=info.getDownSize();
+                    downloadedSize += info.getDownSize();
                     size += info.getEndPos() - info.getStartPos() + 1;
                 }
                 return new DownLoadInfo(size, complete, fileUrl);
@@ -173,11 +173,11 @@ public class DownLoader {
      * 判断是否是第一次 下载
      */
     private boolean isFirst(String fileUrl) {
-            if(ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) || !new File(localfile).exists())
-            {
-                ThreadDownLoadDao.getInstance().delete(fileUrl);//清理未完成线程记录
-                return true;
-            }
+        if (ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) || !new File(localfile).exists())
+        {
+            ThreadDownLoadDao.getInstance().delete(fileUrl);// 清理未完成线程记录
+            return true;
+        }
         return false;
     }
 
