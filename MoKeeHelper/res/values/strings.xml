@@ -39,14 +39,14 @@
     <string name="mokee_statistics_summary">View MoKee Statistics</string>
     <string name="mokee_changelog_title">MoKee Changelog</string>
     <string name="mokee_changelog_summary">View MoKee Changelog List</string>
-    <string name="mokee_review_title">MoKee Gerrit</string>
-    <string name="mokee_review_summary">Visit the MoKee Gerrit</string>
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit the MoKee Github</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
     <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_contributor_title">MoKee Contributors</string>
     <string name="mokee_contributor_summary">View MoKee Contributors List</string>
+    <string name="mokee_donate_title">Donate MoKee</string>
+    <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
 
     <!-- Base Info -->
     <string name="mokee_version_info_title">Version Info</string>

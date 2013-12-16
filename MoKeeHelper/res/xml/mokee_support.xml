@@ -39,10 +39,6 @@
         android:summary="@string/mokee_changelog_summary"
         android:title="@string/mokee_changelog_title" />
     <PreferenceScreen
-        android:key="mokee_review"
-        android:summary="@string/mokee_review_summary"
-        android:title="@string/mokee_review_title" />
-    <PreferenceScreen
         android:key="mokee_github"
         android:summary="@string/mokee_github_summary"
         android:title="@string/mokee_github_title" />
@@ -54,5 +50,9 @@
         android:key="mokee_contributor"
         android:summary="@string/mokee_contributor_summary"
         android:title="@string/mokee_contributor_title" />
+    <PreferenceScreen
+        android:key="mokee_donate"
+        android:summary="@string/mokee_donate_summary"
+        android:title="@string/mokee_donate_title" />
 
 </PreferenceScreen>
