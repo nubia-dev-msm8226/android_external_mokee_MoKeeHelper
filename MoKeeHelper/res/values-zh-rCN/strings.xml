@@ -120,7 +120,7 @@
     <!-- Downloads -->
     <string name="confirm_download_cancelation_dialog_title">取消下载</string>
     <string name="confirm_download_cancelation_dialog_message">取消当前的下载？</string>
-    <string name="download_running">正在下载 %d</string>
+    <string name="download_running">正在下载:%1$d%% 剩余时间:%2$s</string>
     <string name="download_cancelled">下载已取消</string>
     <string name="download_already_running">已有一个正在运行的下载</string>
     <string name="unable_to_download_file">无法下载更新</string>
@@ -171,5 +171,5 @@
     <!-- experimenter mode -->
     <string name="show_exp_on" msgid="1110711554982716293">您现在处于测试者模式！</string>
     <string name="show_exp_already" msgid="2151632240145446227">您已处于测试者模式，无需进行此操作。</string>
-
+	
 </resources>

@@ -20,8 +20,10 @@ import android.widget.Toast;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
+import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.utils.DownLoader;
+import com.mokee.helper.utils.Utils;
 import com.mokee.helper.R;
 
 public class DownLoadService extends IntentService {
@@ -78,7 +80,7 @@ public class DownLoadService extends IntentService {
                     notificationIDBase++;
                     downloader = downloaders.get(url);
                     if (downloader == null) {
-                        downloader = new DownLoader(url, filePath, 4, handler);
+                        downloader = new DownLoader(url, filePath, 4, handler,System.currentTimeMillis());
                         downloaders.put(url, downloader);
                         if (!DownLoadDao.getInstance().isHasInfos(url)) {
                             // 初次添加,初始状态
@@ -96,7 +98,7 @@ public class DownLoadService extends IntentService {
                     DownLoadInfo loadInfo = downloader.getDownLoadInfo();
                     if (loadInfo != null) {
                         if (!notifications.containsKey(downloader.getNotificationID())) {
-                            addNotification(notificationIDBase, R.string.mokee_updater_title);
+                            addNotification(notificationIDBase,flag==Constants.INTENT_FLAG_GET_UPDATE?R.string.mokee_updater_title:R.string.mokee_extras_title);
                             downloader.setNotificationID(notificationIDBase);
                         }
                         // 开始下载
@@ -133,9 +135,9 @@ public class DownLoadService extends IntentService {
     private void addNotification(int id, int title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
-        builder.setContentText(getString(R.string.download_running, 0) + "%");
+        builder.setContentText(getString(R.string.download_running,0,""));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
-        /* 设置点击消息时，显示的界面 */
+        /* 设置点击消息时，显示的界面 */ 
         Intent nextIntent = new Intent();
         nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         TaskStackBuilder task = TaskStackBuilder.create(this);
@@ -156,11 +158,11 @@ public class DownLoadService extends IntentService {
      * @param id
      * @param progress
      */
-    private void updateNotification(int id, int progress) {
+    private void updateNotification(int id, int progress,long time) {
         if(!notifications.containsKey(id))
             return;
         NotificationCompat.Builder notification = notifications.get(id);
-        notification.setContentText(getString(R.string.download_running, progress) + "%");
+        notification.setContentText(getString(R.string.download_running, progress,Utils.formetOverTime(time)));
         notification.setProgress(100, progress, false);
         manager.notify(id, notification.build());
     }
@@ -174,43 +176,29 @@ public class DownLoadService extends IntentService {
                 case DownLoader.STATUS_DOWNLOADING:// 更新通知
                     url = (String) msg.obj;
                     di = downloaders.get(url);
-                    if (di.allDownSize > 0 & di.getFileSize() > 0) {
+                    long allDownSize;
+                    if(di.downloadedSize!=0)//除去已緩存
+                    {
+                        allDownSize=di.allDownSize-di.downloadedSize;
+                    }
+                    else{
+                        allDownSize=di.allDownSize;
+                    }
+                    long endtDown=System.currentTimeMillis()-di.getStartDown();
+                    long shengyu=di.getFileSize()-di.allDownSize;
+                    long time=0;
+                    if(shengyu>0)
+                    {
+                        long meimiao=(allDownSize/endtDown);
+                         time=(shengyu/meimiao);
+                    }
+                    if (di.allDownSize > 0 && di.getFileSize() > 0) {
                         updateNotification(
                                 msg.arg2,
                                 Integer.valueOf(String.valueOf(di.allDownSize * 100
-                                        / di.getFileSize())));
+                                        / di.getFileSize())),time);
                     }
                     break;
-
-                // case DownLoader.STATUS_ERROR:// 下载错误
-                // Toast.makeText(MoKeeApplication.getContext(), "下载失败,请重试",
-                // Toast.LENGTH_SHORT).show();
-                // url = (String) msg.obj;// 暂时不处理错误
-                // di = downloaders.get(url);
-                // manager.cancel(di.getNotificationID());
-                // di.delete(url);
-                // DownLoadDao.getInstance().updataState(url,
-                // DownLoader.STATUS_ERROR);
-                // // di.reset();
-                // downloaders.remove(msg.obj);
-                // break;
-                // case DownLoader.STATUS_COMPLETE:// 完成任务
-                // Toast.makeText(MoKeeApplication.getContext(), "下载完成",
-                // Toast.LENGTH_SHORT).show();
-                // url = (String) msg.obj;
-                // di = downloaders.get(url);
-                // manager.cancel(di.getNotificationID());// 清除通知
-                // di.delete(url);
-                // DownLoadDao.getInstance().updataState(url,
-                // DownLoader.STATUS_COMPLETE);
-                //
-                // // di.reset();
-                // downloaders.remove(msg.obj);
-                // if (downloaders.size() == 0)
-                // {
-                // stopSelf();
-                // }
-                // break;
                 default:
                     url = (String) msg.obj;
                     di = downloaders.get(url);

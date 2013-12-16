@@ -51,13 +51,21 @@ public class DownLoader {
     private int state = STATUS_PENDING;
     private int notificationID = -1;// 存储对应通知ID;
     public long allDownSize = 0;// 总体下载大小
+    public long downloadedSize=0;
     private int endThreadNum = 0;
+    private long startDown;
 
-    public DownLoader(String fileUrl, String localfile, int threadcount, Handler mHandler) {
+    public DownLoader(String fileUrl, String localfile, int threadcount, Handler mHandler,
+            long startDown) {
         this.fileUrl = fileUrl;
         this.localfile = localfile;
         this.threadCount = threadcount;
         this.mHandler = mHandler;
+        this.startDown = startDown;
+    }
+
+    public long getStartDown() {
+        return startDown;
     }
 
     public int getNotificationID() {
@@ -113,6 +121,7 @@ public class DownLoader {
                 for (ThreadDownLoadInfo info : downInfoList) {
                     complete += info.getDownSize();
                     allDownSize += info.getDownSize();
+                    downloadedSize+=info.getDownSize();
                     size += info.getEndPos() - info.getStartPos() + 1;
                 }
                 return new DownLoadInfo(size, complete, fileUrl);
@@ -164,7 +173,12 @@ public class DownLoader {
      * 判断是否是第一次 下载
      */
     private boolean isFirst(String fileUrl) {
-        return ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) || !new File(localfile).exists();// 防止暂停时未下完文件被删除
+            if(ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) || !new File(localfile).exists())
+            {
+                ThreadDownLoadDao.getInstance().delete(fileUrl);//清理未完成线程记录
+                return true;
+            }
+        return false;
     }
 
     /**

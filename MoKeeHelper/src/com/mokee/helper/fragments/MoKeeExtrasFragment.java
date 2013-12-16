@@ -224,7 +224,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     }
                     break;
                 case DownLoader.STATUS_ERROR:
-                    mDownloadingPreference.setStyle(ItemPreference.STYLE_NEW);
+                    mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
                     resetDownloadState();
                     break;
             }
@@ -515,7 +515,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     @Override
     public void onStopDownload(final ItemPreference pref) {
         if (!mDownloading || mFileName == null || mDownloadId < 0) {
-            pref.setStyle(ItemPreference.STYLE_NEW);
+            pref.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
             resetDownloadState();
             return;
         }
@@ -526,7 +526,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        pref.setStyle(ItemPreference.STYLE_NEW);
+                        pref.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
 
                         // We are OK to stop download, trigger it
                         Intent intent = new Intent(mContext, DownLoadService.class);

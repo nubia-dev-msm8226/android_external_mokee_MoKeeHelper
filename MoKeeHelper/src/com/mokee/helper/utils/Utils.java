@@ -386,4 +386,31 @@ public class Utils {
         }
         return false;
     }
+
+    /**
+     * 格式化剩余时间
+     * 
+     * @param time
+     * @return
+     */
+    public static String formetOverTime(long time) {
+        String result = "";
+        if (time > 0) {
+            long second = time / 1000;
+            long day = second / 60 / 60 / 24;
+            long hour = second / 60 / 60;
+            long minute = second / 60;
+            if (day > 1) {
+                result = day + "d";
+            } else if (hour > 1) {
+                result = hour + "h";
+            } else if (minute > 1) {
+                result = minute + "m";
+            } else {
+                result = second + "s";
+            }
+        }
+
+        return result;
+    }
 }
