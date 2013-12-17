@@ -118,29 +118,10 @@ public class DownloadReceiver extends BroadcastReceiver {
         // Build the name of the file to download, adding .partial at the end.
         // It will get
         // stripped off when the download completes
-        // String fullFilePath = "file://" + directory.getAbsolutePath() + "/" +
-        // ui.getName() + ".partial";
         String fullFilePath = directory.getAbsolutePath() + "/" + ui.getName() + ".partial";
 
         DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(ui.getRom());
-        // Request request = new Request(Uri.parse(ui.getRom()));
-        // String userAgent = Utils.getUserAgentString(context);
-        // if (userAgent != null) {
-        // request.addRequestHeader("User-Agent", userAgent);
-        // }
-        // request.addRequestHeader("Cache-Control", "no-cache");
-        //
-        // request.setTitle(context.getString(R.string.mokee_updater_title));
-        // request.setDestinationUri(Uri.parse(fullFilePath));
-        // request.setAllowedOverRoaming(false);
-        // request.setVisibleInDownloadsUi(false);
-        //
-        // // TODO: this could/should be made configurable
-        // request.setAllowedOverMetered(true);
-        //
-        // // Start the download
-        // final DownloadManager dm = (DownloadManager) context
-        // .getSystemService(Context.DOWNLOAD_SERVICE);
+      
         long downloadId;
         if (dli != null) {
             downloadId = Long.valueOf(dli.getDownID());

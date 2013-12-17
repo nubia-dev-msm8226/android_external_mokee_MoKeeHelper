@@ -196,12 +196,12 @@ public class DownLoadService extends IntentService {
                         allDownSize = di.allDownSize;
                     }
                     long endtDown = System.currentTimeMillis() - di.getStartDown();
-                    long shengyu = di.getFileSize() - di.allDownSize;
+                    long surplusSize = di.getFileSize() - di.allDownSize;
                     long time = 0;
-                    if (shengyu > 0)
+                    if (surplusSize > 0)
                     {
-                        long meimiao = (allDownSize / endtDown);
-                        time = (shengyu / meimiao);
+                        long speed = (allDownSize / endtDown);
+                        time = (surplusSize / speed);
                     }
                     if (di.allDownSize > 0 && di.getFileSize() > 0) {
                         updateNotification(
