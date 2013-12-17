@@ -108,6 +108,7 @@ public class DownLoader {
                 downInfoList.add(info);
                 ThreadDownLoadDao.getInstance().saveInfos(downInfoList);
                 allDownSize = 0;
+                downloadedSize = 0;
                 DownLoadInfo loadInfo = new DownLoadInfo(fileSize, 0, fileUrl);
                 return loadInfo;
             } else {
@@ -118,6 +119,7 @@ public class DownLoader {
                 int complete = 0;
                 fileSize = DownLoadDao.getInstance().getDownLoadInfoByUrl(fileUrl).getFileSize();
                 allDownSize = 0;
+                downloadedSize = 0;
                 for (ThreadDownLoadInfo info : downInfoList) {
                     complete += info.getDownSize();
                     allDownSize += info.getDownSize();
