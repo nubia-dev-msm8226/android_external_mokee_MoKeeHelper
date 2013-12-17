@@ -35,7 +35,7 @@ import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.ThreadDownLoadInfo;
 
 public class DownLoader {
-    private String fileUrl;// 下载的地址
+    public String fileUrl;// 下载的地址
     private String localfile;// 保存路径
     private int threadCount;// 线程数
     private Handler mHandler;
@@ -295,10 +295,16 @@ public class DownLoader {
      * @param url
      * @param length
      */
-    private void sendMsg(int msgID, String url, int length) {
+    private synchronized void sendMsg(int msgID, String url, int length) {
         Message msg = Message.obtain();
+        if(msgID==STATUS_DOWNLOADING)
+        {
+            msg.obj = url;
+        }
+        else{
+            msg.obj = this;
+        }
         msg.what = msgID;
-        msg.obj = url;
         msg.arg1 = length;
         msg.arg2 = getNotificationID();
         mHandler.sendMessage(msg);
@@ -307,10 +313,25 @@ public class DownLoader {
     /**
      * 判断线程是否全部完成
      */
-    public void isOver() {
+    public synchronized void isOver() {
         endThreadNum++;
         if (endThreadNum == threadCount && allDownSize == fileSize) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
+        else if(endThreadNum == threadCount && allDownSize != fileSize){
+            ThreadDownLoadDao.getInstance().delete(fileUrl);
+            sendMsg(STATUS_ERROR, fileUrl, 0);
+        }
     }
+
+    @Override
+    public String toString() {
+        return "DownLoader [fileUrl=" + fileUrl + ", localfile=" + localfile + ", threadCount="
+                + threadCount + ", mHandler=" + mHandler + ", fileSize=" + fileSize
+                + ", downInfoList=" + downInfoList + ", state=" + state + ", notificationID="
+                + notificationID + ", allDownSize=" + allDownSize + ", downloadedSize="
+                + downloadedSize + ", endThreadNum=" + endThreadNum + ", startDown=" + startDown
+                + "]";
+    }
+    
 }

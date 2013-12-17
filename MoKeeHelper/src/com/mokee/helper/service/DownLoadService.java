@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.UserHandle;
 import android.provider.ContactsContract.CommonDataKinds.Note;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -116,6 +117,7 @@ public class DownLoadService extends IntentService {
                         downloader.pause();
                         manager.cancel(downloader.getNotificationID());
                         notifications.remove(downloader.getNotificationID());
+                        downloaders.remove(url);
                     }
                     break;
             // case DELETE:
@@ -187,46 +189,56 @@ public class DownLoadService extends IntentService {
                 case DownLoader.STATUS_DOWNLOADING:// 更新通知
                     url = (String) msg.obj;
                     di = downloaders.get(url);
-                    long allDownSize;
-                    if (di.downloadedSize != 0)// 除去已緩存
-                    {
-                        allDownSize = di.allDownSize - di.downloadedSize;
-                    }
-                    else {
-                        allDownSize = di.allDownSize;
-                    }
-                    long endtDown = System.currentTimeMillis() - di.getStartDown();
-                    long surplusSize = di.getFileSize() - di.allDownSize;
                     long time = 0;
-                    if (surplusSize > 0)
-                    {
-                        long speed = (allDownSize / endtDown);
-                        time = (surplusSize / speed);
+                    try {
+                        long allDownSize;
+                        if (di.downloadedSize != 0)// 除去已緩存
+                        {
+                            allDownSize = di.allDownSize - di.downloadedSize;
+                        } else {
+                            allDownSize = di.allDownSize;
+                        }
+                        long endtDown = System.currentTimeMillis() - di.getStartDown();// 时间
+                        long surplusSize = di.getFileSize() - di.allDownSize;
+                        
+                        if (surplusSize > 0 && allDownSize > 0) {
+                            long speed = (allDownSize / endtDown);
+                            if(speed>0)
+                            {
+                                time = (surplusSize / speed);
+                            }
+                        }
+                        if (di.allDownSize > 0 && di.getFileSize() > 0) {
+                            updateNotification(
+                                    msg.arg2,
+                                    Integer.valueOf(String.valueOf(di.allDownSize * 100
+                                            / di.getFileSize())), time);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    if (di.allDownSize > 0 && di.getFileSize() > 0) {
-                        updateNotification(
-                                msg.arg2,
-                                Integer.valueOf(String.valueOf(di.allDownSize * 100
-                                        / di.getFileSize())), time);
-                    }
+                    
                     break;
                 default:
-                    url = (String) msg.obj;
-                    di = downloaders.get(url);
+                      di = (DownLoader) msg.obj;
+                      url=di.fileUrl;
+//                    di = downloaders.get(url);
                     if (notifications.containsKey(di.getNotificationID())) {
+                        
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());
                     }
                     di.delete(url);
                     DownLoadDao.getInstance().updataState(url, msg.what);
                     // di.reset();
-                    downloaders.remove(msg.obj);
+                   // downloaders.remove(msg.obj);
                     DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
                     Intent intent = new Intent();
                     intent.setAction(ACTION_DOWNLOAD_COMPLETE);
                     intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
                     intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
-                    sendBroadcast(intent);
+                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
+                    di=null;
                     if (downloaders.size() == 0) {
                         stopSelf();
                     }
