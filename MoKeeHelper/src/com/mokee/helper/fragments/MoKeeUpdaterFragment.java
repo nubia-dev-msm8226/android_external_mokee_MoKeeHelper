@@ -860,6 +860,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                                         updateUpdatesType(value);
                                     }
                                 }).setNegativeButton(R.string.dialog_cancel, null).show();
+                return false;
             } else {
                 updateUpdatesType(value);
             }
