@@ -224,9 +224,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         for (int i = 0; i < entryValues.length; i++) {
             if (Integer.valueOf(entryValues[i].toString()) == type) {
                 mUpdateType.setSummary(entries[i]);
-                mUpdateType.setValue(String.valueOf(i));
             }
         }
+        mUpdateType.setValue(String.valueOf(type));
     }
 
     @Override

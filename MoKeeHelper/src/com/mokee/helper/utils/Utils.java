@@ -326,7 +326,7 @@ public class Utils {
         int itemDate = Integer.valueOf(Utils.subBuildDate(itemName, someVersion));
         float nowVersion = Float.valueOf(Utils.subMoKeeVersion(Utils.getInstalledVersion()));
         float itemVersion = Float.valueOf(Utils.subMoKeeVersion(itemName));
-        return (itemDate > nowDate & itemVersion >= nowVersion);
+        return (itemDate > nowDate && itemVersion >= nowVersion);
     }
 
     public static void setSummaryFromString(PreferenceFragment prefFragment, String preference,
