@@ -34,7 +34,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.mokee.util.MoKeeUtils;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
@@ -294,7 +294,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setText(mItemInfo.getName());
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
-            mFileSizeText.setText(mItemInfo.getLength()!=null?Utils.formetFileSize(Long.valueOf(mItemInfo.getLength())):"");
+            mFileSizeText.setText(mItemInfo.getLength()!=null?MoKeeUtils.formetFileSize(Long.valueOf(mItemInfo.getLength())):"");
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
             showStyle();
