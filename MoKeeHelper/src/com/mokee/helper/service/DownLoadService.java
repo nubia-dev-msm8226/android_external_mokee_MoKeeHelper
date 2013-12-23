@@ -82,7 +82,7 @@ public class DownLoadService extends IntentService {
                     notificationIDBase++;
                     downloader = downloaders.get(url);
                     if (downloader == null) {
-                        downloader = new DownLoader(url, filePath, 4, handler,
+                        downloader = new DownLoader(url, filePath, 10, handler,
                                 System.currentTimeMillis());
                         downloaders.put(url, downloader);
                         if (!DownLoadDao.getInstance().isHasInfos(url)) {
