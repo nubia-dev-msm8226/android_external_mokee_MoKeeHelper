@@ -42,6 +42,7 @@ import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
+import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.ItemInfo;
@@ -212,10 +213,11 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                         failureMessageResId = R.string.md5_verification_failed;
                     }
+                    //delete thread info
+                    ThreadDownLoadDao.getInstance().delete(dli.getUrl());
                 } else if (status == DownLoader.STATUS_ERROR) {
                     // The download failed, reset
                     // dm.remove(id);
-
                     failureMessageResId = R.string.unable_to_download_file;
                 }
 

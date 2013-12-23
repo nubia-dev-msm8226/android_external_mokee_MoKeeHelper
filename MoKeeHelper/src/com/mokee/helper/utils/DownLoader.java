@@ -36,7 +36,7 @@ import com.mokee.helper.misc.ThreadDownLoadInfo;
 
 public class DownLoader {
     public String fileUrl;// 下载的地址
-    private String localfile;// 保存路径
+    private String localFile;// 保存路径
     private int threadCount;// 线程数
     private Handler mHandler;
     private long fileSize;// 所要下载的文件的大小
@@ -58,7 +58,7 @@ public class DownLoader {
     public DownLoader(String fileUrl, String localfile, int threadcount, Handler mHandler,
             long startDown) {
         this.fileUrl = fileUrl;
-        this.localfile = localfile;
+        this.localFile = localfile;
         this.threadCount = threadcount;
         this.mHandler = mHandler;
         this.startDown = startDown;
@@ -93,7 +93,7 @@ public class DownLoader {
         if (Utils.isNetworkAvailable())// 执行时简单判断网络状态
         {
             if (isFirst(fileUrl)) {
-                if (!init()) {
+                if (!init()) {//judge init is success
                     return null;
                 }
                 long range = fileSize / threadCount;
@@ -148,7 +148,7 @@ public class DownLoader {
             connection.disconnect();
             if (fileSize > 0) {
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
-                File file = new File(localfile);
+                File file = new File(localFile);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
@@ -175,7 +175,7 @@ public class DownLoader {
      * 判断是否是第一次 下载
      */
     private boolean isFirst(String fileUrl) {
-        if (ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) || !new File(localfile).exists())
+        if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
         {
             ThreadDownLoadDao.getInstance().delete(fileUrl);// 清理未完成线程记录
             return true;
@@ -233,7 +233,7 @@ public class DownLoader {
                     connection.setRequestProperty("Range", "bytes=" + (startPos + downSize) + "-"
                             + endPos);
                     // 随机存储
-                    randomAccessFile = new RandomAccessFile(localfile, "rwd");
+                    randomAccessFile = new RandomAccessFile(localFile, "rwd");
                     randomAccessFile.seek(startPos + downSize);
                     is = connection.getInputStream();
                     byte[] buffer = new byte[4096];
@@ -318,7 +318,7 @@ public class DownLoader {
         if (endThreadNum == threadCount && allDownSize == fileSize) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
-        else if(endThreadNum == threadCount && allDownSize != fileSize){
+        else if(endThreadNum == threadCount && allDownSize != fileSize){//maybe thread info error then delete
             ThreadDownLoadDao.getInstance().delete(fileUrl);
             sendMsg(STATUS_ERROR, fileUrl, 0);
         }
@@ -326,7 +326,7 @@ public class DownLoader {
 
     @Override
     public String toString() {
-        return "DownLoader [fileUrl=" + fileUrl + ", localfile=" + localfile + ", threadCount="
+        return "DownLoader [fileUrl=" + fileUrl + ", localfile=" + localFile + ", threadCount="
                 + threadCount + ", mHandler=" + mHandler + ", fileSize=" + fileSize
                 + ", downInfoList=" + downInfoList + ", state=" + state + ", notificationID="
                 + notificationID + ", allDownSize=" + allDownSize + ", downloadedSize="

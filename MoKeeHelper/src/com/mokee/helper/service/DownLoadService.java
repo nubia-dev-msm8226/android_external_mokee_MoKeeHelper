@@ -86,7 +86,7 @@ public class DownLoadService extends IntentService {
                                 System.currentTimeMillis());
                         downloaders.put(url, downloader);
                         if (!DownLoadDao.getInstance().isHasInfos(url)) {
-                            // 初次添加,初始状态
+                            // init
                             DownLoadDao.getInstance().saveInfo(
                                     new DownLoadInfo(url, flag, String.valueOf(download_id),
                                             filePath, filePath.substring(
@@ -222,16 +222,12 @@ public class DownLoadService extends IntentService {
                 default:
                       di = (DownLoader) msg.obj;
                       url=di.fileUrl;
-//                    di = downloaders.get(url);
                     if (notifications.containsKey(di.getNotificationID())) {
                         
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());
                     }
-                    di.delete(url);
                     DownLoadDao.getInstance().updataState(url, msg.what);
-                    // di.reset();
-                   // downloaders.remove(msg.obj);
                     DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
                     Intent intent = new Intent();
                     intent.setAction(ACTION_DOWNLOAD_COMPLETE);
