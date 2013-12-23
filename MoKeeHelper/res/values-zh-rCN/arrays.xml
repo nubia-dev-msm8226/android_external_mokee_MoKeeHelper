@@ -24,6 +24,7 @@
     </plurals>
 
     <plurals name="not_additional_count">
+        <item quantity="one">+ <xliff:g id="count">%d</xliff:g> 个</item>
         <item quantity="other">+ <xliff:g id="count">%d</xliff:g> 个</item>
     </plurals>
 
