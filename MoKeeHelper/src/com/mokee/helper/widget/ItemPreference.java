@@ -318,7 +318,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_cancel);
                 mUpdatesButton.setEnabled(true);
                 mProgressBar.setVisibility(View.VISIBLE);
-                mSummaryText.setVisibility(View.GONE);
+                //mSummaryText.setVisibility(View.INVISIBLE);
                 break;
 
             case STYLE_INSTALLED:
