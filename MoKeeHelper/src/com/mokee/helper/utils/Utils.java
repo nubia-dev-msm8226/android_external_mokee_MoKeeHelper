@@ -273,17 +273,25 @@ public class Utils {
     public static String subBuildDate(String name, boolean someVersion) {
         String[] strs = name.split("-");
         String date = strs[2];
-        if (date.startsWith("20")) {
-            date = date.substring(2, date.length());
-        }
-        if (!someVersion) {
-            if (date.length() > 6) {
-                date = date.substring(0, 6);
+        if(isNum(date)){
+            if (date.startsWith("20")) {
+                date = date.substring(2, date.length());
+            }
+            if (!someVersion) {
+                if (date.length() > 6) {
+                    date = date.substring(0, 6);
+                }
             }
         }
+        else{
+            date="0";
+        }
+        
         return date;
     }
-
+    public static boolean isNum(String str){
+        return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
+    }
     /**
      * 截取日期长度
      * 
