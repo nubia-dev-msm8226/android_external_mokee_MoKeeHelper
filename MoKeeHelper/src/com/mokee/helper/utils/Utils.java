@@ -286,7 +286,6 @@ public class Utils {
         else{
             date="0";
         }
-        
         return date;
     }
     public static boolean isNum(String str){
