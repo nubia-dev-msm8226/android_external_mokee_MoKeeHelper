@@ -326,7 +326,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         }
 
         // If there is no internet connection, display a message and return.
-        if (!Utils.isOnline(mContext)) {
+        if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
@@ -480,7 +480,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     @Override
     public void onStartDownload(ItemPreference pref) {
         // If there is no internet connection, display a message and return.
-        if (!Utils.isOnline(mContext)) {
+        if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }

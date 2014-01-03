@@ -55,6 +55,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.mokee.util.MoKeeUtils;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -121,7 +122,7 @@ public class UpdateCheckService extends IntentService {
             mHttpExecutor = new HttpRequestExecutor();
         }
 
-        if (!Utils.isOnline(this)) {
+        if (!MoKeeUtils.isOnline(this)) {
             // Only check for updates if the device is actually connected to a
             // network
             Log.i(TAG, "Could not check for updates. Not connected to the network.");

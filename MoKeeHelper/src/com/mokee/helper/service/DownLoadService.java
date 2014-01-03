@@ -83,7 +83,7 @@ public class DownLoadService extends IntentService {
                     downloader = downloaders.get(url);
                     if (downloader == null) {
                         downloader = new DownLoader(url, filePath, 10, handler,
-                                System.currentTimeMillis());
+                                System.currentTimeMillis(), this);
                         downloaders.put(url, downloader);
                         if (!DownLoadDao.getInstance().isHasInfos(url)) {
                             // init
@@ -217,11 +217,10 @@ public class DownLoadService extends IntentService {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    
                     break;
                 default:
-                      di = (DownLoader) msg.obj;
-                      url=di.fileUrl;
+                    di = (DownLoader) msg.obj;
+                    url=di.fileUrl;
                     if (notifications.containsKey(di.getNotificationID())) {
                         
                         manager.cancel(di.getNotificationID());

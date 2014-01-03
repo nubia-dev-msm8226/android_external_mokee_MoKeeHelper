@@ -36,6 +36,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.mokee.util.MoKeeUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -526,7 +527,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         // If there is no internet connection, display a message and return.
-        if (!Utils.isOnline(mContext)) {
+        if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
@@ -687,7 +688,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onStartDownload(ItemPreference pref) {
         // If there is no internet connection, display a message and return.
-        if (!Utils.isOnline(mContext)) {
+        if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }

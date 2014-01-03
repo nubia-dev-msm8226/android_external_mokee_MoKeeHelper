@@ -25,6 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.mokee.util.MoKeeUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -39,6 +41,7 @@ public class DownLoader {
     private String localFile;// 保存路径
     private int threadCount;// 线程数
     private Handler mHandler;
+    private Context mContext;
     private long fileSize;// 所要下载的文件的大小
     private List<ThreadDownLoadInfo> downInfoList;// 存放下载信息类的集合
     public static final int STATUS_PENDING = 1;
@@ -56,12 +59,13 @@ public class DownLoader {
     private long startDown;
 
     public DownLoader(String fileUrl, String localfile, int threadcount, Handler mHandler,
-            long startDown) {
+            long startDown, Context mContext) {
         this.fileUrl = fileUrl;
         this.localFile = localfile;
         this.threadCount = threadcount;
         this.mHandler = mHandler;
         this.startDown = startDown;
+        this.mContext = mContext;
     }
 
     public long getStartDown() {
@@ -90,10 +94,9 @@ public class DownLoader {
      * @return
      */
     public DownLoadInfo getDownLoadInfo() {
-        if (Utils.isNetworkAvailable())// 执行时简单判断网络状态
-        {
+        if (MoKeeUtils.isOnline(mContext)) { // 执行时简单判断网络状态
             if (isFirst(fileUrl)) {
-                if (!init()) {//judge init is success
+                if (!init()) { //judge init is success
                     return null;
                 }
                 long range = fileSize / threadCount;
@@ -239,9 +242,7 @@ public class DownLoader {
                     byte[] buffer = new byte[4096];
                     int length = -1;
                     int i = 0;
-                    while ((length = is.read(buffer)) != -1)
-                    // while ((length = is.read(buffer, 0, 1024)) != -1)
-                    {
+                    while ((length = is.read(buffer)) != -1) { // while ((length = is.read(buffer, 0, 1024)) != -1)
                         i++;
                         randomAccessFile.write(buffer, 0, length);
                         downSize += length;
@@ -297,11 +298,10 @@ public class DownLoader {
      */
     private synchronized void sendMsg(int msgID, String url, int length) {
         Message msg = Message.obtain();
-        if(msgID==STATUS_DOWNLOADING)
-        {
+        if(msgID==STATUS_DOWNLOADING) {
             msg.obj = url;
         }
-        else{
+        else {
             msg.obj = this;
         }
         msg.what = msgID;
@@ -318,7 +318,7 @@ public class DownLoader {
         if (endThreadNum == threadCount && allDownSize == fileSize) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
-        else if(endThreadNum == threadCount && allDownSize != fileSize){//maybe thread info error then delete
+        else if (endThreadNum == threadCount && allDownSize != fileSize){//maybe thread info error then delete
             ThreadDownLoadDao.getInstance().delete(fileUrl);
             sendMsg(STATUS_ERROR, fileUrl, 0);
         }
@@ -333,5 +333,5 @@ public class DownLoader {
                 + downloadedSize + ", endThreadNum=" + endThreadNum + ", startDown=" + startDown
                 + "]";
     }
-    
+
 }

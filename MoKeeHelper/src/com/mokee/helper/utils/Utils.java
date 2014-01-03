@@ -30,8 +30,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.SystemProperties;
@@ -223,16 +221,6 @@ public class Utils {
         return SystemProperties.getLong("ro.build.date.utc", 0);
     }
 
-    public static boolean isOnline(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
-            return true;
-        }
-        return false;
-    }
-
     public static void scheduleUpdateService(Context context, int updateFrequency) {
         // Load the required settings from preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -349,29 +337,4 @@ public class Utils {
         }
     }
 
-
-    /**
-     * 判断网络是否可用
-     * 
-     * @param context
-     * @return
-     */
-    public static boolean isNetworkAvailable() {
-        ConnectivityManager connectivity = (ConnectivityManager) MoKeeApplication.getContext()
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivity == null) {
-            return false;
-        } else {
-            NetworkInfo[] info = connectivity.getAllNetworkInfo();
-            if (info != null) {
-                for (int i = 0; i < info.length; i++) {
-                    if (info[i].getState() == NetworkInfo.State.CONNECTED
-                            || info[i].getState() == NetworkInfo.State.CONNECTING) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
 }
