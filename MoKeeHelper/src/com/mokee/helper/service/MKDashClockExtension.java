@@ -99,7 +99,7 @@ public class MKDashClockExtension extends DashClockExtension {
 
     @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId) {
-        if (TextUtils.equals(intent.getAction(), ACTION_DATA_UPDATE)) {
+        if (intent != null && intent.getAction() != null && TextUtils.equals(intent.getAction(), ACTION_DATA_UPDATE)) {
             if (mInitialized) {
                 onUpdateData(UPDATE_REASON_CONTENT_CHANGED);
             }
