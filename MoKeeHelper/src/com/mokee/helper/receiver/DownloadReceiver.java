@@ -78,27 +78,40 @@ public class DownloadReceiver extends BroadcastReceiver {
             handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
             String fileName = intent.getStringExtra(EXTRA_FILENAME);
-            if (fileName.endsWith(".zip")) {
-                try {
-                    Utils.triggerUpdate(context, fileName);
-                } catch (IOException e) {
-                    Log.e(TAG, "Unable to reboot into recovery mode", e);
-                    Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
-                            Toast.LENGTH_SHORT).show();
-                    Utils.cancelNotification(context);
+            int flag = intent.getIntExtra("flag", 1024);// 标识
+            if(flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
+                if (fileName.endsWith(".zip")) {
+                    try {
+                        Utils.triggerUpdate(context, fileName, true);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Unable to reboot into recovery mode", e);
+                        Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
+                                Toast.LENGTH_SHORT).show();
+                        Utils.cancelNotification(context);
+                    }
                 }
-            } else if (fileName.endsWith(".apk")) {
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setDataAndType(
-                        Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath() + "/"
-                                + fileName), "application/vnd.android.package-archive");
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                MoKeeApplication.getContext().startActivity(i);
-            } else {
-                Toast.makeText(MoKeeApplication.getContext(), "您当前的版本暂时不支持此种扩展", Toast.LENGTH_SHORT)
-                        .show();
+            } else if(flag == Constants.INTENT_FLAG_GET_EXTRAS) {
+                if (fileName.endsWith(".zip")) {
+                    try {
+                        Utils.triggerUpdate(context, fileName, false);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Unable to reboot into recovery mode", e);
+                        Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
+                                Toast.LENGTH_SHORT).show();
+                        Utils.cancelNotification(context);
+                    }
+                } else if (fileName.endsWith(".apk")) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setDataAndType(
+                            Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath() + "/"
+                                    + fileName), "application/vnd.android.package-archive");
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    MoKeeApplication.getContext().startActivity(i);
+                } else {
+                    Toast.makeText(MoKeeApplication.getContext(), "您当前的版本暂时不支持此种扩展", Toast.LENGTH_SHORT)
+                            .show();
+                }
             }
-
         }
     }
 
@@ -259,6 +272,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                         Intent installIntent = new Intent(context, DownloadReceiver.class);
                         installIntent.setAction(ACTION_INSTALL_UPDATE);
+                        installIntent.putExtra("flag", flag);
                         installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
 
                         PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
@@ -373,6 +387,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                             Intent installIntent = new Intent(context, DownloadReceiver.class);
                             installIntent.setAction(ACTION_INSTALL_UPDATE);
+                            installIntent.putExtra("flag", flag);
                             installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
 
                             PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
@@ -391,6 +406,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                             Intent installIntent = new Intent(context, DownloadReceiver.class);
                             installIntent.setAction(ACTION_INSTALL_UPDATE);
+                            installIntent.putExtra("flag", flag);
                             installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
 
                             PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
