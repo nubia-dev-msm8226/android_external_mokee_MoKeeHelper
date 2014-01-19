@@ -294,7 +294,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setText(mItemInfo.getName());
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
-            mFileSizeText.setText(mItemInfo.getLength()!=null?MoKeeUtils.formetFileSize(Long.valueOf(mItemInfo.getLength())):"");
+            mFileSizeText.setText(mItemInfo.getLength()!=null?MoKeeUtils.formatFileSize(Long.valueOf(mItemInfo.getLength())):"");
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
             showStyle();
