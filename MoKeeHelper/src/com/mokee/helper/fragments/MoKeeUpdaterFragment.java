@@ -525,7 +525,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (mProgressDialog != null) {
             return;
         }
-
+        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(), State.UPDATE_FILENAME);//clear
+        refreshPreferences(new LinkedList<ItemInfo>());//clear
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();

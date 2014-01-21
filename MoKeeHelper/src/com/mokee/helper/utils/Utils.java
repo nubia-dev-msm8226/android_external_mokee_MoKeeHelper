@@ -301,9 +301,16 @@ public class Utils {
      * @return
      */
     public static String subMoKeeVersion(String name) {
+//        String[] strs = name.split("-");
+//        String version = strs[0];
+//        version = version.substring(2, 4);
         String[] strs = name.split("-");
         String version = strs[0];
-        version = version.substring(2, 4);
+        if(name.toLowerCase().startsWith("ota"))
+        {
+            version = strs[1];
+        }
+        version = version.substring(2, version.length());
         return version;
     }
 
