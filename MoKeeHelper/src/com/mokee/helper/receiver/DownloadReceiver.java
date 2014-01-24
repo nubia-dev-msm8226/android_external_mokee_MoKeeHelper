@@ -83,22 +83,22 @@ public class DownloadReceiver extends BroadcastReceiver {
                 if (fileName.endsWith(".zip")) {
                     try {
                         Utils.triggerUpdate(context, fileName, true);
+                        Utils.cancelNotification(context);
                     } catch (IOException e) {
                         Log.e(TAG, "Unable to reboot into recovery mode", e);
                         Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
                                 Toast.LENGTH_SHORT).show();
-                        Utils.cancelNotification(context);
                     }
                 }
             } else if(flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (fileName.endsWith(".zip")) {
                     try {
                         Utils.triggerUpdate(context, fileName, false);
+                        Utils.cancelNotification(context);
                     } catch (IOException e) {
                         Log.e(TAG, "Unable to reboot into recovery mode", e);
                         Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
                                 Toast.LENGTH_SHORT).show();
-                        Utils.cancelNotification(context);
                     }
                 } else if (fileName.endsWith(".apk")) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
@@ -107,6 +107,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                                     + fileName), "application/vnd.android.package-archive");
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     MoKeeApplication.getContext().startActivity(i);
+                    Utils.cancelNotification(context);
                 } else {
                     Toast.makeText(MoKeeApplication.getContext(), "您当前的版本暂时不支持此种扩展", Toast.LENGTH_SHORT)
                             .show();
