@@ -17,6 +17,7 @@
 
 package com.mokee.helper.activities;
 
+import com.baidu.android.pushservice.PushManager;
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeSupportFragment;
@@ -99,4 +100,17 @@ public class MoKeeCenter extends FragmentActivity {
         send.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         sendBroadcast(send);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        PushManager.activityStarted(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        PushManager.activityStoped(this);
+    }
+
 }
