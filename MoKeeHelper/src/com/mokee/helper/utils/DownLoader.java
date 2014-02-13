@@ -58,12 +58,11 @@ public class DownLoader {
     private int endThreadNum = 0;
     private long startDown;
 
-    public DownLoader(String fileUrl, String localfile, //int threadcount, 
-            Handler mHandler,
-            long startDown, Context mContext) {
+    public DownLoader(String fileUrl, String localfile,// int threadcount,
+            Handler mHandler, long startDown, Context mContext) {
         this.fileUrl = fileUrl;
         this.localFile = localfile;
-        //this.threadCount = threadcount;
+        // this.threadCount = threadcount;
         this.mHandler = mHandler;
         this.startDown = startDown;
         this.mContext = mContext;
@@ -118,7 +117,7 @@ public class DownLoader {
             } else {
                 // 获取URL的相关线程信息
                 downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
-                this.threadCount=downInfoList.size();
+                this.threadCount = downInfoList.size();
                 Log.v("TAG", "not isFirst size=" + downInfoList.size());
                 int size = 0;
                 int complete = 0;
@@ -152,13 +151,13 @@ public class DownLoader {
             fileSize = connection.getContentLength();
             connection.disconnect();
             if (fileSize > 0) {
-                if(fileSize < 1048576) { //m
+                if(fileSize < 1048576) {// 1m
                     this.threadCount = 1;
-                } else if (fileSize < 10485760){//10m
+                } else if (fileSize < 10485760) {// 10m
                     this.threadCount = 3;
-                } else if (fileSize < 52428800) {//50m
+                } else if (fileSize < 52428800) {// 50m
                     this.threadCount = 6;
-                } else {//>50m
+                } else {// >50m
                     this.threadCount = 10;
                 }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
@@ -170,9 +169,7 @@ public class DownLoader {
                 accessFile.setLength(fileSize);
                 accessFile.close();
                 return true;
-            } else
-            // 文件长度错误
-            {
+            } else {// 文件长度错误
                 state = STATUS_ERROR;
                 sendMsg(state, fileUrl, 0);
                 return false;
