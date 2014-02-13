@@ -52,6 +52,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:fadingEdge="horizontal"
                 android:textSize="17sp"
+                android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/file_size" />
 
             <ProgressBar
