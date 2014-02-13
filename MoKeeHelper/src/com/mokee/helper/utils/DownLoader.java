@@ -39,7 +39,7 @@ import com.mokee.helper.misc.ThreadDownLoadInfo;
 public class DownLoader {
     public String fileUrl;// 下载的地址
     private String localFile;// 保存路径
-    private int threadCount;// 线程数
+    private int threadCount = 1;// 线程数
     private Handler mHandler;
     private Context mContext;
     private long fileSize;// 所要下载的文件的大小
@@ -58,11 +58,12 @@ public class DownLoader {
     private int endThreadNum = 0;
     private long startDown;
 
-    public DownLoader(String fileUrl, String localfile, int threadcount, Handler mHandler,
+    public DownLoader(String fileUrl, String localfile, //int threadcount, 
+            Handler mHandler,
             long startDown, Context mContext) {
         this.fileUrl = fileUrl;
         this.localFile = localfile;
-        this.threadCount = threadcount;
+        //this.threadCount = threadcount;
         this.mHandler = mHandler;
         this.startDown = startDown;
         this.mContext = mContext;
@@ -117,6 +118,7 @@ public class DownLoader {
             } else {
                 // 获取URL的相关线程信息
                 downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
+                this.threadCount=downInfoList.size();
                 Log.v("TAG", "not isFirst size=" + downInfoList.size());
                 int size = 0;
                 int complete = 0;
@@ -150,6 +152,15 @@ public class DownLoader {
             fileSize = connection.getContentLength();
             connection.disconnect();
             if (fileSize > 0) {
+                if(fileSize < 1048576) { //m
+                    this.threadCount = 1;
+                } else if (fileSize < 10485760){//10m
+                    this.threadCount = 3;
+                } else if (fileSize < 52428800) {//50m
+                    this.threadCount = 6;
+                } else {//>50m
+                    this.threadCount = 10;
+                }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
                 if (!file.exists()) {
