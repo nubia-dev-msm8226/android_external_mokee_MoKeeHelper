@@ -21,7 +21,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical" >
 
     <LinearLayout
         android:id="@+id/updates_pref"
@@ -33,7 +33,7 @@
         android:clickable="true"
         android:focusable="true"
         android:baselineAligned="false"
-        android:background="?android:attr/selectableItemBackground">
+        android:background="?android:attr/selectableItemBackground" >
 
         <RelativeLayout
             android:layout_width="0dip"
@@ -41,7 +41,7 @@
             android:layout_marginEnd="6dip"
             android:layout_marginTop="6dip"
             android:layout_marginBottom="6dip"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
             <TextView
                 android:id="@+android:id/title"
@@ -51,7 +51,10 @@
                 android:maxLines="3"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:fadingEdge="horizontal"
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+                android:layout_toLeftOf="@+id/file_size"
+                android:ellipsize="end" />
+
             <ProgressBar
                 android:id="@+id/download_progress_bar"
                 android:layout_below="@android:id/title"
@@ -61,6 +64,7 @@
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@android:id/summary"
                 android:layout_width="wrap_content"
@@ -74,16 +78,19 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:focusable="false"
                 android:maxLines="4" />
-            <TextView android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/file_size"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingBottom="3dip"
                 android:layout_alignTop="@android:id/summary"
-                android:id="@+id/file_size"
                 android:textSize="13sp"
                 android:textColor="?android:attr/textColorSecondary"
                 android:focusable="false" />
         </RelativeLayout>
+
     </LinearLayout>
 
     <View
