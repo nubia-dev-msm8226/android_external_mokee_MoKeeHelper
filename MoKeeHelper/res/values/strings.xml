@@ -43,8 +43,6 @@
     <string name="mokee_github_summary">Visit the MoKee Github</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
     <string name="mokee_wiki_summary">View the MoKee Wiki</string>
-    <string name="mokee_contributor_title">MoKee Contributors</string>
-    <string name="mokee_contributor_summary">View MoKee Contributors List</string>
     <string name="mokee_donate_title">Donate MoKee</string>
     <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
 

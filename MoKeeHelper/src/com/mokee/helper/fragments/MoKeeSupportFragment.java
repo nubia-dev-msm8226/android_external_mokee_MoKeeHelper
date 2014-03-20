@@ -34,7 +34,6 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String KEY_MOKEE_STATISTICS = "mokee_statistics";
     private static final String KEY_MOKEE_CHANGELOG = "mokee_changelog";
     private static final String KEY_MOKEE_GITHUB = "mokee_github";
-    private static final String KEY_MOKEE_CONTRIBUTOR = "mokee_contributor";
     private static final String KEY_MOKEE_WIKI = "mokee_wiki";
     private static final String KEY_MOKEE_DONATE = "mokee_donate";
 
@@ -44,7 +43,6 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String URL_MOKEE_STATISTICS = "http://stats.mfunz.com";
     private static final String URL_MOKEE_CHANGELOG = "http://changelog.mfunz.com";
     private static final String URL_MOKEE_GITHUB = "https://github.com/MoKee";
-    private static final String URL_MOKEE_CONTRIBUTOR = "http://www.mfunz.com/contributors/";
     private static final String URL_MOKEE_WIKI = "http://wiki.mfunz.com";
     private static final String URL_MOKEE_DONATE = "http://www.mfunz.com/donate/";
 
@@ -70,8 +68,6 @@ public class MoKeeSupportFragment extends PreferenceFragment {
             goToURL(URL_MOKEE_CHANGELOG);
         } else if (key.equals(KEY_MOKEE_GITHUB)) {
             goToURL(URL_MOKEE_GITHUB);
-        } else if (key.equals(KEY_MOKEE_CONTRIBUTOR)) {
-            goToURL(URL_MOKEE_CONTRIBUTOR);
         } else if (key.equals(KEY_MOKEE_WIKI)) {
             goToURL(URL_MOKEE_WIKI);
         } else if (key.equals(KEY_MOKEE_DONATE)) {
