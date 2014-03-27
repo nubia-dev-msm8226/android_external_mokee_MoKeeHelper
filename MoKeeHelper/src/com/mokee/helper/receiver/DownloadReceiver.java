@@ -82,8 +82,8 @@ public class DownloadReceiver extends BroadcastReceiver {
             if(flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
                 if (fileName.endsWith(".zip")) {
                     try {
-                        Utils.triggerUpdate(context, fileName, true);
                         Utils.cancelNotification(context);
+                        Utils.triggerUpdate(context, fileName, true);
                     } catch (IOException e) {
                         Log.e(TAG, "Unable to reboot into recovery mode", e);
                         Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
@@ -93,8 +93,8 @@ public class DownloadReceiver extends BroadcastReceiver {
             } else if(flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (fileName.endsWith(".zip")) {
                     try {
-                        Utils.triggerUpdate(context, fileName, false);
                         Utils.cancelNotification(context);
+                        Utils.triggerUpdate(context, fileName, false);
                     } catch (IOException e) {
                         Log.e(TAG, "Unable to reboot into recovery mode", e);
                         Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
@@ -109,7 +109,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     MoKeeApplication.getContext().startActivity(i);
                     Utils.cancelNotification(context);
                 } else {
-                    Toast.makeText(MoKeeApplication.getContext(), "您当前的版本暂时不支持此种扩展", Toast.LENGTH_SHORT)
+                    Toast.makeText(MoKeeApplication.getContext(), R.string.extras_unsupported_toast, Toast.LENGTH_SHORT)
                             .show();
                 }
             }

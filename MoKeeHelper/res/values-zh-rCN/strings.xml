@@ -166,6 +166,7 @@
     <string name="apply_extras_dialog_title">安装扩展</string>
     <string name="apply_extras_dialog_text">您确定要安装扩展组件 <xliff:g id="filename">%s</xliff:g> 吗？</string>
     <string name="apply_unable_to_reboot_toast">无法重启到恢复模式</string>
+    <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
 
     <!-- experimenter mode -->
     <string name="show_exp_on" msgid="1110711554982716293">您现在处于测试者模式！</string>

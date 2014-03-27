@@ -87,7 +87,7 @@
     <string name="check_manual">Manual</string>
     <string name="nightly_alert">You have selected to include nightly updates in this list. These are unsupported and should be used with caution.</string>
     <string name="experimenter_alert">You have selected to include experimental updates in this list. These are unsupported and meant for testing only, it should be used with caution.</string>
-    <string name="unofficial_alert">你选择了检查非官方版本更新，这是由您当前手机系统的维护者发布的版本，特此告知。</string>
+    <string name="unofficial_alert">You have selected to include unofficial updates in this list. Keep in mind that these are supported by your device maintainer.</string>
     <string name="all_alert">You have selected to include all updates(release, experimental) in this list. Take note that nightly updates are unsupported and should be used with caution.</string>
     <string name="alert_title">Caution</string>
     <string name="update_type_title">Update type</string>
@@ -165,8 +165,9 @@
     <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n
         \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
     <string name="apply_extras_dialog_title">Install extra</string>
-    <string name="apply_extras_dialog_text">您确定要安装扩展组件 <xliff:g id="filename">%s</xliff:g> 吗？</string>
+    <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id="filename">%s</xliff:g> ?</string>
     <string name="apply_unable_to_reboot_toast">Unable to reboot into recovery</string>
+    <string name="extras_unsupported_toast">Your current version does not support this extension</string>
 
     <!-- experimenter mode -->
     <string name="show_exp_on">You have enabled experimental settings!</string>
