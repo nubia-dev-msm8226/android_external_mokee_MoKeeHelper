@@ -24,8 +24,7 @@
     <string name="mokee_updater_title">Updater</string>
     <string name="mokee_extras_title">Extras</string>
 
-    <!-- Lockscreen and Tips -->
-    <string name="mokee_lock_screen_title">LockScreen</string>
+    <!-- Tips -->
     <string name="tips_help_title">Tips &amp; Help</string>
 
     <!-- WebSite -->

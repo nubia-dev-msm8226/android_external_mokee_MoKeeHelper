@@ -24,8 +24,7 @@
     <string name="mokee_updater_title">系统更新</string>
     <string name="mokee_extras_title">扩展组件</string>
 
-    <!-- Lockscreen and Tips -->
-    <string name="mokee_lock_screen_title">一键锁屏</string>
+    <!-- Tips -->
     <string name="tips_help_title">使用问答</string>
 
     <!-- WebSite -->
