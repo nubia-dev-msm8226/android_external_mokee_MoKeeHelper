@@ -38,15 +38,15 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String KEY_MOKEE_WIKI = "mokee_wiki";
     private static final String KEY_MOKEE_DONATE = "mokee_donate";
 
-    private static final String URL_MOKEE_WEBSITE = "http://www.mfunz.com";
+    private static final String URL_MOKEE_WEBSITE = "http://www.mokeedev.com";
     private static final String URL_MOKEE_FORUM = "http://bbs.mfunz.com";
     private static final String URL_MOKEE_ISSUES = "http://issues.mfunz.com";
-    private static final String URL_MOKEE_STATISTICS = "http://stats.mfunz.com";
+    private static final String URL_MOKEE_STATISTICS = "http://stats.mokeedev.com";
     private static final String URL_MOKEE_CHANGELOG = "http://changelog.mfunz.com";
     private static final String URL_MOKEE_NIGHTLY_STATUS = "http://build.mokeedev.com";
     private static final String URL_MOKEE_GITHUB = "https://github.com/MoKee";
     private static final String URL_MOKEE_WIKI = "http://wiki.mfunz.com";
-    private static final String URL_MOKEE_DONATE = "http://www.mfunz.com/donate/";
+    private static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
 
     @Override
     public void onCreate(Bundle icicle) {
