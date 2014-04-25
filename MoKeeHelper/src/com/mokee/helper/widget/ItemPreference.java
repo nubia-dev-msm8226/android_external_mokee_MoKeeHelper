@@ -34,7 +34,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.mokee.util.MoKeeUtils;
+
+import org.mokee.util.MoKeeUtils;
+
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;

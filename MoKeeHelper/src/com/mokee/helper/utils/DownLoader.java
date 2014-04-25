@@ -26,10 +26,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.mokee.util.MoKeeUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import org.mokee.util.MoKeeUtils;
 
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;

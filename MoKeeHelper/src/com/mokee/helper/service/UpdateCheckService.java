@@ -55,11 +55,12 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.mokee.util.MoKeeUtils;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+
+import org.mokee.util.MoKeeUtils;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;

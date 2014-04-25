@@ -36,7 +36,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.mokee.util.MoKeeUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -58,6 +57,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import org.mokee.util.MoKeeUtils;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
