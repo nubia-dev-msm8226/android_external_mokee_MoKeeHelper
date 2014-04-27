@@ -40,9 +40,9 @@ public class MoKeeSupportFragment extends PreferenceFragment {
 
     private static final String URL_MOKEE_WEBSITE = "http://www.mokeedev.com";
     private static final String URL_MOKEE_FORUM = "http://bbs.mfunz.com";
-    private static final String URL_MOKEE_ISSUES = "http://issues.mfunz.com";
+    private static final String URL_MOKEE_ISSUES = "http://issues.mokeedev.com";
     private static final String URL_MOKEE_STATISTICS = "http://stats.mokeedev.com";
-    private static final String URL_MOKEE_CHANGELOG = "http://changelog.mfunz.com";
+    private static final String URL_MOKEE_CHANGELOG = "http://changelog.mokeedev.com";
     private static final String URL_MOKEE_NIGHTLY_STATUS = "http://build.mokeedev.com";
     private static final String URL_MOKEE_GITHUB = "https://github.com/MoKee";
     private static final String URL_MOKEE_WIKI = "http://wiki.mfunz.com";
