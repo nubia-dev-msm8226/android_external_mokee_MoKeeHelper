@@ -341,6 +341,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
+        for (File file: mContext.getCacheDir().listFiles()) file.delete();
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle(R.string.mokee_extras_title);
         mProgressDialog.setMessage(getString(R.string.checking_for_extras));
