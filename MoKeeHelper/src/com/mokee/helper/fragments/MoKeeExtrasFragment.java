@@ -295,7 +295,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 // In progress download
                 style = ItemPreference.STYLE_DOWNLOADING;
             } else if (isExtrasUpdate) {
-                style = ItemPreference.STYLE_EXTRAS_UPDATE;
+                style = ItemPreference.STYLE_NEW;
             } else if (isInstall) {
                 // This is the currently installed version
                 style = ItemPreference.STYLE_INSTALLED;
