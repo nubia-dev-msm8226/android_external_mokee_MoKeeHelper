@@ -561,11 +561,7 @@ public class UpdateCheckService extends IntentService {
         String checkflag = obj.getString("checkflag");
         String length = obj.getString("length");
         ItemInfo mui = new ItemInfo(log, md5, name, rom, description, checkflag, length);
-        // fetch change log after checking whether to include this build to
-        // avoid useless network traffic
-        if (!mui.getChangeLogFile(this).exists()) {
-            fetchMKChangeLog(mui, mui.getLog());
-        }
+        fetchMKChangeLog(mui, mui.getLog());
         return mui;
     }
 
@@ -576,11 +572,7 @@ public class UpdateCheckService extends IntentService {
         String log = obj.getString("log");
         String length = obj.getString("length");
         ItemInfo mui = new ItemInfo(log, md5, name, rom, length);
-        // fetch change log after checking whether to include this build to
-        // avoid useless network traffic
-        if (!mui.getChangeLogFile(this).exists()) {
-            fetchMKChangeLog(mui, mui.getLog());
-        }
+        fetchMKChangeLog(mui, mui.getLog());
         return mui;
     }
 
