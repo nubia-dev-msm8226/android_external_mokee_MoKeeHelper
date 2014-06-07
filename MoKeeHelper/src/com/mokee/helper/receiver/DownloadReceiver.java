@@ -26,6 +26,7 @@ import android.app.DownloadManager.Request;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -71,8 +72,7 @@ public class DownloadReceiver extends BroadcastReceiver {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
             int flag = intent.getIntExtra("flag", 1024);
             handleStartDownload(context, prefs, ui, flag);
-        } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action))// 接收下完通知
-        {
+        } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) {// 接收下完通知
             long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
             int flag = intent.getIntExtra("flag", 1024);// 标识
             handleDownloadComplete(context, prefs, id, flag);
@@ -82,6 +82,8 @@ public class DownloadReceiver extends BroadcastReceiver {
             if(flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
                 if (fileName.endsWith(".zip")) {
                     try {
+                        StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
+                        sb.collapsePanels();
                         Utils.cancelNotification(context);
                         Utils.triggerUpdate(context, fileName, true);
                     } catch (IOException e) {
@@ -90,9 +92,11 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
-            } else if(flag == Constants.INTENT_FLAG_GET_EXTRAS) {
+            } else if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (fileName.endsWith(".zip")) {
                     try {
+                        StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
+                        sb.collapsePanels();
                         Utils.cancelNotification(context);
                         Utils.triggerUpdate(context, fileName, false);
                     } catch (IOException e) {
