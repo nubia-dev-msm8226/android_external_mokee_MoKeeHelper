@@ -106,7 +106,7 @@ public class DownLoadService extends IntentService {
                             addNotification(
                                     notificationIDBase,
                                     flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.mokee_updater_title
-                                            : R.string.mokee_extras_title);
+                                            : R.string.mokee_extras_title, flag);
                             downloader.setNotificationID(notificationIDBase);
                         }
                     }
@@ -141,7 +141,7 @@ public class DownLoadService extends IntentService {
      * @param id
      * @param title
      */
-    private void addNotification(int id, int title) {
+    private void addNotification(int id, int title, int flag) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
         builder.setContentText(getString(R.string.download_running));
@@ -149,6 +149,7 @@ public class DownLoadService extends IntentService {
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent();
         nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
+        nextIntent.putExtra("flag", flag);
         TaskStackBuilder task = TaskStackBuilder.create(this);
         task.addNextIntent(nextIntent);
         PendingIntent pengdingIntent = task.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);

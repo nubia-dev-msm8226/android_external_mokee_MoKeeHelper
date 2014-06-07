@@ -38,6 +38,7 @@ public class MoKeeCenter extends FragmentActivity {
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
     public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
     public static final String BR_ONNewIntent = "onNewIntent";
+    private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
 
@@ -48,7 +49,7 @@ public class MoKeeCenter extends FragmentActivity {
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
-        final ActionBar bar = getActionBar();
+        bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
         bar.setDisplayHomeAsUpEnabled(true);
@@ -67,6 +68,20 @@ public class MoKeeCenter extends FragmentActivity {
         bar.setSelectedNavigationItem(1);
         // Turn on the Options Menu
         invalidateOptionsMenu();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        if (intent != null) {
+            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+            if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
+                bar.setSelectedNavigationItem(0);
+            } else if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
+                bar.setSelectedNavigationItem(1);
+            }
+        }
     }
 
     @Override
