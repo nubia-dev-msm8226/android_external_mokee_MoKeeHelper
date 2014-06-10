@@ -388,7 +388,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     }
                     break;
                 case DownLoader.STATUS_ERROR:
-                    mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
+                    mDownloadingPreference.setStyle(ItemPreference.STYLE_NEW);
                     resetDownloadState();
                     break;
             }
