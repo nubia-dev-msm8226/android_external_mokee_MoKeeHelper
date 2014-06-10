@@ -26,7 +26,6 @@ import java.util.List;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -34,14 +33,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.UserHandle;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -294,15 +291,15 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             if (isDownloading) {
                 // In progress download
                 style = ItemPreference.STYLE_DOWNLOADING;
-            } else if (isExtrasUpdate) {
+            } else if (isExtrasUpdate && !isLocalFile) {
                 style = ItemPreference.STYLE_NEW;
-            } else if (isInstall) {
-                // This is the currently installed version
-                style = ItemPreference.STYLE_INSTALLED;
             } else if (!isLocalFile) {
                 style = ItemPreference.STYLE_EXTRAS_NEW;
             } else if (isLocalFile) {
                 style = ItemPreference.STYLE_DOWNLOADED;
+            } else if (isInstall) {
+                // This is the currently installed version
+                style = ItemPreference.STYLE_INSTALLED;
             }
 
             ItemPreference up = new ItemPreference(mContext, ui, style);
