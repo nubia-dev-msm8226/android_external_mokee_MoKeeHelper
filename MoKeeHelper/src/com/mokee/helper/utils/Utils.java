@@ -366,7 +366,6 @@ public class Utils {
                 // ignored, not much we can do anyway
             }
         }
-
     }
 
 }

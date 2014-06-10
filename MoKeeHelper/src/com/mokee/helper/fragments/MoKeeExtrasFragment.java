@@ -277,7 +277,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             boolean isApk = ui.getName().endsWith(".apk");
             boolean isInstall = false;
             boolean isExtrasUpdate = false;
-            boolean isGMS = ui.getName().contains("gapps");
+            boolean isGMS = ui.getName().startsWith("gapps");
             if (isZip || isApk) {
                 isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
                 if (isGMS && isInstall) {
@@ -293,9 +293,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 style = ItemPreference.STYLE_DOWNLOADING;
             } else if (isExtrasUpdate && !isLocalFile) {
                 style = ItemPreference.STYLE_NEW;
-            } else if (!isLocalFile) {
+            } else if (!isInstall && !isLocalFile) {
                 style = ItemPreference.STYLE_EXTRAS_NEW;
-            } else if (isLocalFile) {
+            } else if (isExtrasUpdate && isLocalFile || !isInstall && isLocalFile) {
                 style = ItemPreference.STYLE_DOWNLOADED;
             } else if (isInstall) {
                 // This is the currently installed version
