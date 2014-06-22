@@ -277,7 +277,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             boolean isApk = ui.getName().endsWith(".apk");
             boolean isInstall = false;
             boolean isExtrasUpdate = false;
-            boolean isGMS = ui.getName().startsWith("gapps");
+            boolean isGMS = ui.getName().startsWith("gapps_");
             if (isZip || isApk) {
                 isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
                 if (isGMS && isInstall) {
