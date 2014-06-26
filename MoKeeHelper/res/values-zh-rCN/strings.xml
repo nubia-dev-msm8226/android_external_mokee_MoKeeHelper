@@ -38,8 +38,8 @@
     <string name="mokee_statistics_summary">查看支持的机型和用户数</string>
     <string name="mokee_changelog_title">更新日志</string>
     <string name="mokee_changelog_summary">查看魔趣开源计划每天的功能改进清单</string>
-    <string name="mokee_nightly_status_title">每夜版编译状态</string>
-    <string name="mokee_nightly_status_summary">查看魔趣当前的每夜版编译清单和状态</string>
+    <string name="mokee_build_status_title">编译状态</string>
+    <string name="mokee_build_status_summary">查看魔趣当前编译清单和状态</string>
     <string name="mokee_github_title">开源代码</string>
     <string name="mokee_github_summary">查看和下载魔趣源代码</string>
     <string name="mokee_wiki_title">魔趣百科</string>

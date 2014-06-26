@@ -38,8 +38,8 @@
     <string name="mokee_statistics_summary">View MoKee Statistics</string>
     <string name="mokee_changelog_title">MoKee Changelog</string>
     <string name="mokee_changelog_summary">View MoKee Changelog List</string>
-    <string name="mokee_nightly_status_title">MoKee Nightly Build Status</string>
-    <string name="mokee_nightly_status_summary">View nightly build status</string>
+    <string name="mokee_build_status_title">MoKee Build Status</string>
+    <string name="mokee_build_status_summary">View build status</string>
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit the MoKee Github</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
