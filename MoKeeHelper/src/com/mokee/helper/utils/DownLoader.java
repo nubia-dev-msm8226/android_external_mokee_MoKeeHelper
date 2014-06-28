@@ -160,11 +160,11 @@ public class DownLoader {
                 if(fileSize < 1048576) {// 1m
                     this.threadCount = 1;
                 } else if (fileSize < 10485760) {// 10m
-                    this.threadCount = 3;
+                    this.threadCount = 2;
                 } else if (fileSize < 52428800) {// 50m
-                    this.threadCount = 6;
+                    this.threadCount = 3;
                 } else {// >50m
-                    this.threadCount = 10;
+                    this.threadCount = 4;
                 }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
