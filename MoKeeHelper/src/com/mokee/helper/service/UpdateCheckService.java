@@ -17,37 +17,6 @@
 
 package com.mokee.helper.service;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -71,7 +40,39 @@ import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.utils.HttpRequestExecutor;
 import com.mokee.helper.utils.Utils;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
 
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
@@ -83,11 +84,9 @@ public class UpdateCheckService extends IntentService {
     public static final String ACTION_CHECK_FINISHED = "com.mokee.mkupdater.action.UPDATE_CHECK_FINISHED";
     // extra for ACTION_CHECK_FINISHED: total amount of found updates
     public static final String EXTRA_UPDATE_COUNT = "update_count";
-    // extra for ACTION_CHECK_FINISHED: amount of updates that are newer than
-    // what is installed
+    // extra for ACTION_CHECK_FINISHED: amount of updates that are newer than what is installed
     public static final String EXTRA_REAL_UPDATE_COUNT = "real_update_count";
-    // extra for ACTION_CHECK_FINISHED: amount of updates that were found for
-    // the first time
+    // extra for ACTION_CHECK_FINISHED: amount of updates that were found for the first time
     public static final String EXTRA_NEW_UPDATE_COUNT = "new_update_count";
 
     // add intent extras
@@ -109,11 +108,14 @@ public class UpdateCheckService extends IntentService {
         if (TextUtils.equals(intent.getAction(), ACTION_CANCEL_CHECK)) {
             synchronized (this) {
                 if (mHttpExecutor != null) {
-                    mHttpExecutor.abort();
+                    cleanupHttpExecutor(mHttpExecutor);
+                    mHttpExecutor = null;
                 }
             }
+
             return START_NOT_STICKY;
         }
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -124,14 +126,13 @@ public class UpdateCheckService extends IntentService {
         }
 
         if (!MoKeeUtils.isOnline(this)) {
-            // Only check for updates if the device is actually connected to a
-            // network
+            // Only check for updates if the device is actually connected to a network
             Log.i(TAG, "Could not check for updates. Not connected to the network.");
             return;
         }
+
         // Start the update check
         Intent finishedIntent = new Intent(ACTION_CHECK_FINISHED);
-        // LinkedList<ItemInfo> availableUpdates;
         LinkedList<ItemInfo> availableUpdates;
         if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
             try {
@@ -146,9 +147,7 @@ public class UpdateCheckService extends IntentService {
                 return;
             }
 
-            // Store the last update check time and ensure boot check completed
-            // is
-            // true
+            // Store the last update check time and ensure boot check completed is true
             Date d = new Date();
             PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
                     .putLong(Constants.PREF_LAST_UPDATE_CHECK, d.getTime())
@@ -159,8 +158,8 @@ public class UpdateCheckService extends IntentService {
 
             // Write to log
             Log.i(TAG, "The update check successfully completed at " + d + " and found "
-                    + availableUpdates.size() + " updates (" + realUpdateCount
-                    + " newer than installed)");
+                    + availableUpdates.size() + " updates ("
+                    + realUpdateCount + " newer than installed)");
 
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
@@ -185,13 +184,6 @@ public class UpdateCheckService extends IntentService {
                         .setContentText(text).setContentIntent(contentIntent).setAutoCancel(true);
 
                 LinkedList<ItemInfo> realUpdates = new LinkedList<ItemInfo>();
-                // for (ItemInfo ui : availableUpdates)
-                // {
-                // if (ui.isNewerThanInstalled())
-                // {
-                // realUpdates.add(ui);
-                // }
-                // }
                 realUpdates.addAll(availableUpdates);
                 // ota暂时不进行排序
                 if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
@@ -256,9 +248,7 @@ public class UpdateCheckService extends IntentService {
                 return;
             }
 
-            // Store the last update check time and ensure boot check completed
-            // is
-            // true
+            // Store the last update check time and ensure boot check completed is true
             Date d = new Date();
             PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
                     .putLong(Constants.PREF_LAST_EXTRAS_CHECK, d.getTime()).apply();
@@ -293,13 +283,6 @@ public class UpdateCheckService extends IntentService {
                         .setContentText(text).setContentIntent(contentIntent).setAutoCancel(true);
 
                 LinkedList<ItemInfo> realUpdates = new LinkedList<ItemInfo>();
-                // for (ItemInfo ui : availableUpdates)
-                // {
-                // if (ui.isNewerThanInstalled())
-                // {
-                // realUpdates.add(ui);
-                // }
-                // }
                 realUpdates.addAll(availableUpdates);
                 Notification.InboxStyle inbox = new Notification.InboxStyle(builder)
                         .setBigContentTitle(text);
@@ -336,6 +319,16 @@ public class UpdateCheckService extends IntentService {
         }
         finishedIntent.putExtra("flag", flag);
         sendBroadcast(finishedIntent);
+    }
+
+    private void cleanupHttpExecutor(final HttpRequestExecutor executor) {
+        final Thread abortThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                executor.abort();
+            }
+        });
+        abortThread.start();
     }
 
     private void addRequestHeaders(HttpRequestBase request) {
@@ -396,8 +389,6 @@ public class UpdateCheckService extends IntentService {
         if (entity == null || mHttpExecutor.isAborted()) {
             return null;
         }
-        // LinkedList<ItemInfo> lastUpdates =
-        // State.loadMKState(this,State.UPDATE_FILENAME);
         // Read the ROM Infos
         String json = EntityUtils.toString(entity, "UTF-8");
         LinkedList<ItemInfo> updates = parseMKJSON(json, updateType, isOTA);
@@ -634,8 +625,7 @@ public class UpdateCheckService extends IntentService {
             finished = true;
         } catch (IOException e) {
             Log.e(TAG, "Downloading change log for " + info + " failed", e);
-            // keeping finished at false will delete the partially written file
-            // below
+            // keeping finished at false will delete the partially written file below
         } finally {
             if (reader != null) {
                 try {
@@ -655,48 +645,6 @@ public class UpdateCheckService extends IntentService {
 
         if (!finished) {
             info.getChangeLogFile(this).delete();
-        }
-    }
-
-    private static class HttpRequestExecutor {
-        private HttpClient mHttpClient;
-        private HttpRequestBase mRequest;
-        private boolean mAborted;
-
-        public HttpRequestExecutor() {
-            mHttpClient = new DefaultHttpClient();
-            mAborted = false;
-        }
-
-        public HttpEntity execute(HttpRequestBase request) throws IOException {
-            synchronized (this) {
-                mAborted = false;
-                mRequest = request;
-            }
-
-            HttpResponse response = mHttpClient.execute(request);
-            HttpEntity entity = null;
-
-            if (!mAborted && response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                entity = response.getEntity();
-            }
-
-            synchronized (this) {
-                mRequest = null;
-            }
-
-            return entity;
-        }
-
-        public synchronized void abort() {
-            if (mRequest != null) {
-                mRequest.abort();
-            }
-            mAborted = true;
-        }
-
-        public synchronized boolean isAborted() {
-            return mAborted;
         }
     }
 }
