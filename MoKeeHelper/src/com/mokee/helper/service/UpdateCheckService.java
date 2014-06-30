@@ -31,8 +31,6 @@ import android.util.Log;
 
 import org.mokee.util.MoKeeUtils;
 
-import com.mokee.helper.MoKeeApplication;
-import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
@@ -42,6 +40,8 @@ import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.utils.HttpRequestExecutor;
 import com.mokee.helper.utils.Utils;
+import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -91,6 +91,7 @@ public class UpdateCheckService extends IntentService {
 
     // add intent extras
     public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";
+    public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
     // max. number of updates listed in the extras notification
@@ -266,7 +267,7 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent();
                 i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                i.putExtra(MoKeeExtrasFragment.EXTRA_EXTRAS_LIST_UPDATED, true);
+                i.putExtra(EXTRA_EXTRAS_LIST_UPDATED, true);
                 i.putExtra("flag", flag);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);

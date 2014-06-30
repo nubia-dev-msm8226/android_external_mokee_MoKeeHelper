@@ -19,13 +19,13 @@ import android.support.v4.app.TaskStackBuilder;
 import android.text.format.DateUtils;
 import android.widget.Toast;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.Utils;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 
 public class DownLoadService extends IntentService {
@@ -33,7 +33,6 @@ public class DownLoadService extends IntentService {
 
     public DownLoadService() {
         super(TAG);
-        // TODO Auto-generated constructor stub
     }
 
     public static final String ACTION_DOWNLOAD = "download";
@@ -120,19 +119,8 @@ public class DownLoadService extends IntentService {
                         downloaders.remove(url);
                     }
                     break;
-            // case DELETE:
-            // downloader = downloaders.get(url);
-            // if (downloader != null)
-            // {
-            // downloader.delete(url);
-            // downloaders.remove(url);
-            // }
-            // break;
-            // case CONTINUE:
-            // break;
             }
         }
-
     }
 
     /**
@@ -148,8 +136,8 @@ public class DownLoadService extends IntentService {
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent();
-        nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         nextIntent.putExtra("flag", flag);
+        nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         TaskStackBuilder task = TaskStackBuilder.create(this);
         task.addNextIntent(nextIntent);
         PendingIntent pengdingIntent = task.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -267,5 +255,4 @@ public class DownLoadService extends IntentService {
             return false;
         }
     });
-
 }

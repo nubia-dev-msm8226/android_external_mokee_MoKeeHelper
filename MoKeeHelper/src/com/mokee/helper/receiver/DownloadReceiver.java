@@ -195,10 +195,10 @@ public class DownloadReceiver extends BroadcastReceiver {
                 status = dli.getState();
                 updateIntent = new Intent();
                 updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                updateIntent.putExtra("flag", flag);
                 updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                updateIntent.putExtra("flag", flag);
 
                 if (status == DownLoader.STATUS_COMPLETE) {
                     // Get the full path name of the downloaded file and the MD5
@@ -305,10 +305,10 @@ public class DownloadReceiver extends BroadcastReceiver {
                 status = dli.getState();
                 updateIntent = new Intent();
                 updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                updateIntent.putExtra("flag", flag);
                 updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                updateIntent.putExtra("flag", flag);
 
                 if (status == DownLoader.STATUS_COMPLETE) {
                     // Get the full path name of the downloaded file and the MD5

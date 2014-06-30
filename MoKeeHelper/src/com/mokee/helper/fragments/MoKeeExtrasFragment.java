@@ -84,7 +84,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
     private boolean mStartUpdateVisible = false;
 
-    public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";
     private SharedPreferences mPrefs;
     private PreferenceCategory mMokeeExtrasList;
     private ItemPreference mDownloadingPreference;
