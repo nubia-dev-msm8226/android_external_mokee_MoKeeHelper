@@ -165,11 +165,10 @@ public class UpdateCheckService extends IntentService {
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
-                Intent i = new Intent();
-                i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
+                Intent i = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
                 i.putExtra(EXTRA_UPDATE_LIST_UPDATED, true);
                 i.putExtra("flag", flag);
-                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
+                PendingIntent contentIntent = PendingIntent.getBroadcast(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
 
                 Resources res = getResources();
@@ -265,11 +264,10 @@ public class UpdateCheckService extends IntentService {
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
-                Intent i = new Intent();
-                i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
+                Intent i = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
                 i.putExtra(EXTRA_EXTRAS_LIST_UPDATED, true);
                 i.putExtra("flag", flag);
-                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
+                PendingIntent contentIntent = PendingIntent.getBroadcast(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
                 String text = res.getQuantityString(R.plurals.not_new_updates_found_body,
