@@ -63,7 +63,6 @@ public class DownLoadService extends IntentService {
 
     @Override
     public int onStartCommand(Intent action, int flags, int startId) {
-
         return super.onStartCommand(action, flags, startId);
     }
 
@@ -210,7 +209,7 @@ public class DownLoadService extends IntentService {
                     break;
                 case DownLoader.STATUS_ERROR:
                     di = (DownLoader) msg.obj;
-                    url=di.fileUrl;
+                    url = di.fileUrl;
                     if (di != null) {
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());
@@ -230,7 +229,7 @@ public class DownLoadService extends IntentService {
                     break;
                 default:
                     di = (DownLoader) msg.obj;
-                    url=di.fileUrl;
+                    url = di.fileUrl;
                     if (notifications.containsKey(di.getNotificationID())) {
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());

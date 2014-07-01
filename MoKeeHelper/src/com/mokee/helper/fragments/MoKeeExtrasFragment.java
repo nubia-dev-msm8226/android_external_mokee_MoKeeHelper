@@ -84,17 +84,16 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
     private boolean mStartUpdateVisible = false;
 
+    private static final int MENU_REFRESH = 0;
+    private static final int MENU_DELETE_ALL = 1;
+    private static final int MENU_DONATE = 2;
+
     private SharedPreferences mPrefs;
     private PreferenceCategory mMokeeExtrasList;
     private ItemPreference mDownloadingPreference;
     private File mExtrasFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
-
-    private static final int MENU_REFRESH = 0;
-    private static final int MENU_DELETE_ALL = 1;
-    private static final int MENU_DONATE = 2;
-
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -195,6 +194,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(
                     String.valueOf(mDownloadId));
             int status;
+
             if (dli == null) {
                 // DownloadReceiver has likely already removed the download
                 // from the DB due to failure or MD5 mismatch
@@ -212,8 +212,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                             .getThreadInfoList(dli.getUrl());
                     int totalBytes = -1;
                     int downloadedBytes = 0;
-                    for (ThreadDownLoadInfo info : threadList)
-                    {
+                    for (ThreadDownLoadInfo info : threadList) {
                         downloadedBytes += info.getDownSize();
                         totalBytes += info.getEndPos() - info.getStartPos() + 1;
                     }
@@ -232,7 +231,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     break;
             }
             if (status != DownLoader.STATUS_ERROR) {
-                mUpdateHandler.postDelayed(this, 2000);
+                mUpdateHandler.postDelayed(this, 1000);
             }
         }
     };
@@ -508,7 +507,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (mDownloading) {
             Toast.makeText(mContext, R.string.download_already_running, Toast.LENGTH_LONG).show();
             return;

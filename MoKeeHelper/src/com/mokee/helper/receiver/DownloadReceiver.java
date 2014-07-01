@@ -36,7 +36,6 @@ import android.widget.Toast;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
-import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;

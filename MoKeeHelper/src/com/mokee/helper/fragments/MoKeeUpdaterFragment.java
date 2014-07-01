@@ -400,7 +400,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     break;
             }
             if (status != DownLoader.STATUS_ERROR) {
-                mUpdateHandler.postDelayed(this, 5000);
+                mUpdateHandler.postDelayed(this, 1000);
             }
         }
     };
@@ -613,7 +613,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             } else {
                  dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName() + ".partial");
             }
-            if(dli != null) {
+            if (dli != null) {
               ThreadDownLoadDao.getInstance().delete(dli.getUrl());
             }
         }
