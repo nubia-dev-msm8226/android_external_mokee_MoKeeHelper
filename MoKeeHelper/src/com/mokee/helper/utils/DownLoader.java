@@ -340,12 +340,12 @@ public class DownLoader {
         endThreadNum++;
         System.out.println("endThreadNum="+endThreadNum+",allDownSize:"+allDownSize+",fileSize="+fileSize);
         if (endThreadNum == threadCount && allDownSize == fileSize) {
-           // state=STATUS_COMPLETE;
+            // state=STATUS_COMPLETE;
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
         else if (endThreadNum == threadCount && allDownSize != fileSize){//maybe thread info error then delete
-            //ThreadDownLoadDao.getInstance().delete(fileUrl);
-            state=STATUS_ERROR;
+            // ThreadDownLoadDao.getInstance().delete(fileUrl);
+            state = STATUS_ERROR;
             sendMsg(STATUS_ERROR, fileUrl, 0);
         }
     }
