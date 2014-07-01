@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Parcelable;
+import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -144,7 +145,7 @@ public class UpdateCheckService extends IntentService {
             }
 
             if (availableUpdates == null || mHttpExecutor.isAborted()) {
-                sendBroadcast(finishedIntent);
+                sendBroadcastAsUser(finishedIntent, UserHandle.CURRENT);
                 return;
             }
 
@@ -244,7 +245,7 @@ public class UpdateCheckService extends IntentService {
             }
 
             if (availableUpdates == null || mHttpExecutor.isAborted()) {
-                sendBroadcast(finishedIntent);
+                sendBroadcastAsUser(finishedIntent, UserHandle.CURRENT);
                 return;
             }
 
@@ -317,7 +318,7 @@ public class UpdateCheckService extends IntentService {
             }
         }
         finishedIntent.putExtra("flag", flag);
-        sendBroadcast(finishedIntent);
+        sendBroadcastAsUser(finishedIntent, UserHandle.CURRENT);
     }
 
     private void cleanupHttpExecutor(final HttpRequestExecutor executor) {

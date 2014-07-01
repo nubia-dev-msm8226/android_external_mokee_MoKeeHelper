@@ -38,6 +38,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -88,7 +89,7 @@ public class MoKeeCenter extends FragmentActivity {
         //Start service when create
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
-        startService(intent);
+        startServiceAsUser(intent,UserHandle.CURRENT);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class MoKeeCenter extends FragmentActivity {
         send.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
                 intent.getStringExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH));
         send.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
-        sendBroadcast(send);
+        sendBroadcastAsUser(send, UserHandle.CURRENT);
     }
 
     public static void donateButton(final Activity mContext) {
@@ -188,8 +189,7 @@ public class MoKeeCenter extends FragmentActivity {
     @Override
     public void onDestroy() {
         // Stop service when done
-        stopService(new Intent(this, PayPalService.class));
+        stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
         super.onDestroy();
     }
-
 }

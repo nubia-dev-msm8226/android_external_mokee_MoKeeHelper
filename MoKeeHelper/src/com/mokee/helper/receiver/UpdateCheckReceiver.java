@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -66,8 +67,8 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
                 Log.i(TAG, "Start an on-boot check");
                 Intent i = new Intent(context, UpdateCheckService.class);
                 i.setAction(UpdateCheckService.ACTION_CHECK);
-		i.setFlags(Constants.INTENT_FLAG_GET_UPDATE);
-                context.startService(i);
+                i.setFlags(Constants.INTENT_FLAG_GET_UPDATE);
+                context.startServiceAsUser(i, UserHandle.CURRENT);
             } else {
                 // Nothing to do
                 Log.i(TAG, "On-boot update check was already completed.");

@@ -355,7 +355,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
                 cancelIntent.setFlags(flag);
-                MoKeeApplication.getContext().startService(cancelIntent);
+                MoKeeApplication.getContext().startServiceAsUser(cancelIntent, UserHandle.CURRENT);
                 mProgressDialog = null;
             }
         });
@@ -363,7 +363,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.setFlags(flag);// 服务识别
-        MoKeeApplication.getContext().startService(checkIntent);
+        MoKeeApplication.getContext().startServiceAsUser(checkIntent, UserHandle.CURRENT);
         mProgressDialog.show();
     }
 
