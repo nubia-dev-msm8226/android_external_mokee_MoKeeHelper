@@ -19,6 +19,8 @@ package com.mokee.helper.widget;
 
 import java.io.File;
 
+import org.mokee.util.MoKeeUtils;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,12 +37,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.mokee.util.MoKeeUtils;
-
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
-import com.mokee.helper.utils.Utils;
 
 public class ItemPreference extends Preference implements OnClickListener, OnLongClickListener {
     private static final float DISABLED_ALPHA = 0.4f;

@@ -23,6 +23,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.mokee.util.MoKeeUtils;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,8 +53,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import org.mokee.util.MoKeeUtils;
-
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
@@ -60,8 +60,8 @@ import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
-import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ThreadDownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.service.DownLoadService;
@@ -150,7 +150,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, MENU_DONATE, 0 ,R.string.menu_donate).setShowAsActionFlags(
+        menu.add(0, MENU_DONATE, 0, R.string.menu_donate).setShowAsActionFlags(
                 MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         menu.add(0, MENU_REFRESH, 0, R.string.menu_refresh)
                 .setIcon(R.drawable.ic_menu_refresh)
@@ -336,7 +336,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         if (mProgressDialog != null) {
             return;
         }
-        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(), State.EXTRAS_FILENAME);
+        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(),
+                State.EXTRAS_FILENAME);
         refreshExtrasPreferences(new LinkedList<ItemInfo>());
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
@@ -412,12 +413,12 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         } else {
             DownLoadInfo dli = null;
             if (dir.getName().endsWith(".partial")) {
-                 dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName());
+                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName());
             } else {
-                 dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName() + ".partial");
+                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName() + ".partial");
             }
             if (dli != null) {
-              ThreadDownLoadDao.getInstance().delete(dli.getUrl());
+                ThreadDownLoadDao.getInstance().delete(dli.getUrl());
             }
         }
         // The directory is now empty so delete it

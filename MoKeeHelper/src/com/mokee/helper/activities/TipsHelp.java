@@ -17,12 +17,12 @@
 
 package com.mokee.helper.activities;
 
-import com.mokee.helper.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.mokee.helper.R;
 
 public class TipsHelp extends Activity {
 
