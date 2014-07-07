@@ -206,7 +206,7 @@ public class MoKeeCenter extends FragmentActivity {
         // Stop service when done
         if (initialized) {
             stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
-            super.onDestroy();
         }
+        super.onDestroy();
     }
 }
