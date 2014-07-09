@@ -17,50 +17,6 @@
 
 package com.mokee.helper.service;
 
-import android.app.IntentService;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.os.Parcelable;
-import android.os.UserHandle;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import android.util.Log;
-
-import org.mokee.util.MoKeeUtils;
-
-import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.fragments.MoKeeExtrasFragment;
-import com.mokee.helper.fragments.MoKeeUpdaterFragment;
-import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.State;
-import com.mokee.helper.misc.ItemInfo;
-import com.mokee.helper.receiver.DownloadReceiver;
-import com.mokee.helper.utils.HttpRequestExecutor;
-import com.mokee.helper.utils.Utils;
-import com.mokee.helper.MoKeeApplication;
-import com.mokee.helper.R;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -74,6 +30,43 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mokee.util.MoKeeUtils;
+
+import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.os.Parcelable;
+import android.os.UserHandle;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
+import com.mokee.helper.misc.Constants;
+import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.misc.State;
+import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.utils.HttpRequestExecutor;
+import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckService extends IntentService {
     private static final String TAG = "UpdateCheckService";
@@ -586,17 +579,20 @@ public class UpdateCheckService extends IntentService {
                 String line;
 
                 while ((line = reader.readLine()) != null) {
-                    line = line.trim();
+                    //line = line.trim();
                     if (mHttpExecutor.isAborted()) {
                         break;
                     }
 
                     if (line.isEmpty()) {
-                        writer.append("<br />");
+                        continue;
                     } else if (line.startsWith("Project:")) {
-                        writer.append("<b><u>");
+                        writer.append("<u>");
                         writer.append(line);
-                        writer.append("</u></b>");
+                        writer.append("</u><br />");
+                    } else if (line.startsWith(" ")) {
+                        writer.append("&#8226;&nbsp;");
+                        writer.append(line);
                         writer.append("<br />");
                     } else {
                         writer.append(line);
