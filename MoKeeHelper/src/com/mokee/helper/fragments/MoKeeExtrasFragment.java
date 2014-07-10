@@ -43,7 +43,6 @@ import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -73,6 +72,7 @@ import com.mokee.helper.widget.ItemPreference;
 
 public class MoKeeExtrasFragment extends PreferenceFragment implements
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
+
     private static String TAG = "MoKeeExtrasFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
@@ -133,14 +133,15 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
+
         // Load the layouts
         addPreferencesFromResource(R.xml.mokee_extras);
-        mMokeeExtrasList = (PreferenceCategory) findPreference(Constants.PREF_EXPANG_LIST);// 扩展列表
-        // mExtrasUpdate = (PreferenceScreen)
-        // findPreference(Constants.PREF_EXTRAS_UPDATE);// 获取扩展
-        // mExtrasUpdate.setOnPreferenceClickListener(this);
+
         // Load the stored preference data
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+
+        mMokeeExtrasList = (PreferenceCategory) findPreference(Constants.EXPANG_LIST_PREF);// 扩展列表
+
         updateLastCheckPreference();
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         final ActionBar bar = mContext.getActionBar();
@@ -650,7 +651,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     }
 
     public void updateLastCheckPreference() {
-        long lastCheckTime = mPrefs.getLong(Constants.PREF_LAST_EXTRAS_CHECK, 0);
+        long lastCheckTime = mPrefs.getLong(Constants.LAST_EXTRAS_CHECK_PREF, 0);
         if (lastCheckTime == 0) {
             Utils.setSummaryFromString(this, KEY_MOKEE_LAST_CHECK,
                     getString(R.string.mokee_last_check_never));

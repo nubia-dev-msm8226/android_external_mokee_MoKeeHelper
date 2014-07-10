@@ -23,7 +23,6 @@ import java.util.LinkedList;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -60,9 +59,8 @@ public class MKDashClockExtension extends DashClockExtension {
         Intent intent = new Intent(this, MoKeeUpdaterFragment.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA,
-                true))// ota暂时不进行排序
-        {
+        // ota暂时不进行排序
+        if (!getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.CHECK_OTA_PREF, true)) {
             Collections.sort(updates, new Comparator<ItemInfo>() {
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {

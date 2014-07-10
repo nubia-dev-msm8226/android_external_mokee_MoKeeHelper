@@ -38,7 +38,6 @@ import android.os.UserHandle;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
@@ -58,9 +57,6 @@ public class Utils {
 
     /**
      * 检测rom是否已下载
-     * 
-     * @param fileName
-     * @return
      */
     public static boolean isLocaUpdateFile(String fileName, boolean isUpdate) {
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
@@ -222,8 +218,8 @@ public class Utils {
 
     public static void scheduleUpdateService(Context context, int updateFrequency) {
         // Load the required settings from preferences
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long lastCheck = prefs.getLong(Constants.PREF_LAST_UPDATE_CHECK, 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+        long lastCheck = prefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
 
         // Get the intent ready
         Intent i = new Intent(context, UpdateCheckService.class);
@@ -253,14 +249,11 @@ public class Utils {
 
     /**
      * 截取日期
-     * 
-     * @param name
-     * @return
      */
     public static String subBuildDate(String name, boolean someVersion) {
         String[] strs = name.split("-");
         String date = strs[2];
-        if(isNum(date)){
+        if (isNum(date)) {
             if (date.startsWith("20")) {
                 date = date.substring(2, date.length());
             }
@@ -270,19 +263,18 @@ public class Utils {
                 }
             }
         }
-        else{
-            date="0";
+        else {
+            date = "0";
         }
         return date;
     }
-    public static boolean isNum(String str){
+
+    public static boolean isNum(String str) {
         return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
     }
+
     /**
      * 截取日期长度
-     * 
-     * @param name
-     * @return
      */
     public static int getBuildDateLength(String name) {
         String[] strs = name.split("-");
@@ -295,18 +287,11 @@ public class Utils {
 
     /**
      * 截取版本
-     * 
-     * @param name
-     * @return
      */
     public static String subMoKeeVersion(String name) {
-//        String[] strs = name.split("-");
-//        String version = strs[0];
-//        version = version.substring(2, 4);
         String[] strs = name.split("-");
         String version = strs[0];
-        if(name.toLowerCase().startsWith("ota"))
-        {
+        if (name.toLowerCase().startsWith("ota")) {
             version = strs[1];
         }
         version = version.substring(2, version.length());
@@ -315,9 +300,6 @@ public class Utils {
 
     /**
      * 判断版本新旧
-     * 
-     * @param itemName
-     * @return
      */
     public static boolean isNewVersion(String itemName) {
         int nowDateLength = getBuildDateLength(Utils.getInstalledVersion());
@@ -364,5 +346,4 @@ public class Utils {
             }
         }
     }
-
 }

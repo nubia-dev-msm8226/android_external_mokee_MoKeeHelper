@@ -49,7 +49,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -155,15 +154,18 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
+
         // Load the layouts
         addPreferencesFromResource(R.xml.mokee_updater);
+
+        // Load the stored preference data
+        mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
-        mUpdateAll = (CheckBoxPreference) findPreference(Constants.PREF_ROM_ALL);// 所有更新
-        mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
-        // Load the stored preference data
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        mUpdateAll = (CheckBoxPreference) findPreference(Constants.CHECK_ALL_PREF);// 所有更新
+        mUpdateOTA = (CheckBoxPreference) findPreference(Constants.CHECK_OTA_PREF);// OTA更新
 
         // Restore normal type list
         String MoKeeVersionType = Utils.getMoKeeVersionType();
@@ -205,9 +207,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
             setUpdateTypeSummary(type);
         }
-        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_OTA, true));
+        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true));
         mUpdateOTA.setOnPreferenceChangeListener(this);
-        mUpdateAll.setChecked(mPrefs.getBoolean(Constants.PREF_ROM_ALL, false));
+        mUpdateAll.setChecked(mPrefs.getBoolean(Constants.CHECK_ALL_PREF, false));
         mUpdateAll.setOnPreferenceChangeListener(this);
         isOTA(mUpdateOTA.isChecked());
         isRomAll(mUpdateAll.isChecked());
@@ -290,7 +292,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     }
 
     public void updateLastCheckPreference() {
-        long lastCheckTime = mPrefs.getLong(Constants.PREF_LAST_UPDATE_CHECK, 0);
+        long lastCheckTime = mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
         if (lastCheckTime == 0) {
             Utils.setSummaryFromString(this, KEY_MOKEE_LAST_CHECK,
                     getString(R.string.mokee_last_check_never));
@@ -432,7 +434,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         final LinkedList<ItemInfo> availableUpdates = State.loadMKState(
                 MoKeeApplication.getContext(), State.UPDATE_FILENAME);
 
-        if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
+        if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
             Collections.sort(availableUpdates, new Comparator<ItemInfo>() {
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {
@@ -459,14 +461,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Convert the installed version name to the associated filename
         String installedZip = Utils.getInstalledVersion() + ".zip";
         boolean isNew = true;// 判断新旧版本
-        // boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
             boolean isDownloading = ui.getName().equals(mFileName);
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), true);
             int style = 3;
-            if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
+            if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
                 isNew = Utils.isNewVersion(ui.getName());
             }
             if (isDownloading) {
@@ -757,7 +758,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
+                        if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
                             if (Utils.isNewVersion(pref.getItemInfo().getName())) {
                                 pref.setStyle(ItemPreference.STYLE_NEW);
                             } else {
@@ -893,10 +894,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             return true;
         } else if (preference == mUpdateAll) {
             boolean value = (Boolean) newValue;
+            mPrefs.edit().putBoolean(Constants.CHECK_ALL_PREF, value).apply();
             isRomAll(value);
             return true;
         } else if (preference == mUpdateOTA) {
             boolean value = (Boolean) newValue;
+            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, value).apply();
             isOTA(value);
             checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
             return true;
@@ -906,11 +909,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     private void isRomAll(boolean value) {
         if (value) {
-            mUpdateAll
-                    .setSummary(mContext.getResources().getText(R.string.pref_update_all_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_check_all_summary));
         } else {
-            mUpdateAll.setSummary(mContext.getResources().getText(
-                    R.string.pref_update_all_new_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_check_all_new_summary));
         }
     }
 

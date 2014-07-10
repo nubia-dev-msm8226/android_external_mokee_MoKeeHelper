@@ -47,7 +47,7 @@ public class DownLoadDao {
     public SQLiteDatabase getConnection() {
         SQLiteDatabase sqliteDatabase = null;
         try {
-            sqliteDatabase = new DbManager(context).getWritableDatabase();
+            sqliteDatabase = new DBManager(context).getWritableDatabase();
         } catch (Exception e) {
         }
         return sqliteDatabase;

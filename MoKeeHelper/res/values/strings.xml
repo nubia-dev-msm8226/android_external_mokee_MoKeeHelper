@@ -165,11 +165,11 @@
     <string name="extension_description">Displays available updates</string>
 
     <!-- pref -->
-    <string name="pref_update_all_title">Full updates</string>
-    <string name="pref_update_all_summary">Get all versions (including old ones on the server)</string>
-    <string name="pref_update_all_new_summary">Get new versions only</string>
-    <string name="pref_update_ota">OTA updates</string>
-    <string name="pref_update_ota_summary">Get OTA updates</string>
+    <string name="pref_check_all_title">Full updates</string>
+    <string name="pref_check_all_summary">Get all versions (including old ones on the server)</string>
+    <string name="pref_check_all_new_summary">Get new versions only</string>
+    <string name="pref_check_ota">OTA updates</string>
+    <string name="pref_check_ota_summary">Get OTA updates</string>
 
     <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">Apply update</string>

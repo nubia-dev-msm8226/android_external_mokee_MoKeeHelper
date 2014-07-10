@@ -25,7 +25,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="updates_extras"
+        android:key="extras_category"
         android:title="@string/mokee_extras_title" />
 
 </PreferenceScreen>

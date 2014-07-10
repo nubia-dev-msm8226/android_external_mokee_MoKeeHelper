@@ -124,9 +124,6 @@ public class DownLoadService extends IntentService {
 
     /**
      * 添加通知
-     * 
-     * @param id
-     * @param title
      */
     private void addNotification(int id, int title, int flag) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
@@ -136,7 +133,8 @@ public class DownLoadService extends IntentService {
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
         nextIntent.putExtra("flag", flag);
-        PendingIntent pengdingIntent = PendingIntent.getBroadcast(this, 0, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pengdingIntent = PendingIntent.getBroadcast(this, 0, nextIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pengdingIntent);
         builder.setProgress(100, 0, false);
         builder.setAutoCancel(true);
@@ -150,13 +148,11 @@ public class DownLoadService extends IntentService {
 
     /**
      * 定时更新通知进度
-     * 
-     * @param id
-     * @param progress
      */
     private void updateNotification(int id, int progress, long time) {
-        if (!notifications.containsKey(id))
+        if (!notifications.containsKey(id)) {
             return;
+        }
         NotificationCompat.Builder notification = notifications.get(id);
         notification.setContentText(getString(R.string.download_remaining,
                 DateUtils.formatDuration(time)));
@@ -170,14 +166,14 @@ public class DownLoadService extends IntentService {
         public boolean handleMessage(Message msg) {
             DownLoader di;
             String url;
-            Intent intent ;
+            Intent intent;
             DownLoadInfo dli;
             switch (msg.what) {
                 case DownLoader.STATUS_DOWNLOADING:// 更新通知
                     url = (String) msg.obj;
                     di = downloaders.get(url);
                     long time = 0;
-                    if (di!=null) {
+                    if (di != null) {
                         try {
                             long allDownSize;
                             if (di.downloadedSize != 0)// 除去已緩存
@@ -191,7 +187,7 @@ public class DownLoadService extends IntentService {
 
                             if (surplusSize > 0 && allDownSize > 0) {
                                 long speed = (allDownSize / endtDown);
-                                if(speed>0)
+                                if (speed > 0)
                                 {
                                     time = (surplusSize / speed);
                                 }
@@ -242,7 +238,7 @@ public class DownLoadService extends IntentService {
                     intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
                     intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
                     sendBroadcastAsUser(intent, UserHandle.CURRENT);
-                    di=null;
+                    di = null;
                     if (downloaders.size() == 0) {
                         stopSelf();
                     }

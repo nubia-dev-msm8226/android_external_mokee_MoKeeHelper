@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.UserHandle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.mokee.helper.misc.Constants;
@@ -36,7 +35,7 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // Load the required settings from preferences
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         int updateFrequency = prefs.getInt(Constants.UPDATE_CHECK_PREF,
                 Constants.UPDATE_FREQ_WEEKLY);
 

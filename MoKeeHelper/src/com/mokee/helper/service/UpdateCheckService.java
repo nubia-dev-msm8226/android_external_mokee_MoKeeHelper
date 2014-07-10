@@ -54,7 +54,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Parcelable;
 import android.os.UserHandle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -144,8 +143,7 @@ public class UpdateCheckService extends IntentService {
 
             // Store the last update check time and ensure boot check completed is true
             Date d = new Date();
-            PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
-                    .putLong(Constants.PREF_LAST_UPDATE_CHECK, d.getTime())
+            getSharedPreferences(Constants.DOWNLOADER_PREF, 0).edit().putLong(Constants.LAST_UPDATE_CHECK_PREF, d.getTime())
                     .putBoolean(Constants.BOOT_CHECK_COMPLETED, true).apply();
 
             int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
@@ -180,8 +178,7 @@ public class UpdateCheckService extends IntentService {
                 LinkedList<ItemInfo> realUpdates = new LinkedList<ItemInfo>();
                 realUpdates.addAll(availableUpdates);
                 // ota暂时不进行排序
-                if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
-                        Constants.PREF_ROM_OTA, true)) {
+                if (!getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.CHECK_OTA_PREF, true)) {
                     Collections.sort(realUpdates, new Comparator<ItemInfo>() {
                         @Override
                         public int compare(ItemInfo lhs, ItemInfo rhs) {
@@ -244,8 +241,7 @@ public class UpdateCheckService extends IntentService {
 
             // Store the last update check time and ensure boot check completed is true
             Date d = new Date();
-            PreferenceManager.getDefaultSharedPreferences(UpdateCheckService.this).edit()
-                    .putLong(Constants.PREF_LAST_EXTRAS_CHECK, d.getTime()).apply();
+            getSharedPreferences(Constants.DOWNLOADER_PREF, 0).edit().putLong(Constants.LAST_EXTRAS_CHECK_PREF, d.getTime()).apply();
 
             int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
             MoKeeApplication app = (MoKeeApplication) getApplicationContext();
@@ -342,7 +338,7 @@ public class UpdateCheckService extends IntentService {
     private LinkedList<ItemInfo> getMKAvailableUpdatesAndFillIntent(Intent intent)
             throws IOException {
         // Get the type of update we should check for
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         String MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
@@ -358,8 +354,8 @@ public class UpdateCheckService extends IntentService {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
-        int rom_all = prefs.getBoolean(Constants.PREF_ROM_ALL, false) ? 1 : 0;// 全部获取参数
-        boolean isOTA = prefs.getBoolean(Constants.PREF_ROM_OTA, true);
+        int rom_all = prefs.getBoolean(Constants.CHECK_ALL_PREF, false) ? 1 : 0;// 全部获取参数
+        boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
         // Get the actual ROM Update Server URL
         URI updateServerUri;
         List<NameValuePair> params = new ArrayList<NameValuePair>();

@@ -39,9 +39,9 @@
         android:title="@string/update_check_title" />
 
     <CheckBoxPreference
-        android:key="pref_update_ota"
-        android:summary="@string/pref_update_ota_summary"
-        android:title="@string/pref_update_ota" />
+        android:key="pref_check_ota"
+        android:summary="@string/pref_check_ota_summary"
+        android:title="@string/pref_check_ota" />
 
     <ListPreference
         android:dialogTitle="@string/update_type_title"
@@ -52,8 +52,8 @@
     <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
     <CheckBoxPreference
         android:dependency="pref_update_types"
-        android:key="pref_update_all"
-        android:title="@string/pref_update_all_title" />
+        android:key="pref_check_all"
+        android:title="@string/pref_check_all_title" />
 
     <PreferenceCategory
         android:key="updates_category"

@@ -25,13 +25,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mokee.util.MoKeeUtils;
+
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.text.format.DateUtils;
 import android.util.Log;
-
-import org.mokee.util.MoKeeUtils;
 
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;
@@ -39,13 +39,6 @@ import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.ThreadDownLoadInfo;
 
 public class DownLoader {
-    public String fileUrl;// 下载的地址
-    private String localFile;// 保存路径
-    private int threadCount = 1;// 线程数
-    private Handler mHandler;
-    private Context mContext;
-    private long fileSize;// 所要下载的文件的大小
-    private List<ThreadDownLoadInfo> downInfoList;// 存放下载信息类的集合
     public static final int STATUS_PENDING = 1;
     public static final int STATUS_DOWNLOADING = 2;
     public static final int STATUS_PAUSED = 3;
@@ -53,6 +46,14 @@ public class DownLoader {
     public static final int STATUS_ERROR = 5;
     public static final int STATUS_COMPLETE = 6;
     public static final int STATUS_FAILED = 7;
+
+    public String fileUrl;// 下载的地址
+    private String localFile;// 保存路径
+    private int threadCount = 1;// 线程数
+    private Handler mHandler;
+    private Context mContext;
+    private long fileSize;// 所要下载的文件的大小
+    private List<ThreadDownLoadInfo> downInfoList;// 存放下载信息类的集合
     private int state = STATUS_PENDING;
     private int notificationID = -1;// 存储对应通知ID;
     public long allDownSize = 0;// 总体下载大小
@@ -121,7 +122,7 @@ public class DownLoader {
                 downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
                 this.threadCount = downInfoList.size();
                 Log.v("TAG", "not isFirst size=" + downInfoList.size());
-                int size = 0;
+                // int size = 0;
                 int complete = 0;
                 fileSize = DownLoadDao.getInstance().getDownLoadInfoByUrl(fileUrl).getFileSize();
                 allDownSize = 0;
@@ -130,7 +131,7 @@ public class DownLoader {
                     complete += info.getDownSize();
                     allDownSize += info.getDownSize();
                     downloadedSize += info.getDownSize();
-                    size += info.getEndPos() - info.getStartPos() + 1;
+                    // size += info.getEndPos() - info.getStartPos() + 1;
                 }
                 if (allDownSize == fileSize) {//修正数据已下完，避免重复开线程
                     sendMsg(STATUS_COMPLETE, fileUrl, 0);
@@ -343,7 +344,7 @@ public class DownLoader {
             // state=STATUS_COMPLETE;
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
-        else if (endThreadNum == threadCount && allDownSize != fileSize){//maybe thread info error then delete
+        else if (endThreadNum == threadCount && allDownSize != fileSize){ //maybe thread info error then delete
             // ThreadDownLoadDao.getInstance().delete(fileUrl);
             state = STATUS_ERROR;
             sendMsg(STATUS_ERROR, fileUrl, 0);
