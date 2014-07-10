@@ -99,7 +99,7 @@ public class DownLoader {
     public DownLoadInfo getDownLoadInfo() {
         if (MoKeeUtils.isOnline(mContext)) { // 执行时简单判断网络状态
             if (isFirst(fileUrl)) {
-                if (!init()) { //judge init is success
+                if (!init()) { // judge init is success
                     return null;
                 }
                 long range = fileSize / threadCount;
@@ -117,7 +117,7 @@ public class DownLoader {
                 downloadedSize = 0;
                 DownLoadInfo loadInfo = new DownLoadInfo(fileSize, 0, fileUrl);
                 return loadInfo;
-            } else {//初始化信息待修改
+            } else {// 初始化信息待修改
                 // 获取URL的相关线程信息
                 downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
                 this.threadCount = downInfoList.size();
@@ -133,7 +133,7 @@ public class DownLoader {
                     downloadedSize += info.getDownSize();
                     // size += info.getEndPos() - info.getStartPos() + 1;
                 }
-                if (allDownSize == fileSize) {//修正数据已下完，避免重复开线程
+                if (allDownSize == fileSize) {// 修正数据已下完，避免重复开线程
                     sendMsg(STATUS_COMPLETE, fileUrl, 0);
                     return null;
                 }
@@ -158,7 +158,7 @@ public class DownLoader {
             fileSize = connection.getContentLength();
             connection.disconnect();
             if (fileSize > 0) {
-                if(fileSize < 1048576) {// 1m
+                if (fileSize < 1048576) {// 1m
                     this.threadCount = 1;
                 } else if (fileSize < 10485760) {// 10m
                     this.threadCount = 2;
@@ -225,6 +225,7 @@ public class DownLoader {
         private long sectionSize;
         private String fileUrl;
         private static final int DEFAULT_TIMEOUT = (int) (20 * DateUtils.SECOND_IN_MILLIS);
+
         public DonwLoadThread(int threadId, long startPos, long endPos, long downSize,
                 String fileUrl) {
             this.threadId = threadId;
@@ -278,16 +279,15 @@ public class DownLoader {
                     }
                     isOver();
                 } catch (Exception e) {
-                   isOver();
+                    isOver();
                 } finally {
                     try {
                         randomAccessFile.close();
                         is.close();
-                        if (connection!=null) {
+                        if (connection != null) {
                             connection.disconnect();
                         }
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -322,7 +322,7 @@ public class DownLoader {
      */
     private synchronized void sendMsg(int msgID, String url, int length) {
         Message msg = Message.obtain();
-        if(msgID==STATUS_DOWNLOADING) {
+        if (msgID == STATUS_DOWNLOADING) {
             msg.obj = url;
         }
         else {
@@ -339,12 +339,12 @@ public class DownLoader {
      */
     public synchronized void isOver() {
         endThreadNum++;
-        System.out.println("endThreadNum="+endThreadNum+",allDownSize:"+allDownSize+",fileSize="+fileSize);
+        System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
+                + ",fileSize=" + fileSize);
         if (endThreadNum == threadCount && allDownSize == fileSize) {
-            // state=STATUS_COMPLETE;
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
-        else if (endThreadNum == threadCount && allDownSize != fileSize){ //maybe thread info error then delete
+        else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
             // ThreadDownLoadDao.getInstance().delete(fileUrl);
             state = STATUS_ERROR;
             sendMsg(STATUS_ERROR, fileUrl, 0);
@@ -360,5 +360,4 @@ public class DownLoader {
                 + downloadedSize + ", endThreadNum=" + endThreadNum + ", startDown=" + startDown
                 + "]";
     }
-
 }
