@@ -220,7 +220,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         final ActionBar bar = mContext.getActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
     }
 
