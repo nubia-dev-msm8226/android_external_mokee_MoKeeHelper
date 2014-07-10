@@ -4,32 +4,24 @@ package com.mokee.helper.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Message;
 import android.os.UserHandle;
-import android.provider.ContactsContract.CommonDataKinds.Note;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 import android.text.format.DateUtils;
-import android.widget.Toast;
+import android.util.Log;
 
-import com.mokee.helper.activities.MoKeeCenter;
+import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.utils.DownLoader;
-import com.mokee.helper.utils.Utils;
-import com.mokee.helper.MoKeeApplication;
-import com.mokee.helper.R;
 
-public class DownLoadService extends IntentService {
+public class DownLoadService extends NonStopIntentService {
     private static final String TAG = "DownLoadService";
 
     public DownLoadService() {
@@ -59,11 +51,6 @@ public class DownLoadService extends IntentService {
     public void onCreate() {
         super.onCreate();
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    }
-
-    @Override
-    public int onStartCommand(Intent action, int flags, int startId) {
-        return super.onStartCommand(action, flags, startId);
     }
 
     @Override
@@ -247,4 +234,5 @@ public class DownLoadService extends IntentService {
             return false;
         }
     });
+
 }

@@ -34,20 +34,20 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
-    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
     <application
+        android:name="com.mokee.helper.MoKeeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_mokee_helper"
         android:label="@string/mokee_center_title"
-        android:name="com.mokee.helper.MoKeeApplication"
         android:supportsRtl="true" >
         <activity
             android:name="com.mokee.helper.activities.TipsHelp"
+            android:excludeFromRecents="true"
             android:icon="@drawable/ic_forum"
             android:label="@string/tips_help_title"
-            android:theme="@style/ActivityTransparent"
-            android:excludeFromRecents="true" >
+            android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -61,6 +61,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <service
             android:name="com.mokee.helper.service.MKDashClockExtension"
             android:icon="@drawable/ic_tab_installed"
@@ -106,9 +107,10 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.paypal.android.sdk.payments.PayPalService"
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
             android:exported="false" />
-        
+
         <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
         <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
