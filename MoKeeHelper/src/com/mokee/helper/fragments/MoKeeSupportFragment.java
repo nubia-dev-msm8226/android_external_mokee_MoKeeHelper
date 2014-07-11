@@ -108,9 +108,6 @@ public class MoKeeSupportFragment extends PreferenceFragment {
             case MENU_DONATE:
                 MoKeeCenter.donateButton(mContext);
                 return true;
-            case android.R.id.home:
-                mContext.onBackPressed();
-                return true;
         }
         return true;
     }

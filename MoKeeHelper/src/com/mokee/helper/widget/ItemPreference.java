@@ -40,6 +40,7 @@ import android.widget.Toast;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.utils.Utils;
 
 public class ItemPreference extends Preference implements OnClickListener, OnLongClickListener {
     private static final float DISABLED_ALPHA = 0.4f;
@@ -285,6 +286,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             // Set the title text
             if (TextUtils.isEmpty(mItemInfo.getDescription())) {
                 mTitleText.setText(mItemInfo.getName());
+                mSummaryText.setText(Utils.isNewVersion(mItemInfo.getName()) ? R.string.new_update_summary : R.string.old_update_summary);
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
             } else {
                 mTitleText.setText(mItemInfo.getDescription());
@@ -309,15 +311,13 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.GONE);
                 break;
-
             case STYLE_DOWNLOADING:
                 // Show the cancel button image and progress bar
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_cancel);
                 mUpdatesButton.setEnabled(true);
+                mSummaryText.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.VISIBLE);
-                //mSummaryText.setVisibility(View.INVISIBLE);
                 break;
-
             case STYLE_INSTALLED:
                 // Show the installed button image and summary of 'Installed'
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_installed);
@@ -327,25 +327,13 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mProgressBar.setVisibility(View.GONE);
                 mFileSizeText.setVisibility(View.INVISIBLE);
                 break;
-            case STYLE_OLD:
-                mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
-                mUpdatesButton.setEnabled(true);
-                mSummaryText.setText(R.string.old_update_summary);
-                mSummaryText.setVisibility(View.VISIBLE);
-                mProgressBar.setVisibility(View.GONE);
-                break;
-            case STYLE_EXTRAS_NEW:
-                mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
-                mUpdatesButton.setEnabled(true);
-                mSummaryText.setVisibility(View.VISIBLE);
-                mProgressBar.setVisibility(View.GONE);
-                break;
             case STYLE_NEW:
+            case STYLE_OLD:
+            case STYLE_EXTRAS_NEW:
             default:
                 // Show the download button image and summary of 'New'
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
                 mUpdatesButton.setEnabled(true);
-                mSummaryText.setText(R.string.new_update_summary);
                 mSummaryText.setVisibility(View.VISIBLE);
                 mProgressBar.setVisibility(View.GONE);
                 break;

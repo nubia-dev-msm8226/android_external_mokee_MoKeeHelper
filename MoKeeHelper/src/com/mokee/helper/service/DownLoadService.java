@@ -64,7 +64,7 @@ public class DownLoadService extends NonStopIntentService {
             DownLoader downloader = null;
             switch (type) {
                 case ADD:
-                    notificationIDBase++;
+                    notificationIDBase = flag;
                     downloader = downloaders.get(url);
                     if (downloader == null) {
                         downloader = new DownLoader(url, filePath, handler,

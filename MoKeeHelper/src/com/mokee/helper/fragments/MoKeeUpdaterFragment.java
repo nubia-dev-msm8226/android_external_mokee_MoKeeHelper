@@ -27,7 +27,6 @@ import java.util.List;
 
 import org.mokee.util.MoKeeUtils;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -218,9 +217,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 Utils.getMoKeeVersionTypeString(mContext));
         updateLastCheckPreference();
 
-        // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
-        final ActionBar bar = mContext.getActionBar();
-        //bar.setDisplayHomeAsUpEnabled(true);
         setHasOptionsMenu(true);
     }
 
@@ -329,9 +325,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             case MENU_DELETE_ALL:
                 confirmDeleteAll();
                 return true;
-            case android.R.id.home:
-                mContext.onBackPressed();
-                return true;
         }
         return true;
     }
@@ -402,7 +395,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     break;
             }
             if (status != DownLoader.STATUS_ERROR) {
-                mUpdateHandler.postDelayed(this, 1000);
+                mUpdateHandler.postDelayed(this, 1500);
             }
         }
     };
@@ -737,7 +730,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         intent.putExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
 
-        mUpdateHandler.post(mUpdateProgress);
+        //mUpdateHandler.post(mUpdateProgress);
     }
 
     @Override
@@ -768,6 +761,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                             pref.setStyle(ItemPreference.STYLE_NEW);
                         }
                         // We are OK to stop download, trigger it
+                        resetDownloadState();
+                        mUpdateHandler.removeCallbacks(mUpdateProgress);
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
                         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
@@ -775,8 +770,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
                         MoKeeApplication.getContext()
                                 .startServiceAsUser(intent, UserHandle.CURRENT);
-                        mUpdateHandler.removeCallbacks(mUpdateProgress);
-                        resetDownloadState();
 
                         // Clear the stored data from shared preferences
                         mPrefs.edit().remove(Constants.DOWNLOAD_ID).remove(Constants.DOWNLOAD_MD5)
