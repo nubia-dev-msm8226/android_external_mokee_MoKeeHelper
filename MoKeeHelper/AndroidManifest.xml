@@ -42,10 +42,11 @@
         android:icon="@mipmap/ic_mokee_helper"
         android:label="@string/mokee_center_title"
         android:supportsRtl="true" >
+
         <activity
             android:name="com.mokee.helper.activities.TipsHelp"
             android:excludeFromRecents="true"
-            android:icon="@drawable/ic_forum"
+            android:icon="@drawable/ic_launcher_tips_help"
             android:label="@string/tips_help_title"
             android:theme="@style/ActivityTransparent" >
             <intent-filter>
@@ -53,6 +54,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.mokee.helper.activities.MoKeeForum"
+            android:icon="@drawable/ic_launcher_forum"
+            android:label="@string/mokee_forum_title"
+            android:theme="@style/ActivityTransparent"
+            android:excludeFromRecents="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.mokee.helper.activities.MoKeeCenter"
             android:label="@string/mokee_center_title" >
@@ -89,18 +102,21 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
         <receiver android:name="com.mokee.helper.receiver.DownloadReceiver" >
             <intent-filter>
                 <action android:name="com.mokee.mkupdater.action.DOWNLOAD_COMPLETED" />
                 <action android:name="com.mokee.mkupdater.action.START_DOWNLOAD" />
             </intent-filter>
         </receiver>
+
         <receiver android:name="com.mokee.helper.receiver.NotificationClickReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
                 <action android:name="com.mokee.mkupdater.action.NOTIFICATION_CLICKED" />
             </intent-filter>
         </receiver>
+
         <receiver android:name="com.mokee.helper.receiver.CheckFinishReceiver" >
             <intent-filter>
                 <action android:name="com.mokee.mkupdater.action.UPDATE_CHECK_FINISHED" />
