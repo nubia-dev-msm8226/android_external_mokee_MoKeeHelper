@@ -59,6 +59,7 @@ import android.util.Log;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
+import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
@@ -157,11 +158,10 @@ public class UpdateCheckService extends IntentService {
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
-                Intent i = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
+                Intent i = new Intent(MoKeeCenter.ACTION_MOKEE_CENTER);
                 i.putExtra(EXTRA_UPDATE_LIST_UPDATED, true);
                 i.putExtra("flag", flag);
-                PendingIntent contentIntent = PendingIntent.getBroadcast(this, 0, i,
-                        PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
 
                 Resources res = getResources();
                 String text = res.getQuantityString(R.plurals.not_new_updates_found_body,
@@ -254,11 +254,10 @@ public class UpdateCheckService extends IntentService {
             if (realUpdateCount != 0 && !app.isMainActivityActive()) {
                 // There are updates available
                 // The notification should launch the main app
-                Intent i = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
+                Intent i = new Intent(MoKeeCenter.ACTION_MOKEE_CENTER);
                 i.putExtra(EXTRA_EXTRAS_LIST_UPDATED, true);
                 i.putExtra("flag", flag);
-                PendingIntent contentIntent = PendingIntent.getBroadcast(this, 0, i,
-                        PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
                 String text = res.getQuantityString(R.plurals.not_new_updates_found_body,
                         realUpdateCount, realUpdateCount);
