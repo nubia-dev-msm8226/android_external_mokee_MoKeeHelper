@@ -284,7 +284,11 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             }
 
             // Set the title text
-            if (TextUtils.isEmpty(mItemInfo.getDescription())) {
+            if (mItemInfo.getName().startsWith("OTA")) {
+                mTitleText.setText(mItemInfo.getName());
+                mSummaryText.setText(R.string.new_update_summary);
+                mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
+            } else if (TextUtils.isEmpty(mItemInfo.getDescription())) {
                 mTitleText.setText(mItemInfo.getName());
                 mSummaryText.setText(Utils.isNewVersion(mItemInfo.getName()) ? R.string.new_update_summary : R.string.old_update_summary);
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
