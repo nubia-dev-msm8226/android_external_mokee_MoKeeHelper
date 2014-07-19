@@ -23,6 +23,7 @@
         <item>@string/check_on_boot</item>
         <item>@string/check_twice_daily</item>
         <item>@string/check_daily</item>
+        <item>@string/check_twice_weekly</item>
         <item>@string/check_weekly</item>
         <item>@string/check_bi_weekly</item>
         <item>@string/check_monthly</item>
@@ -33,6 +34,7 @@
         <item>-1</item>
         <item>43200</item>
         <item>86400</item>
+        <item>302400</item>
         <item>604800</item>
         <item>1209600</item>
         <item>2419200</item>

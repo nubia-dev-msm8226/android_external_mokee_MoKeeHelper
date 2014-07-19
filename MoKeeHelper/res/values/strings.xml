@@ -111,6 +111,7 @@
     <string name="check_on_boot">On each reboot</string>
     <string name="check_twice_daily">Twice every day</string>
     <string name="check_daily">Once every day</string>
+    <string name="check_twice_weekly">Twice every week</string>
     <string name="check_weekly">Once every week</string>
     <string name="check_bi_weekly">Once every fortnight</string>
     <string name="check_monthly">Once every month</string>

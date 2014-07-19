@@ -37,7 +37,7 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
         // Load the required settings from preferences
         SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         int updateFrequency = prefs.getInt(Constants.UPDATE_CHECK_PREF,
-                Constants.UPDATE_FREQ_WEEKLY);
+                Constants.UPDATE_FREQ_TWICE_WEEKLY);
 
         // Check if we are set to manual updates and don't do anything
         if (updateFrequency == Constants.UPDATE_FREQ_NONE) {
