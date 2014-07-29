@@ -34,16 +34,12 @@
     <string name="mokee_forum_summary">Visit the MoKee Forum</string>
     <string name="mokee_issues_title">MoKee Bug Tracker</string>
     <string name="mokee_issues_summary">Visit the bug tracker</string>
-    <string name="mokee_statistics_title">MoKee Statistics</string>
-    <string name="mokee_statistics_summary">View MoKee Statistics</string>
     <string name="mokee_changelog_title">MoKee Changelog</string>
     <string name="mokee_changelog_summary">View MoKee Changelog List</string>
     <string name="mokee_build_status_title">MoKee Build Status</string>
     <string name="mokee_build_status_summary">View build status</string>
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit the MoKee Github</string>
-    <string name="mokee_wiki_title">MoKee Wiki</string>
-    <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_donate_title">Donate to MoKee</string>
     <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
 
