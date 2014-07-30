@@ -17,14 +17,20 @@
 
 package com.mokee.helper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import cn.jpush.android.api.JPushInterface;
 
+import com.android.settings.mkstats.Utilities;
 import com.mokee.helper.activities.MoKeeCenter;
+import com.mokee.helper.utils.Utils;
 
-public class MoKeeApplication extends com.baidu.frontia.FrontiaApplication implements
+public class MoKeeApplication extends Application implements
         Application.ActivityLifecycleCallbacks {
     private static Context context;
     private boolean mMainActivityActive;
@@ -35,6 +41,14 @@ public class MoKeeApplication extends com.baidu.frontia.FrontiaApplication imple
         mMainActivityActive = false;
         registerActivityLifecycleCallbacks(this);
         context = getApplicationContext();
+
+        // MoKeePush Interface
+        JPushInterface.setDebugMode(false);
+        JPushInterface.init(this);
+        Set<String> tags = new HashSet<String>();
+        tags.add(Utils.getDeviceType());
+        tags.add(Utilities.getMoKeeVersion());
+        JPushInterface.setAliasAndTags(this, Utilities.getUniqueID(this), tags);
     }
 
     public static Context getContext() {
