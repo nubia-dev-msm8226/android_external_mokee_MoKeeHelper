@@ -40,6 +40,8 @@
     <string name="mokee_build_status_summary">View build status</string>
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit the MoKee Github</string>
+    <string name="mokee_wiki_title">MoKee Wiki</string>
+    <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_donate_title">Donate to MoKee</string>
     <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
 

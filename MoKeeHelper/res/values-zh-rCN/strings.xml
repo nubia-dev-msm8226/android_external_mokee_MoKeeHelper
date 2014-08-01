@@ -40,6 +40,8 @@
     <string name="mokee_build_status_summary">查看魔趣当前编译清单和状态</string>
     <string name="mokee_github_title">开源代码</string>
     <string name="mokee_github_summary">查看和下载魔趣源代码</string>
+    <string name="mokee_wiki_title">魔趣百科</string>
+    <string name="mokee_wiki_summary">魔趣开源计划的百科全书，由大家共同维护</string>
     <string name="mokee_donate_title">捐赠我们</string>
     <string name="mokee_donate_summary">请通过捐赠支持我们，让我们变得更好</string>
 
