@@ -250,21 +250,22 @@ public class Utils {
     /**
      * 截取日期
      */
-    public static String subBuildDate(String name, boolean someVersion) {
+    public static String subBuildDate(String name, boolean sameVersion) {
         String[] strs = name.split("-");
-        String date = strs[2];
-        if (isNum(date)) {
-            if (date.startsWith("20")) {
-                date = date.substring(2, date.length());
-            }
-            if (!someVersion) {
-                if (date.length() > 6) {
-                    date = date.substring(0, 6);
-                }
-            }
+        String date;
+        if (name.toLowerCase().startsWith("ota")) {
+            date = strs[4];
+        } else {
+            date = strs[2];
         }
-        else {
-            date = "0";
+        if (!isNum(date)) return "0";
+        if (date.startsWith("20")) {
+            date = date.substring(2, date.length());
+        }
+        if (!sameVersion) {
+            if (date.length() > 6) {
+                date = date.substring(0, 6);
+            }
         }
         return date;
     }
@@ -304,11 +305,11 @@ public class Utils {
     public static boolean isNewVersion(String itemName) {
         int nowDateLength = getBuildDateLength(Utils.getInstalledVersion());
         int itemDateLength = getBuildDateLength(itemName);
-        boolean someVersion = (nowDateLength == itemDateLength);
-        int nowDate = Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), someVersion));
-        int itemDate = Integer.valueOf(Utils.subBuildDate(itemName, someVersion));
-        float nowVersion = Float.valueOf(Utils.subMoKeeVersion(Utils.getInstalledVersion()));
-        float itemVersion = Float.valueOf(Utils.subMoKeeVersion(itemName));
+        boolean sameVersion = (nowDateLength == itemDateLength);
+        int nowDate = Integer.valueOf(subBuildDate(Utils.getInstalledVersion(), sameVersion));
+        int itemDate = Integer.valueOf(subBuildDate(itemName, sameVersion));
+        float nowVersion = Float.valueOf(subMoKeeVersion(Utils.getInstalledVersion()));
+        float itemVersion = Float.valueOf(subMoKeeVersion(itemName));
         return (itemDate > nowDate && itemVersion >= nowVersion);
     }
 

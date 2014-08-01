@@ -171,8 +171,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean experimentalShow = mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental);
-        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2
-                : 0);
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);
         if (type == 2 && !experimentalShow) {
             mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
                     .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
@@ -213,8 +212,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         isOTA(mUpdateOTA.isChecked());
         isRomAll(mUpdateAll.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
-        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE,
-                Utils.getMoKeeVersionTypeString(mContext));
+        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, Utils.getMoKeeVersionTypeString(mContext));
         updateLastCheckPreference();
 
         setHasOptionsMenu(true);
@@ -453,7 +451,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdatesList.removeAll();
         // Convert the installed version name to the associated filename
         String installedZip = Utils.getInstalledVersion() + ".zip";
-        boolean isNew = true;// 判断新旧版本
+        boolean isNew = true; // 判断新旧版本
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
@@ -462,6 +460,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             int style = 3;
             if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
                 isNew = Utils.isNewVersion(ui.getName());
+            } else {
+                isNew = Integer.valueOf(Utils.subBuildDate(ui.getName(), true)) > Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), true));
+                if (!isNew) {
+                    break;
+                }
             }
             if (isDownloading) {
                 // In progress download
