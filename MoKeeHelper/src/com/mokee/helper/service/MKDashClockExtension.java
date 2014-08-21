@@ -65,8 +65,8 @@ public class MKDashClockExtension extends DashClockExtension {
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName(), false));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName(), false));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getFileName(), false));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getFileName(), false));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }
@@ -82,7 +82,7 @@ public class MKDashClockExtension extends DashClockExtension {
             if (expandedBody.length() > 0) {
                 expandedBody.append("\n");
             }
-            expandedBody.append(updates.get(i).getName());
+            expandedBody.append(updates.get(i).getFileName());
         }
 
         // Publish the extension data update.

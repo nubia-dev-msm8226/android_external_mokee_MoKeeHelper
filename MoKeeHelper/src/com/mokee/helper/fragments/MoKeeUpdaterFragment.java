@@ -430,8 +430,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName(), false));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName(), false));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getFileName(), false));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getFileName(), false));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }
@@ -455,13 +455,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
-            boolean isDownloading = ui.getName().equals(mFileName);
-            boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), true);
+            boolean isDownloading = ui.getFileName().equals(mFileName);
+            boolean isLocalFile = Utils.isLocaUpdateFile(ui.getFileName(), true);
             int style = 3;
             if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
-                isNew = Utils.isNewVersion(ui.getName());
+                isNew = Utils.isNewVersion(ui.getFileName());
             } else {
-                isNew = Integer.valueOf(Utils.subBuildDate(ui.getName(), true)) > Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), true));
+                isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), true));
                 if (!isNew) {
                     break;
                 }
@@ -469,7 +469,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (isDownloading) {
                 // In progress download
                 style = ItemPreference.STYLE_DOWNLOADING;
-            } else if (ui.getName().equals(installedZip)) {
+            } else if (ui.getFileName().equals(installedZip)) {
                 // This is the currently installed version
                 style = ItemPreference.STYLE_INSTALLED;
             } else if (!isLocalFile && isNew) {
@@ -482,7 +482,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
             ItemPreference up = new ItemPreference(mContext, ui, style);
             up.setOnActionListener(this);
-            up.setKey(ui.getName());
+            up.setKey(ui.getFileName());
 
             // If we have an in progress download, link the preference
             if (isDownloading) {
@@ -723,7 +723,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         mDownloadingPreference.setStyle(ItemPreference.STYLE_DOWNLOADING);
-        mFileName = ui.getName();
+        mFileName = ui.getFileName();
         mDownloading = true;
 
         // Start the download
@@ -739,7 +739,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onStopDownload(final ItemPreference pref) {
         if (!mDownloading || mFileName == null || mDownloadId < 0) {
-            if (Utils.isNewVersion(pref.getItemInfo().getName())) {
+            if (Utils.isNewVersion(pref.getItemInfo().getFileName())) {
                 pref.setStyle(ItemPreference.STYLE_NEW);
             } else {
                 pref.setStyle(ItemPreference.STYLE_OLD);
@@ -755,7 +755,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
                         if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
-                            if (Utils.isNewVersion(pref.getItemInfo().getName())) {
+                            if (Utils.isNewVersion(pref.getItemInfo().getFileName())) {
                                 pref.setStyle(ItemPreference.STYLE_NEW);
                             } else {
                                 pref.setStyle(ItemPreference.STYLE_OLD);
@@ -769,7 +769,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
                         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getRom());
+                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getDownloadUrl());
 
                         MoKeeApplication.getContext()
                                 .startServiceAsUser(intent, UserHandle.CURRENT);
@@ -794,7 +794,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
         mStartUpdateVisible = true;
         // Get the message body right
-        String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getName());
+        String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getFileName());
         // Display the dialog
         new AlertDialog.Builder(mContext).setTitle(R.string.apply_update_dialog_title)
                 .setMessage(dialogBody)
@@ -802,7 +802,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
-                            Utils.triggerUpdate(mContext, itemInfo.getName());
+                            Utils.triggerUpdate(mContext, itemInfo.getFileName());
                         } catch (IOException e) {
                             Log.e(TAG, "Unable to reboot into recovery mode", e);
                             Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,

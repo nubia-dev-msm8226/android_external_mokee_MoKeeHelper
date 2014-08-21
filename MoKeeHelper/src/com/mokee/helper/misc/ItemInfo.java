@@ -29,69 +29,56 @@ import android.text.TextUtils;
 
 public class ItemInfo implements Parcelable, Serializable {
 
-    private static final long serialVersionUID = 1L;
-    public String log;
-    public String md5;
-    public String name;
-    public String rom;
-    public String length;
+    private static final long serialVersionUID = 5499890003569313403L;
+
+    private String mChangelog;
+    private String mMd5Sum;
+    private String mFileName;
+    private String mFileSize;
+    private String mDownloadUrl;
+
     // extras
-    public String description;
-    public String checkflag;
+    private String mDescription;
+    private String mCheckflag;
 
-    public ItemInfo(String log, String md5, String name, String rom, String length) {
-        super();
-        this.log = log;
-        this.md5 = md5;
-        this.name = name;
-        this.rom = rom;
-        this.length = length;
+    private ItemInfo() {
+        // Use the builder
     }
 
-    public ItemInfo(String log, String md5, String name, String rom, String description,
-            String checkflag, String length) {
-        super();
-        this.log = log;
-        this.md5 = md5;
-        this.name = name;
-        this.rom = rom;
-        this.length = length;
-        this.description = description;
-        this.checkflag = checkflag;
+    private ItemInfo(Parcel in) {
+        readFromParcel(in);
     }
 
-    public ItemInfo(String name) {
-        this(null, null, name, null, null);
-        initializeName(name);
+    public String getChangelog() {
+        return mChangelog;
     }
 
-    public String getLog() {
-        return log;
+    public String getMd5Sum() {
+        return mMd5Sum;
     }
 
-    public String getMd5() {
-        return md5;
+    public String getFileName() {
+        return mFileName;
     }
 
-    public String getName() {
-        return name;
+    public String getFileSize() {
+        return mFileSize;
     }
 
-    public String getRom() {
-        return rom;
+    public String getDownloadUrl() {
+        return mDownloadUrl;
     }
 
-    public String getLength() {
-        return length;
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public String getCheckflag() {
+        return mCheckflag;
     }
 
     public File getChangeLogFile(Context context) {
-        return new File(context.getCacheDir(), name + ".html");
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        return new File(context.getCacheDir(), mFileName + ".html");
     }
 
     public static final Parcelable.Creator<ItemInfo> CREATOR = new Parcelable.Creator<ItemInfo>() {
@@ -105,51 +92,87 @@ public class ItemInfo implements Parcelable, Serializable {
     };
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(log);
-        dest.writeString(name);
-        dest.writeString(md5);
-        dest.writeString(rom);
-        dest.writeString(description);
-        dest.writeString(checkflag);
-        dest.writeString(length);
+        dest.writeString(mChangelog);
+        dest.writeString(mMd5Sum);
+        dest.writeString(mFileName);
+        dest.writeString(mFileSize);
+        dest.writeString(mDownloadUrl);
+        dest.writeString(mDescription);
+        dest.writeString(mCheckflag);
     }
 
     private void readFromParcel(Parcel in) {
-        log = in.readString();
-        name = in.readString();
-        md5 = in.readString();
-        rom = in.readString();
-        description = in.readString();
-        checkflag = in.readString();
-        length = in.readString();
+        mChangelog = in.readString();
+        mMd5Sum = in.readString();
+        mFileName = in.readString();
+        mFileSize = in.readString();
+        mDownloadUrl = in.readString();
+        mDescription = in.readString();
+        mCheckflag = in.readString();
     }
 
-    private void initializeName(String fileName) {
-        name = fileName;
-        if (!TextUtils.isEmpty(fileName)) {
-            name = extractUiName(fileName);
-        } else {
-            name = null;
+    public static class Builder {
+        private String mChangelog;
+        private String mMd5Sum;
+        private String mFileName;
+        private String mFileSize;
+        private String mDownloadUrl;
+
+        // Extras
+        private String mDescription;
+        private String mCheckflag;
+
+        public Builder setChangelog(String changelog) {
+            mChangelog = changelog;
+            return this;
+        }
+
+        public Builder setMD5Sum(String md5Sum) {
+            mMd5Sum = md5Sum;
+            return this;
+        }
+
+        public Builder setFileName(String fileName) {
+            mFileName = fileName;
+            return this;
+        }
+
+        public Builder setFileSize(String fileSize) {
+            mFileSize = fileSize;
+            return this;
+        }
+
+        public Builder setDownloadUrl(String downloadUrl) {
+            mDownloadUrl = downloadUrl;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            mDescription = description;
+            return this;
+        }
+
+        public Builder setCheckflag(String checkflag) {
+            mCheckflag = checkflag;
+            return this;
+        }
+
+        public ItemInfo build() {
+            ItemInfo info = new ItemInfo();
+            info.mChangelog = mChangelog;
+            info.mMd5Sum = mMd5Sum;
+            info.mFileName = mFileName;
+            info.mFileSize = mFileSize;
+            info.mDownloadUrl = mDownloadUrl;
+            info.mDescription = mDescription;
+            info.mCheckflag = mCheckflag;
+            return info;
         }
     }
-
-    public static String extractUiName(String fileName) {
-        String deviceType = Utils.getDeviceType();
-        String uiName = fileName.replaceAll("\\.zip$", "");
-        return uiName.replaceAll("-" + deviceType + "-?", "");
-    }
-
-    private ItemInfo(Parcel in) {
-        readFromParcel(in);
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getCheckflag() {
-        return checkflag;
-    }
-
 }

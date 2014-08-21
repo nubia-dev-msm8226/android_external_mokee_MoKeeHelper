@@ -284,20 +284,20 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             }
 
             // Set the title text
-            if (mItemInfo.getName().startsWith("OTA")) {
-                mTitleText.setText(mItemInfo.getName());
+            if (mItemInfo.getFileName().startsWith("OTA")) {
+                mTitleText.setText(mItemInfo.getFileName());
                 mSummaryText.setText(R.string.new_update_summary);
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
             } else if (TextUtils.isEmpty(mItemInfo.getDescription())) {
-                mTitleText.setText(mItemInfo.getName());
-                mSummaryText.setText(Utils.isNewVersion(mItemInfo.getName()) ? R.string.new_update_summary : R.string.old_update_summary);
+                mTitleText.setText(mItemInfo.getFileName());
+                mSummaryText.setText(Utils.isNewVersion(mItemInfo.getFileName()) ? R.string.new_update_summary : R.string.old_update_summary);
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
             } else {
                 mTitleText.setText(mItemInfo.getDescription());
-                mSummaryText.setText(mItemInfo.getName());
+                mSummaryText.setText(mItemInfo.getFileName());
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
-            mFileSizeText.setText(!TextUtils.isEmpty(mItemInfo.getLength()) ? MoKeeUtils.formatFileSize(Long.valueOf(mItemInfo.getLength())) : "");
+            mFileSizeText.setText(!TextUtils.isEmpty(mItemInfo.getFileSize()) ? MoKeeUtils.formatFileSize(Long.valueOf(mItemInfo.getFileSize())) : "");
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
             showStyle();

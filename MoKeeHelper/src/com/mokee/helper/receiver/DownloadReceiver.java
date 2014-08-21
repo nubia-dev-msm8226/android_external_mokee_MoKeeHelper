@@ -127,9 +127,9 @@ public class DownloadReceiver extends BroadcastReceiver {
         // Build the name of the file to download, adding .partial at the end.
         // It will get
         // stripped off when the download completes
-        String fullFilePath = directory.getAbsolutePath() + "/" + ui.getName() + ".partial";
+        String fullFilePath = directory.getAbsolutePath() + "/" + ui.getFileName() + ".partial";
 
-        DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(ui.getRom());
+        DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(ui.getDownloadUrl());
       
         long downloadId;
         if (dli != null) {
@@ -142,15 +142,15 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (flag == Constants.INTENT_FLAG_GET_UPDATE)// 区分扩展&更新
         {
             prefs.edit().putLong(Constants.DOWNLOAD_ID, downloadId)
-                    .putString(Constants.DOWNLOAD_MD5, ui.getMd5()).apply();
+                    .putString(Constants.DOWNLOAD_MD5, ui.getMd5Sum()).apply();
         } else {
             prefs.edit().putLong(Constants.EXTRAS_DOWNLOAD_ID, downloadId)
-                    .putString(Constants.EXTRAS_DOWNLOAD_MD5, ui.getMd5()).apply();
+                    .putString(Constants.EXTRAS_DOWNLOAD_MD5, ui.getMd5Sum()).apply();
         }
         Intent intentService = new Intent(context, DownLoadService.class);
         intentService.setAction(DownLoadService.ACTION_DOWNLOAD);
         intentService.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.ADD);
-        intentService.putExtra(DownLoadService.DOWNLOAD_URL, ui.getRom());
+        intentService.putExtra(DownLoadService.DOWNLOAD_URL, ui.getDownloadUrl());
         intentService.putExtra(DownLoadService.DOWNLOAD_FILE_PATH, fullFilePath);
         intentService.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         intentService.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);

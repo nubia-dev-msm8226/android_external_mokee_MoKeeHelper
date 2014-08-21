@@ -11,7 +11,6 @@ import android.content.Intent;
 
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.ItemInfo;
 
 public class DownloadNotifier {
 
@@ -21,7 +20,7 @@ public class DownloadNotifier {
 
     public static void notifyDownloadComplete(Context context,
             Intent updateIntent, File updateFile, int flag) {
-        String updateUiName = ItemInfo.extractUiName(updateFile.getName());
+        String updateUiName = updateFile.getName();
 
         // Set Notification Info
         int mContentTitleID, mTickerID, mActionTitleID, mTextID;

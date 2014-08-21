@@ -270,19 +270,19 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
-            boolean isDownloading = ui.getName().equals(mFileName);
-            boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), false);
-            boolean isZip = ui.getName().endsWith(".zip");
-            boolean isApk = ui.getName().endsWith(".apk");
+            boolean isDownloading = ui.getFileName().equals(mFileName);
+            boolean isLocalFile = Utils.isLocaUpdateFile(ui.getFileName(), false);
+            boolean isZip = ui.getFileName().endsWith(".zip");
+            boolean isApk = ui.getFileName().endsWith(".apk");
             boolean isInstall = false;
             boolean isExtrasUpdate = false;
-            boolean isGMS = ui.getName().startsWith("gapps_");
+            boolean isGMS = ui.getFileName().startsWith("gapps_");
             if (isZip || isApk) {
                 isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
                 if (isGMS && isInstall) {
                     isInstall = MoKeeUtils.isSystemApp(ui.getCheckflag(), getActivity());
                     if (isInstall) {
-                        isExtrasUpdate = Utils.checkGmsVersion(ui.getName());
+                        isExtrasUpdate = Utils.checkGmsVersion(ui.getFileName());
                     }
                 }
             }
@@ -303,7 +303,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
             ItemPreference up = new ItemPreference(mContext, ui, style);
             up.setOnActionListener(this);
-            up.setKey(ui.getName());
+            up.setKey(ui.getFileName());
 
             // If we have an in progress download, link the preference
             if (isDownloading) {
@@ -517,7 +517,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         }
 
         mDownloadingPreference.setStyle(ItemPreference.STYLE_DOWNLOADING);
-        mFileName = ui.getName();
+        mFileName = ui.getFileName();
         mDownloading = true;
 
         // Start the download
@@ -552,7 +552,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
                         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getRom());
+                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getDownloadUrl());
 
                         MoKeeApplication.getContext()
                                 .startServiceAsUser(intent, UserHandle.CURRENT);
@@ -577,7 +577,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         }
         mStartUpdateVisible = true;
         // Get the message body right
-        String dialogBody = getString(R.string.apply_extras_dialog_text, itemInfo.getName());
+        String dialogBody = getString(R.string.apply_extras_dialog_text, itemInfo.getFileName());
         // Display the dialog
         new AlertDialog.Builder(mContext).setTitle(R.string.apply_extras_dialog_title)
                 .setMessage(dialogBody)
@@ -585,19 +585,19 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (TextUtils.isEmpty(itemInfo.getDescription())
-                                || itemInfo.getName().endsWith(".zip")) {
+                                || itemInfo.getFileName().endsWith(".zip")) {
                             try {
-                                Utils.triggerUpdate(mContext, itemInfo.getName(), false);
+                                Utils.triggerUpdate(mContext, itemInfo.getFileName(), false);
                             } catch (IOException e) {
                                 Log.e(TAG, "Unable to reboot into recovery mode", e);
                                 Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,
                                         Toast.LENGTH_SHORT).show();
                             }
-                        } else if (itemInfo.getName().endsWith(".apk")) {
+                        } else if (itemInfo.getFileName().endsWith(".apk")) {
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setDataAndType(
                                     Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath()
-                                            + "/" + itemInfo.getName()),
+                                            + "/" + itemInfo.getFileName()),
                                     "application/vnd.android.package-archive");
                             startActivity(i);
                         }
