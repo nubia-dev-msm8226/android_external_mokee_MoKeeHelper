@@ -143,7 +143,7 @@
     <string name="not_extras_download_failure">Extras download was unsuccessful</string>
     <string name="not_extras_download_install_notice">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the extras.\n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
     <string name="not_extras_download_install_notice_apk">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded.</string>
-    <string name="not_action_install_update_apk">Install</string>
+    <string name="not_apk_action_install_update">Install</string>
 
     <!-- deleting -->
     <string name="confirm_delete_dialog_title">Delete file</string>

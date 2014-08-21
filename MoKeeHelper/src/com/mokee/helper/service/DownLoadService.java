@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.UserHandle;
 import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
-import android.util.Log;
 
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;

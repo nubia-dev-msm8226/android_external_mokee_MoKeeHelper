@@ -20,9 +20,6 @@ package com.mokee.helper.receiver;
 import java.io.File;
 import java.io.IOException;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -54,8 +51,8 @@ public class DownloadReceiver extends BroadcastReceiver {
     public static final String ACTION_DOWNLOAD_STARTED = "com.mokee.mkupdater.action.DOWNLOAD_STARTED";
     public static final String ACTION_NOTIFICATION_CLICKED = "com.mokee.mkupdater.action.NOTIFICATION_CLICKED";
 
-    private static final String ACTION_INSTALL_UPDATE = "com.mokee.mkupdater.action.INSTALL_UPDATE";
-    private static final String EXTRA_FILENAME = "filename";
+    public static final String ACTION_INSTALL_UPDATE = "com.mokee.mkupdater.action.INSTALL_UPDATE";
+    public static final String EXTRA_FILENAME = "filename";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -171,10 +168,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         long enqueued;
         DownLoadInfo dli;
         int status;
-        File updateFile = null;
-        int failureMessageResId = -1;
         Intent updateIntent;
-        MoKeeApplication app;
         switch (flag) {
             case Constants.INTENT_FLAG_GET_UPDATE:
                 enqueued = prefs.getLong(Constants.DOWNLOAD_ID, -1);
@@ -198,7 +192,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     String completedFileFullPath = partialFileFullPath.replace(".partial", "");
 
                     File partialFile = new File(partialFileFullPath);
-                    updateFile = new File(completedFileFullPath);
+                    File updateFile = new File(completedFileFullPath);
                     partialFile.renameTo(updateFile);
 
                     String downloadedMD5 = prefs.getString(Constants.DOWNLOAD_MD5, "");
@@ -211,75 +205,24 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 .putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, downID);
                         updateIntent.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
                                 completedFileFullPath);
+                        displaySuccessResult(context, updateIntent, updateFile, flag);
                     } else {
                         // We failed. Clear the file and reset everything
                         DownLoadDao.getInstance().delete(String.valueOf(downID));
                         if (updateFile.exists()) {
                             updateFile.delete();
                         }
-
-                        failureMessageResId = R.string.md5_verification_failed;
+                        displayErrorResult(context, updateIntent, R.string.md5_verification_failed);
                     }
                     //delete thread info
                     ThreadDownLoadDao.getInstance().delete(dli.getUrl());
                 } else if (status == DownLoader.STATUS_ERROR) {
                     // The download failed, reset
-                    // dm.remove(id);
-                    failureMessageResId = R.string.unable_to_download_file;
+                    displayErrorResult(context, updateIntent, R.string.unable_to_download_file);
                 }
 
                 // Clear the shared prefs
                 prefs.edit().remove(Constants.DOWNLOAD_MD5).remove(Constants.DOWNLOAD_ID).apply();
-                app = (MoKeeApplication) context.getApplicationContext();
-                if (app.isMainActivityActive()) {
-                    if (failureMessageResId >= 0) {
-                        Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
-                    } else {
-                        context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT);
-                    }
-                } else {
-                    // Get the notification ready
-                    PendingIntent contentIntent = PendingIntent.getBroadcast(context, 1,
-                            updateIntent, PendingIntent.FLAG_ONE_SHOT
-                                    | PendingIntent.FLAG_UPDATE_CURRENT);
-                    Notification.Builder builder = new Notification.Builder(context)
-                            .setSmallIcon(R.drawable.ic_mokee_updater)
-                            .setWhen(System.currentTimeMillis()).setContentIntent(contentIntent)
-                            .setAutoCancel(true);
-
-                    if (failureMessageResId >= 0) {
-                        builder.setContentTitle(context.getString(R.string.not_download_failure));
-                        builder.setContentText(context.getString(failureMessageResId));
-                        builder.setTicker(context.getString(R.string.not_download_failure));
-                    } else {
-                        String updateUiName = ItemInfo.extractUiName(updateFile.getName());
-
-                        builder.setContentTitle(context.getString(R.string.not_download_success));
-                        builder.setContentText(updateUiName);
-                        builder.setTicker(context.getString(R.string.not_download_success));
-
-                        Notification.BigTextStyle style = new Notification.BigTextStyle();
-                        style.setBigContentTitle(context.getString(R.string.not_download_success));
-                        style.bigText(context.getString(R.string.not_download_install_notice,
-                                updateUiName));
-                        builder.setStyle(style);
-
-                        Intent installIntent = new Intent(context, DownloadReceiver.class);
-                        installIntent.setAction(ACTION_INSTALL_UPDATE);
-                        installIntent.putExtra("flag", flag);
-                        installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
-
-                        PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
-                                installIntent, PendingIntent.FLAG_ONE_SHOT
-                                        | PendingIntent.FLAG_UPDATE_CURRENT);
-                        builder.addAction(R.drawable.ic_tab_install,
-                                context.getString(R.string.not_action_install_update), installPi);
-                    }
-
-                    final NotificationManager nm = (NotificationManager) context
-                            .getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(R.string.not_download_success, builder.build());
-                }
                 break;
             case Constants.INTENT_FLAG_GET_EXTRAS:
                 String completedFileFullPath = null;
@@ -297,14 +240,13 @@ public class DownloadReceiver extends BroadcastReceiver {
 
                 if (status == DownLoader.STATUS_COMPLETE) {
                     // Get the full path name of the downloaded file and the MD5
-
                     // Strip off the .partial at the end to get the completed
                     // file
                     String partialFileFullPath = dli.getLocalFile();
                     completedFileFullPath = partialFileFullPath.replace(".partial", "");
 
                     File partialFile = new File(partialFileFullPath);
-                    updateFile = new File(completedFileFullPath);
+                    File updateFile = new File(completedFileFullPath);
                     partialFile.renameTo(updateFile);
 
                     String downloadedMD5 = prefs.getString(Constants.EXTRAS_DOWNLOAD_MD5, "");
@@ -317,107 +259,43 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 .putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, downID);
                         updateIntent.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
                                 completedFileFullPath);
+                        displaySuccessResult(context, updateIntent, updateFile, flag);
                     } else {
                         // We failed. Clear the file and reset everything
                         DownLoadDao.getInstance().delete(String.valueOf(downID));
-
                         if (updateFile.exists()) {
                             updateFile.delete();
                         }
-
-                        failureMessageResId = R.string.md5_verification_failed;
+                        displayErrorResult(context, updateIntent, R.string.md5_verification_failed);
                     }
                 } else if (status == DownLoader.STATUS_ERROR) {
                     // The download failed, reset
-                    // dm.remove(id);
-
-                    failureMessageResId = R.string.unable_to_download_file;
+                    displayErrorResult(context, updateIntent, R.string.unable_to_download_file);
                 }
 
                 // Clear the shared prefs
-                prefs.edit().remove(Constants.EXTRAS_DOWNLOAD_ID)
-                        .remove(Constants.EXTRAS_DOWNLOAD_MD5).apply();
-
-                app = (MoKeeApplication) context.getApplicationContext();
-                if (app.isMainActivityActive()) {
-                    if (failureMessageResId >= 0) {
-                        Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
-                    } else {
-                        context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT);
-                    }
-                } else {
-                    // Get the notification ready
-                    PendingIntent contentIntent = PendingIntent.getBroadcast(context, 1,
-                            updateIntent, PendingIntent.FLAG_ONE_SHOT
-                                    | PendingIntent.FLAG_UPDATE_CURRENT);
-                    Notification.Builder builder = new Notification.Builder(context)
-                            .setSmallIcon(R.drawable.ic_mokee_updater)
-                            .setWhen(System.currentTimeMillis()).setContentIntent(contentIntent)
-                            .setAutoCancel(true);
-
-                    if (failureMessageResId >= 0) {
-                        builder.setContentTitle(context
-                                .getString(R.string.not_extras_download_failure));
-                        builder.setContentText(context.getString(failureMessageResId));
-                        builder.setTicker(context.getString(R.string.not_extras_download_failure));
-                    } else {
-                        String updateUiName = ItemInfo.extractUiName(updateFile.getName());
-
-                        builder.setContentTitle(context
-                                .getString(R.string.not_extras_download_success));
-                        builder.setContentText(updateUiName);
-                        builder.setTicker(context.getString(R.string.not_extras_download_success));
-                        if (completedFileFullPath.endsWith(".zip")) {
-                            Notification.BigTextStyle style = new Notification.BigTextStyle();
-                            style.setBigContentTitle(context
-                                    .getString(R.string.not_extras_download_success));
-                            style.bigText(context.getString(
-                                    R.string.not_extras_download_install_notice, updateUiName));
-                            builder.setStyle(style);
-
-                            Intent installIntent = new Intent(context, DownloadReceiver.class);
-                            installIntent.setAction(ACTION_INSTALL_UPDATE);
-                            installIntent.putExtra("flag", flag);
-                            installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
-
-                            PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
-                                    installIntent, PendingIntent.FLAG_ONE_SHOT
-                                            | PendingIntent.FLAG_UPDATE_CURRENT);
-                            builder.addAction(R.drawable.ic_tab_install,
-                                    context.getString(R.string.not_action_install_update),
-                                    installPi);
-                        } else if (completedFileFullPath.endsWith(".apk")) {
-                            Notification.BigTextStyle style = new Notification.BigTextStyle();
-                            style.setBigContentTitle(context
-                                    .getString(R.string.not_extras_download_success));
-                            style.bigText(context.getString(
-                                    R.string.not_extras_download_install_notice_apk, updateUiName));
-                            builder.setStyle(style);
-
-                            Intent installIntent = new Intent(context, DownloadReceiver.class);
-                            installIntent.setAction(ACTION_INSTALL_UPDATE);
-                            installIntent.putExtra("flag", flag);
-                            installIntent.putExtra(EXTRA_FILENAME, updateFile.getName());
-
-                            PendingIntent installPi = PendingIntent.getBroadcast(context, 0,
-                                    installIntent, PendingIntent.FLAG_ONE_SHOT
-                                            | PendingIntent.FLAG_UPDATE_CURRENT);
-                            builder.addAction(R.drawable.ic_tab_install,
-                                    context.getString(R.string.not_action_install_update_apk),
-                                    installPi);
-                        } else {// 待扩展
-
-                        }
-
-                    }
-
-                    final NotificationManager nm = (NotificationManager) context
-                            .getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(R.string.not_extras_download_success, builder.build());
-                }
+                prefs.edit().remove(Constants.EXTRAS_DOWNLOAD_ID).remove(Constants.EXTRAS_DOWNLOAD_MD5).apply();
                 break;
             default:
                 break;
+        }
+    }
+
+    private void displayErrorResult(Context context, Intent updateIntent, int failureMessageResId) {
+        final MoKeeApplication app = (MoKeeApplication) context.getApplicationContext();
+        if (app.isMainActivityActive()) {
+            Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
+        } else {
+            DownloadNotifier.notifyDownloadError(context, updateIntent, failureMessageResId);
+        }
+    }
+
+    private void displaySuccessResult(Context context, Intent updateIntent, File updateFile, int flag) {
+        final MoKeeApplication app = (MoKeeApplication) context.getApplicationContext();
+        if (app.isMainActivityActive()) {
+            context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT_OR_SELF);
+        } else {
+            DownloadNotifier.notifyDownloadComplete(context, updateIntent, updateFile, flag);
         }
     }
 }
