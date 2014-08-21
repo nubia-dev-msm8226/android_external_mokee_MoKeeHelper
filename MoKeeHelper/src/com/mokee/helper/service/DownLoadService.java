@@ -30,10 +30,14 @@ public class DownLoadService extends NonStopIntentService {
     public static final String ACTION_DOWNLOAD = "download";
     public static final String ACTION_DOWNLOAD_COMPLETE = "com.mokee.mkupdater.action.DOWNLOAD_COMPLETED";
     public static final String DOWNLOAD_TYPE = "download_type";
-    public static final String DOWNLOAD_URL = "down_url";
-    public static final String DOWNLOAD_FILE_PATH = "file_path";
+    public static final String DOWNLOAD_URL = "download_url";
+    public static final String DOWNLOAD_FILE_PATH = "download_filepath";
     public static final String DOWNLOAD_ID = "download_id";
-    public static final String DOWNLOAD_FLAG = "flag";
+    public static final String DOWNLOAD_FLAG = "download_flag";
+    public static final String DOWNLOAD_MD5 = "download_md5";
+    public static final String DOWNLOAD_EXTRAS_ID = "download_extras_id";
+    public static final String DOWNLOAD_EXTRAS_MD5 = "download_extras_md5";
+    public static final String DOWNLOAD_EXTRAS_URL = "download_extras_url";
 
     public static final int START = 2;
     public static final int PAUSE = 3;
@@ -41,6 +45,7 @@ public class DownLoadService extends NonStopIntentService {
     public static final int CONTINUE = 5;
     public static final int ADD = 6;
     public static final int STOP = 7;
+
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
     private static Map<Integer, NotificationCompat.Builder> notifications = new HashMap<Integer, NotificationCompat.Builder>();// 通知队列
     private static int notificationIDBase = 1024;
@@ -118,7 +123,7 @@ public class DownLoadService extends NonStopIntentService {
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
-        nextIntent.putExtra("flag", flag);
+        nextIntent.putExtra(DOWNLOAD_FLAG, flag);
         PendingIntent pengdingIntent = PendingIntent.getBroadcast(this, 0, nextIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pengdingIntent);
@@ -155,7 +160,8 @@ public class DownLoadService extends NonStopIntentService {
             Intent intent;
             DownLoadInfo dli;
             switch (msg.what) {
-                case DownLoader.STATUS_DOWNLOADING:// 更新通知
+                case DownLoader.STATUS_DOWNLOADING:
+                case DownLoader.STATUS_PENDING: // 更新通知
                     url = (String) msg.obj;
                     di = downloaders.get(url);
                     long time = 0;
@@ -190,6 +196,7 @@ public class DownLoadService extends NonStopIntentService {
                     }
                     break;
                 case DownLoader.STATUS_ERROR:
+                case DownLoader.STATUS_DELETE:
                     di = (DownLoader) msg.obj;
                     url = di.fileUrl;
                     if (di != null) {
@@ -209,7 +216,7 @@ public class DownLoadService extends NonStopIntentService {
                         stopSelf();
                     }
                     break;
-                default:
+                case DownLoader.STATUS_COMPLETE:
                     di = (DownLoader) msg.obj;
                     url = di.fileUrl;
                     if (notifications.containsKey(di.getNotificationID())) {

@@ -11,6 +11,7 @@ import android.content.Intent;
 
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.service.DownLoadService;
 
 public class DownloadNotifier {
 
@@ -85,7 +86,7 @@ public class DownloadNotifier {
             int flag) {
         Intent installIntent = new Intent(context, DownloadReceiver.class);
         installIntent.setAction(DownloadReceiver.ACTION_INSTALL_UPDATE);
-        installIntent.putExtra("flag", flag);
+        installIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         installIntent.putExtra(DownloadReceiver.EXTRA_FILENAME, updateFile.getName());
 
         return PendingIntent.getBroadcast(context, 0,

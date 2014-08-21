@@ -43,6 +43,7 @@ import com.mokee.helper.fragments.MoKeeExtrasFragment;
 import com.mokee.helper.fragments.MoKeeSupportFragment;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.PayPal;
 import com.paypal.android.sdk.payments.PayPalService;
@@ -101,7 +102,7 @@ public class MoKeeCenter extends FragmentActivity {
         super.onResume();
         Intent intent = getIntent();
         if (intent != null) {
-            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+            int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
             if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 bar.setSelectedNavigationItem(0);
             } else if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
@@ -137,7 +138,7 @@ public class MoKeeCenter extends FragmentActivity {
                 intent.getLongExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, -1));
         send.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
                 intent.getStringExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH));
-        send.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
+        send.putExtra(DownLoadService.DOWNLOAD_FLAG, intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE));
         sendBroadcastAsUser(send, UserHandle.CURRENT);
     }
 

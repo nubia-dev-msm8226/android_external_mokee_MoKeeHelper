@@ -161,7 +161,7 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent(MoKeeCenter.ACTION_MOKEE_CENTER);
                 i.putExtra(EXTRA_UPDATE_LIST_UPDATED, true);
-                i.putExtra("flag", flag);
+                i.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
 
@@ -217,7 +217,7 @@ public class UpdateCheckService extends IntentService {
                 if (count == 1) {
                     i = new Intent(this, DownloadReceiver.class);
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
-                    i.putExtra("flag", flag);
+                    i.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
                     PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
@@ -262,7 +262,7 @@ public class UpdateCheckService extends IntentService {
                 // The notification should launch the main app
                 Intent i = new Intent(MoKeeCenter.ACTION_MOKEE_CENTER);
                 i.putExtra(EXTRA_EXTRAS_LIST_UPDATED, true);
-                i.putExtra("flag", flag);
+                i.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, i,
                         PendingIntent.FLAG_ONE_SHOT);
                 Resources res = getResources();
@@ -298,7 +298,7 @@ public class UpdateCheckService extends IntentService {
                 if (count == 1) {
                     i = new Intent(this, DownloadReceiver.class);
                     i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
-                    i.putExtra("flag", flag);
+                    i.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
                     i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                             (Parcelable) realUpdates.getFirst());
                     PendingIntent downloadIntent = PendingIntent.getBroadcast(this, 0, i,
@@ -312,7 +312,7 @@ public class UpdateCheckService extends IntentService {
                 nm.notify(R.string.not_new_updates_found_title, builder.build());
             }
         }
-        finishedIntent.putExtra("flag", flag);
+        finishedIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         sendBroadcastAsUser(finishedIntent, UserHandle.CURRENT);
     }
 
@@ -394,7 +394,7 @@ public class UpdateCheckService extends IntentService {
         intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_REAL_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_NEW_UPDATE_COUNT, updates.size());
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+        intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
         State.saveMKState(this, updates, State.UPDATE_FILENAME);
 
         return updates;
@@ -438,7 +438,7 @@ public class UpdateCheckService extends IntentService {
         intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_REAL_UPDATE_COUNT, updates.size());
         intent.putExtra(EXTRA_NEW_UPDATE_COUNT, updates.size());
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
+        intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
         State.saveMKState(this, updates, State.EXTRAS_FILENAME);
 
         return updates;

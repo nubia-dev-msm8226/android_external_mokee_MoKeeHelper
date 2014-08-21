@@ -118,7 +118,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+            int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
             if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
                 if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
                     mDownloadId = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
@@ -568,6 +568,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // We are OK to delete, trigger it
+                        onPauseDownload(mPrefs);
                         deleteOldUpdates();
                         updateLayout();
                     }
@@ -657,7 +658,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onStart() {
         super.onStart();
         // Determine if there are any in-progress downloads
-        mDownloadId = mPrefs.getLong(Constants.DOWNLOAD_ID, -1);
+        mDownloadId = mPrefs.getLong(DownLoadService.DOWNLOAD_ID, -1);
         if (mDownloadId >= 0) {
             DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(
                     String.valueOf(mDownloadId));
@@ -665,9 +666,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 Toast.makeText(mContext, R.string.download_not_found, Toast.LENGTH_LONG).show();
             } else {
                 int status = dli.getState();
-                // Uri uri =
-                // Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
-                if (status == DownLoader.STATUS_PENDING || status == DownLoader.STATUS_DOWNLOADING
+                if (status == DownLoader.STATUS_PENDING
+                        || status == DownLoader.STATUS_DOWNLOADING
                         || status == DownLoader.STATUS_PAUSED) {
                     String localFileName = dli.getLocalFile();
                     if (!TextUtils.isEmpty(localFileName)) {
@@ -730,7 +730,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         Intent intent = new Intent(mContext, DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+        intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
 
         //mUpdateHandler.post(mUpdateProgress);
@@ -763,25 +763,29 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         } else {
                             pref.setStyle(ItemPreference.STYLE_NEW);
                         }
-                        // We are OK to stop download, trigger it
-                        resetDownloadState();
-                        mUpdateHandler.removeCallbacks(mUpdateProgress);
-                        Intent intent = new Intent(mContext, DownLoadService.class);
-                        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
-                        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getDownloadUrl());
-
-                        MoKeeApplication.getContext()
-                                .startServiceAsUser(intent, UserHandle.CURRENT);
-
-                        // Clear the stored data from shared preferences
-                        mPrefs.edit().remove(Constants.DOWNLOAD_ID).remove(Constants.DOWNLOAD_MD5)
-                                .apply();
-
-                        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
-                                .show();
+                        onPauseDownload(mPrefs);
                     }
                 }).setNegativeButton(R.string.dialog_cancel, null).show();
+    }
+
+    public void onPauseDownload(SharedPreferences prefs) {
+        // We are OK to stop download, trigger it
+        resetDownloadState();
+        mUpdateHandler.removeCallbacks(mUpdateProgress);
+        Intent intent = new Intent(mContext, DownLoadService.class);
+        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
+        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
+        intent.putExtra(DownLoadService.DOWNLOAD_URL, mPrefs.getString(DownLoadService.DOWNLOAD_URL, ""));
+
+        MoKeeApplication.getContext()
+                .startServiceAsUser(intent, UserHandle.CURRENT);
+
+        // Clear the stored data from shared preferences
+        mPrefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
+                .remove(DownLoadService.DOWNLOAD_URL).apply();
+
+        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
+                .show();
     }
 
     @Override

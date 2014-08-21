@@ -20,12 +20,9 @@ package com.mokee.helper.misc;
 import java.io.File;
 import java.io.Serializable;
 
-import com.mokee.helper.utils.Utils;
-
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.TextUtils;
 
 public class ItemInfo implements Parcelable, Serializable {
 

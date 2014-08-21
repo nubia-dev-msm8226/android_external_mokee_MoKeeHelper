@@ -88,7 +88,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     private static final int MENU_DONATE = 2;
 
     private SharedPreferences mPrefs;
-    private PreferenceCategory mMokeeExtrasList;
+    private PreferenceCategory mExtrasList;
     private ItemPreference mDownloadingPreference;
     private File mExtrasFolder;
     private ProgressDialog mProgressDialog;
@@ -97,7 +97,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
+            int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
             if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
                     mDownloadId = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
@@ -139,7 +139,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         // Load the stored preference data
         mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
 
-        mMokeeExtrasList = (PreferenceCategory) findPreference(Constants.EXPANG_LIST_PREF);// 扩展列表
+        mExtrasList = (PreferenceCategory) findPreference(Constants.EXPANG_LIST_PREF);// 扩展列表
 
         updateLastCheckPreference();
 
@@ -175,7 +175,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         return true;
     }
 
-    // add
+    // 更新进度条
     private Runnable mUpdateProgress = new Runnable() {
         public void run() {
             if (!mDownloading || mDownloadingPreference == null || mDownloadId < 0) {
@@ -262,11 +262,11 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     }
 
     private void refreshExtrasPreferences(LinkedList<ItemInfo> updates) {
-        if (mMokeeExtrasList == null) {
+        if (mExtrasList == null) {
             return;
         }
         // Clear the list
-        mMokeeExtrasList.removeAll();
+        mExtrasList.removeAll();
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
@@ -312,15 +312,15 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 mDownloading = true;
             }
             // Add to the list
-            mMokeeExtrasList.addPreference(up);
+            mExtrasList.addPreference(up);
         }
         // If no updates are in the list, show the default message
-        if (mMokeeExtrasList.getPreferenceCount() == 0) {
+        if (mExtrasList.getPreferenceCount() == 0) {
             Preference pref = new Preference(mContext);
             pref.setLayoutResource(R.layout.preference_empty_list);
             pref.setTitle(R.string.no_available_extras_intro);
             pref.setEnabled(false);
-            mMokeeExtrasList.addPreference(pref);
+            mExtrasList.addPreference(pref);
         }
     }
 
@@ -369,6 +369,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // We are OK to delete, trigger it
+                        onPauseDownload(mPrefs);
                         deleteOldUpdates();
                         extrasLayout();
                     }
@@ -439,7 +440,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         String fileName = new File(fullPathName).getName();
 
         // Find the matching preference so we can retrieve the ItemInfo
-        ItemPreference pref = (ItemPreference) mMokeeExtrasList.findPreference(fileName);
+        ItemPreference pref = (ItemPreference) mExtrasList.findPreference(fileName);
         if (pref != null) {
             pref.setStyle(ItemPreference.STYLE_DOWNLOADED);// download over
             // Change
@@ -452,7 +453,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public void onStart() {
         super.onStart();
         // Determine if there are any in-progress downloads
-        mDownloadId = mPrefs.getLong(Constants.EXTRAS_DOWNLOAD_ID, -1);
+        mDownloadId = mPrefs.getLong(DownLoadService.DOWNLOAD_EXTRAS_ID, -1);
         if (mDownloadId >= 0) {
             DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(
                     String.valueOf(mDownloadId));
@@ -524,7 +525,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         Intent intent = new Intent(mContext, DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
-        intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
+        intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
 
         //mUpdateHandler.post(mUpdateProgress);
@@ -545,26 +546,29 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
                         pref.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
-
-                        // We are OK to stop download, trigger it
-                        resetDownloadState();
-                        mUpdateHandler.removeCallbacks(mUpdateProgress);
-                        Intent intent = new Intent(mContext, DownLoadService.class);
-                        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
-                        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
-                        intent.putExtra(DownLoadService.DOWNLOAD_URL, pref.getItemInfo().getDownloadUrl());
-
-                        MoKeeApplication.getContext()
-                                .startServiceAsUser(intent, UserHandle.CURRENT);
-
-                        // Clear the stored data from shared preferences
-                        mPrefs.edit().remove(Constants.EXTRAS_DOWNLOAD_ID)
-                                .remove(Constants.EXTRAS_DOWNLOAD_MD5).apply();
-
-                        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
-                                .show();
+                        onPauseDownload(mPrefs);
                     }
                 }).setNegativeButton(R.string.dialog_cancel, null).show();
+    }
+
+    public void onPauseDownload(SharedPreferences prefs) {
+        // We are OK to stop download, trigger it
+        resetDownloadState();
+        mUpdateHandler.removeCallbacks(mUpdateProgress);
+        Intent intent = new Intent(mContext, DownLoadService.class);
+        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
+        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
+        intent.putExtra(DownLoadService.DOWNLOAD_URL, mPrefs.getString(DownLoadService.DOWNLOAD_EXTRAS_URL, ""));
+
+        MoKeeApplication.getContext()
+                .startServiceAsUser(intent, UserHandle.CURRENT);
+
+        // Clear the stored data from shared preferences
+        mPrefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
+                .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
+
+        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
+                .show(); 
     }
 
     @Override

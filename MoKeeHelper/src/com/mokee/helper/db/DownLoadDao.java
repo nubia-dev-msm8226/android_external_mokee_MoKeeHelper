@@ -180,7 +180,7 @@ public class DownLoadDao {
         Cursor cursor = null;
         DownLoadInfo dli = null;
         try {
-            String sql = "select flag,down_id, local_file, file_name,file_size, state from download_info where url=?";
+            String sql = "select flag, down_id, local_file, file_name, file_size, state from download_info where url=?";
             cursor = database.rawQuery(sql, new String[] {
                     fileUrl
             });

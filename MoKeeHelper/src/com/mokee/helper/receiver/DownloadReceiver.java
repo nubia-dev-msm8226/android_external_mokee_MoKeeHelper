@@ -33,14 +33,11 @@ import android.widget.Toast;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
-import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.service.DownLoadService;
-import com.mokee.helper.service.UpdateCheckService;
-import com.mokee.helper.utils.DownLoader;
-import com.mokee.helper.utils.MD5;
+import com.mokee.helper.service.DownloadCompleteIntentService;
 import com.mokee.helper.utils.Utils;
 
 public class DownloadReceiver extends BroadcastReceiver {
@@ -58,42 +55,22 @@ public class DownloadReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+        int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, 1024);
         if (ACTION_START_DOWNLOAD.equals(action)) {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
-            int flag = intent.getIntExtra("flag", 1024);
             handleStartDownload(context, prefs, ui, flag);
         } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) {// 接收下完通知
-            long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
-            int flag = intent.getIntExtra("flag", 1024);// 标识
+            long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1); 
             handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
             String fileName = intent.getStringExtra(EXTRA_FILENAME);
-            int flag = intent.getIntExtra("flag", 1024);// 标识
-            if(flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
+            if (flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
                 if (fileName.endsWith(".zip")) {
-                    try {
-                        StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
-                        sb.collapsePanels();
-                        Utils.cancelNotification(context);
-                        Utils.triggerUpdate(context, fileName, true);
-                    } catch (IOException e) {
-                        Log.e(TAG, "Unable to reboot into recovery mode", e);
-                        Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    applyTriggerUpdate(context, fileName, true);
                 }
             } else if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (fileName.endsWith(".zip")) {
-                    try {
-                        StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
-                        sb.collapsePanels();
-                        Utils.cancelNotification(context);
-                        Utils.triggerUpdate(context, fileName, false);
-                    } catch (IOException e) {
-                        Log.e(TAG, "Unable to reboot into recovery mode", e);
-                        Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    applyTriggerUpdate(context, fileName, false);
                 } else if (fileName.endsWith(".apk")) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setDataAndType(
@@ -107,6 +84,19 @@ public class DownloadReceiver extends BroadcastReceiver {
                             .show();
                 }
             }
+        }
+    }
+
+    private void applyTriggerUpdate(Context context, String fileName, boolean isUpdate) {
+        try {
+            StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
+            sb.collapsePanels();
+            Utils.cancelNotification(context);
+            Utils.triggerUpdate(context, fileName, isUpdate);
+        } catch (IOException e) {
+            Log.e(TAG, "Unable to reboot into recovery mode", e);
+            Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -141,11 +131,13 @@ public class DownloadReceiver extends BroadcastReceiver {
         // Store in shared preferences
         if (flag == Constants.INTENT_FLAG_GET_UPDATE)// 区分扩展&更新
         {
-            prefs.edit().putLong(Constants.DOWNLOAD_ID, downloadId)
-                    .putString(Constants.DOWNLOAD_MD5, ui.getMd5Sum()).apply();
+            prefs.edit().putLong(DownLoadService.DOWNLOAD_ID, downloadId)
+                    .putString(DownLoadService.DOWNLOAD_MD5, ui.getMd5Sum())
+                    .putString(DownLoadService.DOWNLOAD_URL, ui.getDownloadUrl()).apply();
         } else {
-            prefs.edit().putLong(Constants.EXTRAS_DOWNLOAD_ID, downloadId)
-                    .putString(Constants.EXTRAS_DOWNLOAD_MD5, ui.getMd5Sum()).apply();
+            prefs.edit().putLong(DownLoadService.DOWNLOAD_EXTRAS_ID, downloadId)
+                    .putString(DownLoadService.DOWNLOAD_EXTRAS_MD5, ui.getMd5Sum())
+                    .putString(DownLoadService.DOWNLOAD_EXTRAS_URL, ui.getDownloadUrl()).apply();
         }
         Intent intentService = new Intent(context, DownLoadService.class);
         intentService.setAction(DownLoadService.ACTION_DOWNLOAD);
@@ -158,144 +150,52 @@ public class DownloadReceiver extends BroadcastReceiver {
         Utils.cancelNotification(context);
 
         Intent intentBroadcast = new Intent(ACTION_DOWNLOAD_STARTED);
-        intentBroadcast.putExtra("flag", flag);
+        intentBroadcast.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         intentBroadcast.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
         context.sendBroadcastAsUser(intentBroadcast, UserHandle.CURRENT);
     }
 
-    private void handleDownloadComplete(Context context, SharedPreferences prefs, long downID,
-            int flag) {
-        long enqueued;
-        DownLoadInfo dli;
-        int status;
-        Intent updateIntent;
+    private void handleDownloadComplete(Context context, SharedPreferences prefs, long id, int flag) {
+        long enqueued = 0;
         switch (flag) {
             case Constants.INTENT_FLAG_GET_UPDATE:
-                enqueued = prefs.getLong(Constants.DOWNLOAD_ID, -1);
-                if (enqueued < 0 || downID < 0 || downID != enqueued) {
+                enqueued = prefs.getLong(DownLoadService.DOWNLOAD_ID, -1);
+                if (enqueued < 0 || id < 0 || id != enqueued) {
                     return;
                 }
-                dli = DownLoadDao.getInstance().getDownLoadInfo(String.valueOf(downID));
-                if (dli == null) {
-                    return;
-                }
-                status = dli.getState();
-                updateIntent = new Intent(ACTION_NOTIFICATION_CLICKED);
-                updateIntent.putExtra("flag", flag);
+                String downloadedMD5 = prefs.getString(DownLoadService.DOWNLOAD_MD5, "");
 
-                if (status == DownLoader.STATUS_COMPLETE) {
-                    // Get the full path name of the downloaded file and the MD5
-
-                    // Strip off the .partial at the end to get the completed
-                    // file
-                    String partialFileFullPath = dli.getLocalFile();
-                    String completedFileFullPath = partialFileFullPath.replace(".partial", "");
-
-                    File partialFile = new File(partialFileFullPath);
-                    File updateFile = new File(completedFileFullPath);
-                    partialFile.renameTo(updateFile);
-
-                    String downloadedMD5 = prefs.getString(Constants.DOWNLOAD_MD5, "");
-                    // Start the MD5 check of the downloaded file
-                    if (MD5.checkMD5(downloadedMD5, updateFile)) {
-                        // We passed. Bring the main app to the foreground and
-                        // trigger
-                        // download completed
-                        updateIntent
-                                .putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, downID);
-                        updateIntent.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
-                                completedFileFullPath);
-                        displaySuccessResult(context, updateIntent, updateFile, flag);
-                    } else {
-                        // We failed. Clear the file and reset everything
-                        DownLoadDao.getInstance().delete(String.valueOf(downID));
-                        if (updateFile.exists()) {
-                            updateFile.delete();
-                        }
-                        displayErrorResult(context, updateIntent, R.string.md5_verification_failed);
-                    }
-                    //delete thread info
-                    ThreadDownLoadDao.getInstance().delete(dli.getUrl());
-                } else if (status == DownLoader.STATUS_ERROR) {
-                    // The download failed, reset
-                    displayErrorResult(context, updateIntent, R.string.unable_to_download_file);
-                }
+                // Send off to DownloadCompleteIntentService
+                Intent updateintent = new Intent(context, DownloadCompleteIntentService.class);
+                updateintent.putExtra(DownLoadService.DOWNLOAD_ID, id);
+                updateintent.putExtra(DownLoadService.DOWNLOAD_MD5, downloadedMD5);
+                updateintent.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
+                context.startService(updateintent);
 
                 // Clear the shared prefs
-                prefs.edit().remove(Constants.DOWNLOAD_MD5).remove(Constants.DOWNLOAD_ID).apply();
+                prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
+                        .remove(DownLoadService.DOWNLOAD_URL).apply();
                 break;
             case Constants.INTENT_FLAG_GET_EXTRAS:
-                String completedFileFullPath = null;
-                enqueued = prefs.getLong(Constants.EXTRAS_DOWNLOAD_ID, -1);
-                if (enqueued < 0 || downID < 0 || downID != enqueued) {
+                enqueued = prefs.getLong(DownLoadService.DOWNLOAD_EXTRAS_ID, -1);
+                if (enqueued < 0 || id < 0 || id != enqueued) {
                     return;
                 }
-                dli = DownLoadDao.getInstance().getDownLoadInfo(String.valueOf(downID));
-                if (dli == null) {
-                    return;
-                }
-                status = dli.getState();
-                updateIntent = new Intent(ACTION_NOTIFICATION_CLICKED);
-                updateIntent.putExtra("flag", flag);
+                String extrasDownloadedMD5 = prefs.getString(DownLoadService.DOWNLOAD_EXTRAS_MD5, "");
 
-                if (status == DownLoader.STATUS_COMPLETE) {
-                    // Get the full path name of the downloaded file and the MD5
-                    // Strip off the .partial at the end to get the completed
-                    // file
-                    String partialFileFullPath = dli.getLocalFile();
-                    completedFileFullPath = partialFileFullPath.replace(".partial", "");
-
-                    File partialFile = new File(partialFileFullPath);
-                    File updateFile = new File(completedFileFullPath);
-                    partialFile.renameTo(updateFile);
-
-                    String downloadedMD5 = prefs.getString(Constants.EXTRAS_DOWNLOAD_MD5, "");
-                    // Start the MD5 check of the downloaded file
-                    if (MD5.checkMD5(downloadedMD5, updateFile)) {
-                        // We passed. Bring the main app to the foreground and
-                        // trigger
-                        // download completed
-                        updateIntent
-                                .putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, downID);
-                        updateIntent.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
-                                completedFileFullPath);
-                        displaySuccessResult(context, updateIntent, updateFile, flag);
-                    } else {
-                        // We failed. Clear the file and reset everything
-                        DownLoadDao.getInstance().delete(String.valueOf(downID));
-                        if (updateFile.exists()) {
-                            updateFile.delete();
-                        }
-                        displayErrorResult(context, updateIntent, R.string.md5_verification_failed);
-                    }
-                } else if (status == DownLoader.STATUS_ERROR) {
-                    // The download failed, reset
-                    displayErrorResult(context, updateIntent, R.string.unable_to_download_file);
-                }
+                // Send off to DownloadCompleteIntentService
+                Intent extrasintent = new Intent(context, DownloadCompleteIntentService.class);
+                extrasintent.putExtra(DownLoadService.DOWNLOAD_EXTRAS_ID, id);
+                extrasintent.putExtra(DownLoadService.DOWNLOAD_EXTRAS_MD5, extrasDownloadedMD5);
+                extrasintent.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
+                context.startService(extrasintent);
 
                 // Clear the shared prefs
-                prefs.edit().remove(Constants.EXTRAS_DOWNLOAD_ID).remove(Constants.EXTRAS_DOWNLOAD_MD5).apply();
+                prefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
+                        .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
                 break;
             default:
                 break;
-        }
-    }
-
-    private void displayErrorResult(Context context, Intent updateIntent, int failureMessageResId) {
-        final MoKeeApplication app = (MoKeeApplication) context.getApplicationContext();
-        if (app.isMainActivityActive()) {
-            Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
-        } else {
-            DownloadNotifier.notifyDownloadError(context, updateIntent, failureMessageResId);
-        }
-    }
-
-    private void displaySuccessResult(Context context, Intent updateIntent, File updateFile, int flag) {
-        final MoKeeApplication app = (MoKeeApplication) context.getApplicationContext();
-        if (app.isMainActivityActive()) {
-            context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT_OR_SELF);
-        } else {
-            DownloadNotifier.notifyDownloadComplete(context, updateIntent, updateFile, flag);
         }
     }
 }
