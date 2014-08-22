@@ -59,12 +59,18 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (ACTION_START_DOWNLOAD.equals(action)) {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
             handleStartDownload(context, prefs, ui, flag);
-        } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) {// 接收下完通知
-            long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1); 
+        } else if (Intent.ACTION_SHUTDOWN.equals(action)) {
+            prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
+                    .remove(DownLoadService.DOWNLOAD_URL)
+                    .remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
+                    .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
+                    .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
+        } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) { // 接收完成通知
+            long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
             handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
             String fileName = intent.getStringExtra(EXTRA_FILENAME);
-            if (flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
+            if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
                 if (fileName.endsWith(".zip")) {
                     applyTriggerUpdate(context, fileName, true);
                 }
@@ -80,7 +86,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     MoKeeApplication.getContext().startActivity(i);
                     Utils.cancelNotification(context);
                 } else {
-                    Toast.makeText(MoKeeApplication.getContext(), R.string.extras_unsupported_toast, Toast.LENGTH_SHORT)
+                    Toast.makeText(MoKeeApplication.getContext(),
+                            R.string.extras_unsupported_toast, Toast.LENGTH_SHORT)
                             .show();
                 }
             }
@@ -89,7 +96,8 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     private void applyTriggerUpdate(Context context, String fileName, boolean isUpdate) {
         try {
-            StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
+            StatusBarManager sb = (StatusBarManager) context
+                    .getSystemService(Context.STATUS_BAR_SERVICE);
             sb.collapsePanels();
             Utils.cancelNotification(context);
             Utils.triggerUpdate(context, fileName, isUpdate);
@@ -120,7 +128,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         String fullFilePath = directory.getAbsolutePath() + "/" + ui.getFileName() + ".partial";
 
         DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(ui.getDownloadUrl());
-      
+
         long downloadId;
         if (dli != null) {
             downloadId = Long.valueOf(dli.getDownID());
@@ -173,7 +181,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                 context.startService(updateintent);
 
                 // Clear the shared prefs
-                prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
+                prefs.edit().remove(DownLoadService.DOWNLOAD_ID)
+                        .remove(DownLoadService.DOWNLOAD_MD5)
                         .remove(DownLoadService.DOWNLOAD_URL).apply();
                 break;
             case Constants.INTENT_FLAG_GET_EXTRAS:
@@ -191,7 +200,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                 context.startService(extrasintent);
 
                 // Clear the shared prefs
-                prefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
+                prefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
+                        .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
                         .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
                 break;
             default:
