@@ -70,8 +70,7 @@ public class DownloadCompleteIntentService extends IntentService {
         if (status == DownLoader.STATUS_COMPLETE) {
             // Get the full path name of the downloaded file and the MD5
 
-            // Strip off the .partial at the end to get the completed
-            // file
+            // Strip off the .partial at the end to get the completed file
             String partialFileFullPath = dli.getLocalFile();
             String completedFileFullPath = partialFileFullPath.replace(".partial", "");
 
@@ -92,6 +91,7 @@ public class DownloadCompleteIntentService extends IntentService {
                 }
                 displayErrorResult(updateIntent, R.string.md5_verification_failed);
             }
+
             //delete info
             DownLoadDao.getInstance().delete(dli.getUrl());
             ThreadDownLoadDao.getInstance().delete(dli.getUrl());

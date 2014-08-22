@@ -251,7 +251,7 @@ public class DownLoadDao {
     /**
      * 删除下载信息
      *
-     * @param downID
+     * @param url
      */
     public synchronized void delete(String fileUrl) {
         SQLiteDatabase database = getConnection();

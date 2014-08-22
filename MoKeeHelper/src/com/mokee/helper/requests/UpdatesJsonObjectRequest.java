@@ -18,6 +18,7 @@
 package com.mokee.helper.requests;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -25,6 +26,7 @@ import org.json.JSONObject;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.mokee.helper.MoKeeApplication;
 
 public class UpdatesJsonObjectRequest extends JsonObjectRequest {
     private String mUserAgent;
@@ -42,6 +44,12 @@ public class UpdatesJsonObjectRequest extends JsonObjectRequest {
             mHeaders.put("User-Agent", mUserAgent);
         }
         mHeaders.put("Cache-Control", "no-cache");
+
+        Locale mLocale = MoKeeApplication.getContext().getResources().getConfiguration().locale;
+        String language = mLocale.getLanguage();
+        String country = mLocale.getCountry();
+        mHeaders.put("Accept-Language", (language + "-" + country).toLowerCase(Locale.ENGLISH));
+
         return mHeaders;
     }
 

@@ -195,7 +195,7 @@ public class DownLoader {
     private boolean isFirst(String fileUrl) {
         if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
         {
-            ThreadDownLoadDao.getInstance().delete(fileUrl);// 清理未完成线程记录
+            delete(fileUrl);// 清理未完成线程记录
             return true;
         }
         return false;
@@ -345,7 +345,6 @@ public class DownLoader {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         }
         else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
-            // ThreadDownLoadDao.getInstance().delete(fileUrl);
             state = STATUS_ERROR;
             sendMsg(STATUS_ERROR, fileUrl, 0);
         }

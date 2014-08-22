@@ -28,11 +28,11 @@ public class ItemInfo implements Parcelable, Serializable {
 
     private static final long serialVersionUID = 5499890003569313403L;
 
-    private String mChangelog;
     private String mMd5Sum;
     private String mFileName;
     private String mFileSize;
     private String mDownloadUrl;
+    private String mChangelogUrl;
 
     // extras
     private String mDescription;
@@ -46,8 +46,8 @@ public class ItemInfo implements Parcelable, Serializable {
         readFromParcel(in);
     }
 
-    public String getChangelog() {
-        return mChangelog;
+    public String getChangelogUrl() {
+        return mChangelogUrl;
     }
 
     public String getMd5Sum() {
@@ -95,27 +95,27 @@ public class ItemInfo implements Parcelable, Serializable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mChangelog);
         dest.writeString(mMd5Sum);
         dest.writeString(mFileName);
         dest.writeString(mFileSize);
         dest.writeString(mDownloadUrl);
+        dest.writeString(mChangelogUrl);
         dest.writeString(mDescription);
         dest.writeString(mCheckflag);
     }
 
     private void readFromParcel(Parcel in) {
-        mChangelog = in.readString();
         mMd5Sum = in.readString();
         mFileName = in.readString();
         mFileSize = in.readString();
         mDownloadUrl = in.readString();
+        mChangelogUrl = in.readString();
         mDescription = in.readString();
         mCheckflag = in.readString();
     }
 
     public static class Builder {
-        private String mChangelog;
+        private String mChangelogUrl;
         private String mMd5Sum;
         private String mFileName;
         private String mFileSize;
@@ -125,8 +125,8 @@ public class ItemInfo implements Parcelable, Serializable {
         private String mDescription;
         private String mCheckflag;
 
-        public Builder setChangelog(String changelog) {
-            mChangelog = changelog;
+        public Builder setChangelog(String changelogUrl) {
+            mChangelogUrl = changelogUrl;
             return this;
         }
 
@@ -162,7 +162,7 @@ public class ItemInfo implements Parcelable, Serializable {
 
         public ItemInfo build() {
             ItemInfo info = new ItemInfo();
-            info.mChangelog = mChangelog;
+            info.mChangelogUrl = mChangelogUrl;
             info.mMd5Sum = mMd5Sum;
             info.mFileName = mFileName;
             info.mFileSize = mFileSize;

@@ -17,12 +17,6 @@
 
 package com.mokee.helper.service;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Comparator;
@@ -47,7 +41,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -59,7 +52,6 @@ import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.receiver.DownloadReceiver;
-import com.mokee.helper.requests.ChangeLogRequest;
 import com.mokee.helper.requests.UpdatesJsonObjectRequest;
 import com.mokee.helper.utils.Utils;
 
@@ -301,6 +293,7 @@ public class UpdateCheckService extends IntentService
             Log.e(TAG, "Could not build request", e);
             return;
         }
+
         ((MoKeeApplication) getApplicationContext()).getQueue().add(request);
     }
 
@@ -359,7 +352,6 @@ public class UpdateCheckService extends IntentService
                 .setDownloadUrl(obj.getString("rom"))
                 .setMD5Sum(obj.getString("md5"))
                 .setChangelog(obj.getString("log")).build();
-        fetchChangeLog(mii, mii.getChangelog());
         return mii;
     }
 
@@ -368,7 +360,6 @@ public class UpdateCheckService extends IntentService
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
             // 判断全部
-
             if (jsonObject.has("gms")) {
                 jsonArrays[0] = jsonObject.getJSONArray("gms");
             }
@@ -405,81 +396,7 @@ public class UpdateCheckService extends IntentService
                 .setChangelog(obj.getString("changelog"))
                 .setDescription(obj.getString("description"))
                 .setCheckflag(obj.getString("checkflag")).build();
-        fetchChangeLog(mii, mii.getChangelog());
         return mii;
-    }
-
-    private void parseChangeLogFromResponse(ItemInfo info, String response) {
-        boolean finished = false;
-        BufferedReader reader = null;
-        BufferedWriter writer = null;
-
-        try {
-            writer = new BufferedWriter(
-                    new FileWriter(info.getChangeLogFile(UpdateCheckService.this)));
-            ByteArrayInputStream bais = new ByteArrayInputStream(response.getBytes());
-            reader = new BufferedReader(new InputStreamReader(bais), 2 * 1024);
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                // line = line.trim();
-                if (line.isEmpty()) {
-                    continue;
-                } else if (line.startsWith("Project:")) {
-                    writer.append("<u>");
-                    writer.append(line);
-                    writer.append("</u><br />");
-                } else if (line.startsWith(" ")) {
-                    writer.append("&#8226;&nbsp;");
-                    writer.append(line);
-                    writer.append("<br />");
-                } else {
-                    writer.append(line);
-                    writer.append("<br />");
-                }
-            }
-            finished = true;
-        } catch (IOException e) {
-            Log.e(TAG, "Downloading change log for " + info + " failed", e);
-            // keeping finished at false will delete the partially written file below
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    // ignore, not much we can do anyway
-                }
-            }
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException e) {
-                    // ignore, not much we can do anyway
-                }
-            }
-        }
-
-        if (!finished) {
-            info.getChangeLogFile(this).delete();
-        }
-    }
-
-    private void fetchChangeLog(final ItemInfo info, String url) {
-        Log.d(TAG, "Getting change log for " + info + ", url " + url);
-
-        final Response.Listener<String> successListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                VolleyLog.v("Response:%n %s", response);
-                parseChangeLogFromResponse(info, response);
-            }
-        };
-
-        ChangeLogRequest request = new ChangeLogRequest(Request.Method.GET, url,
-                Utils.getUserAgentString(this), successListener, this);
-        request.setTag(TAG);
-
-        ((MoKeeApplication) getApplicationContext()).getQueue().add(request);
     }
    
     @Override
