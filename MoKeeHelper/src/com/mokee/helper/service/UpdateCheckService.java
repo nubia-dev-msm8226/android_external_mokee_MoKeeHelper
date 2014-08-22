@@ -33,30 +33,30 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Parcelable;
 import android.os.UserHandle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.receiver.DownloadReceiver;
-import com.mokee.helper.requests.UpdatesJsonObjectRequest;
+import com.mokee.helper.requests.ExtrasRequest;
+import com.mokee.helper.requests.UpdatesRequest;
 import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckService extends IntentService
-        implements Response.ErrorListener, Response.Listener<JSONObject> {
+        implements Response.ErrorListener, Listener<String> {
     private static final String TAG = "UpdateCheckService";
     // request actions
     public static final String ACTION_CHECK = "com.mokee.mkupdater.action.CHECK";
@@ -79,7 +79,6 @@ public class UpdateCheckService extends IntentService
     // max. number of updates listed in the extras notification
     private static final int EXTRAS_NOTIF_UPDATE_COUNT = 4;
     private int flag;
-    private SharedPreferences prefs;
 
     public UpdateCheckService() {
         super("UpdateCheckService");
@@ -87,8 +86,6 @@ public class UpdateCheckService extends IntentService
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        flag = intent.getFlags();
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (TextUtils.equals(intent.getAction(), ACTION_CANCEL_CHECK)) {
             ((MoKeeApplication) getApplicationContext()).getQueue().cancelAll(TAG);
             return START_NOT_STICKY;
@@ -104,8 +101,8 @@ public class UpdateCheckService extends IntentService
             Log.i(TAG, "Could not check for updates. Not connected to the network.");
             return;
         }
-        getAvailableUpdates(intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG,
-                Constants.INTENT_FLAG_GET_UPDATE));
+        flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
+        getAvailableUpdates(flag);
     }
 
     private void recordAvailableUpdates(LinkedList<ItemInfo> availableUpdates,
@@ -127,11 +124,11 @@ public class UpdateCheckService extends IntentService
         Date d = new Date();
         if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
             getSharedPreferences(Constants.DOWNLOADER_PREF, 0).edit()
-            .putLong(lastUpdateCheckPref, d.getTime())
-            .putBoolean(Constants.BOOT_CHECK_COMPLETED, true).apply();
+                    .putLong(lastUpdateCheckPref, d.getTime())
+                    .putBoolean(Constants.BOOT_CHECK_COMPLETED, true).apply();
         } else if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
             getSharedPreferences(Constants.DOWNLOADER_PREF, 0).edit()
-            .putLong(lastUpdateCheckPref, d.getTime()).apply();
+                    .putLong(lastUpdateCheckPref, d.getTime()).apply();
         }
 
         int realUpdateCount = finishedIntent.getIntExtra(EXTRA_REAL_UPDATE_COUNT, 0);
@@ -223,78 +220,35 @@ public class UpdateCheckService extends IntentService
         sendBroadcastAsUser(finishedIntent, UserHandle.CURRENT);
     }
 
-    private JSONObject buildUpdateRequest(int flag, SharedPreferences prefs) throws JSONException {
-        JSONObject params = new JSONObject();
-        JSONObject request = new JSONObject();
-        switch (flag) {
-            case Constants.INTENT_FLAG_GET_UPDATE:
-                // Get the type of update we should check for
-                String MoKeeVersionType = Utils.getMoKeeVersionType();
-                boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
-                boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-                boolean experimentalShow = prefs.getBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW,
-                        isExperimental);
-                int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3
-                        : isExperimental ? 2 : 0);// 版本类型参数
-                if (updateType == 2 && !experimentalShow) {
-                    prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false)
-                            .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
-                    updateType = 0;
-                }
-                if (!isUnofficial && updateType == 3) {
-                    prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
-                    updateType = 0;
-                }
-                int rom_all = prefs.getBoolean(Constants.CHECK_ALL_PREF, false) ? 1 : 0;// 全部获取参数
-                boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
-                params.put("device_name", Utils.getDeviceType());
-                params.put("device_version", Utils.getInstalledVersion());
-                params.put("build_user", Utils.getBuildUser());
-                if (!isOTA) {
-                    params.put("device_officail", String.valueOf(updateType));
-                    params.put("rom_all", String.valueOf(rom_all));
-                }
-                break;
-            case Constants.INTENT_FLAG_GET_EXTRAS:
-                params.put("mk_version", String.valueOf(Utils.getInstalledVersion().split("-")[0]));
-                break;
-        }
-        request.put("params", params);
-        return request;
-    }
-
     /**
      * 获取更新数据
      */
     private void getAvailableUpdates(int flag) {
         // Get the actual ROM Update Server URL
-        SharedPreferences prefs = getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         URI updateServerUri = null;
         switch (flag) {
             case Constants.INTENT_FLAG_GET_UPDATE:
-                boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
+                boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.CHECK_OTA_PREF, true);
                 if (!isOTA) {
                     updateServerUri = URI.create(getString(R.string.conf_update_server_url_def));
                 } else {
                     updateServerUri = URI.create(getString(R.string.conf_update_ota_server_url_def));
                 }
+                UpdatesRequest updateRequest = new UpdatesRequest(Request.Method.POST,
+                        updateServerUri.toASCIIString(), Utils.getUserAgentString(this), this, this);
+                // Set the tag for the request, reuse logging tag
+                updateRequest.setTag(TAG);
+                ((MoKeeApplication) getApplicationContext()).getQueue().add(updateRequest);
                 break;
             case Constants.INTENT_FLAG_GET_EXTRAS:
                 updateServerUri = URI.create(getString(R.string.conf_update_extras_server_url_def));
+                ExtrasRequest extrasRequest = new ExtrasRequest(Request.Method.POST,
+                        updateServerUri.toASCIIString(), Utils.getUserAgentString(this), this, this);
+                // Set the tag for the request, reuse logging tag
+                extrasRequest.setTag(TAG);
+                ((MoKeeApplication) getApplicationContext()).getQueue().add(extrasRequest);
                 break;
         }
-        UpdatesJsonObjectRequest request;
-        try {
-            request = new UpdatesJsonObjectRequest(updateServerUri.toASCIIString(),
-                    Utils.getUserAgentString(this), buildUpdateRequest(flag, prefs), this, this);
-            // Set the tag for the request, reuse logging tag
-            request.setTag(TAG);
-        } catch (JSONException e) {
-            Log.e(TAG, "Could not build request", e);
-            return;
-        }
-
-        ((MoKeeApplication) getApplicationContext()).getQueue().add(request);
     }
 
     /**
@@ -305,13 +259,15 @@ public class UpdateCheckService extends IntentService
      * @param isOTA
      * @return
      */
-    private LinkedList<ItemInfo> parseUpdatesJSONObject(JSONObject jsonObject, int updateType) {
+    private LinkedList<ItemInfo> parseUpdatesJSONObject(String jsonString, int updateType) {
         LinkedList<ItemInfo> updates = new LinkedList<ItemInfo>();
-        boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
+
+        boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.CHECK_OTA_PREF, true);
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
             // 判断全部
             if (!isOTA && updateType == Constants.UPDATE_TYPE_ALL) {
+                JSONObject jsonObject = new JSONObject(jsonString);
                 if (jsonObject.has("RELEASE")) {
                     jsonArrays[0] = jsonObject.getJSONArray("RELEASE");
                 }
@@ -319,7 +275,7 @@ public class UpdateCheckService extends IntentService
                     jsonArrays[1] = jsonObject.getJSONArray("NIGHTLY");
                 }
             } else {
-                JSONArray updateList = new JSONArray(jsonObject.toString());
+                JSONArray updateList = new JSONArray(jsonString);
                 jsonArrays[0] = updateList;
                 int length = updateList.length();
                 Log.d(TAG, "Got update JSON data with " + length + " entries");
@@ -355,11 +311,12 @@ public class UpdateCheckService extends IntentService
         return mii;
     }
 
-    private LinkedList<ItemInfo> parseExtrasJSONObject(JSONObject jsonObject) {
+    private LinkedList<ItemInfo> parseExtrasJSONObject(String jsonString) {
         LinkedList<ItemInfo> updates = new LinkedList<ItemInfo>();
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
             // 判断全部
+            JSONObject jsonObject = new JSONObject(jsonString);
             if (jsonObject.has("gms")) {
                 jsonArrays[0] = jsonObject.getJSONArray("gms");
             }
@@ -398,16 +355,20 @@ public class UpdateCheckService extends IntentService
                 .setCheckflag(obj.getString("checkflag")).build();
         return mii;
     }
-   
+
     @Override
-    public void onResponse(JSONObject jsonObject) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
+    public void onErrorResponse(VolleyError volleyError) {
+        VolleyLog.e("Error: ", volleyError.getMessage());
+    }
+
+    @Override
+    public void onResponse(String response) {
+        int updateType = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getInt(Constants.UPDATE_TYPE_PREF, 0);
         Intent intent = new Intent(ACTION_CHECK_FINISHED);
         LinkedList<ItemInfo> updates = null;
         switch (flag) {
             case Constants.INTENT_FLAG_GET_UPDATE:
-                updates = parseUpdatesJSONObject(jsonObject, updateType);
+                updates = parseUpdatesJSONObject(response, updateType);
                 intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
                 intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
                 intent.putExtra(EXTRA_REAL_UPDATE_COUNT, updates.size());
@@ -416,7 +377,7 @@ public class UpdateCheckService extends IntentService
                 State.saveMKState(this, updates, State.UPDATE_FILENAME);
                 break;
             case Constants.INTENT_FLAG_GET_EXTRAS:
-                updates = parseExtrasJSONObject(jsonObject);
+                updates = parseExtrasJSONObject(response);
                 intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
                 intent.putExtra(EXTRA_UPDATE_COUNT, updates.size());
                 intent.putExtra(EXTRA_REAL_UPDATE_COUNT, updates.size());
@@ -425,11 +386,5 @@ public class UpdateCheckService extends IntentService
                 State.saveMKState(this, updates, State.EXTRAS_FILENAME);
                 break;
         }
-    }
-
-    @Override
-    public void onErrorResponse(VolleyError volleyError) {
-        VolleyLog.e("Error: ", volleyError.getMessage());
-
     }
 }

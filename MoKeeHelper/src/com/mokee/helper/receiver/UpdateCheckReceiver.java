@@ -26,6 +26,7 @@ import android.os.UserHandle;
 import android.util.Log;
 
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.Utils;
 
@@ -66,7 +67,7 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
                 Log.i(TAG, "Start an on-boot check");
                 Intent i = new Intent(context, UpdateCheckService.class);
                 i.setAction(UpdateCheckService.ACTION_CHECK);
-                i.setFlags(Constants.INTENT_FLAG_GET_UPDATE);
+                i.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
                 context.startServiceAsUser(i, UserHandle.CURRENT);
             } else {
                 // Nothing to do

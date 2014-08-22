@@ -22,6 +22,7 @@ import java.io.File;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.UserHandle;
+import android.util.Log;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
@@ -108,7 +109,7 @@ public class DownloadCompleteIntentService extends IntentService {
     private void displaySuccessResult(Intent updateIntent, File updateFile, int flag) {
         final MoKeeApplication app = (MoKeeApplication) getApplicationContext();
         if (app.isMainActivityActive()) {
-            sendBroadcastAsUser(updateIntent, UserHandle.CURRENT_OR_SELF);
+            sendBroadcastAsUser(updateIntent, UserHandle.CURRENT);
         } else {
             DownloadNotifier.notifyDownloadComplete(this, updateIntent, updateFile, flag);
         }

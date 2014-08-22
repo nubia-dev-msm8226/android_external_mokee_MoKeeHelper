@@ -14,46 +14,48 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 package com.mokee.helper.requests;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import org.json.JSONObject;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.utils.Utils;
 
-public class UpdatesJsonObjectRequest extends JsonObjectRequest {
+public class ExtrasRequest extends StringRequest {
     private String mUserAgent;
-    private HashMap<String, String> mHeaders = new HashMap<String, String>();
 
-    public UpdatesJsonObjectRequest(String url, String userAgent, JSONObject jsonRequest,
-            Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-        super(url, jsonRequest, listener, errorListener);
+    public ExtrasRequest(int method, String url, String userAgent,
+            Response.Listener<String> listener, Response.ErrorListener errorListener) {
+        super(method, url, listener, errorListener);
         mUserAgent = userAgent;
     }
 
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
+        HashMap<String, String> headers = new HashMap<String, String>();
         if (mUserAgent != null) {
-            mHeaders.put("User-Agent", mUserAgent);
+            headers.put("User-Agent", mUserAgent);
         }
-        mHeaders.put("Cache-Control", "no-cache");
+        headers.put("Cache-Control", "no-cache");
 
         Locale mLocale = MoKeeApplication.getContext().getResources().getConfiguration().locale;
         String language = mLocale.getLanguage();
         String country = mLocale.getCountry();
-        mHeaders.put("Accept-Language", (language + "-" + country).toLowerCase(Locale.ENGLISH));
+        headers.put("Accept-Language", (language + "-" + country).toLowerCase(Locale.ENGLISH));
 
-        return mHeaders;
+        return headers;
     }
 
-    public void addHeader(String key, String what) {
-        mHeaders.put(key, what);
+    @Override
+    protected Map<String, String> getParams() throws AuthFailureError {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("mk_version", String.valueOf(Utils.getInstalledVersion().split("-")[0]));
+        return params;
     }
 }

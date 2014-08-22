@@ -349,7 +349,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             public void onCancel(DialogInterface dialog) {
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
-                cancelIntent.setFlags(flag);
+                cancelIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
                 MoKeeApplication.getContext().startServiceAsUser(cancelIntent, UserHandle.CURRENT);
                 mProgressDialog = null;
             }
@@ -357,7 +357,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
-        checkIntent.setFlags(flag);// 服务识别
+        checkIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
         MoKeeApplication.getContext().startServiceAsUser(checkIntent, UserHandle.CURRENT);
         mProgressDialog.show();
     }

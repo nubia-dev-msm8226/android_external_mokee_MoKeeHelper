@@ -40,6 +40,7 @@ public class ChangeLogRequest extends StringRequest {
             headers.put("User-Agent", mUserAgent);
         }
         headers.put("Cache-Control", "no-cache");
+        headers.put("Charset", "UTF-8");
         return headers;
     }
 }
