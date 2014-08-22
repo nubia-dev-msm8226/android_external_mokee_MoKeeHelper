@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 The MoKee OpenSource Project
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 package com.mokee.helper.service;
 
@@ -11,6 +27,7 @@ import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;
+import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.receiver.DownloadNotifier;
 import com.mokee.helper.receiver.DownloadReceiver;
@@ -31,12 +48,12 @@ public class DownloadCompleteIntentService extends IntentService {
         if (intent.hasExtra(DownLoadService.DOWNLOAD_FLAG) && intent.hasExtra(DownLoadService.DOWNLOAD_ID) &&
                 intent.hasExtra(DownLoadService.DOWNLOAD_MD5)) {
             id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
-            flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, 1024);
+            flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
             downloadedMD5 = intent.getStringExtra(DownLoadService.DOWNLOAD_MD5);
         } else if (intent.hasExtra(DownLoadService.DOWNLOAD_FLAG) && intent.hasExtra(DownLoadService.DOWNLOAD_EXTRAS_ID) &&
                 intent.hasExtra(DownLoadService.DOWNLOAD_EXTRAS_MD5)) {
             id = intent.getLongExtra(DownLoadService.DOWNLOAD_EXTRAS_ID, -1);
-            flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, 1024);
+            flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
             downloadedMD5 = intent.getStringExtra(DownLoadService.DOWNLOAD_EXTRAS_MD5);
         } else {
             return;
@@ -70,13 +87,13 @@ public class DownloadCompleteIntentService extends IntentService {
                 displaySuccessResult(updateIntent, updateFile, flag);
             } else {
                 // We failed. Clear the file and reset everything
-                DownLoadDao.getInstance().delete(String.valueOf(id));
                 if (updateFile.exists()) {
                     updateFile.delete();
                 }
                 displayErrorResult(updateIntent, R.string.md5_verification_failed);
             }
-            //delete thread info
+            //delete info
+            DownLoadDao.getInstance().delete(dli.getUrl());
             ThreadDownLoadDao.getInstance().delete(dli.getUrl());
         } else if (status == DownLoader.STATUS_ERROR) {
             // The download failed, reset

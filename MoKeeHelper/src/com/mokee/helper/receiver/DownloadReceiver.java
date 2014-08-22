@@ -55,7 +55,7 @@ public class DownloadReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
-        int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, 1024);
+        int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
         if (ACTION_START_DOWNLOAD.equals(action)) {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
             handleStartDownload(context, prefs, ui, flag);

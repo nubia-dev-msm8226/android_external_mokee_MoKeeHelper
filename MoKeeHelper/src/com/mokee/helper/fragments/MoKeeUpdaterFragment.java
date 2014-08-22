@@ -614,6 +614,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
             if (dli != null) {
                 ThreadDownLoadDao.getInstance().delete(dli.getUrl());
+                DownLoadDao.getInstance().delete(dli.getUrl());
             }
         }
         // The directory is now empty so delete it

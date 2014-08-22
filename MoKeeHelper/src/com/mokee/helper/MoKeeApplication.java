@@ -33,6 +33,8 @@ import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 
 import com.android.settings.mkstats.Utilities;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.utils.Utils;
 
@@ -41,6 +43,7 @@ public class MoKeeApplication extends Application implements
 
     private static Context context;
     private boolean mMainActivityActive;
+    private RequestQueue mRequestQueue;
     private SharedPreferences prefs;
 
     private static final String TAG = "MoKeeApplication";
@@ -78,6 +81,7 @@ public class MoKeeApplication extends Application implements
 
         mMainActivityActive = false;
         registerActivityLifecycleCallbacks(this);
+        mRequestQueue = Volley.newRequestQueue(this);
         context = getApplicationContext();
 
         // MoKeePush Interface
@@ -87,13 +91,15 @@ public class MoKeeApplication extends Application implements
         // Set Alias
         String alias = Utilities.getUniqueID(this);
         String prefAlias = prefs.getString(MKPUSH_ALIAS, null);
-        if (!alias.equals(prefAlias)) mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
+        if (!alias.equals(prefAlias))
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
         // Set Tags
         Set<String> tags = new HashSet<String>();
         tags.add(Utils.getDeviceType());
         tags.add(Utilities.getMoKeeVersion().replace(".", ""));
         Set<String> prefTags = prefs.getStringSet(MKPUSH_TAGS, null);
-        if (!tags.equals(prefTags)) mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_TAGS, tags));
+        if (!tags.equals(prefTags))
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_TAGS, tags));
     }
 
     private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
@@ -193,5 +199,9 @@ public class MoKeeApplication extends Application implements
 
     public boolean isMainActivityActive() {
         return mMainActivityActive;
+    }
+
+    public RequestQueue getQueue() {
+        return mRequestQueue;
     }
 }

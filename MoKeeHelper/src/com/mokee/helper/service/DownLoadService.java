@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 The MoKee OpenSource Project
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 package com.mokee.helper.service;
 
@@ -48,7 +64,7 @@ public class DownLoadService extends NonStopIntentService {
 
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
     private static Map<Integer, NotificationCompat.Builder> notifications = new HashMap<Integer, NotificationCompat.Builder>();// 通知队列
-    private static int notificationIDBase = 1024;
+    private static int notificationIDBase = Constants.INTENT_FLAG_GET_UPDATE;
     private NotificationManager manager;
 
     @Override
@@ -64,7 +80,7 @@ public class DownLoadService extends NonStopIntentService {
             String url = action.getStringExtra(DOWNLOAD_URL);
             String filePath = action.getStringExtra(DOWNLOAD_FILE_PATH);
             long download_id = action.getLongExtra(DOWNLOAD_ID, System.currentTimeMillis());
-            int flag = action.getIntExtra(DOWNLOAD_FLAG, 1024);
+            int flag = action.getIntExtra(DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
             DownLoader downloader = null;
             switch (type) {
                 case ADD:

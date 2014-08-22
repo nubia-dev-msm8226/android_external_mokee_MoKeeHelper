@@ -253,11 +253,11 @@ public class DownLoadDao {
      *
      * @param downID
      */
-    public synchronized void delete(String downID) {
+    public synchronized void delete(String fileUrl) {
         SQLiteDatabase database = getConnection();
         try {
-            database.delete("download_info", "down_id=?", new String[] {
-                    downID
+            database.delete("download_info", "url=?", new String[] {
+                    fileUrl
             });
         } catch (Exception e) {
             e.printStackTrace();

@@ -17,13 +17,15 @@
 
 package com.mokee.helper.db;
 
+import com.mokee.helper.misc.Constants;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBManager extends SQLiteOpenHelper {
     public DBManager(Context context) {
-        super(context, "download.db", null, 1024);
+        super(context, "download.db", null, Constants.INTENT_FLAG_GET_UPDATE);
     }
 
     @Override

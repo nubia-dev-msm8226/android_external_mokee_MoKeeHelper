@@ -190,7 +190,7 @@ public class DownLoader {
     }
 
     /**
-     * 判断是否是第一次 下载
+     * 判断是否是第一次下载
      */
     private boolean isFirst(String fileUrl) {
         if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
