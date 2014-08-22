@@ -14,14 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 package com.mokee.helper.requests;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Response;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 
 public class ChangeLogRequest extends StringRequest {
@@ -40,7 +44,17 @@ public class ChangeLogRequest extends StringRequest {
             headers.put("User-Agent", mUserAgent);
         }
         headers.put("Cache-Control", "no-cache");
-        headers.put("Charset", "UTF-8");
         return headers;
+    }
+
+    @Override
+    protected Response<String> parseNetworkResponse(NetworkResponse response) {
+        String result;
+        try {
+            result = new String(response.data, "UTF-8");
+            return Response.success(result, HttpHeaderParser.parseCacheHeaders(response));
+        } catch (UnsupportedEncodingException e) {
+            return Response.error(new ParseError(e));
+        }
     }
 }

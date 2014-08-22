@@ -93,6 +93,7 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
                 });
 
         mChangeLogView.getSettings().setTextZoom(80);
+        mChangeLogView.getSettings().setDefaultTextEncodingName("UTF-8");
         mChangeLogView.setBackgroundColor(
                 mContext.getResources().getColor(android.R.color.darker_gray));
 
