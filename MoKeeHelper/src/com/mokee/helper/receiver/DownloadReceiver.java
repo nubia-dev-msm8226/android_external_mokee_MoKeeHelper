@@ -62,10 +62,8 @@ public class DownloadReceiver extends BroadcastReceiver {
             handleStartDownload(context, prefs, ui, flag);
         } else if (Intent.ACTION_SHUTDOWN.equals(action)) {
             prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
-                    .remove(DownLoadService.DOWNLOAD_URL)
-                    .remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
-                    .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
-                    .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
+                    .remove(DownLoadService.DOWNLOAD_URL).remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
+                    .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5).remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
         } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) { // 接收完成通知
             long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
             handleDownloadComplete(context, prefs, id, flag);
