@@ -94,10 +94,8 @@ public class DownLoadService extends NonStopIntentService {
                             // init
                             DownLoadDao.getInstance().saveInfo(
                                     new DownLoadInfo(url, flag, String.valueOf(download_id),
-                                            filePath, filePath.substring(
-                                                    filePath.lastIndexOf("/") + 1,
-                                                    filePath.length()), 0,
-                                            DownLoader.STATUS_PENDING));
+                                            filePath, filePath.substring(filePath.lastIndexOf("/") + 1,
+                                                    filePath.length()), 0, DownLoader.STATUS_PENDING));
                         }
                     }
                     if (downloader.isDownLoading())
@@ -222,11 +220,13 @@ public class DownLoadService extends NonStopIntentService {
                     }
                     DownLoadDao.getInstance().updataState(url, msg.what);
                     dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
-                    intent = new Intent();
-                    intent.setAction(ACTION_DOWNLOAD_COMPLETE);
-                    intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
-                    intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
-                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
+                    if (dli != null) {
+	                    intent = new Intent();
+	                    intent.setAction(ACTION_DOWNLOAD_COMPLETE);
+	                    intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
+	                    intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
+	                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
+                    }
                     di = null;
                     if (downloaders.size() == 0) {
                         stopSelf();

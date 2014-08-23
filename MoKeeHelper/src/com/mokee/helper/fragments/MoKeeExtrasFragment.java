@@ -383,16 +383,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             deleteDir(mExtrasFolder);
             mExtrasFolder.mkdir();
             success = true;
-            Toast.makeText(mContext, R.string.delete_extras_success_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_extras_success_message, Toast.LENGTH_SHORT).show();
         } else if (!mExtrasFolder.exists()) {
             success = false;
-            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT).show();
         } else {
             success = false;
-            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT).show();
         }
         return success;
     }
@@ -554,6 +551,8 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
     public void onPauseDownload(SharedPreferences prefs) {
         // We are OK to stop download, trigger it
+        if (mDownloading)
+            Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT).show();
         resetDownloadState();
         mUpdateHandler.removeCallbacks(mUpdateProgress);
         Intent intent = new Intent(mContext, DownLoadService.class);
@@ -567,9 +566,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         // Clear the stored data from shared preferences
         mPrefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
                 .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
-
-        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
-                .show(); 
     }
 
     @Override
