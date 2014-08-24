@@ -80,7 +80,7 @@
     <string name="donate_dialog_via_tenpay">TenPay</string>
     <string name="donate_dialog_via_unionpay">UnionPay</string>
     <string name="donate_money_price" translatable="false">$</string>
-    <string name="donate_money_toast_error">Minimum value is 1</string>
+    <string name="donate_money_toast_error">Enter the amount is incorrect!</string>
     <string name="donate_money_toast_success">Thank you for your donation!</string>
     <string name="donate_money_name">Donate MoKee OpenSource</string>
     <string name="donate_money_description">Donate MoKee OpenSource</string>
