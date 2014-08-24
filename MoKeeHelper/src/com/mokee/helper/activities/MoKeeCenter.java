@@ -158,7 +158,7 @@ public class MoKeeCenter extends FragmentActivity {
                 String priceStr = mEditText.getText().toString().trim();
                 String orderId = System.currentTimeMillis() + "";
                 String userId = Utilities.getUniqueID(mContext);
-                if (TextUtils.isEmpty(priceStr) || Integer.valueOf(priceStr) == 0) {
+                if (TextUtils.isEmpty(priceStr)) {
                     Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
                 } else {
                     switch (which) {
