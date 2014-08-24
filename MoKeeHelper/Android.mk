@@ -33,7 +33,7 @@ endif
 
 include $(CLEAR_VARS)
 
-LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res-pay $(LOCAL_PATH)/res
 
 ifeq ($(ALTERNATE_IS_INTERNAL), true)
   LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res-compat $(LOCAL_RESOURCE_DIR)
@@ -43,7 +43,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 libMoKeePushService libPayPalSDK dashclockapi volley
+LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 libMoKeePushService dashclockapi volley alipay_msp payecoplugin TenpayService UPPayAssistEx UPPayPluginEx WanpuPay libPayPal
 
 LOCAL_SRC_FILES := $(call all-subdir-java-files) \
 

@@ -221,10 +221,10 @@ public class DownLoadService extends NonStopIntentService {
                     DownLoadDao.getInstance().updataState(url, msg.what);
                     dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
                     if (dli != null) {
-	                    intent = new Intent();
-	                    intent.setAction(ACTION_DOWNLOAD_COMPLETE);
-	                    intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
-	                    intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
+                        intent = new Intent();
+                        intent.setAction(ACTION_DOWNLOAD_COMPLETE);
+                        intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
+                        intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
 	                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
                     }
                     di = null;

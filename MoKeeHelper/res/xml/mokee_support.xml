@@ -46,9 +46,5 @@
         android:key="mokee_wiki"
         android:summary="@string/mokee_wiki_summary"
         android:title="@string/mokee_wiki_title" />
-    <PreferenceScreen
-        android:key="mokee_donate"
-        android:summary="@string/mokee_donate_summary"
-        android:title="@string/mokee_donate_title" />
 
 </PreferenceScreen>

@@ -18,6 +18,7 @@
 package com.mokee.helper.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,7 +43,6 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String KEY_MOKEE_BUILD_STATUS = "mokee_build_status";
     private static final String KEY_MOKEE_GITHUB = "mokee_github";
     private static final String KEY_MOKEE_WIKI = "mokee_wiki";
-    private static final String KEY_MOKEE_DONATE = "mokee_donate";
 
     private static final String URL_MOKEE_WEBSITE = "http://www.mokeedev.com";
     private static final String URL_MOKEE_FORUM = "http://bbs.mfunz.com";
@@ -53,12 +53,12 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String URL_MOKEE_WIKI = "http://wiki.mokeedev.com";
     public static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
 
-    private Activity mContext;
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mContext = getActivity();
+        mContext = getActivity().getApplicationContext();
         addPreferencesFromResource(R.xml.mokee_support);
         setHasOptionsMenu(true);
     }
@@ -80,13 +80,11 @@ public class MoKeeSupportFragment extends PreferenceFragment {
             goToURL(mContext, URL_MOKEE_GITHUB);
         } else if (key.equals(KEY_MOKEE_WIKI)) {
             goToURL(mContext, URL_MOKEE_WIKI);
-        } else if (key.equals(KEY_MOKEE_DONATE)) {
-            goToURL(mContext, URL_MOKEE_DONATE);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    public static void goToURL(Activity mContext, String url) {
+    public static void goToURL(Context mContext, String url) {
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         mContext.startActivity(intent);
@@ -102,7 +100,7 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(mContext);
+                MoKeeCenter.donateButton(getActivity());
                 return true;
         }
         return true;

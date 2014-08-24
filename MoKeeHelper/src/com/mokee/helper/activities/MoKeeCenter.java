@@ -37,6 +37,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.settings.mkstats.Utilities;
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
@@ -46,9 +47,12 @@ import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.PayPal;
+import com.mokee.helper.utils.Utils;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
+import com.wanpu.pay.PayConnect;
+import com.wanpu.pay.PayResultListener;
 
 public class MoKeeCenter extends FragmentActivity {
 
@@ -59,6 +63,7 @@ public class MoKeeCenter extends FragmentActivity {
     private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
+    private static Context mContext;
     private static boolean initialized = true;
 
     @Override
@@ -68,18 +73,17 @@ public class MoKeeCenter extends FragmentActivity {
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
+        mContext = getApplicationContext();
+
         bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
         bar.setTitle(R.string.mokee_center_title);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_extras_title),
-                MoKeeExtrasFragment.class, null);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
-                MoKeeUpdaterFragment.class, null);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
-                MoKeeSupportFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_extras_title), MoKeeExtrasFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title), MoKeeUpdaterFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title), MoKeeSupportFragment.class, null);
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 1));
         }
@@ -95,6 +99,7 @@ public class MoKeeCenter extends FragmentActivity {
         } else {
             initialized = false;
         }
+        PayConnect.getInstance("179a03b58d0dc099e7770f1f5e1f8887", Utils.getMoKeeVersionTypeString(this), this);
     }
 
     @Override
@@ -147,26 +152,51 @@ public class MoKeeCenter extends FragmentActivity {
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View donateView = inflater.inflate(R.layout.donate, null);
-            final EditText mEditText = (EditText) donateView.findViewById(R.id.money_total);
+            final EditText mEditText = (EditText) donateView.findViewById(R.id.money_price);
             new AlertDialog.Builder(mContext)
                     .setTitle(R.string.donate_dialog_title)
                     .setMessage(R.string.donate_dialog_message)
                     .setView(donateView)
-                    .setPositiveButton(R.string.donate_dialog_from_paypal,
+                    .setNegativeButton(R.string.donate_dialog_via_paypal,
                             new DialogInterface.OnClickListener() {
 
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    String total = mEditText.getText().toString().trim();
-                                    if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
-                                        Toast.makeText(mContext, R.string.donate_money_toast_error,
-                                                Toast.LENGTH_SHORT).show();
+                                    String price = mEditText.getText().toString().trim();
+                                    if (TextUtils.isEmpty(price) || Integer.valueOf(price) == 0) {
+                                        Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
                                     } else {
-                                        PayPal.onPayPalDonatePressed(mContext, total, mContext
-                                                .getString(R.string.donate_money_description));
+                                        PayPal.onPayPalDonatePressed(mContext, price, mContext.getString(R.string.donate_money_description));
                                     }
                                 }
-                            }).show();
+                            }).setPositiveButton(R.string.donate_dialog_via_chinapay, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String priceStr = mEditText.getText().toString().trim();
+                                    float price = 0.0f;
+                                    if (TextUtils.isEmpty(priceStr) || Integer.valueOf(priceStr) == 0) {
+                                        Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        price = Float.valueOf(priceStr);
+                                        String orderId = System.currentTimeMillis() + "";
+                                        String userId = Utilities.getUniqueID(mContext);
+                                        PayConnect.getInstance(mContext).pay(mContext, orderId, userId, price,
+                                                mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
+                                                new PayResultListener() {
+
+                                                    @Override
+                                                    public void onPayFinish(Context payViewContext, String orderId,
+                                                            int resultCode, String resultString, int payType, float amount,
+                                                            String goodsName) {
+                                                        if (resultCode == 0) {
+                                                            Toast.makeText(mContext, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
+                                                            PayConnect.getInstance(mContext).closePayView(payViewContext);
+                                                            PayConnect.getInstance(mContext).confirm(orderId,payType);
+                                                        }
+                                                    }});
+                                    }
+                                }}).show();
         } else {
             MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
         }
@@ -176,17 +206,12 @@ public class MoKeeCenter extends FragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PayPal.REQUEST_CODE_PAYMENT) {
             if (resultCode == Activity.RESULT_OK) {
-                PaymentConfirmation confirm =
-                        data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
                 if (confirm != null) {
                     try {
                         Log.i(PayPal.TAG, confirm.toJSONObject().toString(4));
                         Log.i(PayPal.TAG, confirm.getPayment().toJSONObject().toString(4));
-                        Toast.makeText(
-                                getApplicationContext(),
-                                R.string.donate_money_toast_success, Toast.LENGTH_LONG)
-                                .show();
-
+                        Toast.makeText(mContext, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
                     } catch (JSONException e) {
                         Log.e(PayPal.TAG, "an extremely unlikely failure occurred: ", e);
                     }
@@ -194,9 +219,7 @@ public class MoKeeCenter extends FragmentActivity {
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 Log.i(PayPal.TAG, "The user canceled.");
             } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
-                Log.i(
-                        PayPal.TAG,
-                        "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+                Log.i(PayPal.TAG, "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
             }
         }
     }
@@ -207,6 +230,7 @@ public class MoKeeCenter extends FragmentActivity {
         if (initialized) {
             stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
         }
+        PayConnect.getInstance(this).close();
         super.onDestroy();
     }
 }
