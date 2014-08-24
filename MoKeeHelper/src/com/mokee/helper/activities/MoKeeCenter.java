@@ -18,7 +18,6 @@
 package com.mokee.helper.activities;
 
 import org.json.JSONException;
-import org.mokee.util.MoKeeUtils;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -101,7 +100,7 @@ public class MoKeeCenter extends FragmentActivity {
         } else {
             initialized = false;
         }
-        PayConnect.getInstance("179a03b58d0dc099e7770f1f5e1f8887", Utils.getMoKeeVersionTypeString(this), this);
+        PayPal.MoKeePayInit(getApplicationContext());
     }
 
     @Override
