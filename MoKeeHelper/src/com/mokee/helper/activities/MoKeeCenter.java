@@ -94,7 +94,7 @@ public class MoKeeCenter extends FragmentActivity {
         invalidateOptionsMenu();
 
         // Start service when create
-        if (getResources().getBoolean(R.bool.use_paypal) && !MoKeeUtils.isChineseLanguage() || getResources().getBoolean(R.bool.use_paypal) && MoKeeUtils.isTWLanguage()) {
+        if (getResources().getBoolean(R.bool.use_paypal)) {
             Intent intent = new Intent(this, PayPalService.class);
             intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
             startServiceAsUser(intent, UserHandle.CURRENT);
@@ -163,9 +163,11 @@ public class MoKeeCenter extends FragmentActivity {
                 } else {
                     switch (which) {
                         case DialogInterface.BUTTON_POSITIVE:
-                            PayConnect.getInstance(mContext).aliPay(mContext, orderId, userId, Float.valueOf(priceStr),
-                                    mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
-                                    mPayResultListener);
+                            if (initialized) {
+                                PayPal.onPayPalDonatePressed(mContext, priceStr, mContext.getString(R.string.donate_money_description));
+                            } else {
+                                MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
+                            }
                             break;
                         case DialogInterface.BUTTON_NEUTRAL:
                             PayConnect.getInstance(mContext).tclBankPay(mContext, orderId, userId, Float.valueOf(priceStr),
@@ -173,17 +175,9 @@ public class MoKeeCenter extends FragmentActivity {
                                     mPayResultListener);
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
-                            if (MoKeeUtils.isChineseLanguage() && !MoKeeUtils.isTWLanguage()) {
-                                PayConnect.getInstance(mContext).tenPay(mContext, orderId, userId, Float.valueOf(priceStr),
-                                        mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
-                                        mPayResultListener);
-                            } else {
-                                if (initialized) {
-                                    PayPal.onPayPalDonatePressed(mContext, priceStr, mContext.getString(R.string.donate_money_description));
-                                } else {
-                                    MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
-                                }
-                            }
+                            PayConnect.getInstance(mContext).aliPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                                    mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
+                                    mPayResultListener);
                             break;
                     }
                 }
@@ -196,9 +190,9 @@ public class MoKeeCenter extends FragmentActivity {
                 .setTitle(R.string.donate_dialog_title)
                 .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
-                .setPositiveButton(R.string.donate_dialog_via_alipay, mDialogButton)
+                .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNeutralButton(R.string.donate_dialog_via_unionpay, mDialogButton)
-                .setNegativeButton(MoKeeUtils.isChineseLanguage() && !MoKeeUtils.isTWLanguage() ? R.string.donate_dialog_via_tenpay : R.string.donate_dialog_via_paypal, mDialogButton).show();
+                .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
     }
 
     @Override
