@@ -168,7 +168,7 @@ public class MoKeeCenter extends FragmentActivity {
                                     mPayResultListener);
                             break;
                         case DialogInterface.BUTTON_NEUTRAL:
-                            PayConnect.getInstance(mContext).tclBankPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                            PayConnect.getInstance(mContext).bankPay(mContext, orderId, userId, Float.valueOf(priceStr),
                                     mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
                                     mPayResultListener);
                             break;
