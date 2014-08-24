@@ -18,6 +18,7 @@
 package com.mokee.helper.activities;
 
 import org.json.JSONException;
+import org.mokee.util.MoKeeUtils;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -64,6 +65,7 @@ public class MoKeeCenter extends FragmentActivity {
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
     private static Context mContext;
+    private static EditText mEditText;
     private static boolean initialized = true;
 
     @Override
@@ -92,7 +94,7 @@ public class MoKeeCenter extends FragmentActivity {
         invalidateOptionsMenu();
 
         // Start service when create
-        if (getResources().getBoolean(R.bool.use_paypal)) {
+        if (getResources().getBoolean(R.bool.use_paypal) && !MoKeeUtils.isChineseLanguage() || getResources().getBoolean(R.bool.use_paypal) && MoKeeUtils.isTWLanguage()) {
             Intent intent = new Intent(this, PayPalService.class);
             intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
             startServiceAsUser(intent, UserHandle.CURRENT);
@@ -148,58 +150,55 @@ public class MoKeeCenter extends FragmentActivity {
     }
 
     public static void donateButton(final Activity mContext) {
-        if (initialized) {
-            LayoutInflater inflater = (LayoutInflater) mContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View donateView = inflater.inflate(R.layout.donate, null);
-            final EditText mEditText = (EditText) donateView.findViewById(R.id.money_price);
-            new AlertDialog.Builder(mContext)
-                    .setTitle(R.string.donate_dialog_title)
-                    .setMessage(R.string.donate_dialog_message)
-                    .setView(donateView)
-                    .setNegativeButton(R.string.donate_dialog_via_paypal,
-                            new DialogInterface.OnClickListener() {
 
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    String price = mEditText.getText().toString().trim();
-                                    if (TextUtils.isEmpty(price) || Integer.valueOf(price) == 0) {
-                                        Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        PayPal.onPayPalDonatePressed(mContext, price, mContext.getString(R.string.donate_money_description));
-                                    }
+        DialogInterface.OnClickListener mDialogButton = new DialogInterface.OnClickListener() {
+            
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String priceStr = mEditText.getText().toString().trim();
+                String orderId = System.currentTimeMillis() + "";
+                String userId = Utilities.getUniqueID(mContext);
+                if (TextUtils.isEmpty(priceStr) || Integer.valueOf(priceStr) == 0) {
+                    Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
+                } else {
+                    switch (which) {
+                        case DialogInterface.BUTTON_POSITIVE:
+                            PayConnect.getInstance(mContext).aliPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                                    mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
+                                    mPayResultListener);
+                            break;
+                        case DialogInterface.BUTTON_NEUTRAL:
+                            PayConnect.getInstance(mContext).tclBankPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                                    mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
+                                    mPayResultListener);
+                            break;
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            if (MoKeeUtils.isChineseLanguage() && !MoKeeUtils.isTWLanguage()) {
+                                PayConnect.getInstance(mContext).tenPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                                        mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
+                                        mPayResultListener);
+                            } else {
+                                if (initialized) {
+                                    PayPal.onPayPalDonatePressed(mContext, priceStr, mContext.getString(R.string.donate_money_description));
+                                } else {
+                                    MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
                                 }
-                            }).setPositiveButton(R.string.donate_dialog_via_chinapay, new DialogInterface.OnClickListener() {
-
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    String priceStr = mEditText.getText().toString().trim();
-                                    float price = 0.0f;
-                                    if (TextUtils.isEmpty(priceStr) || Integer.valueOf(priceStr) == 0) {
-                                        Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        price = Float.valueOf(priceStr);
-                                        String orderId = System.currentTimeMillis() + "";
-                                        String userId = Utilities.getUniqueID(mContext);
-                                        PayConnect.getInstance(mContext).pay(mContext, orderId, userId, price,
-                                                mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
-                                                new PayResultListener() {
-
-                                                    @Override
-                                                    public void onPayFinish(Context payViewContext, String orderId,
-                                                            int resultCode, String resultString, int payType, float amount,
-                                                            String goodsName) {
-                                                        if (resultCode == 0) {
-                                                            Toast.makeText(mContext, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
-                                                            PayConnect.getInstance(mContext).closePayView(payViewContext);
-                                                            PayConnect.getInstance(mContext).confirm(orderId,payType);
-                                                        }
-                                                    }});
-                                    }
-                                }}).show();
-        } else {
-            MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
-        }
+                            }
+                            break;
+                    }
+                }
+            }
+        };
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View donateView = inflater.inflate(R.layout.donate, null);
+        mEditText = (EditText) donateView.findViewById(R.id.money_price);
+        new AlertDialog.Builder(mContext)
+                .setTitle(R.string.donate_dialog_title)
+                .setMessage(R.string.donate_dialog_message)
+                .setView(donateView)
+                .setPositiveButton(R.string.donate_dialog_via_alipay, mDialogButton)
+                .setNeutralButton(R.string.donate_dialog_via_unionpay, mDialogButton)
+                .setNegativeButton(MoKeeUtils.isChineseLanguage() && !MoKeeUtils.isTWLanguage() ? R.string.donate_dialog_via_tenpay : R.string.donate_dialog_via_paypal, mDialogButton).show();
     }
 
     @Override
@@ -233,4 +232,18 @@ public class MoKeeCenter extends FragmentActivity {
         PayConnect.getInstance(this).close();
         super.onDestroy();
     }
+
+    private static PayResultListener mPayResultListener = new PayResultListener() {
+
+        @Override
+        public void onPayFinish(Context payViewContext, String orderId,
+                int resultCode, String resultString, int payType, float amount,
+                String goodsName) {
+            if (resultCode == 0) {
+                Toast.makeText(mContext, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
+                PayConnect.getInstance(mContext).closePayView(payViewContext);
+                PayConnect.getInstance(mContext).confirm(orderId,payType);
+            }
+        }
+    };
 }

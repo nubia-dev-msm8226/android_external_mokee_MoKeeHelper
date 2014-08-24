@@ -75,11 +75,13 @@
     <!-- Donate -->
     <string name="donate_dialog_title">捐赠我们</string>
     <string name="donate_dialog_message">魔趣是一个非营利性的民间开源项目，我们因兴趣爱好而做我们觉得有意义的事情，您力所能及的帮助将减轻我们运营该项目的压力。</string>
-    <string name="donate_dialog_via_paypal">通过PayPal捐赠</string>
-    <string name="donate_dialog_via_chinapay">通过快捷支付捐赠</string>
+    <string name="donate_dialog_via_paypal">PayPal</string>
+    <string name="donate_dialog_via_alipay">支付宝</string>
+    <string name="donate_dialog_via_tenpay">财付通</string>
+    <string name="donate_dialog_via_unionpay">银联卡</string>
     <string name="donate_money_toast_error">请输入大于 1 的整数。</string>
     <string name="donate_money_toast_success">感谢您的捐赠！</string>
-    <string name="donate_money_name">捐赠我们</string>
+    <string name="donate_money_name">捐赠魔趣开源项目</string>
     <string name="donate_money_description">捐赠魔趣开源项目</string>
 
     <!-- Update -->
