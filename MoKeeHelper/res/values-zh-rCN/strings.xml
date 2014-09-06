@@ -78,7 +78,7 @@
     <string name="donate_dialog_via_paypal">PayPal</string>
     <string name="donate_dialog_via_alipay">支付宝</string>
     <string name="donate_dialog_via_tenpay">财付通</string>
-    <string name="donate_dialog_via_unionpay">银联卡</string>
+    <string name="donate_dialog_via_unionpay">银行卡</string>
     <string name="donate_money_toast_error">金额输入有误！</string>
     <string name="donate_money_toast_success">感谢您的捐赠，我们将因此走的更远！</string>
     <string name="donate_money_name">捐赠魔趣开源项目</string>
