@@ -41,7 +41,7 @@
     <string name="mokee_github_title">MoKee Github</string>
     <string name="mokee_github_summary">Visit the MoKee Github</string>
     <string name="mokee_translate_title">MoKee Translate</string>
-    <string name="mokee_translate_summary">Visit the MoKee Translate</string>
+    <string name="mokee_translate_summary">Help translate MoKee</string>
     <string name="mokee_wiki_title">MoKee Wiki</string>
     <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_donate_title">Donate to MoKee</string>
@@ -81,7 +81,7 @@
     <string name="donate_dialog_via_tenpay">TenPay</string>
     <string name="donate_dialog_via_unionpay">UnionPay</string>
     <string name="donate_money_price" translatable="false">$</string>
-    <string name="donate_money_toast_error">Enter the amount is incorrect!</string>
+    <string name="donate_money_toast_error">The amount entered is incorrect!</string>
     <string name="donate_money_toast_success">Thank you for your donation!</string>
     <string name="donate_money_name">Donate MoKee OpenSource</string>
     <string name="donate_money_description">Donate MoKee OpenSource</string>
