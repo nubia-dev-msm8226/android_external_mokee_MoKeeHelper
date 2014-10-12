@@ -65,8 +65,17 @@
   <string name="no_updates_found">Nessun nuovo aggiornamento</string>
   <string name="not_new_updates_found_ticker">Sono disponibili nuovi aggiornamenti</string>
   <string name="not_new_updates_found_title">Nuovi aggiornamenti</string>
+  <string name="update_check_failed">Controllo degli aggiornamenti non riuscito. Controlla la connessione ad internet e riprova.</string>
+  <string name="data_connection_required">È necessaria una connessione dati</string>
+  <string name="confirm_download_cancelation_dialog_title">Annulla download</string>
+  <string name="download_cancelled">Download annullato</string>
+  <string name="download_already_running">Un download è già in corso</string>
+  <string name="unable_to_download_file">Impossibile effettuare il download dell\'aggiornamento</string>
+  <string name="not_download_success">Aggiornamento scaricato con successo</string>
+  <string name="not_download_failure">Download dell\'aggiornamento fallito</string>
   <string name="not_action_install_update">Riavvia e installa</string>
   <string name="not_download_install_notice">L\'aggiornamento <xliff:g id="filename">%s</xliff:g> è stato scaricato con successo. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installare l\'aggiornamento.\n\nNota: E\' necessaria una recovery compatibile affinché funzioni l\'installazione automatica.</string>
+  <string name="md5_verification_failed">Mancata corrispondenza del checksum MD5</string>
   <string name="not_extras_download_install_notice">Il file <xliff:g id="filename">%s</xliff:g> è stato scaricato con successo. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installare l\'aggiornamento.\n\nNota: E\' necessaria una recovery compatibile affinché funzioni l\'installazione automatica.</string>
   <string name="not_extras_download_install_notice_apk">Il file <xliff:g id="filename">%s</xliff:g> è stato scaricato correttamente.</string>
   <string name="not_apk_action_install_update">Installa</string>
