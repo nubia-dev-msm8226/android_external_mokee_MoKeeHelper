@@ -34,6 +34,8 @@
   <string name="mokee_build_status_summary">Перегляд Build Status</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Відвідайте MoKee Github</string>
+  <string name="mokee_translate_title">MoKee Переклад</string>
+  <string name="mokee_translate_summary">Допоможіть перекласти MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Переглянути MoKee  Wiki </string>
   <string name="mokee_donate_title">Пожертвувати на MoKee</string>
@@ -57,10 +59,12 @@
   <string name="menu_refresh">Оновити</string>
   <string name="menu_delete_all">Видалити завантажене</string>
   <string name="donate_dialog_title">Подякуйте нам</string>
+  <string name="donate_dialog_message">MoKee OpenSource є некомерційною організацією. Ваша допомога може допомогти зменшити наше навантаження на сервер, витрати і підтримувати подальший розвиток!</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_tenpay">TenPay</string>
   <string name="donate_dialog_via_unionpay">UnionPay</string>
+  <string name="donate_money_toast_error">Введене число невірне!</string>
   <string name="donate_money_toast_success">Дякуємо вам за ваш внесок!</string>
   <string name="donate_money_name">Пожертвувати MoKee OpenSource</string>
   <string name="donate_money_description">Пожертвувати MoKee OpenSource</string>
