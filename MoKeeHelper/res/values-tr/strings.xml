@@ -28,4 +28,13 @@
   <string name="mokee_forum_summary">MoKee Forum\'unu ziyaret et</string>
   <string name="mokee_issues_title">MoKee Hata Takipçisi</string>
   <string name="mokee_issues_summary">Hata takipçisini ziyaret et</string>
+  <string name="mokee_changelog_title">MoKee Değişim Günlüğü</string>
+  <string name="mokee_changelog_summary">MoKee Değişim Günlüğünü İncele</string>
+  <string name="mokee_build_status_title">MoKee Yapı Durumu</string>
+  <string name="mokee_build_status_summary">Yapı Durumunu İncele</string>
+  <string name="mokee_github_title">MoKee Github</string>
+  <string name="mokee_github_summary">MoKee Github\'ını Ziyaret Et</string>
+  <string name="mokee_translate_title">MoKee Çeviri</string>
+  <string name="mokee_translate_summary">MoKee\'yi Çevirmeye Yardım Et</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
 </resources>
