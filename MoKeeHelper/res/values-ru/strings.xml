@@ -34,6 +34,8 @@
   <string name="mokee_build_status_summary">Просмотреть статус сборки</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Посетить MoKee Github</string>
+  <string name="mokee_translate_title">Перевод MoKee</string>
+  <string name="mokee_translate_summary">Помогите перевести MoKee</string>
   <string name="mokee_wiki_title">Вики MoKee</string>
   <string name="mokee_wiki_summary">Посмотреть вики MoKee</string>
   <string name="mokee_donate_title">Пожертвования MoKee</string>
@@ -118,4 +120,31 @@
   <string name="md5_verification_failed">Ошибка контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополненния успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
+  <string name="not_extras_download_install_notice_apk">Файл дополнения <xliff:g id="filename">%s</xliff:g> был успешно загружен.</string>
+  <string name="not_apk_action_install_update">Установить</string>
+  <string name="confirm_delete_dialog_title">Удалить файл</string>
+  <string name="confirm_delete_updates_dialog_message">Удалить выбранный файл обновления?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Удалить все загруженные файлы обновлений?</string>
+  <string name="confirm_delete_extras_dialog_message">Удалить выбранные дополнения?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Удалить все загруженные дополнения?</string>
+  <string name="delete_single_update_success_message">Файл обновления «<xliff:g id="filename">%s</xliff:g>» удалён</string>
+  <string name="delete_updates_failure_message">Произошла ошибка при удалении файла обновлений</string>
+  <string name="delete_updates_noFolder_message">Каталог с обновлениями не найден</string>
+  <string name="delete_updates_success_message">Все загруженные обновления удалены</string>
+  <string name="delete_extras_failure_message">Произошла ошибка при удалении дополнения</string>
+  <string name="delete_extras_noFolder_message">Каталог дополнений не найден</string>
+  <string name="delete_extras_success_message">Все загруженные дополнения удалены</string>
+  <string name="extension_label">Загрузчик обновлений Mokee</string>
+  <string name="extension_description">Отображает доступные обновления</string>
+  <string name="pref_check_all_title">Полное обновление</string>
+  <string name="pref_check_all_new_summary">Получать только новые версии</string>
+  <string name="pref_check_ota">Обновления по воздуху</string>
+  <string name="pref_check_ota_summary">Получить OTA обновления</string>
+  <string name="apply_update_dialog_title">Применить обновление</string>
+  <string name="apply_extras_dialog_title">Установить дополнение</string>
+  <string name="apply_extras_dialog_text">Вы уверены, что вы хотите установить <xliff:g id="filename"> %s </xliff:g>?</string>
+  <string name="apply_unable_to_reboot_toast">Невозможно перезагрузиться в режим Recovery</string>
+  <string name="extras_unsupported_toast">Ваша версия не поддерживает данное расширение</string>
+  <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
+  <string name="show_exp_already">Экспериментальные параметры уже включены.</string>
 </resources>
