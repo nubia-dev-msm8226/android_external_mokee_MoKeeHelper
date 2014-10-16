@@ -29,7 +29,7 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Besuchen Sie den Bug-Tracker</string>
   <string name="mokee_changelog_title">MoKee Changelog</string>
-  <string name="mokee_changelog_summary">Schauen sie sich die MoKee Änderungshistorie an</string>
+  <string name="mokee_changelog_summary">Schauen Sie sich die MoKee Änderungshistorie an</string>
   <string name="mokee_build_status_title">MoKee Build Status</string>
   <string name="mokee_build_status_summary">Buildstatus anzeigen</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -82,8 +82,8 @@
   <string name="check_manual">Handbuch</string>
   <string name="nightly_alert">Sie haben ausgewählt, dass auch Nightlies angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
   <string name="experimenter_alert">Sie haben ausgewählt, dass auch Experimentell angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
-  <string name="unofficial_alert">Sie haben ausgewählt, dass auch inoffizielle angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
-  <string name="all_alert">Sie haben ausgewählt, dass auch (Release, Experimentell) in der liste angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
+  <string name="unofficial_alert">Sie haben ausgewählt, dass auch inoffizielle Updates angezeigt werden. Bitte beachten Sie, dass diese Versionen ausschließlich von dem Pfleger Ihres Gerätes unterstützt werden.</string>
+  <string name="all_alert">Sie haben ausgewählt, dass auch (Release, Experimentell) in der Liste angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
   <string name="alert_title">Vorsicht</string>
   <string name="update_type_title">Updatetyp</string>
   <string name="no_changelog_alert">Kein Änderungsprotokoll verfügbar</string>
