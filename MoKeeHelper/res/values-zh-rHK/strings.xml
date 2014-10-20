@@ -26,6 +26,7 @@
   <string name="mokee_website_summary">訪問官方網站</string>
   <string name="mokee_forum_title">MoKee 討論區</string>
   <string name="mokee_forum_summary">訪問 MoKee 討論區</string>
+  <string name="mokee_issues_title">MoKee Bug 追蹤器</string>
   <string name="mokee_changelog_title">MoKee 更新日誌</string>
   <string name="mokee_changelog_summary">查看 MoKee 更新日誌清單</string>
   <string name="mokee_build_status_title">MoKee 編譯狀態</string>
