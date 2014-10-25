@@ -68,12 +68,12 @@
   <string name="donate_money_toast_success">Благодарим за пожертвование!</string>
   <string name="donate_money_name">Пожертвовать MoKee OpenSource</string>
   <string name="donate_money_description">Пожертвовать MoKee OpenSource</string>
-  <string name="unknown">Неизвестно</string>
+  <string name="unknown">Неизвестное</string>
   <string name="dialog_update">Обновление</string>
   <string name="dialog_install">Установить</string>
   <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Отмена</string>
-  <string name="dialog_close">закрыть</string>
+  <string name="dialog_close">Закрыть</string>
   <string name="no_available_updates_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить обновления, используйте кнопку \"Обновить\".</string>
   <string name="no_available_extras_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить обновления, используйте кнопку \"Обновить\".</string>
   <string name="new_update_summary">Новый</string>
