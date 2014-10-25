@@ -47,7 +47,6 @@ import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.PayPal;
-import com.mokee.helper.utils.Utils;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
@@ -169,7 +168,7 @@ public class MoKeeCenter extends FragmentActivity {
                             }
                             break;
                         case DialogInterface.BUTTON_NEUTRAL:
-                            PayConnect.getInstance(mContext).tclBankPay(mContext, orderId, userId, Float.valueOf(priceStr),
+                            PayConnect.getInstance(mContext).tenPay(mContext, orderId, userId, Float.valueOf(priceStr),
                                     mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
                                     mPayResultListener);
                             break;
@@ -190,7 +189,7 @@ public class MoKeeCenter extends FragmentActivity {
                 .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
-                .setNeutralButton(R.string.donate_dialog_via_unionpay, mDialogButton)
+                .setNeutralButton(R.string.donate_dialog_via_tenpay, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
     }
 

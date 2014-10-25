@@ -79,7 +79,6 @@
     <string name="donate_dialog_via_paypal">PayPal</string>
     <string name="donate_dialog_via_alipay">AliPay</string>
     <string name="donate_dialog_via_tenpay">TenPay</string>
-    <string name="donate_dialog_via_unionpay">UnionPay</string>
     <string name="donate_money_price" translatable="false">$</string>
     <string name="donate_money_toast_error">The amount entered is incorrect!</string>
     <string name="donate_money_toast_success">Thank you for your donation!</string>
