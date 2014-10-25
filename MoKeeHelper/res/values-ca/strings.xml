@@ -63,7 +63,6 @@
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_tenpay">TenPay</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_error">la quantitat és incorrecte!</string>
   <string name="donate_money_toast_success">Gràcies per la vostra donació!</string>
   <string name="donate_money_name">Donació MoKee OpenSource</string>

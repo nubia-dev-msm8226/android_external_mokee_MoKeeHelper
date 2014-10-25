@@ -61,7 +61,6 @@
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_tenpay">TenPay</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_error">Girilen değer hatalıdır!</string>
   <string name="donate_money_toast_success">Bağış için teşekkür ederiz!</string>
   <string name="unknown">Bilinmiyor</string>

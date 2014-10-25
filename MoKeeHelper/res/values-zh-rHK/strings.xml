@@ -60,7 +60,6 @@
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">支付寶</string>
   <string name="donate_dialog_via_tenpay">財付通</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">多謝你的捐贈！</string>
   <string name="donate_money_name">捐贈 MoKee OpenSource</string>
   <string name="donate_money_description">捐贈 MoKee OpenSource</string>
