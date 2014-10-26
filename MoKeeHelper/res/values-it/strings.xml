@@ -74,9 +74,11 @@
   <string name="old_update_summary">Vecchia</string>
   <string name="update_check_title">Frequenza controllo aggiornamenti</string>
   <string name="check_manual">Manuale</string>
+  <string name="alert_title">Attenzione</string>
   <string name="update_type_title">Tipo di aggiornamento</string>
   <string name="no_changelog_alert">Nessun changelog disponibile</string>
   <string name="changelog_dialog_title">Changelog</string>
+  <string name="loading_changelog">Caricamento\u2026</string>
   <string name="check_on_boot">Ad ogni riavvio</string>
   <string name="check_twice_daily">Due volte ogni giorno</string>
   <string name="check_daily">Una volta al giorno</string>
@@ -91,7 +93,9 @@
   <string name="update_check_failed">Controllo degli aggiornamenti non riuscito. Controlla la connessione ad internet e riprova.</string>
   <string name="data_connection_required">È necessaria una connessione dati</string>
   <string name="confirm_download_cancelation_dialog_title">Annulla download</string>
+  <string name="confirm_download_cancelation_dialog_message">Annullare il download attuale?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> rimanenti</string>
+  <string name="download_running">In corso</string>
   <string name="download_cancelled">Download annullato</string>
   <string name="download_already_running">Un download è già in corso</string>
   <string name="unable_to_download_file">Impossibile effettuare il download dell\'aggiornamento</string>
@@ -99,6 +103,7 @@
   <string name="not_download_failure">Download dell\'aggiornamento fallito</string>
   <string name="not_action_install_update">Riavvia e installa</string>
   <string name="not_download_install_notice">L\'aggiornamento <xliff:g id="filename">%s</xliff:g> è stato scaricato con successo. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installare l\'aggiornamento.\n\nNota: E\' necessaria una recovery compatibile affinché funzioni l\'installazione automatica.</string>
+  <string name="not_download_install_notice_with_xposed">L\'aggiornamento <xliff:g id="filename">%s</xliff:g> è stato scaricato correttamente. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installarlo.\n\nNota: una Recovery compatibile è richiesta per l\'installazione automatica.\n\n警告：我们检测到您使用过Xposed模块，该模块可能会修改系统文件。如果导致更新失败，请您下载完整包更新系统。</string>
   <string name="md5_verification_failed">Mancata corrispondenza del checksum MD5</string>
   <string name="not_extras_download_install_notice">Il file <xliff:g id="filename">%s</xliff:g> è stato scaricato con successo. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installare l\'aggiornamento.\n\nNota: E\' necessaria una recovery compatibile affinché funzioni l\'installazione automatica.</string>
   <string name="not_extras_download_install_notice_apk">Il file <xliff:g id="filename">%s</xliff:g> è stato scaricato correttamente.</string>

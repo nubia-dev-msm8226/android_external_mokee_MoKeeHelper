@@ -116,6 +116,7 @@
   <string name="not_download_failure">Descàrrega de l\'actualització fallida</string>
   <string name="not_action_install_update">Reiniciar i instal·lar</string>
   <string name="not_download_install_notice">L\'actualització <xliff:g id="filename">%s</xliff:g> s\'ha descarregat satisfactòriament. Quan apretis \'Reinicia i instal·la\', el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
+  <string name="not_download_install_notice_with_xposed">La descarrega<xliff:g id="filename">%s</xliff:g>s\' ha completat.Pulsi el boto Reiniciar per Instalar,El dispositiu es reiniciara e instalara l\'actualizació.\n\nNota: Necesari Recovery compatible per instal·lació automàtica.\n\n</string>
   <string name="md5_verification_failed">Incompatibilitat suma de MD5</string>
   <string name="not_extras_download_success">Extres descarregats correctament</string>
   <string name="not_extras_download_failure">Descarregar extres no a tingut èxit</string>
