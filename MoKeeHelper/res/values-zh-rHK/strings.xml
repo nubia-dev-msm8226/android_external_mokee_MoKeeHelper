@@ -71,6 +71,10 @@
   <string name="dialog_close">關閉​​​</string>
   <string name="no_available_updates_intro">最後一次檢查沒有發現任何可用的更新，使用「重新整理」按鈕手動檢查新的更新。</string>
   <string name="no_available_extras_intro">最後一次檢查沒有發現任何可用的更新，使用「重新整理」按鈕手動檢查新的更新。</string>
+  <string name="new_update_summary">新版本</string>
+  <string name="old_update_summary">舊版本</string>
+  <string name="update_check_title">檢查更新頻率</string>
+  <string name="check_manual">手動</string>
   <string name="update_type_title">更新類型</string>
   <string name="no_changelog_alert">沒有提供更新日誌</string>
   <string name="changelog_dialog_title">更新日誌</string>
