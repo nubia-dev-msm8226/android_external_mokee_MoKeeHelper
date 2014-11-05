@@ -116,6 +116,7 @@
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>
   <string name="not_download_install_notice">Отведение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить, устройство перезагрузиться, чтобы установить откровение.\n\nNote: Нужно подходящее рекавери, чтобы установить обновление автоматически.</string>
+  <string name="not_download_install_notice_with_xposed">Обновление <xliff:g id="filename">%s</xliff:g> успешно загружено. При нажатии «Перезагрузка и установка», устройство перезагрузится, чтобы установить обновление. \n\nПримечание: Совместимый Recovery требуется для установки в автоматическом режиме.\n\nВНИМАНИЕ:. Мы обнаружили, что вы использовали модуль Экспоузд, которые могут изменить системные файлы. Если обновление не удается, пожалуйста, скачать полный пакет для обновления системы.</string>
   <string name="md5_verification_failed">Ошибка контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополненния успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
