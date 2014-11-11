@@ -70,19 +70,19 @@
   <string name="unknown">Неизвестное</string>
   <string name="dialog_update">Обновление</string>
   <string name="dialog_install">Установить</string>
-  <string name="dialog_ok">OK</string>
+  <string name="dialog_ok">Принять</string>
   <string name="dialog_cancel">Отмена</string>
   <string name="dialog_close">Закрыть</string>
   <string name="no_available_updates_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить обновления, используйте кнопку \"Обновить\".</string>
   <string name="no_available_extras_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить обновления, используйте кнопку \"Обновить\".</string>
   <string name="new_update_summary">Новый</string>
-  <string name="old_update_summary">Старые</string>
+  <string name="old_update_summary">Устаревшие</string>
   <string name="update_check_title">Частота проверки обновлений</string>
   <string name="check_manual">Вручную</string>
   <string name="nightly_alert">Вы включили в список обновлений для поиска «ночные сборки». Помните, что техническая поддержка по ним не предоставляется.</string>
   <string name="experimenter_alert">Вы включили экспериментальные обновления. По данным обновлениям не предоставляется поддержка, они предназначены только для тестирования. Используйте с осторожностью.</string>
   <string name="unofficial_alert">Вы предпочли включить в список неофициальные обновления. Имейте в виду, что они поддерживаются разработчиком вашего устройства.</string>
-  <string name="all_alert">Вы предпочли включить все отравления (релизы, экспериментальные) в этот список. Обратите внимание, что ночные отравления не поддерживаются и должны использоваться с осторожностью.</string>
+  <string name="all_alert">Вы предпочли включить все обновления (релизы, экспериментальные) в этот список. Обратите внимание, что ночные отравления не поддерживаются и должны использоваться с осторожностью.</string>
   <string name="alert_title">Осторожно</string>
   <string name="update_type_title">Тип обновления</string>
   <string name="no_changelog_alert">Список изменений недоступен</string>
@@ -96,12 +96,12 @@
   <string name="check_bi_weekly">Раз в две недели</string>
   <string name="check_monthly">Раз в месяц</string>
   <string name="checking_for_updates">Поиск обновлений</string>
-  <string name="no_updates_found">Обновления не найдены</string>
-  <string name="checking_for_extras">Проверка дополнений</string>
-  <string name="no_extras_found">Нет новых дополнений</string>
+  <string name="no_updates_found">Новые обновления не найдены</string>
+  <string name="checking_for_extras">Поиск новых дополнений</string>
+  <string name="no_extras_found">Новые дополнения не найдены</string>
   <string name="not_new_updates_found_ticker">Доступны новые обновления</string>
   <string name="not_new_updates_found_title">Новые обновления</string>
-  <string name="update_check_failed">Не удалось выполнить поиск обновлений. Проверьте подключение к Интернету и повторите попытку.</string>
+  <string name="update_check_failed">Не удалось выполнить поиск обновлений. Проверьте подключение к Интернету, либо повторите попытку позже.</string>
   <string name="not_action_download">Загрузить</string>
   <string name="data_connection_required">Требуется подключение к Сети.</string>
   <string name="confirm_download_cancelation_dialog_title">Отменить загрузку</string>
@@ -109,18 +109,18 @@
   <string name="download_remaining">Осталось <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <string name="download_running">В процессе</string>
   <string name="download_cancelled">Загрузка отменена</string>
-  <string name="download_already_running">Загрузка уже начата</string>
-  <string name="unable_to_download_file">Невозможно загрузить обновление</string>
+  <string name="download_already_running">Загрузка уже выполняется</string>
+  <string name="unable_to_download_file">Невозможно загрузить файл обновления</string>
   <string name="download_not_found">Загрузка не найдена</string>
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>
-  <string name="not_download_install_notice">Отведение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить, устройство перезагрузиться, чтобы установить откровение.\n\nNote: Нужно подходящее рекавери, чтобы установить обновление автоматически.</string>
-  <string name="not_download_install_notice_with_xposed">Обновление <xliff:g id="filename">%s</xliff:g> успешно загружено. При нажатии «Перезагрузка и установка», устройство перезагрузится, чтобы установить обновление. \n\nПримечание: Совместимый Recovery требуется для установки в автоматическом режиме.\n\nВНИМАНИЕ:. Мы обнаружили, что вы использовали модуль Экспоузд, которые могут изменить системные файлы. Если обновление не удается, пожалуйста, скачать полный пакет для обновления системы.</string>
+  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить, устройство будет перезагружено для установки обновления.\n\nNote: Для установки в автоматическом режиме необходимо совместимое Recovery.</string>
+  <string name="not_download_install_notice_with_xposed">Обновление <xliff:g id="filename">%s</xliff:g> успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимый Recovery.\n\nВНИМАНИЕ:. Мы обнаружили, что вы использовали модуль Xposed, который может изменить системные файлы. Если обновление не удается, пожалуйста, скачайте полный пакет для обновления системы.</string>
   <string name="md5_verification_failed">Ошибка контрольной суммы MD5</string>
-  <string name="not_extras_download_success">Дополненния успешно загружены</string>
+  <string name="not_extras_download_success">Дополнения успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
-  <string name="not_extras_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Когда вы нажмёте \'Перезагрузить и установить\', устройство перезагрузится, чтобы установить обновление.\n\nЗаметьте, для автоматической установки требуется совместимое Recovery.</string>
+  <string name="not_extras_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимый Recovery.</string>
   <string name="not_extras_download_install_notice_apk">Файл дополнения <xliff:g id="filename">%s</xliff:g> был успешно загружен.</string>
   <string name="not_apk_action_install_update">Установить</string>
   <string name="confirm_delete_dialog_title">Удалить файл</string>
