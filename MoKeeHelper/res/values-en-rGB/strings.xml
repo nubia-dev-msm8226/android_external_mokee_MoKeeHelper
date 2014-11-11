@@ -121,14 +121,14 @@
   <string name="not_extras_download_success">Extras downloaded successfully</string>
   <string name="not_extras_download_failure">Extras download was unsuccessful</string>
   <string name="not_extras_download_install_notice">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \' Reboot and install \', the device will restart itself to install the extras. \n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
-  <string name="not_extras_download_install_notice_apk">The extras <xliff: g id = "filename" >%s</xliff: g> was successfully downloaded.</string>
+  <string name="not_extras_download_install_notice_apk">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded.</string>
   <string name="not_apk_action_install_update">Install</string>
   <string name="confirm_delete_dialog_title">Delete file</string>
   <string name="confirm_delete_updates_dialog_message">Delete the selected update file?</string>
   <string name="confirm_delete_updates_all_dialog_message">Delete all downloaded update files?</string>
   <string name="confirm_delete_extras_dialog_message">Delete the selected extras file?</string>
   <string name="confirm_delete_extras_all_dialog_message">Delete all downloaded extras files?</string>
-  <string name="delete_single_update_success_message">Update <xliff: g id = "filename" >%s</xliff: g> deleted</string>
+  <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> deleted</string>
   <string name="delete_updates_failure_message">There was an error deleting the update file</string>
   <string name="delete_updates_noFolder_message">Update folder not found</string>
   <string name="delete_updates_success_message">All downloaded updates deleted</string>
