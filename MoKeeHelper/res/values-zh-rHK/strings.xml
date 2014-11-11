@@ -27,6 +27,7 @@
   <string name="mokee_forum_title">MoKee 討論區</string>
   <string name="mokee_forum_summary">訪問 MoKee 討論區</string>
   <string name="mokee_issues_title">MoKee Bug 追蹤器</string>
+  <string name="mokee_issues_summary">造訪 bug 追蹤器</string>
   <string name="mokee_changelog_title">MoKee 更新日誌</string>
   <string name="mokee_changelog_summary">查看 MoKee 更新日誌清單</string>
   <string name="mokee_build_status_title">MoKee 編譯狀態</string>
@@ -34,6 +35,7 @@
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">訪問 MoKee Github</string>
   <string name="mokee_translate_title">MoKee 翻譯</string>
+  <string name="mokee_translate_summary">幫手翻譯 MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">查看 MoKee Wiki</string>
   <string name="mokee_donate_title">捐贈 MoKee</string>
@@ -43,6 +45,7 @@
   <string name="mokee_version_type_title">版本類型</string>
   <string name="mokee_last_check_title">上次檢測</string>
   <string name="mokee_last_check_never">永不</string>
+  <string name="mokee_extras_info_title">擴充資訊</string>
   <string name="mokee_info_default">不明</string>
   <string name="mokee_version_type_release">正式版</string>
   <string name="mokee_version_type_experimental">實驗版</string>
@@ -60,6 +63,7 @@
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">支付寶</string>
   <string name="donate_dialog_via_tenpay">財付通</string>
+  <string name="donate_money_toast_error">金額輸入錯誤！</string>
   <string name="donate_money_toast_success">多謝你的捐贈！</string>
   <string name="donate_money_name">捐贈 MoKee OpenSource</string>
   <string name="donate_money_description">捐贈 MoKee OpenSource</string>
@@ -75,6 +79,7 @@
   <string name="old_update_summary">舊版本</string>
   <string name="update_check_title">檢查更新頻率</string>
   <string name="check_manual">手動</string>
+  <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
   <string name="no_changelog_alert">沒有提供更新日誌</string>
   <string name="changelog_dialog_title">更新日誌</string>
@@ -86,6 +91,7 @@
   <string name="download_cancelled">下載已取消</string>
   <string name="download_already_running">已經有一個下載在執行</string>
   <string name="unable_to_download_file">無法下載更新檔案</string>
+  <string name="download_not_found">未找到下載</string>
   <string name="not_download_success">已成功下載更新。</string>
   <string name="not_download_failure">更新下載失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
@@ -94,10 +100,13 @@
   <string name="confirm_delete_dialog_title">刪除檔案</string>
   <string name="confirm_delete_updates_dialog_message">刪除已選取的更新檔案?</string>
   <string name="confirm_delete_updates_all_dialog_message">刪除所有下載的更新檔案?</string>
+  <string name="extension_label">MoKee 更新器</string>
+  <string name="extension_description">顯示可用的更新</string>
   <string name="pref_check_all_title">全部更新</string>
   <string name="pref_check_ota">OTA 更新</string>
   <string name="pref_check_ota_summary">取得 OTA 更新</string>
   <string name="apply_update_dialog_title">套用更新</string>
+  <string name="apply_extras_dialog_title">安裝擴充套件</string>
   <string name="apply_extras_dialog_text">你確定要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
   <string name="apply_unable_to_reboot_toast">無法重新啟動進入修復模式</string>
 </resources>

@@ -35,7 +35,7 @@
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Navštívit MoKee Github</string>
   <string name="mokee_translate_title">MoKee překlad</string>
-  <string name="mokee_translate_summary">Pomožte přeložit MoKee</string>
+  <string name="mokee_translate_summary">Pomozte přeložit MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Zobrazit MoKee Wiki</string>
   <string name="mokee_donate_title">Přispějte na MoKee</string>
@@ -81,4 +81,73 @@
   <string name="check_manual">Ručně</string>
   <string name="nightly_alert">Zvolili jste možnost zahrnout do seznamu i nightly aktualizace. Tyto verze nejsou podporovány a měly by být používány s opatrností.</string>
   <string name="experimenter_alert">Zvolili jste možnost zahrnout do seznamu i experimentální aktualizace. Ty jsou určeny pouze k testování a měly by být používány s opatrností.</string>
+  <string name="unofficial_alert">Vybrali jste zařazení neoficiálních aktualizací do seznamu. Berte na vědomí, že jsou podporovány výhradně jejich vývojářem.</string>
+  <string name="all_alert">Vybrali jste všechny aktualizace (release, experimentální) do seznamu. Berte na vědomí, že nightly aktualizace nemají podporu a měly by být používány s opatrností.</string>
+  <string name="alert_title">Varování</string>
+  <string name="update_type_title">Typ aktualizace</string>
+  <string name="no_changelog_alert">Changelog není k dispozici</string>
+  <string name="changelog_dialog_title">Changelog</string>
+  <string name="loading_changelog">Nahrávám\u2026</string>
+  <string name="check_on_boot">Po každém restartu</string>
+  <string name="check_twice_daily">Dvakrát denně</string>
+  <string name="check_daily">Jednou za den</string>
+  <string name="check_twice_weekly">Dvakrát týdně</string>
+  <string name="check_weekly">Jednou týdně</string>
+  <string name="check_bi_weekly">Jednou za dva týdny</string>
+  <string name="check_monthly">Jednou měsíčně</string>
+  <string name="checking_for_updates">Kontrola aktualizací</string>
+  <string name="no_updates_found">Nové aktualizace nenalezeny</string>
+  <string name="checking_for_extras">Kontroluji doplňky</string>
+  <string name="no_extras_found">Nové doplňky nenalezeny</string>
+  <string name="not_new_updates_found_ticker">Jsou dostupné nové aktualizace</string>
+  <string name="not_new_updates_found_title">Nové aktualizace</string>
+  <string name="update_check_failed">Kontrola aktualizací selhala. Zkontrolujte připojení k internetu a zkuste to znovu.</string>
+  <string name="not_action_download">Ke stažení</string>
+  <string name="data_connection_required">Je vyžadováno připojení k internetu.</string>
+  <string name="confirm_download_cancelation_dialog_title">Zrušit stahování</string>
+  <string name="confirm_download_cancelation_dialog_message">Zrušit aktuální stahování?</string>
+  <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> zbývá</string>
+  <string name="download_running">Probíhá</string>
+  <string name="download_cancelled">Stahování zrušeno</string>
+  <string name="download_already_running">Stahování již běží</string>
+  <string name="unable_to_download_file">Nelze stáhnout soubor aktualizace</string>
+  <string name="download_not_found">Soubor pro stažení nenalezen</string>
+  <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
+  <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
+  <string name="not_action_install_update">Restartovat a nainstalovat</string>
+  <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
+  <string name="not_download_install_notice_with_xposed">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.\n\nUpozornění: Zjistili jsme, že jste použili Xposed modul, který může měnit systémové soubory. Pokud se aktualizace nezdaří, stáhněte si kompletní balíček pro aktualizaci systému</string>
+  <string name="md5_verification_failed">MD5 součet nesedí</string>
+  <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
+  <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
+  <string name="not_extras_download_install_notice">Doplněk <xliff:g id="filename">%s</xliff:g> byl úspěšně stáhnut. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace doplňku.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
+  <string name="not_extras_download_install_notice_apk">Doplněk <xliff:g id="filename">%s</xliff:g> byl úspěšně stáhnut.</string>
+  <string name="not_apk_action_install_update">Nainstalovat</string>
+  <string name="confirm_delete_dialog_title">Smazat soubor</string>
+  <string name="confirm_delete_updates_dialog_message">Smazat vybraný soubor aktualizace?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Smazat všechny stažené soubory aktualizací?</string>
+  <string name="confirm_delete_extras_dialog_message">Smazat soubory vybraného doplňku?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Smazat všechny soubory doplňků?</string>
+  <string name="delete_single_update_success_message">Aktualizace <xliff:g id="filename">%s</xliff:g> smazána</string>
+  <string name="delete_updates_failure_message">Během mazání souboru aktualizace došlo k chybě</string>
+  <string name="delete_updates_noFolder_message">Složka aktualizace nenalezena</string>
+  <string name="delete_updates_success_message">Všechny stažené aktualizace odstraněny</string>
+  <string name="delete_extras_failure_message">Došlo k chybě při odstraňování souborů doplňků</string>
+  <string name="delete_extras_noFolder_message">Složka doplňků nenalezena</string>
+  <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
+  <string name="extension_label">MoKee Updater</string>
+  <string name="extension_description">Zobrazí dostupné aktualizace</string>
+  <string name="pref_check_all_title">Úplné aktualizace</string>
+  <string name="pref_check_all_summary">Získávat všechny verze (včetně těch starších na serveru)</string>
+  <string name="pref_check_all_new_summary">Získávat pouze novější verze</string>
+  <string name="pref_check_ota">OTA aktualizace</string>
+  <string name="pref_check_ota_summary">Získávat OTA aktualizace</string>
+  <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
+  <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
+  <string name="apply_extras_dialog_title">Instalovat doplňek</string>
+  <string name="apply_extras_dialog_text">Jste si jistí, že chcete nainstalovat <xliff:g id="filename"> %s </xliff:g>?</string>
+  <string name="apply_unable_to_reboot_toast">Nelze restartovat do režimu recovery</string>
+  <string name="extras_unsupported_toast">Vaše současná verze nepodporuje toto rozšíření</string>
+  <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
+  <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
 </resources>

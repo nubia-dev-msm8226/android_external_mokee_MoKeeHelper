@@ -106,7 +106,7 @@
   <string name="data_connection_required">Es necesaria una conexión de datos.</string>
   <string name="confirm_download_cancelation_dialog_title">Cancelar la descarga</string>
   <string name="confirm_download_cancelation_dialog_message">¿Cancelar la descarga actual?</string>
-  <string name="download_remaining"><xliff:g id="duration" example="3 minutes"> %s </xliff:g> izquierda</string>
+  <string name="download_remaining">Quedan <xliff:g id="duration" example="3 minutes"> %s </xliff:g></string>
   <string name="download_running">En progreso</string>
   <string name="download_cancelled">Descarga cancelada</string>
   <string name="download_already_running">Hay una descarga en curso</string>
