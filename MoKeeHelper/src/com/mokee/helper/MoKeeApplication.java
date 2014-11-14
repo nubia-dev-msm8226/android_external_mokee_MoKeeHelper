@@ -20,19 +20,18 @@ package com.mokee.helper;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.mokee.util.MoKeeUtils;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.mokee.utils.MoKeeUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 
-import com.android.settings.mkstats.Utilities;
+import com.android.settings.mokee.stats.Utilities;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.mokee.helper.activities.MoKeeCenter;

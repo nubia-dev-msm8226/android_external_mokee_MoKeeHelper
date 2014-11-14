@@ -37,7 +37,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.settings.mkstats.Utilities;
+import com.android.settings.mokee.stats.Utilities;
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;

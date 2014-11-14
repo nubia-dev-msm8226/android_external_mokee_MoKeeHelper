@@ -150,4 +150,6 @@
   <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
+  <string name="mokee_push_newversion_title">发现MoKee OpenSource新版本</string>
+  <string name="mokee_push_newversion_msg">新版本更新啦，点击查看详细内容！</string>
 </resources>

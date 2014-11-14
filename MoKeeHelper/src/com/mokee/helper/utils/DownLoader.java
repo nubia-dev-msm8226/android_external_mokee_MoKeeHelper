@@ -25,9 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.mokee.util.MoKeeUtils;
-
 import android.content.Context;
+import android.mokee.utils.MoKeeUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.text.format.DateUtils;

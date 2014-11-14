@@ -23,8 +23,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.mokee.util.MoKeeUtils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -34,6 +32,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.mokee.utils.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;

@@ -26,7 +26,6 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mokee.util.MoKeeUtils;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -34,6 +33,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.mokee.utils.MoKeeUtils;
 import android.os.Parcelable;
 import android.os.UserHandle;
 import android.text.TextUtils;

@@ -17,11 +17,10 @@
 
 package com.mokee.helper.widget;
 
-import org.mokee.util.MoKeeUtils;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.mokee.utils.MoKeeUtils;
 import android.preference.Preference;
 import android.text.TextUtils;
 import android.view.View;
