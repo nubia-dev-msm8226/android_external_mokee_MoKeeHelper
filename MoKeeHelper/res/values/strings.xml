@@ -141,7 +141,7 @@
     <string name="not_download_failure">Update download was unsuccessful</string>
     <string name="not_action_install_update">Reboot and install</string>
     <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
-    <string name="not_download_install_notice_with_xposed">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.\n\n警告：我们检测到您使用过Xposed模块，该模块可能会修改系统文件。如果导致更新失败，请您下载完整包更新系统。</string>
+    <string name="not_download_install_notice_with_xposed">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.\n\nWarning: We detected that you are using Xposed framework, if the update fails, please download and install a full ROM instead.</string>
     <string name="md5_verification_failed">MD5 checksum mismatch</string>
     <string name="not_extras_download_success">Extras downloaded successfully</string>
     <string name="not_extras_download_failure">Extras download was unsuccessful</string>
