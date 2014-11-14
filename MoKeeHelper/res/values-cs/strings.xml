@@ -74,7 +74,7 @@
   <string name="dialog_cancel">Zrušit</string>
   <string name="dialog_close">Zavřít</string>
   <string name="no_available_updates_intro">Při poslední kontrole nebyly zjištěny žádné dostupné aktualizace. Chcete-li ručně zkontrolovat nové aktualizace, použijte tlačítko Aktualizovat.</string>
-  <string name="no_available_extras_intro">Při poslední kontrole nebyly zjištěny žádné dostupné aktualizace. Chcete-li ručně zkontrolovat nové aktualizace, použijte tlačítko Aktualizovat.</string>
+  <string name="no_available_extras_intro">Při poslední kontrole nebyly zjištěny žádné dostupné aktualizace. Chcete-li ručně zkontrolovat nové aktualizace doplňků, použijte tlačítko Aktualizovat.</string>
   <string name="new_update_summary">Nové</string>
   <string name="old_update_summary">Staré</string>
   <string name="update_check_title">Četnost kontroly aktualizací</string>
