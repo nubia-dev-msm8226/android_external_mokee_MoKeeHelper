@@ -116,6 +116,7 @@
   <string name="not_download_failure">Le téléchargement de la mise à jour a échoué</string>
   <string name="not_action_install_update">Redémarrer et installer</string>
   <string name="not_download_install_notice">Téléchargement de la mise à jour <xliff:g id="filename">%s</xliff:g> réussi. Lorsque vous appuierez sur \"Redémarrer et installer\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
+  <string name="not_download_install_notice_with_xposed">La mise à jour <xliff:g id="filename"> %s </xliff:g> a été correctement téléchargée. Lorsque vous touchez « Redémarrer et installer », l\'appareil va redémarrer lui-même pour installer la mise a jour.\n\nNote : Un recovery compatible est requis pour l\'installation afin de fonctionner automatiquement.\n\nAvertissement : nous avons détecté que vous utilisez Xposed framework, si la mise à jour échoue, s\'il vous plaît télécharger et installer une ROM complète au lieu de cela.</string>
   <string name="md5_verification_failed">Incompatibilité de somme de contrôle MD5</string>
   <string name="not_extras_download_success">Extras téléchargés avec succès</string>
   <string name="not_extras_download_failure">Le téléchargement des extras a échoué</string>
