@@ -63,12 +63,13 @@ public class UpdatesRequest extends StringRequest {
         // Get the type of update we should check for
         SharedPreferences prefs = MoKeeApplication.getContext().getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isNightly = TextUtils.equals(MoKeeVersionType, "nightly");
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean experimentalShow = prefs.getBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW,
                 isExperimental);
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3
-                : isExperimental ? 2 : 0);// 版本类型参数
+                : isExperimental ? 2 : isNightly ? 1 : 0);// 版本类型参数
         if (updateType == 2 && !experimentalShow) {
             prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false)
                     .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();

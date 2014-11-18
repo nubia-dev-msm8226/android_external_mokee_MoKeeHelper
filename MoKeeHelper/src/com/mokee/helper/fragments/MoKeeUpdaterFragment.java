@@ -168,10 +168,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         // Restore normal type list
         String MoKeeVersionType = Utils.getMoKeeVersionType();
+        boolean isNightly = TextUtils.equals(MoKeeVersionType, "nightly");
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean experimentalShow = mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental);
-        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : isNightly ? 1 : 0);
         if (type == 2 && !experimentalShow) {
             mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
                     .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
