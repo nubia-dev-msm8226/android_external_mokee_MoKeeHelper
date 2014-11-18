@@ -58,6 +58,7 @@
     <!-- Version -->
     <string name="mokee_info_default">Unknown</string>
     <string name="mokee_version_type_release">Release</string>
+    <string name="mokee_version_type_history">History</string>
     <string name="mokee_version_type_experimental">Experimental</string>
     <string name="mokee_version_type_nightly">Nightly</string>
     <string name="mokee_version_type_unofficial">Unofficial</string>
