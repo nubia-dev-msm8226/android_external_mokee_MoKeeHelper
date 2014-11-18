@@ -78,6 +78,7 @@ import com.mokee.helper.widget.ItemPreference;
 public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
 
+    private Activity mContext;
     private static String TAG = "MoKeeUpdaterFragment";
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
@@ -87,18 +88,17 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private boolean mDownloading = false;
     private long mDownloadId;
     private String mFileName;
-
-    private Activity mContext;
+    private String updateTypeString, MoKeeVersionTypeString;
 
     private boolean mStartUpdateVisible = false;
 
     private static final String UPDATES_CATEGORY = "updates_category";
 
-    private static final int TAPS_TO_BE_A_EXPERIMENTER = 7;
     public static final String EXPERIMENTAL_SHOW = "experimental_show";
-    long[] mHits = new long[3];
-    int mExpHitCountdown;
-    Toast mExpHitToast;
+    private static final int TAPS_TO_BE_A_EXPERIMENTER = 7;
+    private long[] mHits = new long [3];
+    private int mExpHitCountdown;
+    private Toast mExpHitToast;
 
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
@@ -113,6 +113,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private File mUpdateFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
+
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -182,7 +183,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (mUpdateCheck != null) {
             int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_TWICE_WEEKLY);
             mUpdateCheck.setValue(String.valueOf(check));
-            mUpdateCheck.setSummary(mapCheckValue(check));
+            mUpdateCheck.setSummary(updateTypeString);
             mUpdateCheck.setOnPreferenceChangeListener(this);
         }
 
@@ -204,6 +205,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
             setUpdateTypeSummary(type);
         }
+
+        MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext);
+        if (!MoKeeVersionTypeString.equals(updateTypeString)) {
+            mUpdateOTA.setEnabled(false);
+            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, false).apply();
+        }
+
         mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true));
         mUpdateOTA.setOnPreferenceChangeListener(this);
         mUpdateAll.setChecked(mPrefs.getBoolean(Constants.CHECK_ALL_PREF, false));
@@ -211,7 +219,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         isOTA(mUpdateOTA.isChecked());
         isRomAll(mUpdateAll.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
-        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, Utils.getMoKeeVersionTypeString(mContext));
+        Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, MoKeeVersionTypeString);
         updateLastCheckPreference();
 
         setHasOptionsMenu(true);
@@ -223,6 +231,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         for (int i = 0; i < entryValues.length; i++) {
             if (Integer.valueOf(entryValues[i].toString()) == type) {
                 mUpdateType.setSummary(entries[i]);
+                updateTypeString = entries[i].toString();
             }
         }
         mUpdateType.setValue(String.valueOf(type));
@@ -620,6 +629,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private void updateUpdatesType(int type) {
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         setUpdateTypeSummary(type);
+        if (!MoKeeVersionTypeString.equals(updateTypeString)) {
+            mUpdateOTA.setEnabled(false);
+            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, false).apply();
+        } else {
+            mUpdateOTA.setEnabled(true);            
+        }
         checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
     }
 
