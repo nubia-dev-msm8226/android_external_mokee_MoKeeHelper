@@ -77,6 +77,8 @@ public class Utils {
             return mContext.getString(R.string.mokee_version_type_release);
         else if (MoKeeVersionType.equals("experimental"))
             return mContext.getString(R.string.mokee_version_type_experimental);
+        else if (MoKeeVersionType.equals("history"))
+            return mContext.getString(R.string.mokee_version_type_history);
         else if (MoKeeVersionType.equals("nightly"))
             return mContext.getString(R.string.mokee_version_type_nightly);
         else if (MoKeeVersionType.equals("unofficial"))

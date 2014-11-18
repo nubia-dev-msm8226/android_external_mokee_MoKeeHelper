@@ -48,6 +48,7 @@
   <string name="mokee_extras_info_title">扩展信息</string>
   <string name="mokee_info_default">未知</string>
   <string name="mokee_version_type_release">正式发布版</string>
+  <string name="mokee_version_type_history">历史存档版</string>
   <string name="mokee_version_type_experimental">测试阶段版</string>
   <string name="mokee_version_type_nightly">每夜编译版</string>
   <string name="mokee_version_type_unofficial">非官方版本</string>
