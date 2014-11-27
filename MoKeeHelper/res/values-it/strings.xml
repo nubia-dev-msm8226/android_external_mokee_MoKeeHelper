@@ -46,9 +46,9 @@
   <string name="mokee_last_check_title">Ultimo controllo</string>
   <string name="mokee_last_check_never">Mai</string>
   <string name="mokee_extras_info_title">Extra Info</string>
-  <string name="mokee_info_default">Mokee_informazioni_di_base
-Versione</string>
+  <string name="mokee_info_default">Sconosciuto</string>
   <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_history">Cronologia</string>
   <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Unofficial</string>

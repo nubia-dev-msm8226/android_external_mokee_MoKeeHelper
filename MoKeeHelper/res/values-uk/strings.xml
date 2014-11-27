@@ -48,6 +48,7 @@
   <string name="mokee_extras_info_title">Інформація про доповнення</string>
   <string name="mokee_info_default">Невідомо</string>
   <string name="mokee_version_type_release">Реліз</string>
+  <string name="mokee_version_type_history">Історія</string>
   <string name="mokee_version_type_experimental">Експериментальна</string>
   <string name="mokee_version_type_nightly">Нічна</string>
   <string name="mokee_version_type_unofficial">Неофіційна</string>
@@ -74,10 +75,10 @@
   <string name="dialog_cancel">Скасувати</string>
   <string name="dialog_close">Закрити</string>
   <string name="no_available_updates_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оонвлень вручну, натисніть кнопку \"Оновити\".</string>
-  <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оонвлень вручну, натисніть кнопку \"Оновити\".</string>
-  <string name="new_update_summary">Новинка</string>
+  <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оновлень вручну, натисніть кнопку \"Оновити\".</string>
+  <string name="new_update_summary">Новий</string>
   <string name="old_update_summary">Старий</string>
-  <string name="update_check_title">інтервал оновлень</string>
+  <string name="update_check_title">Перевірити інтервал оновлень</string>
   <string name="check_manual">Вручну</string>
   <string name="nightly_alert">Ви обрали нічні (nightly) оновлення в цьому списку. Вони не є стабільними і ви повинні використовувати їх з обережністю.</string>
   <string name="experimenter_alert">Включно вибрані експериментальні оновлення в цьому списку. Вони не підтримуються і призначені  тільки для тестування, тому користовуватися потрібно з обережністю.</string>
@@ -116,7 +117,7 @@
   <string name="not_download_failure">Не вдалося завантажити оновлення</string>
   <string name="not_action_install_update">Перезавантажити та встановити</string>
   <string name="not_download_install_notice">Оновлення  <xliff:g id="filename">%s</xliff:g> було успішно завантажено. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, для автоматичного встановлення  необхідне сумісне Recovery.</string>
-  <string name="not_download_install_notice_with_xposed">Оновлення <xliff:g id="filename"> %s </xliff:g> успішно завантажено. Коли дотик \'Перезавантаження та встановити\', пристрій буде перезавантажений себе, щоб встановити на update.\n\nNote: сумісні відновлення не потрібно для установки на роботу automatically.\n\nУвага：Виявлено модуль Xposed, котрий модифікує системні файли. Якщо оновлення невдалось, будь ласка скачайте повний пакет оновлення системи</string>
+  <string name="not_download_install_notice_with_xposed">Оновлення <xliff:g id="filename"> %s </xliff:g> успішно завантажено. Якщо Ви натиснете \'Перезавантажити та встановити\', пристрій буде перезавантажений, щоб встановити оновлення.\n\nПримітка: сумісні для автоматичного встановлення потрібне сумісне рековері.\n\nУвага：Виявлено модуль Xposed, котрий модифікує системні файли. Якщо оновлення невдалось, будь ласка скачайте повний пакет оновлення системи.</string>
   <string name="md5_verification_failed">Помилка контрольної суми MD5</string>
   <string name="not_extras_download_success">Додаткові функції успішно завантажено</string>
   <string name="not_extras_download_failure">Не вдалося завантажити додаткові функції </string>

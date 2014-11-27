@@ -48,6 +48,7 @@
   <string name="mokee_extras_info_title">Дополнительная информация</string>
   <string name="mokee_info_default">Неизвестно</string>
   <string name="mokee_version_type_release">Релиз</string>
+  <string name="mokee_version_type_history">История версий</string>
   <string name="mokee_version_type_experimental">Экспериментально</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Неофициальный</string>
@@ -115,7 +116,7 @@
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>
-  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить, устройство будет перезагружено для установки обновления.\n\nNote: Для установки в автоматическом режиме необходимо совместимое Recovery.</string>
+  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \"Перезагрузить и установить\", устройство будет перезагружено, для установки обновления.\n\nNote: Для установки в автоматическом режиме необходимо совместимое Recovery.</string>
   <string name="not_download_install_notice_with_xposed">Обновление <xliff:g id="filename">%s</xliff:g> успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимый Recovery.\n\nВНИМАНИЕ:. Мы обнаружили, что вы использовали модуль Xposed, который может изменить системные файлы. Если обновление не удается, пожалуйста, скачайте полный пакет для обновления системы.</string>
   <string name="md5_verification_failed">Ошибка контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополнения успешно загружены</string>
