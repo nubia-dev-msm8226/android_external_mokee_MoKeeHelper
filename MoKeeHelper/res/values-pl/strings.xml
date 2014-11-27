@@ -19,4 +19,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="mokee_center_title">Centrum MoKee</string>
   <string name="mokee_support_title">Wsparcie</string>
+  <string name="mokee_updater_title">Aktualizator</string>
+  <string name="mokee_extras_title">Dodatki</string>
+  <string name="tips_help_title">Wskazówki i pomoc</string>
+  <string name="mokee_website_title">Strona MoKee</string>
 </resources>

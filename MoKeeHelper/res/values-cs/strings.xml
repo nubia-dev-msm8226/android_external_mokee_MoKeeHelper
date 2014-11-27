@@ -48,6 +48,7 @@
   <string name="mokee_extras_info_title">Extras</string>
   <string name="mokee_info_default">Neznámý</string>
   <string name="mokee_version_type_release">Vydání</string>
+  <string name="mokee_version_type_history">Historie</string>
   <string name="mokee_version_type_experimental">Experimentální</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Neoficiální</string>
