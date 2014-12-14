@@ -116,7 +116,7 @@
   <string name="not_download_failure">Update-Download fehlgeschlagen</string>
   <string name="not_action_install_update">Neu starten und installieren</string>
   <string name="not_download_install_notice">Das Update <xliff:g id="filename">%s</xliff:g> wurde erfolgreich heruntergeladen. Beim Bestätigen von \"Neu starten und Installieren\" wird das Gerät neu gestartet, um das Update zu installieren.\n\nHinweis: Für die Installation wird ein kompatibles Recovery-System benötigt.</string>
-  <string name="not_download_install_notice_with_xposed">Update <xliff:g id="filename"> %s </xliff:g> wurde erfolgreich heruntergeladen. Bitte \"Neustart und installieren\" zu berühren, das Gerät startet selbst neu um die update.\n\nNote zu installieren: eine kompatibles Recovery ist erforderlich für die  automatische Installation.\n\n警告：我们检测到您使用过Xposed模块，该模块可能会修改系统文件。 arbeiten如果导致更新失败，请您下载完整包更新系统。</string>
+  <string name="not_download_install_notice_with_xposed">Das Update <xliff:g id="filename">%s</xliff:g>  wurde erfolgreich heruntergeladen. Drücke \'Neustarten und installieren\', damit das Gerät automatisch neustartet und das Update installiert.\n\nNotiz: Damit das Automatischeinstallieren funktioniert, wird ein Kompatibles Recovery benötigt.\n\nAchtung: Wir haben festgestellt, dass du Xposed framework verwendet, wenn das Update fehlschlägt, lade dir bitte stattdessen die komplette Rom runter und installieren sie.</string>
   <string name="md5_verification_failed">MD5 Prüfsummenfehler</string>
   <string name="not_extras_download_success">Extras erfolgreich heruntergeladen</string>
   <string name="not_extras_download_failure">Update downloaden war nicht erfolgreich</string>

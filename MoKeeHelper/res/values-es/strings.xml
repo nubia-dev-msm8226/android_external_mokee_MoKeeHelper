@@ -48,6 +48,7 @@
   <string name="mokee_extras_info_title">Información de Extras</string>
   <string name="mokee_info_default">Desconocido</string>
   <string name="mokee_version_type_release">Versión</string>
+  <string name="mokee_version_type_history">Historial</string>
   <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Nocturna</string>
   <string name="mokee_version_type_unofficial">No Oficial</string>
