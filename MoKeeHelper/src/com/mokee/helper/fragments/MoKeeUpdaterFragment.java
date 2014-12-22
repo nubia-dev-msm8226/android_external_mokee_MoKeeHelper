@@ -41,13 +41,13 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.os.SystemProperties;
 import android.os.UserHandle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -105,7 +105,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final int MENU_DONATE = 2;
 
     private SharedPreferences mPrefs;
-    private CheckBoxPreference mUpdateAll, mUpdateOTA;
+    private SwitchPreference mUpdateAll, mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
     private PreferenceCategory mUpdatesList;
@@ -163,8 +163,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
-        mUpdateAll = (CheckBoxPreference) findPreference(Constants.CHECK_ALL_PREF);// 所有更新
-        mUpdateOTA = (CheckBoxPreference) findPreference(Constants.CHECK_OTA_PREF);// OTA更新
+        mUpdateAll = (SwitchPreference) findPreference(Constants.CHECK_ALL_PREF);// 所有更新
+        mUpdateOTA = (SwitchPreference) findPreference(Constants.CHECK_OTA_PREF);// OTA更新
 
         // Restore normal type list
         String MoKeeVersionType = Utils.getMoKeeVersionType();

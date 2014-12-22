@@ -38,7 +38,7 @@
         android:persistent="false"
         android:title="@string/update_check_title" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="pref_check_ota"
         android:summary="@string/pref_check_ota_summary"
         android:title="@string/pref_check_ota" />
@@ -50,7 +50,7 @@
         android:title="@string/update_type_title" />
 
     <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
-    <CheckBoxPreference
+    <SwitchPreference
         android:dependency="pref_update_types"
         android:key="pref_check_all"
         android:title="@string/pref_check_all_title" />
