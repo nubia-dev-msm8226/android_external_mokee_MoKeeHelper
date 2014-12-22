@@ -20,14 +20,14 @@
   <string name="mokee_center_title">MoKee Центар</string>
   <string name="mokee_support_title">Подршка</string>
   <string name="mokee_updater_title">Програм за ажурирање</string>
-  <string name="mokee_extras_title">Dodatci</string>
+  <string name="mokee_extras_title">Додаци</string>
   <string name="tips_help_title">Предлози &amp; помоћи</string>
   <string name="mokee_website_title">MoKee Веб страница</string>
   <string name="mokee_website_summary">Посетите наш сајт</string>
   <string name="mokee_forum_title">MoKee Форум</string>
   <string name="mokee_forum_summary">Посетите MoKee форум</string>
   <string name="mokee_issues_title">MoKee отклањање грешака</string>
-  <string name="mokee_issues_summary">Посетите bug tracker</string>
+  <string name="mokee_issues_summary">Погледајте извештај о грешкама</string>
   <string name="mokee_changelog_title">MoKee списак измена</string>
   <string name="mokee_changelog_summary">Погледајте листу MoKee измена</string>
   <string name="mokee_build_status_title">MoKee статус изградње</string>
@@ -44,10 +44,11 @@
   <string name="mokee_version_title">MoKee верзија</string>
   <string name="mokee_version_type_title">Тип верзије</string>
   <string name="mokee_last_check_title">Последња провера</string>
-  <string name="mokee_last_check_never">Никад</string>
+  <string name="mokee_last_check_never">Никада</string>
   <string name="mokee_extras_info_title">Инфо о додацима</string>
   <string name="mokee_info_default">Непознато</string>
   <string name="mokee_version_type_release">Издање</string>
+  <string name="mokee_version_type_history">Историјат</string>
   <string name="mokee_version_type_experimental">Експериментално</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Unofficial</string>
@@ -116,6 +117,7 @@
   <string name="not_download_failure">Ажурирање није успешно преузето</string>
   <string name="not_action_install_update">Рестартуј и инсталирај</string>
   <string name="not_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
+  <string name="not_download_install_notice_with_xposed">Надоградња <xliff:g id="filename">%s</xliff:g> је преузета. Притиском на \'Reboot and install\', уређај ће се рестартовати да би инсталирао исправку.\n\nПажња: неопходан је компатибилан Recovery за аутоматску инсталацију.\n\nУпозорење: детектовано је коришћење Xposed framework-а! Уколико надоградња не буде успешна преузмите и инсталирајте цео РОМ.</string>
   <string name="md5_verification_failed">МД5 чек није усклађен</string>
   <string name="not_extras_download_success">Додатак је преузет</string>
   <string name="not_extras_download_failure">Додатак није преузет</string>
