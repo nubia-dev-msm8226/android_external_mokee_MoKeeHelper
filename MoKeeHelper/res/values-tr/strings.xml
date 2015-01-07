@@ -24,7 +24,6 @@
   <string name="tips_help_title">İpuçları ve yardım</string>
   <string name="mokee_website_title">MoKee Web sitesi</string>
   <string name="mokee_website_summary">Resmi Web sitesini ziyaret et</string>
-  <string name="mokee_forum_title">MoKee Forum</string>
   <string name="mokee_forum_summary">MoKee Forum\'unu ziyaret et</string>
   <string name="mokee_issues_title">MoKee Hata Takipçisi</string>
   <string name="mokee_issues_summary">Hata takipçisini ziyaret et</string>
@@ -32,11 +31,9 @@
   <string name="mokee_changelog_summary">MoKee Değişim Günlüğünü İncele</string>
   <string name="mokee_build_status_title">MoKee Sürüm Durumu</string>
   <string name="mokee_build_status_summary">Sürüm Durumunu İncele</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">MoKee Github\'ını Ziyaret Et</string>
   <string name="mokee_translate_title">MoKee Çeviri</string>
   <string name="mokee_translate_summary">MoKee\'yi Çevirmeye Yardım Et</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">MoKee Wiki\'sini görüntüle</string>
   <string name="mokee_donate_title">MoKee\'ye bağışta bulun</string>
   <string name="mokee_donate_summary">MoKee Açık Kaynağı desteklemek için lütfen bağışta bulunun</string>
@@ -61,9 +58,6 @@
   <string name="menu_delete_all">İndirmeyi sil</string>
   <string name="donate_dialog_title">Bize bağışta bulunun</string>
   <string name="donate_dialog_message">MoKee OpenSource kâr amacı gütmeyen bir kuruluştur.  Yardımlarınız sunucu maliyetlerimizi azaltabilir ve geliştirmelerin devam etmesini sağlayabilir.</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
-  <string name="donate_dialog_via_tenpay">TenPay</string>
   <string name="donate_money_toast_error">Girilen değer hatalıdır!</string>
   <string name="donate_money_toast_success">Bağış için teşekkür ederiz!</string>
   <string name="donate_money_name">MoKee OpenSource\'a bağışta bulunun</string>

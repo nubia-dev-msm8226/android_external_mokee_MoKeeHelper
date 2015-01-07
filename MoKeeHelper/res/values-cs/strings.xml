@@ -151,4 +151,6 @@
   <string name="extras_unsupported_toast">Vaše současná verze nepodporuje toto rozšíření</string>
   <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
   <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
+  <string name="mokee_push_newversion_title">Byla nalezena nová verze MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Nová verze je k dispozici, klepněte pro zobrazení podrobností!</string>
 </resources>

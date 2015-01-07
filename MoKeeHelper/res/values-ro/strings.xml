@@ -24,9 +24,7 @@
   <string name="mokee_website_summary">Vizitati site-ul oficial</string>
   <string name="mokee_forum_title">Forum MoKee</string>
   <string name="mokee_forum_summary">Vizitati forumul MoKee</string>
-  <string name="mokee_changelog_title">MoKee Changelog</string>
   <string name="mokee_translate_summary">Ajuta la traducerea MoKee</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_donate_title">Doneaza catre MoKee</string>
   <string name="mokee_version_info_title">Informatii versiune</string>
   <string name="mokee_version_title">Versiunea MoKee</string>
@@ -35,7 +33,6 @@
   <string name="mokee_extras_info_title">Extra Info</string>
   <string name="mokee_info_default">Necunoscut</string>
   <string name="mokee_version_type_release">Lansare</string>
-  <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_unofficial">Neoficial</string>
   <string name="mokee_version_type_all">Toate</string>
   <string name="downloaded_update_summary">Descarcat</string>
@@ -43,8 +40,6 @@
   <string name="available_updates_title">Actualizari disponibile</string>
   <string name="menu_donate">Doneaza</string>
   <string name="menu_refresh">Reimprospatare</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Suma introdusa este incorecta!</string>
   <string name="donate_money_toast_success">Va multumim pentru donatie!</string>
 </resources>

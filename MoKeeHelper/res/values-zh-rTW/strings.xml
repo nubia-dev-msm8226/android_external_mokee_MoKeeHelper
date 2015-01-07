@@ -32,11 +32,9 @@
   <string name="mokee_changelog_summary">查看 MoKee 的更新日誌列表</string>
   <string name="mokee_build_status_title">MoKee 建立狀態</string>
   <string name="mokee_build_status_summary">查看建立狀態</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">造訪 MoKee Github</string>
   <string name="mokee_translate_title">MoKee 翻譯</string>
   <string name="mokee_translate_summary">協助翻譯 MoKee</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">造訪 MoKee Wiki</string>
   <string name="mokee_donate_title">贊助 MoKee</string>
   <string name="mokee_donate_summary">請贊助以支援 MoKee OpenSource</string>
