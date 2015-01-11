@@ -33,7 +33,7 @@
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
   <string name="mokee_build_status_summary">Ver estado de la compilación</string>
   <string name="mokee_github_title">MoKee Github</string>
-  <string name="mokee_github_summary">Visite el MoKee Github</string>
+  <string name="mokee_github_summary">Visita el MoKee Github</string>
   <string name="mokee_translate_title">Traducir MoKee</string>
   <string name="mokee_translate_summary">Ayudar a traducir MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
@@ -65,7 +65,7 @@
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_tenpay">TenPay</string>
   <string name="donate_money_toast_error">La cantidad es incorrecta!</string>
-  <string name="donate_money_toast_success">Gracias por tu donación!</string>
+  <string name="donate_money_toast_success">¡Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
   <string name="unknown">Desconocido</string>
@@ -74,8 +74,8 @@
   <string name="dialog_ok">Aceptar</string>
   <string name="dialog_cancel">Cancelar</string>
   <string name="dialog_close">Cerrar</string>
-  <string name="no_available_updates_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
-  <string name="no_available_extras_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
+  <string name="no_available_updates_intro">No se encontraron actualizaciones disponibles en la última comprobación. Pulsa el botón Refrescar para comprobar manualmente si existen nuevas actualizaciones.</string>
+  <string name="no_available_extras_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones extra.</string>
   <string name="new_update_summary">Nuevo</string>
   <string name="old_update_summary">Antiguo</string>
   <string name="update_check_title">Comprobar la frecuencia de actualización</string>
@@ -83,10 +83,10 @@
   <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
   <string name="experimenter_alert">Ha seleccionado incluir versiones experimentales en esta lista. Éstas no tienen soporte al usuario y están destinadas para pruebas solamente, debe utilizarse con precaución.</string>
   <string name="unofficial_alert">Ha seleccionado para incluir versiones no oficiales en esta lista. Tenga en cuenta que estos son apoyados por el mantenedor del dispositivo.</string>
-  <string name="all_alert">Ha seleccionado incluir todas las actualizaciones (estables, experimentales) en esta lista. Tenga en cuenta que todas las actualizaciones nocturnas no tienen soporte al usuario y se deben utilizar con precaución.</string>
+  <string name="all_alert">Ha seleccionado incluir todas las actualizaciones (estables, experimentales) en esta lista. Tenga en cuenta que todas las actualizaciones no estables no tienen soporte al usuario y deben utilizarse con precaución.</string>
   <string name="alert_title">Advertencia</string>
   <string name="update_type_title">Tipo de actualización</string>
-  <string name="no_changelog_alert">No hay registro de cambios</string>
+  <string name="no_changelog_alert">No hay registro de cambios disponible</string>
   <string name="changelog_dialog_title">Registro de cambios</string>
   <string name="loading_changelog">Cargando\u2026</string>
   <string name="check_on_boot">En cada reinicio del sistema</string>
@@ -97,49 +97,49 @@
   <string name="check_bi_weekly">Una vez cada dos semanas</string>
   <string name="check_monthly">Una vez al mes</string>
   <string name="checking_for_updates">Buscando actualizaciones</string>
-  <string name="no_updates_found">No hay nuevas actualizaciones</string>
+  <string name="no_updates_found">No se han encontrado nuevas actualizaciones</string>
   <string name="checking_for_extras">Buscando extras</string>
-  <string name="no_extras_found">No hay nuevos extras encontrados</string>
+  <string name="no_extras_found">No se han encontrado nuevos extras</string>
   <string name="not_new_updates_found_ticker">Hay actualizaciones disponibles</string>
   <string name="not_new_updates_found_title">Nuevas actualizaciones</string>
-  <string name="update_check_failed">Falló la comprobación de actualizaciones. Por favor, verifica la conexión a Internet e inténtalo nuevamente.</string>
+  <string name="update_check_failed">Falló la comprobación de actualizaciones. Por favor, comprueba tu conexión a Internet e inténtalo de nuevo más tarde.</string>
   <string name="not_action_download">Descargar</string>
   <string name="data_connection_required">Es necesaria una conexión de datos.</string>
   <string name="confirm_download_cancelation_dialog_title">Cancelar la descarga</string>
-  <string name="confirm_download_cancelation_dialog_message">¿Cancelar la descarga actual?</string>
+  <string name="confirm_download_cancelation_dialog_message">¿Deseas cancelar la descarga actual?</string>
   <string name="download_remaining">Quedan <xliff:g id="duration" example="3 minutes"> %s </xliff:g></string>
   <string name="download_running">En progreso</string>
   <string name="download_cancelled">Descarga cancelada</string>
-  <string name="download_already_running">Hay una descarga en curso</string>
+  <string name="download_already_running">Ya hay una descarga en curso</string>
   <string name="unable_to_download_file">Error al descargar la actualización</string>
   <string name="download_not_found">Descarga no encontrada</string>
-  <string name="not_download_success">Actualización descargada</string>
+  <string name="not_download_success">Actualización descargada con éxito</string>
   <string name="not_download_failure">Actualización no descargada</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
-  <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación automática.</string>
-  <string name="not_download_install_notice_with_xposed">La descarga<xliff:g id="filename">%s</xliff:g>se a completado.Pulse el botón Reiniciar para Instalar,El dispositivo se reiniciara e instalara la actualización.\n\nNota:necesario Recovery compatible para instalación automática.\n\n</string>
-  <string name="md5_verification_failed">Suma de comprobación MD5 fallida</string>
+  <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de una recovery compatible para una instalación automática.</string>
+  <string name="not_download_install_notice_with_xposed">La descarga<xliff:g id="filename">%s</xliff:g>se ha descargado correctamente. Pulsando sobre el botón \'Reiniciar e Instalar\', el dispositivo se reiniciará e instalará la actualización.\n\nNota: Se necesita tener una Recovery compatible para una instalación automática.\n\nAviso: Hemos detectado que usas Xposed Framework. Si la actualización falla, por favor, descargue e instale en su lugar una ROM completa.</string>
+  <string name="md5_verification_failed">Suma de control MD5 fallida</string>
   <string name="not_extras_download_success">Extras descargados con éxito</string>
-  <string name="not_extras_download_failure">La descarga de Extras falló</string>
-  <string name="not_extras_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación automática.</string>
-  <string name="not_extras_download_install_notice_apk">Los extras <xliff:g id="filename"> %s </xliff:g> fueron descargados de forma satisfactoria.</string>
+  <string name="not_extras_download_failure">La descarga de extras falló</string>
+  <string name="not_extras_download_install_notice">La actualización extra <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de una recovery compatible para una instalación automática.</string>
+  <string name="not_extras_download_install_notice_apk">Los extras <xliff:g id="filename"> %s </xliff:g> se han descargado de forma correcta.</string>
   <string name="not_apk_action_install_update">Instalar</string>
   <string name="confirm_delete_dialog_title">Borrar archivo</string>
-  <string name="confirm_delete_updates_dialog_message">Eliminar la actualización seleccionada?</string>
+  <string name="confirm_delete_updates_dialog_message">¿Eliminar la actualización seleccionada?</string>
   <string name="confirm_delete_updates_all_dialog_message">¿Borrar todas las actualizaciones descargadas?</string>
-  <string name="confirm_delete_extras_dialog_message">¿Borrar el archivo de Extras seleccionado?</string>
-  <string name="confirm_delete_extras_all_dialog_message">¿Borrar todos los archivos de Extras descargados?</string>
+  <string name="confirm_delete_extras_dialog_message">¿Borrar el archivo de extras seleccionado?</string>
+  <string name="confirm_delete_extras_all_dialog_message">¿Borrar todos los archivos de extras descargados?</string>
   <string name="delete_single_update_success_message">Actualización <xliff:g id="filename">%s</xliff:g> borrada</string>
-  <string name="delete_updates_failure_message">Error al eliminar el archivo de actualización</string>
+  <string name="delete_updates_failure_message">Hubo un error al eliminar el archivo de actualización</string>
   <string name="delete_updates_noFolder_message">Carpeta de actualizaciones no encontrada</string>
-  <string name="delete_updates_success_message">Todas las actualizaciones fueron borradas</string>
-  <string name="delete_extras_failure_message">Error al eliminar el archivo de extras</string>
-  <string name="delete_extras_noFolder_message">Carpeta extras no encontrado</string>
-  <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
+  <string name="delete_updates_success_message">Todas las actualizaciones han sido borradas</string>
+  <string name="delete_extras_failure_message">Ha habido un error al eliminar el archivo de extras</string>
+  <string name="delete_extras_noFolder_message">Carpeta extras no encontrada</string>
+  <string name="delete_extras_success_message">Todos los extras descargados han sido eliminados</string>
   <string name="extension_label">Actualización de Mokee</string>
   <string name="extension_description">Muestra las actualizaciones disponibles</string>
   <string name="pref_check_all_title">Actualizaciones completas</string>
-  <string name="pref_check_all_summary">Obtener todas las versiones (incluyendo las antiguas en el servidor)</string>
+  <string name="pref_check_all_summary">Obtén todas las versiones (incluyendo las antiguas en el servidor)</string>
   <string name="pref_check_all_new_summary">Obtener nuevas versiones solamente</string>
   <string name="pref_check_ota">Actualizaciones OTA</string>
   <string name="pref_check_ota_summary">Obtener actualizaciones OTA</string>
