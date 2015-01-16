@@ -45,8 +45,8 @@
   <string name="mokee_version_type_title">Typ verze</string>
   <string name="mokee_last_check_title">Poslední kontrola</string>
   <string name="mokee_last_check_never">Nikdy</string>
-  <string name="mokee_extras_info_title">Extras</string>
-  <string name="mokee_info_default">Neznámý</string>
+  <string name="mokee_extras_info_title">Info o doplňcích</string>
+  <string name="mokee_info_default">Neznámá</string>
   <string name="mokee_version_type_release">Vydání</string>
   <string name="mokee_version_type_history">Historie</string>
   <string name="mokee_version_type_experimental">Experimentální</string>
@@ -68,7 +68,7 @@
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>
-  <string name="unknown">Neznámé</string>
+  <string name="unknown">Neznámá</string>
   <string name="dialog_update">Aktualizovat</string>
   <string name="dialog_install">Instalovat</string>
   <string name="dialog_ok">OK</string>

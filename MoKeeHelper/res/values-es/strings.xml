@@ -17,9 +17,10 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="mokee_center_title">Centro Mokee</string>
+  <string name="mokee_center_title">Centro de Mokee</string>
   <string name="mokee_support_title">Soporte</string>
   <string name="mokee_updater_title">Actualizar</string>
+  <string name="mokee_extras_title">Extras</string>
   <string name="tips_help_title">Consejos y ayuda</string>
   <string name="mokee_website_title">Sitio web MoKee</string>
   <string name="mokee_website_summary">Visite el sitio web oficial</string>
@@ -31,9 +32,11 @@
   <string name="mokee_changelog_summary">Ver lista de cambios MoKee</string>
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
   <string name="mokee_build_status_summary">Ver estado de la compilación</string>
+  <string name="mokee_github_title">Github de MoKee</string>
   <string name="mokee_github_summary">Visite el MoKee Github</string>
   <string name="mokee_translate_title">Traducir MoKee</string>
   <string name="mokee_translate_summary">Ayudar a traducir MoKee</string>
+  <string name="mokee_wiki_title">Wiki de MoKee</string>
   <string name="mokee_wiki_summary">Ver MoKee Wiki</string>
   <string name="mokee_donate_title">Donar a MoKee</string>
   <string name="mokee_donate_summary">Por favor done para apoyar a MoKee OpenSource</string>
@@ -46,6 +49,7 @@
   <string name="mokee_info_default">Desconocido</string>
   <string name="mokee_version_type_release">Versión</string>
   <string name="mokee_version_type_history">Historial</string>
+  <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Nocturna</string>
   <string name="mokee_version_type_unofficial">No Oficial</string>
   <string name="mokee_version_type_all">Todos</string>
@@ -57,6 +61,9 @@
   <string name="menu_delete_all">Eliminar descarga</string>
   <string name="donate_dialog_title">Haznos una donación</string>
   <string name="donate_dialog_message">MoKee OpenSource es una organización sin fines de lucro. Su ayuda puede ayudar a soportar los costos del servidor y sostener desarrollos futuros!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_tenpay">TenPay</string>
   <string name="donate_money_toast_error">La cantidad es incorrecta!</string>
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
@@ -72,6 +79,7 @@
   <string name="new_update_summary">Nuevo</string>
   <string name="old_update_summary">Antiguo</string>
   <string name="update_check_title">Comprobar la frecuencia de actualización</string>
+  <string name="check_manual">Manual</string>
   <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
   <string name="experimenter_alert">Ha seleccionado incluir versiones experimentales en esta lista. Éstas no tienen soporte al usuario y están destinadas para pruebas solamente, debe utilizarse con precaución.</string>
   <string name="unofficial_alert">Ha seleccionado para incluir versiones no oficiales en esta lista. Tenga en cuenta que estos son apoyados por el mantenedor del dispositivo.</string>
@@ -143,4 +151,6 @@
   <string name="extras_unsupported_toast">Su versión actual no es compatible con esta extensión</string>
   <string name="show_exp_on">Ha activado la configuración experimental!</string>
   <string name="show_exp_already">No hace falta, ya ha activado la configuración experimental.</string>
+  <string name="mokee_push_newversion_title">Se encontró una nueva versión de la OpenSource de MoKee</string>
+  <string name="mokee_push_newversion_msg">Una nueva versión está lista. Haz click para ver los detalles.</string>
 </resources>
