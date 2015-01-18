@@ -146,4 +146,6 @@
   <string name="extras_unsupported_toast">Ваша версия не поддерживает данное расширение</string>
   <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
   <string name="show_exp_already">Экспериментальные параметры уже включены.</string>
+  <string name="mokee_push_newversion_title">Найдена новая версия MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Новая версия готова, нажмите для просмотра подробностей!</string>
 </resources>
