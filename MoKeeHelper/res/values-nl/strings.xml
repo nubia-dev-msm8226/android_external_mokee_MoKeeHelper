@@ -66,4 +66,13 @@
   <string name="donate_dialog_via_tenpay">TenPay</string>
   <string name="donate_money_toast_error">Het ingevoerde bedrag is onjuist!</string>
   <string name="donate_money_toast_success">Dank u voor uw donatie!</string>
+  <string name="unknown">Onbekend</string>
+  <string name="dialog_update">Update</string>
+  <string name="dialog_install">Installeren</string>
+  <string name="dialog_ok">OK</string>
+  <string name="dialog_cancel">Annuleer</string>
+  <string name="dialog_close">Sluiten</string>
+  <string name="new_update_summary">Nieuw</string>
+  <string name="old_update_summary">Oud</string>
+  <string name="check_manual">Manueel</string>
 </resources>
