@@ -39,11 +39,13 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
@@ -57,11 +59,12 @@ import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckService extends IntentService
         implements Response.ErrorListener, Listener<String> {
+
     private static final String TAG = "UpdateCheckService";
+
     // request actions
     public static final String ACTION_CHECK = "com.mokee.mkupdater.action.CHECK";
     public static final String ACTION_CANCEL_CHECK = "com.mokee.mkupdater.action.CANCEL_CHECK";
-
     // broadcast actions
     public static final String ACTION_CHECK_FINISHED = "com.mokee.mkupdater.action.UPDATE_CHECK_FINISHED";
     // extra for ACTION_CHECK_FINISHED: total amount of found updates
@@ -76,9 +79,14 @@ public class UpdateCheckService extends IntentService
     public static final String EXTRA_EXTRAS_LIST_UPDATED = "extras_list_updated";
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
+
     // max. number of updates listed in the extras notification
     private static final int EXTRAS_NOTIF_UPDATE_COUNT = 4;
     private int flag;
+
+    // DefaultRetryPolicy values for Volley
+    private static final int UPDATE_REQUEST_TIMEOUT = 5000; // 5 seconds
+    private static final int UPDATE_REQUEST_MAX_RETRIES = 3;
 
     public UpdateCheckService() {
         super("UpdateCheckService");
@@ -236,6 +244,9 @@ public class UpdateCheckService extends IntentService
                 }
                 UpdatesRequest updateRequest = new UpdatesRequest(Request.Method.POST,
                         updateServerUri.toASCIIString(), Utils.getUserAgentString(this), this, this);
+                // Improve request error tolerance 
+                updateRequest.setRetryPolicy(new DefaultRetryPolicy(UPDATE_REQUEST_TIMEOUT,
+                        UPDATE_REQUEST_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 // Set the tag for the request, reuse logging tag
                 updateRequest.setTag(TAG);
                 ((MoKeeApplication) getApplicationContext()).getQueue().add(updateRequest);
@@ -244,6 +255,9 @@ public class UpdateCheckService extends IntentService
                 updateServerUri = URI.create(getString(R.string.conf_update_extras_server_url_def));
                 ExtrasRequest extrasRequest = new ExtrasRequest(Request.Method.POST,
                         updateServerUri.toASCIIString(), Utils.getUserAgentString(this), this, this);
+                // Improve request error tolerance 
+                extrasRequest.setRetryPolicy(new DefaultRetryPolicy(UPDATE_REQUEST_TIMEOUT,
+                        UPDATE_REQUEST_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 // Set the tag for the request, reuse logging tag
                 extrasRequest.setTag(TAG);
                 ((MoKeeApplication) getApplicationContext()).getQueue().add(extrasRequest);
