@@ -138,9 +138,6 @@
   <string name="delete_extras_success_message">Всі завантажені Допоміжні елементи видалені</string>
   <string name="extension_label">MoKee оновлювач</string>
   <string name="extension_description">Відобразити наявність оновлень</string>
-  <string name="pref_check_all_title">Повне оновлення</string>
-  <string name="pref_check_all_summary">Отримати всі версії (у тому числі старі на сервері)</string>
-  <string name="pref_check_all_new_summary">Отримати тільки нові версії </string>
   <string name="pref_check_ota">OTA оновлення</string>
   <string name="pref_check_ota_summary">Отримати OTA оновлення</string>
   <string name="apply_update_dialog_title">Застосувати оновлення</string>

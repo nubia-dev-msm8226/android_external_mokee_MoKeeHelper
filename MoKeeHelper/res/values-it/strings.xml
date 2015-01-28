@@ -128,9 +128,6 @@
   <string name="delete_extras_success_message">eliminati extra scaricati</string>
   <string name="extension_label">MoKee Controllo aggiornamenti</string>
   <string name="extension_description">Mostra aggiornamenti disponibili</string>
-  <string name="pref_check_all_title">Tutti gli aggiornamenti</string>
-  <string name="pref_check_all_summary">Controlla tutte le versioni (anche quelle più vecchie sul server)</string>
-  <string name="pref_check_all_new_summary">Controlla solo le versioni nuove</string>
   <string name="pref_check_ota">Aggiornamenti OTA</string>
   <string name="pref_check_ota_summary">Ottieni aggiornamenti OTA (Over The AIr)</string>
   <string name="apply_update_dialog_title">Applica l\'aggiornamento</string>

@@ -133,9 +133,6 @@
   <string name="delete_extras_success_message">Все загруженные дополнения удалены</string>
   <string name="extension_label">Загрузчик обновлений Mokee</string>
   <string name="extension_description">Отображает доступные обновления</string>
-  <string name="pref_check_all_title">Полное обновление</string>
-  <string name="pref_check_all_summary">Получить все версии (включая старые)</string>
-  <string name="pref_check_all_new_summary">Получать только новые версии</string>
   <string name="pref_check_ota">Обновления по воздуху</string>
   <string name="pref_check_ota_summary">Получить OTA обновления</string>
   <string name="apply_update_dialog_title">Применить обновление</string>

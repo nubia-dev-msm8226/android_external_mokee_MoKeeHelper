@@ -139,9 +139,6 @@
   <string name="delete_extras_success_message">İndirilen tüm ek dosyalar silindi</string>
   <string name="extension_label">MoKee Güncelleyici</string>
   <string name="extension_description">Mevcut güncellemeleri gösterir</string>
-  <string name="pref_check_all_title">Tüm güncellemeler</string>
-  <string name="pref_check_all_summary">Tüm sürümleri kontrol et( sunucudaki eski sürümlerde dahidir )</string>
-  <string name="pref_check_all_new_summary">Sadece yeni sürümleri kontrol et</string>
   <string name="pref_check_ota">OTA güncellemeleri</string>
   <string name="pref_check_ota_summary">OTA güncellemeleri al</string>
   <string name="apply_update_dialog_title">Güncellemeyi uygula</string>

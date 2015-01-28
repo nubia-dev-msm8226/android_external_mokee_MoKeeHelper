@@ -121,9 +121,6 @@
   <string name="delete_extras_noFolder_message">Ordner \"Extras\" nicht gefunden</string>
   <string name="delete_extras_success_message">Alle heruntergeladenen Extras gelöscht</string>
   <string name="extension_description">Zeigt verfügbare updates</string>
-  <string name="pref_check_all_title">Full-Update</string>
-  <string name="pref_check_all_summary">Alle Versionen holen (einschließlich der alten auf dem Server)</string>
-  <string name="pref_check_all_new_summary">Nur neue Versionen holen</string>
   <string name="pref_check_ota">OTA-Updates</string>
   <string name="pref_check_ota_summary">OTA-Updates erhalten</string>
   <string name="apply_update_dialog_title">Update installieren</string>

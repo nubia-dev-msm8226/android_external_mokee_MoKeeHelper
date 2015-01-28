@@ -138,9 +138,6 @@
   <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
   <string name="extension_label">MoKee Updater</string>
   <string name="extension_description">Zobrazí dostupné aktualizace</string>
-  <string name="pref_check_all_title">Úplné aktualizace</string>
-  <string name="pref_check_all_summary">Získávat všechny verze (včetně těch starších na serveru)</string>
-  <string name="pref_check_all_new_summary">Získávat pouze novější verze</string>
   <string name="pref_check_ota">OTA aktualizace</string>
   <string name="pref_check_ota_summary">Získávat OTA aktualizace</string>
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>

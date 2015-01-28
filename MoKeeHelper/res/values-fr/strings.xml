@@ -127,9 +127,6 @@
   <string name="delete_extras_noFolder_message">Dossier \" extras \" introuvable</string>
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
   <string name="extension_description">Affiche les mises à jour disponibles</string>
-  <string name="pref_check_all_title">Mises à jour intégrales</string>
-  <string name="pref_check_all_summary">Obtenir toutes les versions (y compris les anciennes sur le serveur)</string>
-  <string name="pref_check_all_new_summary">Téléchargez les nouvelles versions uniquement</string>
   <string name="pref_check_ota">Mises à jour OTA</string>
   <string name="pref_check_ota_summary">Obtenir des mises à jour OTA</string>
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>

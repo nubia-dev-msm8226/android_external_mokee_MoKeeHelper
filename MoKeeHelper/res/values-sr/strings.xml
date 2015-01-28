@@ -130,9 +130,6 @@
   <string name="delete_extras_noFolder_message">Фасцикла додатака није пронађена</string>
   <string name="delete_extras_success_message">Сви преузети додаци су избрисани</string>
   <string name="extension_description">Приказ доступних надоградњи</string>
-  <string name="pref_check_all_title">Комплетне надоградње</string>
-  <string name="pref_check_all_summary">Преузимање свих верзија (укључујући и старије)</string>
-  <string name="pref_check_all_new_summary">Преузимање само нових верзија</string>
   <string name="pref_check_ota">ОТА надоградње</string>
   <string name="pref_check_ota_summary">Преузми ОТА надоградње</string>
   <string name="apply_update_dialog_title">Примени надоградње</string>

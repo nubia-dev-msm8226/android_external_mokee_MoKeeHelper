@@ -138,9 +138,6 @@
   <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
   <string name="extension_label">Actualización de Mokee</string>
   <string name="extension_description">Muestra las actualizaciones disponibles</string>
-  <string name="pref_check_all_title">Actualizaciones completas</string>
-  <string name="pref_check_all_summary">Obtener todas las versiones (incluyendo las antiguas en el servidor)</string>
-  <string name="pref_check_all_new_summary">Obtener nuevas versiones solamente</string>
   <string name="pref_check_ota">Actualizaciones OTA</string>
   <string name="pref_check_ota_summary">Obtener actualizaciones OTA</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>

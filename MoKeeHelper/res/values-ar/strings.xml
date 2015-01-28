@@ -136,9 +136,6 @@
   <string name="delete_extras_success_message">تم حذف كل الإضافات المنزلة</string>
   <string name="extension_label">تحديثات موكي</string>
   <string name="extension_description">عرض التحديثات المتوفرة</string>
-  <string name="pref_check_all_title">التحديثات كاملة</string>
-  <string name="pref_check_all_summary">الحصول على كافة الإصدارات (بما في ذلك القديمة على الخادم)</string>
-  <string name="pref_check_all_new_summary">الحصول على الإصدارات الجديدة فقط</string>
   <string name="pref_check_ota">تحديثات عن طريق الهواء OTA</string>
   <string name="pref_check_ota_summary">الحصول على التحديثات عبر الهواء</string>
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
