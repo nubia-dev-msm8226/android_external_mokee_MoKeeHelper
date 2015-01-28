@@ -79,14 +79,13 @@ public class UpdatesRequest extends StringRequest {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
-        int rom_all = prefs.getBoolean(Constants.CHECK_ALL_PREF, false) ? 1 : 0;// 全部获取参数
         boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
         params.put("device_name", Utils.getDeviceType());
         params.put("device_version", Utils.getInstalledVersion());
         params.put("build_user", Utils.getBuildUser());
         if (!isOTA) {
             params.put("device_officail", String.valueOf(updateType));
-            params.put("rom_all", String.valueOf(rom_all));
+            params.put("rom_all", "0");
         }
         return params;
     }

@@ -49,12 +49,6 @@
         android:persistent="false"
         android:title="@string/update_type_title" />
 
-    <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
-    <SwitchPreference
-        android:dependency="pref_update_types"
-        android:key="pref_check_all"
-        android:title="@string/pref_check_all_title" />
-
     <PreferenceCategory
         android:key="updates_category"
         android:title="@string/available_updates_title" />

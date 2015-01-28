@@ -29,7 +29,6 @@ public class Constants {
     public static final String BACKUP_PREF = "pref_backup_rom";
     public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
-    public static final String CHECK_ALL_PREF = "pref_check_all";
     public static final String CHECK_OTA_PREF = "pref_check_ota";
     public static final String EXPANG_LIST_PREF = "extras_category";
     public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";

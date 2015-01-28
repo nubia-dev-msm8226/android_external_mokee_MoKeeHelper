@@ -138,9 +138,6 @@
   <string name="delete_extras_success_message">所有已下载的扩展组件包已被删除</string>
   <string name="extension_label">魔趣更新</string>
   <string name="extension_description">显示有多少个可用的新更新。</string>
-  <string name="pref_check_all_title">全部更新</string>
-  <string name="pref_check_all_summary">获取全部版本（包括服务器上现存的旧版本）</string>
-  <string name="pref_check_all_new_summary">仅获取新版本</string>
   <string name="pref_check_ota">OTA更新</string>
   <string name="pref_check_ota_summary">获取OTA更新</string>
   <string name="apply_update_dialog_title">应用更新</string>

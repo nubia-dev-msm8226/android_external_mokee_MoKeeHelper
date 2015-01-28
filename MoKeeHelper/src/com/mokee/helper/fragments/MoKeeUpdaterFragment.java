@@ -105,7 +105,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final int MENU_DONATE = 2;
 
     private SharedPreferences mPrefs;
-    private SwitchPreference mUpdateAll, mUpdateOTA;
+    private SwitchPreference mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
     private PreferenceCategory mUpdatesList;
@@ -163,7 +163,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
-        mUpdateAll = (SwitchPreference) findPreference(Constants.CHECK_ALL_PREF);// 所有更新
         mUpdateOTA = (SwitchPreference) findPreference(Constants.CHECK_OTA_PREF);// OTA更新
 
         // Restore normal type list
@@ -215,10 +214,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true));
         mUpdateOTA.setOnPreferenceChangeListener(this);
-        mUpdateAll.setChecked(mPrefs.getBoolean(Constants.CHECK_ALL_PREF, false));
-        mUpdateAll.setOnPreferenceChangeListener(this);
         isOTA(mUpdateOTA.isChecked());
-        isRomAll(mUpdateAll.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
         Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, MoKeeVersionTypeString);
         updateLastCheckPreference();
@@ -904,11 +900,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 updateUpdatesType(value);
             }
             return true;
-        } else if (preference == mUpdateAll) {
-            boolean value = (Boolean) newValue;
-            mPrefs.edit().putBoolean(Constants.CHECK_ALL_PREF, value).apply();
-            isRomAll(value);
-            return true;
         } else if (preference == mUpdateOTA) {
             boolean value = (Boolean) newValue;
             mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, value).apply();
@@ -917,14 +908,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             return true;
         }
         return false;
-    }
-
-    private void isRomAll(boolean value) {
-        if (value) {
-            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_check_all_summary));
-        } else {
-            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_check_all_new_summary));
-        }
     }
 
     private void setAllTypeEntries() {
