@@ -28,12 +28,12 @@
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:paddingStart="8dip"
-        android:gravity="center_vertical"
+        android:background="?android:attr/selectableItemBackground"
+        android:baselineAligned="false"
         android:clickable="true"
         android:focusable="true"
-        android:baselineAligned="false"
-        android:background="?android:attr/selectableItemBackground" >
+        android:gravity="center_vertical"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart" >
 
         <RelativeLayout
             android:layout_width="0dip"
@@ -51,7 +51,7 @@
                 android:maxLines="3"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:fadingEdge="horizontal"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/file_size" />
 
@@ -104,12 +104,12 @@
         android:id="@+id/updates_button"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingStart="15dip"
-        android:paddingEnd="?android:attr/scrollbarSize"
         android:src="@drawable/ic_tab_download"
         android:layout_gravity="center"
         android:clickable="true"
         android:focusable="true"
-        android:background="?android:attr/selectableItemBackground" />
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" />
 
 </LinearLayout>
