@@ -30,4 +30,8 @@
         <item name="android:layout">@layout/preference_item</item>
     </style>
 
+    <style name="EmptyListPreferenceStyle">
+        <item name="android:layout">@layout/preference_empty_list</item>
+    </style>
+
 </resources>

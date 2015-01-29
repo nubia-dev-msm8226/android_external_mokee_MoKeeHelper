@@ -73,6 +73,7 @@ import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
+import com.mokee.helper.widget.EmptyListPreferenceStyle;
 import com.mokee.helper.widget.ItemPreference;
 
 public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPreferenceChangeListener,
@@ -500,9 +501,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
         // If no updates are in the list, show the default message
         if (mUpdatesList.getPreferenceCount() == 0) {
-            Preference pref = new Preference(mContext);
-            pref.setLayoutResource(R.layout.preference_empty_list);
-            pref.setTitle(R.string.no_available_updates_intro);
+            EmptyListPreferenceStyle pref = new EmptyListPreferenceStyle(mContext, null, R.style.EmptyListPreferenceStyle);
+            pref.setSummary(R.string.no_available_updates_intro);
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
         }

@@ -49,9 +49,8 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 android:maxLines="3"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceListItem"
                 android:fadingEdge="horizontal"
-                android:textSize="15sp"
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/file_size" />
 
@@ -73,22 +72,26 @@
                 android:layout_alignStart="@android:id/title"
                 android:paddingBottom="3dip"
                 android:visibility="gone"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="13sp"
+                android:textAppearance="?android:attr/textAppearanceListItemSecondary"
                 android:textColor="?android:attr/textColorSecondary"
                 android:focusable="false"
                 android:maxLines="4" />
 
-            <TextView
-                android:id="@+id/file_size"
+            <FrameLayout 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:paddingBottom="3dip"
-                android:layout_alignTop="@android:id/summary"
-                android:textSize="13sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:focusable="false" />
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@android:id/summary">
+	            <TextView
+	                android:id="@+id/file_size"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingBottom="3dip"
+	                android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+	                android:textColor="?android:attr/textColorSecondary"
+	                android:focusable="false" />
+            </FrameLayout>
+
         </RelativeLayout>
 
     </LinearLayout>
