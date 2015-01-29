@@ -167,11 +167,6 @@ public class MoKeeCenter extends FragmentActivity {
                                 MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
                             }
                             break;
-                        case DialogInterface.BUTTON_NEUTRAL:
-                            PayConnect.getInstance(mContext).tenPay(mContext, orderId, userId, Float.valueOf(priceStr),
-                                    mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
-                                    mPayResultListener);
-                            break;
                         case DialogInterface.BUTTON_NEGATIVE:
                             PayConnect.getInstance(mContext).aliPay(mContext, orderId, userId, Float.valueOf(priceStr),
                                     mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), "",
@@ -189,7 +184,6 @@ public class MoKeeCenter extends FragmentActivity {
                 .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
-                .setNeutralButton(R.string.donate_dialog_via_tenpay, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
     }
 

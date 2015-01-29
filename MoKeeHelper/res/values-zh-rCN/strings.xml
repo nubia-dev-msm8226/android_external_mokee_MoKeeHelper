@@ -63,7 +63,6 @@
   <string name="donate_dialog_message">魔趣是一个非营利性的开源项目并由全球的爱好者们共同维护。我们热爱安卓、热爱编程，我们想让更多的人使用到好用的手机系统。我们用自己的空闲时间和生活积蓄来维护这个项目，您力所能及的帮助将减轻我们的压力，使我们变得更好！</string>
   <string name="donate_dialog_via_paypal">贝宝</string>
   <string name="donate_dialog_via_alipay">支付宝</string>
-  <string name="donate_dialog_via_tenpay">财付通</string>
   <string name="donate_money_toast_error">金额输入有误！</string>
   <string name="donate_money_toast_success">感谢您的捐赠，我们将因此走的更远！</string>
   <string name="donate_money_name">捐赠魔趣开源项目</string>
