@@ -17,9 +17,86 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title">MoKee Center</string>
+  <string name="mokee_support_title">Support</string>
+  <string name="mokee_updater_title">Updater</string>
+  <string name="mokee_extras_title">Extras</string>
+  <string name="tips_help_title">Tips &amp; Help</string>
+  <string name="mokee_website_title">MoKee Website</string>
+  <string name="mokee_website_summary">Visit the official website</string>
+  <string name="mokee_forum_title">MoKee Forum</string>
+  <string name="mokee_forum_summary">Visit the MoKee Forum</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
+  <string name="mokee_issues_summary">Visit the bug tracker</string>
+  <string name="mokee_changelog_title">Changelog</string>
+  <string name="mokee_changelog_summary">View MoKee Changelog List</string>
+  <string name="mokee_build_status_title">Build Status</string>
+  <string name="mokee_build_status_summary">View build status</string>
+  <string name="mokee_github_title">Mokee Source Code</string>
+  <string name="mokee_github_summary">Visit the MoKee Github</string>
+  <string name="mokee_translate_title">MoKee Translate</string>
+  <string name="mokee_translate_summary">Help translate MoKee</string>
+  <string name="mokee_wiki_title">Wiki</string>
+  <string name="mokee_wiki_summary">View the MoKee Wiki</string>
+  <string name="mokee_donate_title">Donate</string>
+  <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
+  <string name="mokee_version_info_title">Version Info</string>
+  <string name="mokee_version_title">MoKee Version</string>
+  <string name="mokee_version_type_title">Version Type</string>
+  <string name="mokee_last_check_title">Last Check</string>
+  <string name="mokee_last_check_never">Never</string>
+  <string name="mokee_extras_info_title">Extras Info</string>
+  <string name="mokee_info_default">Unknown</string>
+  <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_history">History</string>
+  <string name="mokee_version_type_experimental">Experimental</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
+  <string name="mokee_version_type_unofficial">Unofficial</string>
+  <string name="mokee_version_type_all">All</string>
+  <string name="downloaded_update_summary">Downloaded ROM</string>
+  <string name="installed_update_summary">Installed</string>
+  <string name="available_updates_title">Available updates</string>
+  <string name="menu_donate">Donate</string>
+  <string name="menu_refresh">Refresh</string>
+  <string name="menu_delete_all">Delete downloaded ROMs</string>
+  <string name="donate_dialog_title">Donate to us</string>
+  <string name="donate_dialog_message">MoKee OpenSource is a non-profit organization. Your help can help reduce our load on server costs and sustain future development!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_money_toast_error">The amount entered is incorrect!</string>
+  <string name="donate_money_toast_success">Thanks !</string>
+  <string name="donate_money_name">Donate us</string>
+  <string name="donate_money_description">Donate us</string>
   <string name="no_available_extras_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
   <string name="not_download_install_notice_with_xposed">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.\n\nWarning: We have detected that you have used Xposed module, which may modify system files. If the update fails, please download the full package to update the system.</string>
+  <string name="not_extras_download_failure">Extras download was unsuccessful</string>
   <string name="not_extras_download_install_notice">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \' Reboot and install \', the device will restart itself to install the extras. \n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
+  <string name="not_extras_download_install_notice_apk">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded.</string>
+  <string name="not_apk_action_install_update">Install</string>
+  <string name="confirm_delete_dialog_title">Delete file</string>
+  <string name="confirm_delete_updates_dialog_message">Delete the selected update file?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Delete all downloaded update files?</string>
+  <string name="confirm_delete_extras_dialog_message">Delete the selected extras file?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Do you want to delete all downloaded extras files?</string>
+  <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> was deleted</string>
+  <string name="delete_updates_failure_message">There was an error deleting the update file</string>
+  <string name="delete_updates_noFolder_message">Update folder not found</string>
+  <string name="delete_updates_success_message">All downloaded updates was deleted</string>
+  <string name="delete_extras_failure_message">ERROR!</string>
+  <string name="delete_extras_noFolder_message">Extras folder not found</string>
+  <string name="delete_extras_success_message">All downloaded extras deleted</string>
+  <string name="extension_label">Updater</string>
+  <string name="extension_description">Displays available updates</string>
+  <string name="pref_check_ota">OTA</string>
+  <string name="pref_check_ota_summary">Get OTA update</string>
+  <string name="apply_update_dialog_title">Apply update</string>
   <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>. \n\nIf you press Update, the device will restart itself in recovery mode to install the update. \n \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+  <string name="apply_extras_dialog_title">Install extra</string>
   <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id="filename">%s</xliff:g>?</string>
+  <string name="apply_unable_to_reboot_toast">Sorry,sir.unable to reboot into recovery</string>
+  <string name="extras_unsupported_toast">Your current version does not support this extension</string>
+  <string name="show_exp_on">You have enabled experimental settings!</string>
+  <string name="show_exp_already">No need, you have already enabled experimental settings.</string>
+  <string name="mokee_push_newversion_title">We found a new version of Moke OpenSource</string>
+  <string name="mokee_push_newversion_msg">A new version is ready, click to view details!</string>
 </resources>

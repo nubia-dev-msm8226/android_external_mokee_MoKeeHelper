@@ -17,13 +17,22 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title">MoKee Center</string>
   <string name="mokee_support_title">Hilfe &amp; Unterstützung</string>
+  <string name="mokee_updater_title">Updater</string>
+  <string name="mokee_extras_title">Extras</string>
   <string name="tips_help_title">Tipps &amp; Hilfe</string>
+  <string name="mokee_website_title">MoKee Webseite</string>
   <string name="mokee_website_summary">Besuchen Sie die offizielle Webseite</string>
+  <string name="mokee_forum_title">MoKee Forum</string>
   <string name="mokee_forum_summary">Besuchen Sie das MoKee-Forum</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Besuchen Sie den Bug-Tracker</string>
+  <string name="mokee_changelog_title">MoKee Changelog</string>
   <string name="mokee_changelog_summary">Schauen Sie sich die MoKee Änderungshistorie an</string>
+  <string name="mokee_build_status_title">MoKee Build Status</string>
   <string name="mokee_build_status_summary">Buildstatus anzeigen</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Besuchen Sie uns bei GitHub</string>
   <string name="mokee_translate_title">MoKee übersetzen</string>
   <string name="mokee_translate_summary">Helfen Sie MoKee zu übersetzen</string>
@@ -32,13 +41,16 @@
   <string name="mokee_donate_title">Spenden für MoKee</string>
   <string name="mokee_donate_summary">Bitte spenden Sie, um das MoKee Open Source Projekt zu unterstützen</string>
   <string name="mokee_version_info_title">Versionsinformation</string>
+  <string name="mokee_version_title">MoKee Version</string>
   <string name="mokee_version_type_title">Version-Typ</string>
   <string name="mokee_last_check_title">Zuletzt geprüft</string>
   <string name="mokee_last_check_never">Niemals</string>
   <string name="mokee_extras_info_title">Extras-Info</string>
   <string name="mokee_info_default">Unbekannt</string>
   <string name="mokee_version_type_release">Freigabe</string>
+  <string name="mokee_version_type_history">Versionsverlauf</string>
   <string name="mokee_version_type_experimental">Experimentell</string>
+  <string name="mokee_version_type_nightly">Nächtliche</string>
   <string name="mokee_version_type_unofficial">Inoffizielle</string>
   <string name="mokee_version_type_all">Alle</string>
   <string name="downloaded_update_summary"> Heruntergeladen</string>
@@ -49,11 +61,14 @@
   <string name="menu_delete_all">Download löschen</string>
   <string name="donate_dialog_title">Spenden an uns</string>
   <string name="donate_dialog_message">MoKee OpenSource ist eine gemeinnützige Organisation. Ihre Hilfe kann helfen, unsere Belastung der Server-Kosten zu verringern und zukünftige Entwicklung zu fördern!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Der Betrag ist falsch!</string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>
   <string name="donate_money_description">Spenden an MoKee OpenSource</string>
   <string name="unknown">Unbekannt</string>
+  <string name="dialog_update">Aktualisieren</string>
   <string name="dialog_install">Installieren</string>
   <string name="dialog_ok">Ok</string>
   <string name="dialog_cancel">Abbrechen</string>
@@ -120,6 +135,7 @@
   <string name="delete_extras_failure_message">Fehler beim Löschen der Update-Datei</string>
   <string name="delete_extras_noFolder_message">Ordner \"Extras\" nicht gefunden</string>
   <string name="delete_extras_success_message">Alle heruntergeladenen Extras gelöscht</string>
+  <string name="extension_label">MoKee Updater</string>
   <string name="extension_description">Zeigt verfügbare updates</string>
   <string name="pref_check_ota">OTA-Updates</string>
   <string name="pref_check_ota_summary">OTA-Updates erhalten</string>
@@ -131,4 +147,6 @@
   <string name="extras_unsupported_toast">Die aktuelle Version unterstützt dieser Erweiterung nicht</string>
   <string name="show_exp_on">Experimentelle Einstellungen aktiviert!</string>
   <string name="show_exp_already">Nicht nötig, experimentelle Einstellungen bereits aktiviert.</string>
+  <string name="mokee_push_newversion_title">Neue Version von MoKee OpenSource gefunden</string>
+  <string name="mokee_push_newversion_msg">Eine neue Version steht bereit, klicken Sie hier für Details.</string>
 </resources>
