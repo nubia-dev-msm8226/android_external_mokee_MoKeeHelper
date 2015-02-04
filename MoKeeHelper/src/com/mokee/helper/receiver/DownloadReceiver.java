@@ -94,8 +94,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     private void applyTriggerUpdate(Context context, String fileName, boolean isUpdate) {
         try {
-            StatusBarManager sb = (StatusBarManager) context
-                    .getSystemService(Context.STATUS_BAR_SERVICE);
+            StatusBarManager sb = (StatusBarManager) context.getSystemService(Context.STATUS_BAR_SERVICE);
             sb.collapsePanels();
             Utils.cancelNotification(context);
             Utils.triggerUpdate(context, fileName, isUpdate);

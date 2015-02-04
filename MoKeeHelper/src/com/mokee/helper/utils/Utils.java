@@ -40,7 +40,10 @@ import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
 
 import com.mokee.helper.R;
+import com.mokee.helper.db.DownLoadDao;
+import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.service.UpdateCheckService;
 
 public class Utils {
@@ -135,44 +138,6 @@ public class Utils {
         powerManager.reboot("recovery");
     }
 
-    public static void triggerUpdate(Context context, String updateFileName) throws IOException {
-        /*
-         * Should perform the following steps.
-         * 1.- mkdir -p /cache/recovery
-         * 2.- echo 'boot-recovery' > /cache/recovery/command
-         * 3.- if(mBackup) echo '--nandroid'  >> /cache/recovery/command
-         * 4.- echo '--update_package=SDCARD:update.zip' >> /cache/recovery/command
-         * 5.- reboot recovery
-         */
-
-        // Set the 'boot recovery' command
-        Process p = Runtime.getRuntime().exec("sh");
-        OutputStream os = p.getOutputStream();
-        os.write("mkdir -p /cache/recovery/\n".getBytes());
-        os.write("echo 'boot-recovery' >/cache/recovery/command\n".getBytes());
-
-        // See if backups are enabled and add the nandroid flag
-        /* TODO: add this back once we have a way of doing backups that is not recovery specific
-           if (mPrefs.getBoolean(Constants.BACKUP_PREF, true)) {
-           os.write("echo '--nandroid'  >> /cache/recovery/command\n".getBytes());
-           }
-           */
-
-        // Add the update folder/file name
-        // Emulated external storage moved to user-specific paths in 4.2
-        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId()) : "";
-
-        String cmd = "echo '--update_package=" + getStorageMountpoint(context) + userPath
-            + "/" + Constants.UPDATES_FOLDER + "/" + updateFileName
-            + "' >> /cache/recovery/command\n";
-        os.write(cmd.getBytes());
-        os.flush();
-
-        // Trigger the reboot
-        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        powerManager.reboot("recovery");
-    }
-
     private static String getStorageMountpoint(Context context) {
         StorageManager sm = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
         StorageVolume[] volumes = sm.getVolumeList();
@@ -232,8 +197,7 @@ public class Utils {
         am.cancel(pi);
 
         if (updateFrequency != Constants.UPDATE_FREQ_NONE) {
-            am.setRepeating(AlarmManager.RTC_WAKEUP, lastCheck + updateFrequency, updateFrequency,
-                    pi);
+            am.setRepeating(AlarmManager.RTC_WAKEUP, lastCheck + updateFrequency, updateFrequency, pi);
         }
     }
 
@@ -346,5 +310,35 @@ public class Utils {
                 // ignored, not much we can do anyway
             }
         }
+    }
+
+    /**
+     * 文件目录清理
+     */
+    public static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (String aChildren : children) {
+                boolean success = deleteDir(new File(dir, aChildren));
+                if (!success) {
+                    return false;
+                }
+            }
+        } else {
+            DownLoadInfo dli = null;
+            if (dir.getName().endsWith(".partial")) {
+                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName());
+            } else {
+                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName() + ".partial");
+            }
+            if (dli != null) {
+                ThreadDownLoadDao.getInstance().delete(dli.getUrl());
+                DownLoadDao.getInstance().delete(dli.getUrl());
+            }
+        }
+        // The directory is now empty so delete it
+        File newFile = new File(dir.getAbsolutePath() + System.currentTimeMillis());
+        dir.renameTo(newFile);
+        return newFile.delete();
     }
 }

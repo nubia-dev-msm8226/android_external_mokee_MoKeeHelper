@@ -128,11 +128,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     if (mProgressDialog != null) {
                         mProgressDialog.dismiss();
                         mProgressDialog = null;
-                        int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT,
-                                -1);
+                        int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
                         if (count == 0) {
-                            Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT)
-                                    .show();
+                            Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT).show();
                         } else if (count < 0) {
                             Toast.makeText(mContext, R.string.update_check_failed,
                                     Toast.LENGTH_LONG).show();
@@ -372,9 +370,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
             switch (status) {
                 case DownLoader.STATUS_PENDING:
+                case DownLoader.STATUS_PAUSED:
                     progressBar.setIndeterminate(true);
                     break;
-                case DownLoader.STATUS_PAUSED:
                 case DownLoader.STATUS_DOWNLOADING:
                     List<ThreadDownLoadInfo> threadList = ThreadDownLoadDao.getInstance()
                             .getThreadInfoList(dli.getUrl());
@@ -584,7 +582,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         boolean success;
         // mUpdateFolder: Foldername with fullpath of SDCARD
         if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()) {
-            deleteDir(mUpdateFolder);
+            Utils.deleteDir(mUpdateFolder);
             mUpdateFolder.mkdir();
             success = true;
             Toast.makeText(mContext, R.string.delete_updates_success_message, Toast.LENGTH_SHORT).show();
@@ -596,31 +594,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             Toast.makeText(mContext, R.string.delete_updates_failure_message, Toast.LENGTH_SHORT).show();
         }
         return success;
-    }
-
-    private static boolean deleteDir(File dir) {
-        if (dir.isDirectory()) {
-            String[] children = dir.list();
-            for (String aChildren : children) {
-                boolean success = deleteDir(new File(dir, aChildren));
-                if (!success) {
-                    return false;
-                }
-            }
-        } else {
-            DownLoadInfo dli = null;
-            if (dir.getName().endsWith(".partial")) {
-                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName());
-            } else {
-                dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName() + ".partial");
-            }
-            if (dli != null) {
-                ThreadDownLoadDao.getInstance().delete(dli.getUrl());
-                DownLoadDao.getInstance().delete(dli.getUrl());
-            }
-        }
-        // The directory is now empty so delete it
-        return dir.delete();
     }
 
     private void updateUpdatesType(int type) {
@@ -814,7 +787,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
-                            Utils.triggerUpdate(mContext, itemInfo.getFileName());
+                            Utils.triggerUpdate(mContext, itemInfo.getFileName(), true);
                         } catch (IOException e) {
                             Log.e(TAG, "Unable to reboot into recovery mode", e);
                             Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,

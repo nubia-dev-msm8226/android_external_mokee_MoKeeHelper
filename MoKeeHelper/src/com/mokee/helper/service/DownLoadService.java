@@ -104,7 +104,7 @@ public class DownLoadService extends NonStopIntentService {
                     DownLoadInfo loadInfo = downloader.getDownLoadInfo();
                     if (loadInfo != null) {
                         // 开始下载
-                        downloader.download();
+                        downloader.start();
                         if (!notifications.containsKey(downloader.getNotificationID())) {
                             addNotification(
                                     notificationIDBase,
@@ -121,6 +121,9 @@ public class DownLoadService extends NonStopIntentService {
                         manager.cancel(downloader.getNotificationID());
                         notifications.remove(downloader.getNotificationID());
                         downloaders.remove(url);
+                        if (downloaders.size() == 0) {
+                            stopSelf();
+                        }
                     }
                     break;
             }

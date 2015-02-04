@@ -203,7 +203,7 @@ public class DownLoader {
     /**
      * 准备分段下载
      */
-    public void download() {
+    public void start() {
         if (downInfoList != null) {
             if (state == STATUS_DOWNLOADING)
                 return;
@@ -337,15 +337,20 @@ public class DownLoader {
      * 判断线程是否全部完成
      */
     public synchronized void isOver() {
-        endThreadNum++;
-        System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
-                + ",fileSize=" + fileSize);
-        if (endThreadNum == threadCount && allDownSize == fileSize) {
-            sendMsg(STATUS_COMPLETE, fileUrl, 0);
-        }
-        else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
-            state = STATUS_ERROR;
-            sendMsg(STATUS_ERROR, fileUrl, 0);
+        if (state != STATUS_PAUSED) {
+            endThreadNum++;
+            System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
+                    + ",fileSize=" + fileSize);
+            if (endThreadNum == threadCount && allDownSize == fileSize) {
+                sendMsg(STATUS_COMPLETE, fileUrl, 0);
+            }
+            else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
+                state = STATUS_ERROR;
+                sendMsg(STATUS_ERROR, fileUrl, 0);
+            }
+        } else {
+            state = STATUS_DOWNLOADING;
+            sendMsg(STATUS_DOWNLOADING, fileUrl, 0);
         }
     }
 

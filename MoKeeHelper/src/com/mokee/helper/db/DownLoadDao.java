@@ -115,7 +115,7 @@ public class DownLoadDao {
         Cursor cursor = null;
         DownLoadInfo dli = null;
         try {
-            String sql = "select url,flag, local_file, file_name,file_size, state from download_info where down_id=?";
+            String sql = "select url, flag, local_file, file_name, file_size, state from download_info where down_id=?";
             cursor = database.rawQuery(sql, new String[] {
                     downID
             });
