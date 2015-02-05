@@ -17,6 +17,7 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title">MoKee Center</string>
   <string name="mokee_support_title">Supporto</string>
   <string name="mokee_updater_title">Aggiornamenti</string>
   <string name="mokee_extras_title">Extra</string>
@@ -34,7 +35,7 @@
   <string name="mokee_github_title">Github di MoKee</string>
   <string name="mokee_github_summary">Visita Github</string>
   <string name="mokee_translate_title">Traduzioni di MoKee</string>
-  <string name="mokee_translate_summary">Aiuta a tradurre MoKee in altre lingue!</string>
+  <string name="mokee_translate_summary">Aiuta a tradurre MoKee</string>
   <string name="mokee_wiki_title">Wiki di MoKee</string>
   <string name="mokee_wiki_summary">Vedi la wiki</string>
   <string name="mokee_donate_title">Dona a MoKee</string>
@@ -46,7 +47,11 @@
   <string name="mokee_last_check_never">Mai</string>
   <string name="mokee_extras_info_title">Extra Info</string>
   <string name="mokee_info_default">Sconosciuto</string>
+  <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Cronologia</string>
+  <string name="mokee_version_type_experimental">Sperimentale</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
+  <string name="mokee_version_type_unofficial">Non ufficiale</string>
   <string name="mokee_version_type_all">Tutte</string>
   <string name="downloaded_update_summary">Scaricato</string>
   <string name="installed_update_summary">Installato</string>
@@ -56,6 +61,8 @@
   <string name="menu_delete_all">Elimina download</string>
   <string name="donate_dialog_title">Dona e aiuta MoKee</string>
   <string name="donate_dialog_message">MoKee OpenSource è un\'organizzazione non-profit. Il vostro aiuto può aiutare a ridurre il nostro carico sui costi del server e sostenere lo sviluppo futuro!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">L\'importo inserito non è corretto!</string>
   <string name="donate_money_toast_success">Grazie per la tua donazione!</string>
   <string name="donate_money_name">Dona Mokee OpenSource</string>
@@ -63,6 +70,7 @@
   <string name="unknown">Sconosciuto</string>
   <string name="dialog_update">Aggiorna</string>
   <string name="dialog_install">Installa</string>
+  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Annulla</string>
   <string name="dialog_close">Chiudi</string>
   <string name="no_available_updates_intro">L\'ultimo controllo non ha trovato aggiornamenti disponibili. Per verificare manualmente nuovi aggiornamenti, usa il pulsante Aggiorna.</string>
@@ -78,6 +86,7 @@
   <string name="alert_title">Attenzione</string>
   <string name="update_type_title">Tipo di aggiornamento</string>
   <string name="no_changelog_alert">Nessun changelog disponibile</string>
+  <string name="changelog_dialog_title">Modifiche di Versione</string>
   <string name="loading_changelog">Caricamento\u2026</string>
   <string name="check_on_boot">Ad ogni riavvio</string>
   <string name="check_twice_daily">Due volte ogni giorno</string>
@@ -86,7 +95,7 @@
   <string name="check_weekly">Una volta alla settimana</string>
   <string name="check_bi_weekly">Una volta ogni due settimane</string>
   <string name="check_monthly">Una volta al mese</string>
-  <string name="checking_for_updates">Controllo aggiornamenti...</string>
+  <string name="checking_for_updates">Controllo aggiornamenti</string>
   <string name="no_updates_found">Nessun nuovo aggiornamento</string>
   <string name="checking_for_extras">Controllo per extra</string>
   <string name="no_extras_found">Nessun nuovo extra trovato</string>
@@ -122,10 +131,10 @@
   <string name="delete_single_update_success_message">Aggiornamento <xliff:g id="filename">%s</xliff:g> eliminato</string>
   <string name="delete_updates_failure_message">Errore durante la cancellazione dell\'aggiornamento</string>
   <string name="delete_updates_noFolder_message">Cartella degli aggiornamenti non trovata</string>
-  <string name="delete_updates_success_message">Aggiornamenti scaricati tutti cancellati</string>
+  <string name="delete_updates_success_message">Tutti gli aggiornamenti scaricati sono stati cancellati</string>
   <string name="delete_extras_failure_message">Errore ,file extra non cancellato</string>
   <string name="delete_extras_noFolder_message">Cartella Extras non trovata</string>
-  <string name="delete_extras_success_message">eliminati extra scaricati</string>
+  <string name="delete_extras_success_message">Tutti gli extra scaricati sono stati eliminati </string>
   <string name="extension_label">MoKee Controllo aggiornamenti</string>
   <string name="extension_description">Mostra aggiornamenti disponibili</string>
   <string name="pref_check_ota">Aggiornamenti OTA</string>
@@ -138,4 +147,6 @@
   <string name="extras_unsupported_toast">La versione attuale non supporta questa estensione</string>
   <string name="show_exp_on">Funzioni sperimentali attivate!</string>
   <string name="show_exp_already">Non c\'è bisogno, le funzioni sperimentali sono già attivate</string>
+  <string name="mokee_push_newversion_title">Trovata una nuova versione di MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Una nuova versione è pronta, tocca per visualizzare i dettagli!</string>
 </resources>

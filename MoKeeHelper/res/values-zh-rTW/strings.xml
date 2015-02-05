@@ -97,12 +97,17 @@
   <string name="check_monthly">每月一次</string>
   <string name="checking_for_updates">檢查更新</string>
   <string name="no_updates_found">沒有找到新的更新</string>
+  <string name="checking_for_extras">找尋附加選項中</string>
+  <string name="no_extras_found">沒有新的附加選項</string>
   <string name="not_new_updates_found_ticker">有新的更新</string>
   <string name="not_new_updates_found_title">新的更新</string>
   <string name="update_check_failed">更新檢查失敗。請檢查您的網際網路連線並稍後重試。</string>
   <string name="not_action_download">下載</string>
   <string name="data_connection_required">請開啟您的網際網路連線。</string>
   <string name="confirm_download_cancelation_dialog_title">取消下載</string>
+  <string name="confirm_download_cancelation_dialog_message">取消下載？</string>
+  <string name="download_remaining">剩下<xliff:g id="duration"example="3 minutes">%s </xliff:g></string>
+  <string name="download_running">處理中</string>
   <string name="download_cancelled">下載已取消</string>
   <string name="download_already_running">下載已經正在執行</string>
   <string name="unable_to_download_file">無法下載更新檔案</string>
@@ -110,8 +115,28 @@
   <string name="not_download_success">更新已成功下載</string>
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
+  <string name="not_download_install_notice">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
+  <string name="not_download_install_notice_with_xposed">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註：您必須有一個適用的Recovery才能順利的安裝更新。\n\n警告：我們偵測到您在使用Xposed模組，如果此更新安裝失敗，請下載並安裝完整的安裝包。</string>
+  <string name="md5_verification_failed">MD5 checksum mismatch</string>
+  <string name="not_extras_download_success">附加選項下載完成</string>
+  <string name="not_extras_download_failure">附加選項下載失敗</string>
+  <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
+  <string name="not_extras_download_install_notice_apk">附加選項 <xliff:g id="filename">%s</xliff:g> 已下載完成</string>
   <string name="not_apk_action_install_update">安裝</string>
+  <string name="confirm_delete_dialog_title">刪除檔案</string>
+  <string name="confirm_delete_updates_dialog_message">您確定要刪除此更新檔？</string>
+  <string name="confirm_delete_updates_all_dialog_message">您確定要刪除所有已下載的更新檔？</string>
+  <string name="confirm_delete_extras_dialog_message">您確定要刪除已選取的附加選項？</string>
+  <string name="confirm_delete_extras_all_dialog_message">您確定要刪除所有附加選項？</string>
+  <string name="delete_single_update_success_message">更新 <xliff:g id="filename">%s</xliff:g> 已刪除</string>
+  <string name="delete_updates_failure_message">刪除更新檔案時出現錯誤</string>
+  <string name="delete_updates_noFolder_message">未找到更新檔所在的資料夾</string>
+  <string name="delete_updates_success_message">所有已下載的更新檔已刪除</string>
+  <string name="delete_extras_failure_message">刪除附加選項時出現錯誤</string>
+  <string name="delete_extras_noFolder_message">找不到附加選項所在的資料夾</string>
+  <string name="delete_extras_success_message">所有下載的附加選項已刪除</string>
   <string name="extension_label">MoKee 更新器</string>
+  <string name="extension_description">顯示可用更新</string>
   <string name="pref_check_ota">OTA 更新</string>
   <string name="pref_check_ota_summary">獲取 OTA 更新</string>
   <string name="apply_update_dialog_title">應用更新</string>
@@ -122,4 +147,6 @@
   <string name="extras_unsupported_toast">您的當前版本不支援此副檔名</string>
   <string name="show_exp_on">您已啟用實驗設置 ！</string>
   <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
+  <string name="mokee_push_newversion_title">找到一個新的Mokee OpenSource版本</string>
+  <string name="mokee_push_newversion_msg">已有更新版本，點選察看詳細內容！</string>
 </resources>

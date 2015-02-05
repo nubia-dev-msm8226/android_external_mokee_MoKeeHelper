@@ -17,7 +17,7 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="mokee_center_title">مركز موكي</string>
+  <string name="mokee_center_title">مركز مكي</string>
   <string name="mokee_support_title">الدعم الفني</string>
   <string name="mokee_updater_title">التحديث</string>
   <string name="mokee_extras_title">الإضافات</string>
@@ -62,6 +62,7 @@
   <string name="donate_dialog_title">تبرع لنا</string>
   <string name="donate_dialog_message">موكي مفتوح المصدر مشروع غير ربحي. مساعدتكم يمكن أن تساعد في تقليل التكاليف والحمل على السيرفر ومواصلة التطوير في المستقبل!</string>
   <string name="donate_dialog_via_paypal">باي بال</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">مبلغ الذي تم إدخاله غير صحيح!</string>
   <string name="donate_money_toast_success">شكراً لتبرعك!</string>
   <string name="donate_money_name">تبرع لمشروع موكي مفتوح المصدر</string>
@@ -147,4 +148,6 @@
   <string name="extras_unsupported_toast">لا يدعم الإصدار الحالي لديك هذه الإضافة</string>
   <string name="show_exp_on">لقد قمت بتفعيل الإعدادات الاختبارية!</string>
   <string name="show_exp_already">لا داعي، لقد قمت بالفعل بتفعيل الإعدادات الاختبارية.</string>
+  <string name="mokee_push_newversion_title">العثور على نسخة جديدة من موكي مفتوحة المصدر</string>
+  <string name="mokee_push_newversion_msg">إصدار جديد جاهز ، انقر لعرض تفاصيل!</string>
 </resources>
