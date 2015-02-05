@@ -124,8 +124,7 @@ public class Utils {
 
         // Add the update folder/file name
         // Emulated external storage moved to user-specific paths in 4.2
-        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId())
-                : "";
+        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId()) : "";
 
         String cmd = "echo '--update_package=" + getStorageMountpoint(context) + userPath + "/"
                 + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
