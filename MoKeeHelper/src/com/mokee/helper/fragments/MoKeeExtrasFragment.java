@@ -190,7 +190,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             if (dli == null) {
                 // DownloadReceiver has likely already removed the download
                 // from the DB due to failure or MD5 mismatch
-                status = DownLoader.STATUS_ERROR;
+                status = DownLoader.STATUS_PENDING;
             } else {
                 status = dli.getState();
             }
@@ -495,8 +495,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
         intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
-
-        //mUpdateHandler.post(mUpdateProgress);
     }
 
     @Override

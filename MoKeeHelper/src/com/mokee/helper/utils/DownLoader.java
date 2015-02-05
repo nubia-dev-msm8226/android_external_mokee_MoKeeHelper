@@ -267,13 +267,14 @@ public class DownLoader {
                         allDownSize += length;
                         // 线程更新进度
                         ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
+                        if (state == STATUS_PAUSED || state == STATUS_DELETE
+                                || state == STATUS_ERROR) {
+                            interrupt();
+                            break;
+                        }
                         if (i == 5) {
                             sendMsg(STATUS_DOWNLOADING, fileUrl, length);
                             i = 0;
-                        }
-                        if (state == STATUS_PAUSED || state == STATUS_DELETE
-                                || state == STATUS_ERROR) {
-                            break;
                         }
                     }
                     isOver();
@@ -289,6 +290,7 @@ public class DownLoader {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    interrupt();
                 }
             } else {
                 isOver();
