@@ -39,7 +39,7 @@
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Переглянути MoKee Wiki</string>
   <string name="mokee_donate_title">Пожертвувати на MoKee</string>
-  <string name="mokee_donate_summary">Будь ласка, підтримайте MoKee OpenSource</string>
+  <string name="mokee_donate_summary">Будь ласка, підтримайте MoKee OpenSource грошенятами</string>
   <string name="mokee_version_info_title">Інформація про версію</string>
   <string name="mokee_version_title">Версія MoKee</string>
   <string name="mokee_version_type_title">Тип версії</string>
@@ -48,7 +48,7 @@
   <string name="mokee_extras_info_title">Інформація про доповнення</string>
   <string name="mokee_info_default">Невідомо</string>
   <string name="mokee_version_type_release">Реліз</string>
-  <string name="mokee_version_type_history">Історія</string>
+  <string name="mokee_version_type_history">Спадщина</string>
   <string name="mokee_version_type_experimental">Експериментальна</string>
   <string name="mokee_version_type_nightly">Нічна</string>
   <string name="mokee_version_type_unofficial">Неофіційна</string>
@@ -59,7 +59,7 @@
   <string name="menu_donate">Пожертвувати</string>
   <string name="menu_refresh">Оновити</string>
   <string name="menu_delete_all">Видалити завантажене</string>
-  <string name="donate_dialog_title">Подякуйте нам</string>
+  <string name="donate_dialog_title">Пожертвувати нам</string>
   <string name="donate_dialog_message">MoKee OpenSource є некомерційною організацією. Ваша допомога може допомогти зменшити наше навантаження на сервер, витрати і підтримувати подальший розвиток!</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
@@ -74,18 +74,18 @@
   <string name="dialog_cancel">Скасувати</string>
   <string name="dialog_close">Закрити</string>
   <string name="no_available_updates_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оонвлень вручну, натисніть кнопку \"Оновити\".</string>
-  <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оновлень вручну, натисніть кнопку \"Оновити\".</string>
+  <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність нових доповнень вручну, натисніть кнопку \"Оновити\".</string>
   <string name="new_update_summary">Новий</string>
   <string name="old_update_summary">Старий</string>
-  <string name="update_check_title">Перевірити інтервал оновлень</string>
+  <string name="update_check_title">Інтервал перевірки оновлень</string>
   <string name="check_manual">Вручну</string>
   <string name="nightly_alert">Ви обрали нічні (nightly) оновлення в цьому списку. Вони не є стабільними і ви повинні використовувати їх з обережністю.</string>
-  <string name="experimenter_alert">Включно вибрані експериментальні оновлення в цьому списку. Вони не підтримуються і призначені  тільки для тестування, тому користовуватися потрібно з обережністю.</string>
-  <string name="unofficial_alert">Вибрані включити неофіційних оновлень в цьому списку. Майте на увазі, що ці підтримує пристрій супроводжуючого.</string>
-  <string name="all_alert">Вибрано для включення всіх оновлень (реліз, експериментальний) в цьому списку. Зверніть увагу, що нічні оновлень не підтримуються і слід використовувати з обачністю.</string>
+  <string name="experimenter_alert">Ви обралиі експериментальні оновлення в цьому списку. Вони не підтримуються і призначені  тільки для тестування, тому користовуватися потрібно з обережністю.</string>
+  <string name="unofficial_alert">Ви обрали неофіційні оновлення в цьому списку. Майте на увазі, що вони підтримуються тільки людиною, котра їх зробила.</string>
+  <string name="all_alert">Ви обрали всі оновлення (реліз, експериментальний) в цьому списку. Зверніть увагу, що нічні оновлення не підтримуються і слід використовувати іх з обачністю.</string>
   <string name="alert_title">Увага</string>
   <string name="update_type_title">Тип оновлення</string>
-  <string name="no_changelog_alert">Список змін недоступний</string>
+  <string name="no_changelog_alert">Історія змін недоступна</string>
   <string name="changelog_dialog_title">Історія змін</string>
   <string name="loading_changelog">Завантаження\u2026</string>
   <string name="check_on_boot">Після кожного перезавантаження</string>
@@ -106,7 +106,7 @@
   <string name="data_connection_required">Необхідне з\'єднання з Інтернетом.</string>
   <string name="confirm_download_cancelation_dialog_title">Скасувати завантаження</string>
   <string name="confirm_download_cancelation_dialog_message">Скасувати поточне завантаження?</string>
-  <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> ліворуч</string>
+  <string name="download_remaining">Залишилось <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <string name="download_running">У процесі</string>
   <string name="download_cancelled">Завантаження скасоване</string>
   <string name="download_already_running">Завантаження вже відбувається</string>
@@ -115,12 +115,12 @@
   <string name="not_download_success">Оновлення успішно завантажено</string>
   <string name="not_download_failure">Не вдалося завантажити оновлення</string>
   <string name="not_action_install_update">Перезавантажити та встановити</string>
-  <string name="not_download_install_notice">Оновлення  <xliff:g id="filename">%s</xliff:g> було успішно завантажено. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, для автоматичного встановлення  необхідне сумісне Recovery.</string>
-  <string name="not_download_install_notice_with_xposed">Оновлення <xliff:g id="filename"> %s </xliff:g> успішно завантажено. Якщо Ви натиснете \'Перезавантажити та встановити\', пристрій буде перезавантажений, щоб встановити оновлення.\n\nПримітка: сумісні для автоматичного встановлення потрібне сумісне рековері.\n\nУвага：Виявлено модуль Xposed, котрий модифікує системні файли. Якщо оновлення невдалось, будь ласка скачайте повний пакет оновлення системи.</string>
+  <string name="not_download_install_notice">Оновлення  <xliff:g id="filename">%s</xliff:g> було успішно завантажено. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, що для автоматичного встановлення  необхідне сумісне Recovery.</string>
+  <string name="not_download_install_notice_with_xposed">Оновлення <xliff:g id="filename"> %s </xliff:g> успішно завантажено. Якщо Ви натиснете \'Перезавантажити та встановити\', пристрій буде перезавантажений, щоб встановити оновлення.\n\nПримітка: для автоматичного встановлення потрібне сумісне Recovery.\n\nУвага：Виявлено модуль Xposed, котрий модифікує системні файли. Якщо оновлення невдалось, будь ласка скачайте повний пакет оновлення системи.</string>
   <string name="md5_verification_failed">Помилка контрольної суми MD5</string>
   <string name="not_extras_download_success">Додаткові функції успішно завантажено</string>
   <string name="not_extras_download_failure">Не вдалося завантажити додаткові функції </string>
-  <string name="not_extras_download_install_notice">Оновлення  <xliff:g id="filename">%s</xliff:g> було успішно завантажено. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, для автоматичного встановлення  необхідне сумісне Recovery.</string>
+  <string name="not_extras_download_install_notice">Додаток <xliff:g id="filename">%s</xliff:g> був успішно завантажен. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, що для автоматичного встановлення  необхідне сумісне Recovery.</string>
   <string name="not_extras_download_install_notice_apk">Додаткові функції <xliff:g id="filename"> %s </xliff:g> успішно завантажено.</string>
   <string name="not_apk_action_install_update">Встановити</string>
   <string name="confirm_delete_dialog_title">Видалити файл</string>
@@ -129,24 +129,24 @@
   <string name="confirm_delete_extras_dialog_message">Видалити вибрані  файли додаткових функцій ?</string>
   <string name="confirm_delete_extras_all_dialog_message">Видалити всі файли завантажені додатки?</string>
   <string name="delete_single_update_success_message">Оновлення <xliff:g id="filename">%s</xliff:g> видалено</string>
-  <string name="delete_updates_failure_message">Сталась помилка при видаленні файлу оновлення</string>
+  <string name="delete_updates_failure_message">Виникла помилка при видаленні файлу оновлення</string>
   <string name="delete_updates_noFolder_message">Каталог з оновленнями не знайдено</string>
   <string name="delete_updates_success_message">Всі завантажені оновлення видалені</string>
   <string name="delete_extras_failure_message">Помилка видалення файлу додаткових послуг</string>
-  <string name="delete_extras_noFolder_message">Допоміжні елементи папки не знайдено</string>
+  <string name="delete_extras_noFolder_message">Каталог додатків не знайдено</string>
   <string name="delete_extras_success_message">Всі завантажені Допоміжні елементи видалені</string>
-  <string name="extension_label">MoKee оновлювач</string>
-  <string name="extension_description">Відобразити наявність оновлень</string>
+  <string name="extension_label">Оновлювач MoKee</string>
+  <string name="extension_description">Відобразити наявні оновлення</string>
   <string name="pref_check_ota">OTA оновлення</string>
-  <string name="pref_check_ota_summary">Отримати OTA оновлення</string>
+  <string name="pref_check_ota_summary">Отримувати OTA оновлення</string>
   <string name="apply_update_dialog_title">Застосувати оновлення</string>
-  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, ця функція вимагає сумісний режим Recovery, інакше відновлення доведеться встановити вручну.</string>
-  <string name="apply_extras_dialog_title">Встановити додатковi</string>
+  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery.інакше оновлення доведеться встановити вручну.</string>
+  <string name="apply_extras_dialog_title">Встановити додаток</string>
   <string name="apply_extras_dialog_text">Ви дійсно бажаєте установити <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Неможливо перезавантажитись у Recovery</string>
   <string name="extras_unsupported_toast">Поточна версія не підтримує це розширення</string>
   <string name="show_exp_on">Експериментальні установки активовано!</string>
   <string name="show_exp_already">Немає необхідності, експериментальні установки вже активовані.</string>
   <string name="mokee_push_newversion_title">Знайдена нова версія MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Нова версія готова, натисніть для перегляду подробиць!</string>
+  <string name="mokee_push_newversion_msg">Нова версія готова, натисніть, щоб переглянути подробиці!</string>
 </resources>
