@@ -103,7 +103,6 @@
   <string name="download_cancelled">Téléchargement annulé</string>
   <string name="download_already_running">Un téléchargement est déjà en cours</string>
   <string name="unable_to_download_file">Impossible de télécharger le fichier de mise à jour</string>
-  <string name="download_not_found">Téléchargement introuvable</string>
   <string name="not_download_success">Mise à jour téléchargée avec succès</string>
   <string name="not_download_failure">Le téléchargement de la mise à jour a échoué</string>
   <string name="not_action_install_update">Redémarrer et installer</string>

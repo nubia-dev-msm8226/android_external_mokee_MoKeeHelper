@@ -111,7 +111,6 @@
   <string name="download_cancelled">Download abgebrochen</string>
   <string name="download_already_running">Es ist bereits ein Download aktiv</string>
   <string name="unable_to_download_file">Update konnte nicht heruntergeladen werden</string>
-  <string name="download_not_found">Download nicht gefunden</string>
   <string name="not_download_success">Update erfolgreich heruntergeladen</string>
   <string name="not_download_failure">Update-Download fehlgeschlagen</string>
   <string name="not_action_install_update">Neu starten und installieren</string>

@@ -112,7 +112,6 @@
   <string name="download_cancelled">İndirme iptal edildi</string>
   <string name="download_already_running">Halihazırda bir indirme mevcut</string>
   <string name="unable_to_download_file">Güncelleme dosyası indirilemiyor</string>
-  <string name="download_not_found">İndirme bulunamadı</string>
   <string name="not_download_success">Güncelleme başarıyla indirildi</string>
   <string name="not_download_failure">Güncelleme indirme başarısız oldu</string>
   <string name="not_action_install_update">Yeniden başlat ve yükle</string>

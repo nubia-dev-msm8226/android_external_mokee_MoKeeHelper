@@ -111,7 +111,6 @@
   <string name="download_cancelled">Загрузка отменена</string>
   <string name="download_already_running">Загрузка уже выполняется</string>
   <string name="unable_to_download_file">Невозможно загрузить файл обновления</string>
-  <string name="download_not_found">Загрузка не найдена</string>
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>

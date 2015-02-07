@@ -111,7 +111,6 @@
   <string name="download_cancelled">Stahování zrušeno</string>
   <string name="download_already_running">Stahování již běží</string>
   <string name="unable_to_download_file">Nelze stáhnout soubor aktualizace</string>
-  <string name="download_not_found">Soubor pro stažení nenalezen</string>
   <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>

@@ -111,7 +111,6 @@
   <string name="download_cancelled">Download annullato</string>
   <string name="download_already_running">Un download è già in corso</string>
   <string name="unable_to_download_file">Impossibile effettuare il download dell\'aggiornamento</string>
-  <string name="download_not_found">Download non trovato</string>
   <string name="not_download_success">Aggiornamento scaricato con successo</string>
   <string name="not_download_failure">Download dell\'aggiornamento fallito</string>
   <string name="not_action_install_update">Riavvia e installa</string>

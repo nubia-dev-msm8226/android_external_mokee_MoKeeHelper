@@ -106,7 +106,6 @@
   <string name="download_cancelled">Η λήψη ακυρώθηκε</string>
   <string name="download_already_running">Μια λήψη εκτελείται ήδη</string>
   <string name="unable_to_download_file">Δεν είναι δυνατή η λήψη της ενημέρωσης</string>
-  <string name="download_not_found">Η λήψη δεν βρέθηκε</string>
   <string name="not_download_success">Η λήψη της ενημέρωσης ολοκληρώθηκε με επιτυχία</string>
   <string name="not_download_failure">Η λήψη της ενημέρωσης ήταν ανεπιτυχής</string>
   <string name="not_action_install_update">Επανεκκίνηση και εγκατάσταση</string>

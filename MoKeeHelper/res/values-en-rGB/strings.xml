@@ -111,7 +111,6 @@
   <string name="download_cancelled">Download cancelled</string>
   <string name="download_already_running">A download is already running</string>
   <string name="unable_to_download_file">Unable to download the update file</string>
-  <string name="download_not_found">Download not found</string>
   <string name="not_download_success">Update downloaded successfully</string>
   <string name="not_download_failure">Update download was unsuccessful</string>
   <string name="not_action_install_update">Reboot and install</string>

@@ -105,7 +105,6 @@
   <string name="download_cancelled">Преузимање je отказано</string>
   <string name="download_already_running">Преузимање је већ покренуто</string>
   <string name="unable_to_download_file">Не може да се преузме фајл за ажурирање</string>
-  <string name="download_not_found">Преузимање није пронађено</string>
   <string name="not_download_success">Ажурирање је успешно преузето</string>
   <string name="not_download_failure">Ажурирање није успешно преузето</string>
   <string name="not_action_install_update">Рестартуј и инсталирај</string>

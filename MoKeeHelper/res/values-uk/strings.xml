@@ -111,7 +111,6 @@
   <string name="download_cancelled">Завантаження скасоване</string>
   <string name="download_already_running">Завантаження вже відбувається</string>
   <string name="unable_to_download_file">Не вдалось завантажити файл оновлення</string>
-  <string name="download_not_found">Оновлення не знайдено</string>
   <string name="not_download_success">Оновлення успішно завантажено</string>
   <string name="not_download_failure">Не вдалося завантажити оновлення</string>
   <string name="not_action_install_update">Перезавантажити та встановити</string>

@@ -111,7 +111,6 @@
   <string name="download_cancelled">下载已取消</string>
   <string name="download_already_running">已有一个正在运行的下载</string>
   <string name="unable_to_download_file">无法下载更新</string>
-  <string name="download_not_found">未找到下载</string>
   <string name="not_download_success">更新已成功下载</string>
   <string name="not_download_failure">下载更新失败</string>
   <string name="not_action_install_update">重启并安装</string>

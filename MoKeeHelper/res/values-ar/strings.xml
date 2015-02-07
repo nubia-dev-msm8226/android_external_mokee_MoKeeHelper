@@ -111,7 +111,6 @@
   <string name="download_cancelled">تم إلغاء التنزيل</string>
   <string name="download_already_running">بالفعل جار التنزيل</string>
   <string name="unable_to_download_file">غير قادر على تنزيل ملف التحديث</string>
-  <string name="download_not_found">لم يتم العثور على التنزيل</string>
   <string name="not_download_success">تم تنزيل التحديث بنجاح</string>
   <string name="not_download_failure">فشل تنزيل التحديث</string>
   <string name="not_action_install_update">إعادة التشغيل والتثبيت</string>
