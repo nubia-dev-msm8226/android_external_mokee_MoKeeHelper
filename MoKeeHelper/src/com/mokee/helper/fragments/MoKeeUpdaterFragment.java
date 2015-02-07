@@ -97,7 +97,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     public static final String EXPERIMENTAL_SHOW = "experimental_show";
     private static final int TAPS_TO_BE_A_EXPERIMENTER = 7;
-    private long[] mHits = new long [3];
     private int mExpHitCountdown;
     private Toast mExpHitToast;
 
