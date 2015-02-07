@@ -195,12 +195,10 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             }
             switch (status) {
                 case DownLoader.STATUS_PENDING:
-                case DownLoader.STATUS_PAUSED:
                     progressBar.setIndeterminate(true);
                     break;
                 case DownLoader.STATUS_DOWNLOADING:
-                    List<ThreadDownLoadInfo> threadList = ThreadDownLoadDao.getInstance()
-                            .getThreadInfoList(dli.getUrl());
+                    List<ThreadDownLoadInfo> threadList = ThreadDownLoadDao.getInstance().getThreadInfoList(dli.getUrl());
                     int totalBytes = -1;
                     int downloadedBytes = 0;
                     for (ThreadDownLoadInfo info : threadList) {
@@ -217,6 +215,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     }
                     break;
                 case DownLoader.STATUS_ERROR:
+                case DownLoader.STATUS_PAUSED:
                     mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
                     resetDownloadState();
                     break;
@@ -424,9 +423,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         mDownloadId = mPrefs.getLong(DownLoadService.DOWNLOAD_EXTRAS_ID, -1);
         if (mDownloadId >= 0) {
             DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(String.valueOf(mDownloadId));
-            if (dli == null) {
-                Toast.makeText(mContext, R.string.download_not_found, Toast.LENGTH_LONG).show();
-            } else {
+            if (dli != null) {
                 int status = dli.getState();
                 if (status == DownLoader.STATUS_PENDING
                         || status == DownLoader.STATUS_DOWNLOADING
@@ -528,10 +525,6 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         intent.putExtra(DownLoadService.DOWNLOAD_URL, mPrefs.getString(DownLoadService.DOWNLOAD_EXTRAS_URL, ""));
 
         MoKeeApplication.getContext().startServiceAsUser(intent, UserHandle.CURRENT);
-
-        // Clear the stored data from shared preferences
-        mPrefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
-                .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
     }
 
     @Override
@@ -594,11 +587,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             String message = getString(R.string.delete_single_update_success_message, fileName);
             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
         } else if (!mExtrasFolder.exists()) {
-            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_extras_noFolder_message, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_extras_failure_message, Toast.LENGTH_SHORT).show();
         }
 
         // Update the list

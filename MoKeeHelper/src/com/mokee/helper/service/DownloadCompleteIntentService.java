@@ -96,9 +96,10 @@ public class DownloadCompleteIntentService extends IntentService {
             //delete info
             DownLoadDao.getInstance().delete(dli.getUrl());
             ThreadDownLoadDao.getInstance().delete(dli.getUrl());
-        } else if (status == DownLoader.STATUS_ERROR) {
+        } else if (status == DownLoader.STATUS_ERROR || status == DownLoader.STATUS_DELETE) {
             // The download failed, reset
             displayErrorResult(updateIntent, R.string.unable_to_download_file);
+            DownLoadDao.getInstance().updataState(dli.getUrl(), DownLoader.STATUS_PAUSED);
         }
     }
 

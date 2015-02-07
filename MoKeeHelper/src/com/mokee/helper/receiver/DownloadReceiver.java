@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.UserHandle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.DownloadCompleteIntentService;
+import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.Utils;
 
 public class DownloadReceiver extends BroadcastReceiver {
@@ -60,6 +62,14 @@ public class DownloadReceiver extends BroadcastReceiver {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
             handleStartDownload(context, prefs, ui, flag);
         } else if (Intent.ACTION_SHUTDOWN.equals(action)) {
+            String downloadUrl = prefs.getString(DownLoadService.DOWNLOAD_URL, "");
+            if (!TextUtils.isEmpty(downloadUrl)) {
+                DownLoadDao.getInstance().updataState(downloadUrl, DownLoader.STATUS_PAUSED);
+            }
+            String downloadExtrasUrl = prefs.getString(DownLoadService.DOWNLOAD_EXTRAS_URL, "");
+            if (!TextUtils.isEmpty(downloadExtrasUrl)) {
+                DownLoadDao.getInstance().updataState(downloadExtrasUrl, DownLoader.STATUS_PAUSED);
+            }
             prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
                     .remove(DownLoadService.DOWNLOAD_URL).remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
                     .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5).remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
@@ -77,16 +87,14 @@ public class DownloadReceiver extends BroadcastReceiver {
                     applyTriggerUpdate(context, fileName, false);
                 } else if (fileName.endsWith(".apk")) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setDataAndType(
-                            Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath() + "/"
-                                    + fileName), "application/vnd.android.package-archive");
+                    i.setDataAndType(Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath() + "/"
+                            + fileName), "application/vnd.android.package-archive");
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     MoKeeApplication.getContext().startActivity(i);
                     Utils.cancelNotification(context);
                 } else {
                     Toast.makeText(MoKeeApplication.getContext(),
-                            R.string.extras_unsupported_toast, Toast.LENGTH_SHORT)
-                            .show();
+                            R.string.extras_unsupported_toast, Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -106,6 +114,7 @@ public class DownloadReceiver extends BroadcastReceiver {
     }
 
     private void handleStartDownload(Context context, SharedPreferences prefs, ItemInfo ui, int flag) {
+
         // If directory doesn't exist, create it
         File directory;
         if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
@@ -133,9 +142,16 @@ public class DownloadReceiver extends BroadcastReceiver {
             downloadId = System.currentTimeMillis();
         }
 
+        if (DownLoadDao.getInstance().isHasInfos(ui.getDownloadUrl())) {
+            DownLoadDao.getInstance().updataState(ui.getDownloadUrl(), DownLoader.STATUS_PENDING);
+        }
+        Intent intentBroadcast = new Intent(ACTION_DOWNLOAD_STARTED);
+        intentBroadcast.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
+        intentBroadcast.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
+        context.sendBroadcastAsUser(intentBroadcast, UserHandle.CURRENT);
+
         // Store in shared preferences
-        if (flag == Constants.INTENT_FLAG_GET_UPDATE)// 区分扩展&更新
-        {
+        if (flag == Constants.INTENT_FLAG_GET_UPDATE) {// 区分扩展&更新
             prefs.edit().putLong(DownLoadService.DOWNLOAD_ID, downloadId)
                     .putString(DownLoadService.DOWNLOAD_MD5, ui.getMd5Sum())
                     .putString(DownLoadService.DOWNLOAD_URL, ui.getDownloadUrl()).apply();
@@ -153,11 +169,6 @@ public class DownloadReceiver extends BroadcastReceiver {
         intentService.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
         MoKeeApplication.getContext().startServiceAsUser(intentService, UserHandle.CURRENT);
         Utils.cancelNotification(context);
-
-        Intent intentBroadcast = new Intent(ACTION_DOWNLOAD_STARTED);
-        intentBroadcast.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
-        intentBroadcast.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
-        context.sendBroadcastAsUser(intentBroadcast, UserHandle.CURRENT);
     }
 
     private void handleDownloadComplete(Context context, SharedPreferences prefs, long id, int flag) {

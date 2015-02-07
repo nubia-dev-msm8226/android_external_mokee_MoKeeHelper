@@ -23,11 +23,13 @@ import java.util.Map;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
 import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
@@ -64,8 +66,9 @@ public class DownLoadService extends NonStopIntentService {
 
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
     private static Map<Integer, NotificationCompat.Builder> notifications = new HashMap<Integer, NotificationCompat.Builder>();// 通知队列
-    private static int notificationIDBase = Constants.INTENT_FLAG_GET_UPDATE;
+    private static int notificationID = Constants.INTENT_FLAG_GET_UPDATE;
     private NotificationManager manager;
+    private SharedPreferences mPrefs;
 
     @Override
     public void onCreate() {
@@ -84,7 +87,7 @@ public class DownLoadService extends NonStopIntentService {
             DownLoader downloader = null;
             switch (type) {
                 case ADD:
-                    notificationIDBase = flag;
+                    notificationID = flag;
                     downloader = downloaders.get(url);
                     if (downloader == null) {
                         downloader = new DownLoader(url, filePath, handler,
@@ -106,11 +109,9 @@ public class DownLoadService extends NonStopIntentService {
                         // 开始下载
                         downloader.start();
                         if (!notifications.containsKey(downloader.getNotificationID())) {
-                            addNotification(
-                                    notificationIDBase,
-                                    flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.mokee_updater_title
+                            addNotification(notificationID, flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.mokee_updater_title
                                             : R.string.mokee_extras_title, flag);
-                            downloader.setNotificationID(notificationIDBase);
+                            downloader.setNotificationID(notificationID);
                         }
                     }
                     break;
@@ -118,12 +119,19 @@ public class DownLoadService extends NonStopIntentService {
                     downloader = downloaders.get(url);
                     if (downloader != null) {
                         downloader.pause();
-                        manager.cancel(downloader.getNotificationID());
-                        notifications.remove(downloader.getNotificationID());
                         downloaders.remove(url);
                         if (downloaders.size() == 0) {
                             stopSelf();
                         }
+                    }
+                    // Clear the stored data from shared preferences
+                    mPrefs = getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+                    if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
+                        mPrefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
+                            .remove(DownLoadService.DOWNLOAD_URL).apply();
+                    } else {
+                        mPrefs.edit().remove(DownLoadService.DOWNLOAD_EXTRAS_ID).remove(DownLoadService.DOWNLOAD_EXTRAS_MD5)
+                            .remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
                     }
                     break;
             }
@@ -202,10 +210,8 @@ public class DownLoadService extends NonStopIntentService {
                                 }
                             }
                             if (di.allDownSize > 0 && di.getFileSize() > 0) {
-                                updateNotification(
-                                        msg.arg2,
-                                        Integer.valueOf(String.valueOf(di.allDownSize * 100
-                                                / di.getFileSize())), time);
+                                updateNotification(msg.arg2, Integer.valueOf(String.valueOf(di.allDownSize * 100
+                                        / di.getFileSize())), time);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -259,5 +265,12 @@ public class DownLoadService extends NonStopIntentService {
             return false;
         }
     });
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        manager.cancel(notificationID);
+        notifications.remove(notificationID);
+    }
 
 }

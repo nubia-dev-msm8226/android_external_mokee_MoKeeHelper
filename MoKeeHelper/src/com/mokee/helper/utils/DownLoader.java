@@ -159,10 +159,6 @@ public class DownLoader {
             if (fileSize > 0) {
                 if (fileSize < 1048576) {// 1m
                     this.threadCount = 1;
-                } else if (fileSize < 10485760) {// 10m
-                    this.threadCount = 2;
-                } else if (fileSize < 52428800) {// 50m
-                    this.threadCount = 3;
                 } else {// >50m
                     this.threadCount = 4;
                 }
@@ -223,7 +219,11 @@ public class DownLoader {
         private long downSize;
         private long sectionSize;
         private String fileUrl;
+        private int retries = 0;
         private static final int DEFAULT_TIMEOUT = (int) (20 * DateUtils.SECOND_IN_MILLIS);
+
+        private static final int DEFAULT_REQUEST_TIMEOUT = 10000; // 10 seconds
+        private static final int DEFAULT_REQUEST_MAX_RETRIES = 3;
 
         public DonwLoadThread(int threadId, long startPos, long endPos, long downSize,
                 String fileUrl) {
@@ -277,9 +277,19 @@ public class DownLoader {
                             i = 0;
                         }
                     }
-                    isOver();
+                    isFinished();
                 } catch (Exception e) {
-                    isOver();
+                    if (retries <= DEFAULT_REQUEST_MAX_RETRIES) {
+                        try {
+                            sleep(DEFAULT_REQUEST_TIMEOUT);
+                            retries ++;
+                            run();
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                    } else {
+                        isFinished();
+                    }
                 } finally {
                     try {
                         randomAccessFile.close();
@@ -293,7 +303,7 @@ public class DownLoader {
                     interrupt();
                 }
             } else {
-                isOver();
+                isFinished();
             }
         }
     }
@@ -338,21 +348,19 @@ public class DownLoader {
     /**
      * 判断线程是否全部完成
      */
-    public synchronized void isOver() {
-        if (state != STATUS_PAUSED) {
-            endThreadNum++;
-            System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
-                    + ",fileSize=" + fileSize);
-            if (endThreadNum == threadCount && allDownSize == fileSize) {
-                sendMsg(STATUS_COMPLETE, fileUrl, 0);
-            }
-            else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
+    public synchronized void isFinished() {
+        endThreadNum++;
+        System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
+                + ",fileSize=" + fileSize);
+        if (endThreadNum == threadCount && allDownSize == fileSize) {
+            sendMsg(STATUS_COMPLETE, fileUrl, 0);
+        } else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
+            if (state == STATUS_PAUSED) {
+                state = STATUS_PAUSED;
+            } else {
                 state = STATUS_ERROR;
                 sendMsg(STATUS_ERROR, fileUrl, 0);
             }
-        } else {
-            state = STATUS_DOWNLOADING;
-            sendMsg(STATUS_DOWNLOADING, fileUrl, 0);
         }
     }
 
