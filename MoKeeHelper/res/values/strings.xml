@@ -167,8 +167,8 @@
     <string name="extension_description">Displays available updates</string>
 
     <!-- pref -->
-    <string name="pref_check_ota">OTA updates</string>
-    <string name="pref_check_ota_summary">Get OTA updates</string>
+    <string name="pref_check_ota">Incremental updates</string>
+    <string name="pref_check_ota_summary">Get incremental updates</string>
 
     <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">Apply update</string>
