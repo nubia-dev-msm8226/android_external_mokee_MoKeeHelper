@@ -112,8 +112,8 @@
   <string name="confirm_delete_updates_all_dialog_message">刪除所有下載的更新檔案?</string>
   <string name="extension_label">MoKee 更新器</string>
   <string name="extension_description">顯示可用的更新</string>
-  <string name="pref_check_ota">OTA 更新</string>
-  <string name="pref_check_ota_summary">取得 OTA 更新</string>
+  <string name="pref_check_ota">增量更新</string>
+  <string name="pref_check_ota_summary">取得增量更新</string>
   <string name="apply_update_dialog_title">套用更新</string>
   <string name="apply_extras_dialog_title">安裝擴充套件</string>
   <string name="apply_extras_dialog_text">你確定要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
