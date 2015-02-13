@@ -38,7 +38,7 @@
   <string name="mokee_translate_summary">Допомогти перекласти MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Переглянути MoKee Wiki</string>
-  <string name="mokee_donate_title">Пожертвувати на MoKee</string>
+  <string name="mokee_donate_title">Пожертвувати MoKee</string>
   <string name="mokee_donate_summary">Будь ласка, підтримайте MoKee OpenSource грошенятами</string>
   <string name="mokee_version_info_title">Інформація про версію</string>
   <string name="mokee_version_title">Версія MoKee</string>
@@ -90,11 +90,11 @@
   <string name="loading_changelog">Завантаження\u2026</string>
   <string name="check_on_boot">Після кожного перезавантаження</string>
   <string name="check_twice_daily">Двічі на день</string>
-  <string name="check_daily">Один раз на день.</string>
+  <string name="check_daily">Щодня</string>
   <string name="check_twice_weekly">Двічі на тиждень</string>
   <string name="check_weekly">Щотижня</string>
   <string name="check_bi_weekly">Один раз на два тижні</string>
-  <string name="check_monthly">Раз на місяць</string>
+  <string name="check_monthly">Щомісяця</string>
   <string name="checking_for_updates">Перевірка наявності оновлень</string>
   <string name="no_updates_found">Оновлень не знайдено</string>
   <string name="checking_for_extras">Перевірка додатків</string>
@@ -125,7 +125,7 @@
   <string name="confirm_delete_dialog_title">Видалити файл</string>
   <string name="confirm_delete_updates_dialog_message">Видалити обраний файл оновлення?</string>
   <string name="confirm_delete_updates_all_dialog_message">Видалити усі завантажені файли оновлення?</string>
-  <string name="confirm_delete_extras_dialog_message">Видалити вибрані  файли додаткових функцій ?</string>
+  <string name="confirm_delete_extras_dialog_message">Видалити обрані  файли додаткових функцій?</string>
   <string name="confirm_delete_extras_all_dialog_message">Видалити всі файли завантажені додатки?</string>
   <string name="delete_single_update_success_message">Оновлення <xliff:g id="filename">%s</xliff:g> видалено</string>
   <string name="delete_updates_failure_message">Виникла помилка при видаленні файлу оновлення</string>

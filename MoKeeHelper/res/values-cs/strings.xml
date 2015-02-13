@@ -48,7 +48,7 @@
   <string name="mokee_extras_info_title">Info o doplňcích</string>
   <string name="mokee_info_default">Neznámá</string>
   <string name="mokee_version_type_release">Vydání</string>
-  <string name="mokee_version_type_history">Historie</string>
+  <string name="mokee_version_type_history">History</string>
   <string name="mokee_version_type_experimental">Experimentální</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Neoficiální</string>
@@ -58,8 +58,8 @@
   <string name="available_updates_title">Dostupné aktualizace</string>
   <string name="menu_donate">Přispět</string>
   <string name="menu_refresh">Znovu načíst</string>
-  <string name="menu_delete_all">Odstranit stahování</string>
-  <string name="donate_dialog_title">Přispějte na nás</string>
+  <string name="menu_delete_all">Odstranit stažené</string>
+  <string name="donate_dialog_title">Přispějte nám</string>
   <string name="donate_dialog_message">MoKee OpenSource je nezisková organizace. Vaše pomoc může pomoci snížit naše náklady na servery a udržovat budoucí rozvoj!</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
@@ -114,9 +114,9 @@
   <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>
-  <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
-  <string name="not_download_install_notice_with_xposed">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.\n\nUpozornění: Zjistili jsme, že jste použili Xposed modul, který může měnit systémové soubory. Pokud se aktualizace nezdaří, stáhněte si kompletní balíček pro aktualizaci systému</string>
-  <string name="md5_verification_failed">MD5 součet nesedí</string>
+  <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stážena. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
+  <string name="not_download_install_notice_with_xposed">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stažena. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.\n\nUpozornění: Zjistili jsme, že jste použili Xposed modul, který může měnit systémové soubory. Pokud se aktualizace nezdaří, stáhněte si kompletní balíček pro aktualizaci systému.</string>
+  <string name="md5_verification_failed">MD5 součet nesouhlasí</string>
   <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
   <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
   <string name="not_extras_download_install_notice">Doplněk <xliff:g id="filename">%s</xliff:g> byl úspěšně stáhnut. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace doplňku.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
