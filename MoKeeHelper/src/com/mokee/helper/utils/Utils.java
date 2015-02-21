@@ -100,11 +100,12 @@ public class Utils {
     public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
             throws IOException {
         /*
-         * Should perform the following steps. 1.- mkdir -p /cache/recovery 2.-
-         * echo 'boot-recovery' > /cache/recovery/command 3.- if(mBackup) echo
-         * '--nandroid' >> /cache/recovery/command 4.- echo
-         * '--update_package=SDCARD:update.zip' >> /cache/recovery/command 5.-
-         * reboot recovery
+         * Should perform the following steps.
+         * 1.- mkdir -p /cache/recovery
+         * 2.- echo 'boot-recovery' > /cache/recovery/command
+         * 3.- if(mBackup) echo '--nandroid'  >> /cache/recovery/command
+         * 4.- echo '--update_package=SDCARD:update.zip' >> /cache/recovery/command
+         * 5.- reboot recovery
          */
 
         // Set the 'boot recovery' command
@@ -114,20 +115,19 @@ public class Utils {
         os.write("echo 'boot-recovery' >/cache/recovery/command\n".getBytes());
 
         // See if backups are enabled and add the nandroid flag
-        /*
-         * TODO: add this back once we have a way of doing backups that is not
-         * recovery specific if (mPrefs.getBoolean(Constants.BACKUP_PREF, true))
-         * {
-         * os.write("echo '--nandroid'  >> /cache/recovery/command\n".getBytes(
-         * )); }
-         */
+        /* TODO: add this back once we have a way of doing backups that is not recovery specific
+           if (mPrefs.getBoolean(Constants.BACKUP_PREF, true)) {
+           os.write("echo '--nandroid'  >> /cache/recovery/command\n".getBytes());
+           }
+           */
 
         // Add the update folder/file name
-        // Emulated external storage moved to user-specific paths in 4.2
-        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId()) : "";
-
-        String cmd = "echo '--update_package=" + getStorageMountpoint(context) + userPath + "/"
-                + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
+        String primaryStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        // If data media rewrite the path to bypass the sd card fuse layer and trigger uncrypt
+        String directPath = Environment.getMediaStorageDirectory().getAbsolutePath();
+        String updatePath = Environment.isExternalStorageEmulated() ? directPath :
+                primaryStoragePath;
+        String cmd = "echo '--update_package=" + updatePath + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
                 + updateFileName + "' >> /cache/recovery/command\n";
         os.write(cmd.getBytes());
         os.flush();
@@ -135,29 +135,6 @@ public class Utils {
         // Trigger the reboot
         PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         powerManager.reboot("recovery");
-    }
-
-    private static String getStorageMountpoint(Context context) {
-        StorageManager sm = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
-        StorageVolume[] volumes = sm.getVolumeList();
-        String primaryStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-        for (int i = 0; i < volumes.length; i++) {
-            StorageVolume v = volumes[i];
-            if (v.getPath().equals(primaryStoragePath)) {
-                /* This is the primary storage, where we stored the update file
-                 *
-                 * For MK50, a non-removable storage (partition or FUSE)
-                 * will always be primary. But we have devices out there in which
-                 * /sdcard is the microSD, and/or an emmc partition
-                 */
-                if (!v.isRemovable() && Environment.isExternalStorageEmulated()) {
-                    return "/data/media";
-                }
-            };
-        }
-        // Not found, assume non-datamedia device
-        return "/sdcard";
     }
 
     public static String getDeviceType() {
