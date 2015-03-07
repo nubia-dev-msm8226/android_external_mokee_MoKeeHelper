@@ -17,16 +17,16 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="mokee_center_title">مركز مكي</string>
+  <string name="mokee_center_title">مركز موكي</string>
   <string name="mokee_support_title">الدعم الفني</string>
   <string name="mokee_updater_title">التحديث</string>
   <string name="mokee_extras_title">الإضافات</string>
-  <string name="tips_help_title">نصائح &amp; مساعدة</string>
+  <string name="tips_help_title">النصائح و المساعدة</string>
   <string name="mokee_website_title">موقع موكي</string>
   <string name="mokee_website_summary">زيارة الموقع الرسمي</string>
   <string name="mokee_forum_title">منتدى موكي</string>
   <string name="mokee_forum_summary">زيارة منتدى موكي</string>
-  <string name="mokee_issues_title">تعقب أخطاء موكي</string>
+  <string name="mokee_issues_title">متعقب أخطاء موكي</string>
   <string name="mokee_issues_summary">زيارة متعقب الأخطاء</string>
   <string name="mokee_changelog_title">سجل تغييرات موكي</string>
   <string name="mokee_changelog_summary">استعراض قائمة تغييرات موكي</string>

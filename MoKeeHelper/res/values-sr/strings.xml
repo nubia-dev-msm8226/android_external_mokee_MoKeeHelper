@@ -32,9 +32,11 @@
   <string name="mokee_changelog_summary">Погледајте листу MoKee измена</string>
   <string name="mokee_build_status_title">MoKee статус изградње</string>
   <string name="mokee_build_status_summary">Погледајте статус изградње</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Посетите MoKee Github</string>
   <string name="mokee_translate_title">MoKee превод</string>
   <string name="mokee_translate_summary">Помозите нам у преводу</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Погледајте MoKee Wiki</string>
   <string name="mokee_donate_title">Донирајте MoKee пројекат</string>
   <string name="mokee_donate_summary">Подржите донацијом MoKee OpenSource</string>
@@ -48,6 +50,8 @@
   <string name="mokee_version_type_release">Издање</string>
   <string name="mokee_version_type_history">Историјат</string>
   <string name="mokee_version_type_experimental">Експериментално</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
+  <string name="mokee_version_type_unofficial">Unofficial</string>
   <string name="mokee_version_type_all">Сви</string>
   <string name="downloaded_update_summary"> Преузето</string>
   <string name="installed_update_summary">Инсталирано</string>
@@ -57,6 +61,8 @@
   <string name="menu_delete_all">Избрисати преузето</string>
   <string name="donate_dialog_title">Донација</string>
   <string name="donate_dialog_message">MoKee OpenSource је непрофитна организација. Ваша помоћ може нам користити да смањимо трошкове одржавања сервера и за подршку будућег развоја!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Унос је погрешан!</string>
   <string name="donate_money_toast_success">Хвала на донацији!</string>
   <string name="donate_money_name">Донирајте MoKee OpenSource</string>
@@ -128,6 +134,7 @@
   <string name="delete_extras_failure_message">Дошло је до грешке приликом брисања додатака</string>
   <string name="delete_extras_noFolder_message">Фасцикла додатака није пронађена</string>
   <string name="delete_extras_success_message">Сви преузети додаци су избрисани</string>
+  <string name="extension_label">MoKee Updater</string>
   <string name="extension_description">Приказ доступних надоградњи</string>
   <string name="pref_check_ota">ОТА надоградње</string>
   <string name="pref_check_ota_summary">Преузми ОТА надоградње</string>
@@ -139,4 +146,6 @@
   <string name="extras_unsupported_toast">Ваша верзија не подржава овај додатак</string>
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
+  <string name="mokee_push_newversion_title">Доступна је нова верзија MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Нова верзија је спремна, кликните за преглед!</string>
 </resources>

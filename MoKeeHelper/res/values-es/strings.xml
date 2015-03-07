@@ -26,8 +26,8 @@
   <string name="mokee_website_summary">Visite el sitio web oficial</string>
   <string name="mokee_forum_title">Foro MoKee</string>
   <string name="mokee_forum_summary">Visita el foro de MoKee</string>
-  <string name="mokee_issues_title">Gestor de Defectos Mokee</string>
-  <string name="mokee_issues_summary">Visita el Gestor de Defectos</string>
+  <string name="mokee_issues_title">Gestor de Bugs Mokee</string>
+  <string name="mokee_issues_summary">Visita el Gestor de Bugs</string>
   <string name="mokee_changelog_title">Registros de cambios Mokee</string>
   <string name="mokee_changelog_summary">Ver lista de cambios MoKee</string>
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
@@ -81,7 +81,7 @@
   <string name="check_manual">Manual</string>
   <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
   <string name="experimenter_alert">Ha seleccionado incluir versiones experimentales en esta lista. Éstas no tienen soporte al usuario y están destinadas para pruebas solamente, debe utilizarse con precaución.</string>
-  <string name="unofficial_alert">Ha seleccionado para incluir versiones no oficiales en esta lista. Tenga en cuenta que estos son apoyados por el mantenedor del dispositivo.</string>
+  <string name="unofficial_alert">Ha seleccionado incluir versiones no oficiales en esta lista. Tenga en cuenta que éstas son apoyadas por el mantenedor del dispositivo.</string>
   <string name="all_alert">Ha seleccionado incluir todas las actualizaciones (estables, experimentales) en esta lista. Tenga en cuenta que todas las actualizaciones nocturnas no tienen soporte al usuario y se deben utilizar con precaución.</string>
   <string name="alert_title">Advertencia</string>
   <string name="update_type_title">Tipo de actualización</string>
@@ -115,7 +115,7 @@
   <string name="not_download_failure">Actualización no descargada</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
   <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación automática.</string>
-  <string name="not_download_install_notice_with_xposed">La descarga<xliff:g id="filename">%s</xliff:g>se a completado.Pulse el botón Reiniciar para Instalar,El dispositivo se reiniciara e instalara la actualización.\n\nNota:necesario Recovery compatible para instalación automática.\n\n</string>
+  <string name="not_download_install_notice_with_xposed">La descarga<xliff:g id="filename">%s</xliff:g>se a completado.Pulsando  \'Reiniciar para Instalar\', el dispositivo se reiniciara e instalará la actualización.\n\nNota:necesario Recovery compatible para instalación automática.\n\nAdvertencia: Hemos detectado que está usando Xposed framework, si la instalación falla, por favor descargue e instale la ROM otra vez.</string>
   <string name="md5_verification_failed">Suma de comprobación MD5 fallida</string>
   <string name="not_extras_download_success">Extras descargados con éxito</string>
   <string name="not_extras_download_failure">La descarga de Extras falló</string>
@@ -123,7 +123,7 @@
   <string name="not_extras_download_install_notice_apk">Los extras <xliff:g id="filename"> %s </xliff:g> fueron descargados de forma satisfactoria.</string>
   <string name="not_apk_action_install_update">Instalar</string>
   <string name="confirm_delete_dialog_title">Borrar archivo</string>
-  <string name="confirm_delete_updates_dialog_message">Eliminar la actualización seleccionada?</string>
+  <string name="confirm_delete_updates_dialog_message">¿Eliminar la actualización seleccionada?</string>
   <string name="confirm_delete_updates_all_dialog_message">¿Borrar todas las actualizaciones descargadas?</string>
   <string name="confirm_delete_extras_dialog_message">¿Borrar el archivo de Extras seleccionado?</string>
   <string name="confirm_delete_extras_all_dialog_message">¿Borrar todos los archivos de Extras descargados?</string>
@@ -132,7 +132,7 @@
   <string name="delete_updates_noFolder_message">Carpeta de actualizaciones no encontrada</string>
   <string name="delete_updates_success_message">Todas las actualizaciones fueron borradas</string>
   <string name="delete_extras_failure_message">Error al eliminar el archivo de extras</string>
-  <string name="delete_extras_noFolder_message">Carpeta extras no encontrado</string>
+  <string name="delete_extras_noFolder_message">Carpeta de extras no encontrada</string>
   <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
   <string name="extension_label">Actualización de Mokee</string>
   <string name="extension_description">Muestra las actualizaciones disponibles</string>
@@ -146,6 +146,6 @@
   <string name="extras_unsupported_toast">Su versión actual no es compatible con esta extensión</string>
   <string name="show_exp_on">Ha activado la configuración experimental!</string>
   <string name="show_exp_already">No hace falta, ya ha activado la configuración experimental.</string>
-  <string name="mokee_push_newversion_title">Se encontró una nueva versión de la OpenSource de MoKee</string>
-  <string name="mokee_push_newversion_msg">Una nueva versión está lista. Haz click para ver los detalles.</string>
+  <string name="mokee_push_newversion_title">Se encontró una nueva versión de MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Una nueva versión está lista. Haz click para ver los detalles!</string>
 </resources>
