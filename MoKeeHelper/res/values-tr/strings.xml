@@ -135,8 +135,6 @@
   <string name="delete_extras_failure_message">Ek özellikler dosyası silinirken bir hata oluştu</string>
   <string name="delete_extras_noFolder_message">Ek özellik klasörü bulunamadı</string>
   <string name="delete_extras_success_message">İndirilen tüm ek özellikler dosyaları silindi</string>
-  <string name="extension_label">MoKee Güncelleyici</string>
-  <string name="extension_description">Mevcut güncellemeleri gösterir</string>
   <string name="pref_check_ota">OTA güncellemeleri</string>
   <string name="pref_check_ota_summary">OTA güncellemeleri al</string>
   <string name="apply_update_dialog_title">Güncellemeyi uygula</string>

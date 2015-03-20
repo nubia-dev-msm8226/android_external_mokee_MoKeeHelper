@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">אירעה שגיאה בעת מחיקת קובץ התוספות</string>
   <string name="delete_extras_noFolder_message">תיקיית התוספות לא נמצאה</string>
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
-  <string name="extension_label">עדכון MoKee</string>
-  <string name="extension_description">מציג עדכונים זמינים</string>
   <string name="pref_check_ota">עדכונים OTA</string>
   <string name="pref_check_ota_summary">קבל עדכונים OTA</string>
   <string name="apply_update_dialog_title">החל עדכון</string>

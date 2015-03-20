@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Une erreur est survenue lors de la suppression du fichier des extras</string>
   <string name="delete_extras_noFolder_message">Dossier \" extras \" introuvable</string>
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
-  <string name="extension_label">MoKee Updater</string>
-  <string name="extension_description">Affiche les mises à jour disponibles</string>
   <string name="pref_check_ota">Mises à jour OTA</string>
   <string name="pref_check_ota_summary">Obtenir des mises à jour OTA</string>
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>

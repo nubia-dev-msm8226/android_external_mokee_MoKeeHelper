@@ -135,8 +135,6 @@
   <string name="delete_extras_failure_message">Hi va haver un error en suprimir l\'arxiu d\'extres</string>
   <string name="delete_extras_noFolder_message">Carpeta d\'extres no trobat</string>
   <string name="delete_extras_success_message">descarregues extres suprimits</string>
-  <string name="extension_label">MoKee Updater</string>
-  <string name="extension_description">Mostra les actualitzacions disponibles</string>
   <string name="pref_check_all_title">totes les Actualitzacions</string>
   <string name="pref_check_all_summary">Aconseguir totes les versions (inclosos els antics al servidor)</string>
   <string name="pref_check_all_new_summary">Obtenir noves versions només</string>

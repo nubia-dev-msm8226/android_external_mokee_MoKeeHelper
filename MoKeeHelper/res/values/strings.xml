@@ -162,10 +162,6 @@
     <string name="delete_extras_noFolder_message">Extras folder not found</string>
     <string name="delete_extras_success_message">All downloaded extras deleted</string>
 
-    <!-- extension -->
-    <string name="extension_label">MoKee Updater</string>
-    <string name="extension_description">Displays available updates</string>
-
     <!-- pref -->
     <string name="pref_check_ota">Incremental updates</string>
     <string name="pref_check_ota_summary">Get incremental updates</string>

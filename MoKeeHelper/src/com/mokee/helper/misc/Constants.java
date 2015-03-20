@@ -26,7 +26,6 @@ public class Constants {
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
     public static final String ENABLE_PREF = "pref_enable_updates";
-    public static final String BACKUP_PREF = "pref_backup_rom";
     public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
     public static final String CHECK_OTA_PREF = "pref_check_ota";
