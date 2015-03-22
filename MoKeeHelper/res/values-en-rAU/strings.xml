@@ -18,4 +18,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="mokee_center_title">MoKee Centre</string>
+  <string name="mokee_support_title">Support</string>
+  <string name="mokee_updater_title">Updater</string>
+  <string name="mokee_extras_title">Extras</string>
+  <string name="tips_help_title">Tips &amp; Help</string>
+  <string name="mokee_website_title">MoKee Website</string>
+  <string name="mokee_website_summary">Visit the official website</string>
+  <string name="mokee_forum_title">MoKee Forum</string>
+  <string name="mokee_forum_summary">Visit the MoKee Forum</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
+  <string name="mokee_issues_summary">Visit the bug tracker</string>
+  <string name="mokee_changelog_title">MoKee Changelog</string>
+  <string name="mokee_changelog_summary">View MoKee Changelog List</string>
+  <string name="mokee_build_status_title">MoKee Build Status</string>
+  <string name="mokee_build_status_summary">View build status</string>
 </resources>
