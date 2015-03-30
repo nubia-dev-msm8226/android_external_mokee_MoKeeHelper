@@ -134,8 +134,8 @@
   <string name="delete_extras_failure_message">Houve um erro ao excluir o pacote de extras</string>
   <string name="delete_extras_noFolder_message">Pasta de extras não foi encontrada</string>
   <string name="delete_extras_success_message">Todos extras baixados excluídos</string>
-  <string name="pref_check_ota">Atualizações OTA</string>
-  <string name="pref_check_ota_summary">Obter atualizações OTA</string>
+  <string name="pref_ota_check">Atualizações OTA</string>
+  <string name="pref_ota_check_summary">Obter atualizações OTA</string>
   <string name="apply_update_dialog_title">Aplicar atualização</string>
   <string name="apply_update_dialog_text">Você está prestes a atualizar para a <xliff:g id="filename">%s </xliff:g>. \n\nIf assim que você pressionar a atualização, o dispositivo será reiniciado no modo de recuperação para instalar a atualização. \n \nNote: este recurso requer uma recuperação compatível ou a atualização precisará ser instalada manualmente.</string>
   <string name="apply_extras_dialog_title">Instalar extras</string>

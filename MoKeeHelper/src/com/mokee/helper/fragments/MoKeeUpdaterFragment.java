@@ -159,9 +159,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
 
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
-        mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
+        mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_INTERVAL_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
-        mUpdateOTA = (SwitchPreference) findPreference(Constants.CHECK_OTA_PREF);// OTA更新
+        mUpdateOTA = (SwitchPreference) findPreference(Constants.OTA_CHECK_PREF);// OTA更新
 
         // Restore normal type list
         String MoKeeVersionType = Utils.getMoKeeVersionType();
@@ -179,7 +179,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         if (mUpdateCheck != null) {
-            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DAILY);
+            int check = mPrefs.getInt(Constants.UPDATE_INTERVAL_PREF, Constants.UPDATE_FREQ_DAILY);
             mUpdateCheck.setValue(String.valueOf(check));
             mUpdateCheck.setSummary(mapCheckValue(check));
             mUpdateCheck.setOnPreferenceChangeListener(this);
@@ -207,10 +207,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext);
         if (!MoKeeVersionTypeString.equals(updateTypeString)) {
             mUpdateOTA.setEnabled(false);
-            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, false).apply();
+            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
         }
 
-        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true));
+        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true));
         mUpdateOTA.setOnPreferenceChangeListener(this);
         isOTA(mUpdateOTA.isChecked());
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
@@ -426,7 +426,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         final LinkedList<ItemInfo> availableUpdates = State.loadMKState(
                 MoKeeApplication.getContext(), State.UPDATE_FILENAME);
 
-        if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
+        if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true)) {
             Collections.sort(availableUpdates, new Comparator<ItemInfo>() {
                 @Override
                 public int compare(ItemInfo lhs, ItemInfo rhs) {
@@ -459,7 +459,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             boolean isDownloading = ui.getFileName().equals(mFileName);
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getFileName(), true);
             int style = 3;
-            if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
+            if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true)) {
                 isNew = Utils.isNewVersion(ui.getFileName());
             } else {
                 isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), true));
@@ -598,7 +598,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         setUpdateTypeSummary(type);
         if (!MoKeeVersionTypeString.equals(updateTypeString)) {
             mUpdateOTA.setEnabled(false);
-            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, false).apply();
+            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
         } else {
             mUpdateOTA.setEnabled(true);            
         }
@@ -728,7 +728,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        if (!mPrefs.getBoolean(Constants.CHECK_OTA_PREF, true)) {
+                        if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true)) {
                             if (Utils.isNewVersion(pref.getItemInfo().getFileName())) {
                                 pref.setStyle(ItemPreference.STYLE_NEW);
                             } else {
@@ -821,7 +821,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mUpdateCheck) {
             int value = Integer.valueOf((String) newValue);
-            mPrefs.edit().putInt(Constants.UPDATE_CHECK_PREF, value).apply();
+            mPrefs.edit().putInt(Constants.UPDATE_INTERVAL_PREF, value).apply();
             mUpdateCheck.setSummary(mapCheckValue(value));
             Utils.scheduleUpdateService(mContext, value * 1000);
             return true;
@@ -862,7 +862,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             return true;
         } else if (preference == mUpdateOTA) {
             boolean value = (Boolean) newValue;
-            mPrefs.edit().putBoolean(Constants.CHECK_OTA_PREF, value).apply();
+            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, value).apply();
             isOTA(value);
             checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
             return true;

@@ -26,9 +26,9 @@ public class Constants {
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
     public static final String ENABLE_PREF = "pref_enable_updates";
-    public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
+    public static final String UPDATE_INTERVAL_PREF = "pref_update_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
-    public static final String CHECK_OTA_PREF = "pref_check_ota";
+    public static final String OTA_CHECK_PREF = "pref_ota_check";
     public static final String EXPANG_LIST_PREF = "extras_category";
     public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
     public static final String LAST_EXTRAS_CHECK_PREF = "pref_last_extras_check";

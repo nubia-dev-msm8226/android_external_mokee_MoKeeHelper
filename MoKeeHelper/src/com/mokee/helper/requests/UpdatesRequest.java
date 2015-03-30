@@ -79,7 +79,7 @@ public class UpdatesRequest extends StringRequest {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
-        boolean isOTA = prefs.getBoolean(Constants.CHECK_OTA_PREF, true);
+        boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         params.put("device_name", Utils.getDeviceType());
         params.put("device_version", Utils.getInstalledVersion());
         params.put("build_user", Utils.getBuildUser());

@@ -163,8 +163,8 @@
     <string name="delete_extras_success_message">All downloaded extras deleted</string>
 
     <!-- pref -->
-    <string name="pref_check_ota">Incremental updates</string>
-    <string name="pref_check_ota_summary">Get incremental updates</string>
+    <string name="pref_ota_check">Incremental updates</string>
+    <string name="pref_ota_check_summary">Get incremental updates</string>
 
     <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">Apply update</string>

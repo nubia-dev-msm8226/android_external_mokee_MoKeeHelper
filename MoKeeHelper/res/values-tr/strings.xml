@@ -135,8 +135,8 @@
   <string name="delete_extras_failure_message">Ek özellikler dosyası silinirken bir hata oluştu</string>
   <string name="delete_extras_noFolder_message">Ek özellik klasörü bulunamadı</string>
   <string name="delete_extras_success_message">İndirilen tüm ek özellikler dosyaları silindi</string>
-  <string name="pref_check_ota">OTA güncellemeleri</string>
-  <string name="pref_check_ota_summary">OTA güncellemeleri al</string>
+  <string name="pref_ota_check">OTA güncellemeleri</string>
+  <string name="pref_ota_check_summary">OTA güncellemeleri al</string>
   <string name="apply_update_dialog_title">Güncellemeyi uygula</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> güncellemesi yapılacak.\n\nGüncelleye bastığınızda, güncellemeyi kurmak için cihaz kurtarma modunda yeniden başlatılacak.\n\nNot: Bu özellik, uyumlu bir Kurtarma bölümü gerektirir, aksi takdirde güncellemelerin elle kurulması gerekir.</string>
   <string name="apply_extras_dialog_title">Ek özellikleri yükle</string>

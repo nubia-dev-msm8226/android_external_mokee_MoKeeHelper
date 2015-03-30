@@ -134,8 +134,8 @@
   <string name="delete_extras_failure_message">Error al eliminar el archivo de extras</string>
   <string name="delete_extras_noFolder_message">Carpeta de extras no encontrada</string>
   <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
-  <string name="pref_check_ota">Actualizaciones OTA</string>
-  <string name="pref_check_ota_summary">Obtener actualizaciones OTA</string>
+  <string name="pref_ota_check">Actualizaciones OTA</string>
+  <string name="pref_ota_check_summary">Obtener actualizaciones OTA</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>
   <string name="apply_update_dialog_text">Se va a proceder a actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nPulsando sobre \u00ABActualizar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
   <string name="apply_extras_dialog_title">Instalar extra</string>

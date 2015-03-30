@@ -138,8 +138,8 @@
   <string name="pref_check_all_title">totes les Actualitzacions</string>
   <string name="pref_check_all_summary">Aconseguir totes les versions (inclosos els antics al servidor)</string>
   <string name="pref_check_all_new_summary">Obtenir noves versions només</string>
-  <string name="pref_check_ota">OTA actualitzacions</string>
-  <string name="pref_check_ota_summary">Obtenir actualitzacions OTA</string>
+  <string name="pref_ota_check">OTA actualitzacions</string>
+  <string name="pref_ota_check_summary">Obtenir actualitzacions OTA</string>
   <string name="apply_update_dialog_title">Aplica actualització</string>
   <string name="apply_update_dialog_text">Estàs a punt d\'actualitzar a <xliff:g id="filename">%s</xliff:g>.\n\nSi apretes Actualitza, el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
   <string name="apply_extras_dialog_title">Instal lar extres</string>
