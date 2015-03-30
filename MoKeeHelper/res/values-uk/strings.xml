@@ -144,6 +144,4 @@
   <string name="extras_unsupported_toast">Поточна версія не підтримує це розширення</string>
   <string name="show_exp_on">Експериментальні установки активовано!</string>
   <string name="show_exp_already">Немає необхідності, експериментальні установки вже активовані.</string>
-  <string name="mokee_push_newversion_title">Знайдена нова версія MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Нова версія готова, натисніть, щоб переглянути подробиці!</string>
 </resources>

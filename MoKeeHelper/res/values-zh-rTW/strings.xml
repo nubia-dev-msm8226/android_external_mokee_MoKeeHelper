@@ -144,6 +144,4 @@
   <string name="extras_unsupported_toast">您的當前版本不支援此副檔名</string>
   <string name="show_exp_on">您已啟用實驗設置 ！</string>
   <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
-  <string name="mokee_push_newversion_title">找到一個新的Mokee OpenSource版本</string>
-  <string name="mokee_push_newversion_msg">已有更新版本，點選察看詳細內容！</string>
 </resources>

@@ -145,6 +145,4 @@
   <string name="extras_unsupported_toast">لا يدعم الإصدار الحالي لديك هذه الإضافة</string>
   <string name="show_exp_on">لقد قمت بتفعيل الإعدادات الاختبارية!</string>
   <string name="show_exp_already">لا داعي، لقد قمت بالفعل بتفعيل الإعدادات الاختبارية.</string>
-  <string name="mokee_push_newversion_title">العثور على نسخة جديدة من موكي مفتوحة المصدر</string>
-  <string name="mokee_push_newversion_msg">إصدار جديد جاهز ، انقر لعرض تفاصيل!</string>
 </resources>

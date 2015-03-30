@@ -135,5 +135,4 @@
   <string name="apply_extras_dialog_text"><xliff:g id="filename">%s </xliff:g>를 설치 하 시겠습니까?</string>
   <string name="apply_unable_to_reboot_toast">리커버리로 진입할 수 없습니다.</string>
   <string name="show_exp_on">당신은 실험 모드에있다!</string>
-  <string name="mokee_push_newversion_title">MoKee OpenSource의 새 버전을 찾기</string>
 </resources>

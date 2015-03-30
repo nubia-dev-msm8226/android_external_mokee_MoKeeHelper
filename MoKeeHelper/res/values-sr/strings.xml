@@ -144,6 +144,4 @@
   <string name="extras_unsupported_toast">Ваша верзија не подржава овај додатак</string>
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
-  <string name="mokee_push_newversion_title">Доступна је нова верзија MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Нова верзија је спремна, кликните за преглед!</string>
 </resources>

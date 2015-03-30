@@ -145,6 +145,4 @@
   <string name="extras_unsupported_toast">Geçerli sürümünüz bu uzantıyı desteklemiyor</string>
   <string name="show_exp_on">Deneysel ayarları etkinleştirildiniz!</string>
   <string name="show_exp_already">Gerek yok, zaten deneysel ayarları etkinleştirdiniz.</string>
-  <string name="mokee_push_newversion_title">MoKee açık kaynak kodlu yeni bir sürüm bulundu</string>
-  <string name="mokee_push_newversion_msg">Yeni bir sürüm hazır, Ayrıntıları görüntülemek için tıkla</string>
 </resources>

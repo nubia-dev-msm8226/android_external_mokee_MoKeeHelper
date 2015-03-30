@@ -144,6 +144,4 @@
   <string name="extras_unsupported_toast">La versione attuale non supporta questa estensione</string>
   <string name="show_exp_on">Funzioni sperimentali attivate!</string>
   <string name="show_exp_already">Non c\'è bisogno, le funzioni sperimentali sono già attivate</string>
-  <string name="mokee_push_newversion_title">Trovata una nuova versione di MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Una nuova versione è pronta, tocca per visualizzare i dettagli!</string>
 </resources>

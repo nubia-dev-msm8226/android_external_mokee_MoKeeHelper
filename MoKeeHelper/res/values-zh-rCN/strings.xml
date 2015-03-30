@@ -73,9 +73,9 @@
   <string name="dialog_ok">确认</string>
   <string name="dialog_cancel">取消</string>
   <string name="dialog_close">关闭</string>
-  <string name="no_available_updates_intro">最后一次检测并未找到可用的更新，请使用刷新按钮来手动检查更新试试。</string>
+  <string name="no_available_updates_intro">最后一次检测并未找到可用的更新。请使用刷新按钮来手动检查更新试试。</string>
   <string name="no_available_ota_intro">最后一次检测并未找到可用的更新，请使用刷新按钮来手动检查更新试试。如果您当前在运行一个超出增量更新支持的早期版本，您需要取消增量更新的勾选。</string>
-  <string name="no_available_extras_intro">最后一次检测并未找到可用的扩展，请使用刷新按钮来手动检查更新试试。</string>
+  <string name="no_available_extras_intro">最后一次检测并未找到可用的扩展。请使用刷新按钮来手动检查更新试试。</string>
   <string name="new_update_summary">比当前版本新</string>
   <string name="old_update_summary">比当前版本旧</string>
   <string name="update_check_title">检查更新频率</string>
@@ -145,6 +145,4 @@
   <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
-  <string name="mokee_push_newversion_title">发现MoKee OpenSource新版本</string>
-  <string name="mokee_push_newversion_msg">新版本更新啦，点击查看详细内容！</string>
 </resources>

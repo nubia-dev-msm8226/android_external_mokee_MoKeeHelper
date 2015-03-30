@@ -132,6 +132,4 @@
   <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige versie</string>
   <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
-  <string name="mokee_push_newversion_title">Een nieuwe versie van MoKee OpenSource gevonden</string>
-  <string name="mokee_push_newversion_msg">Een nieuwe versie is klaar, klik om details te bekijken!</string>
 </resources>

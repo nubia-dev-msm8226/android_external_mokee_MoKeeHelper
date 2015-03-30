@@ -145,6 +145,4 @@
   <string name="extras_unsupported_toast">הגרסה הנוכחית שלך לא תומכת בסיומת זו</string>
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
-  <string name="mokee_push_newversion_title">נמצאה גירסה חדשה של קהילת MoKee</string>
-  <string name="mokee_push_newversion_msg">גרסה חדשה מוכנה, לחץ כדי להציג פרטים!</string>
 </resources>
