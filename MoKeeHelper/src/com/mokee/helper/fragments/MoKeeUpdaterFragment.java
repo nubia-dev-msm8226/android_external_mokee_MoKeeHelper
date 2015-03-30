@@ -497,7 +497,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // If no updates are in the list, show the default message
         if (mUpdatesList.getPreferenceCount() == 0) {
             EmptyListPreferenceStyle pref = new EmptyListPreferenceStyle(mContext, null, R.style.EmptyListPreferenceStyle);
-            pref.setSummary(R.string.no_available_updates_intro);
+            pref.setSummary(mUpdateOTA.isChecked() ? R.string.no_available_ota_intro : R.string.no_available_updates_intro);
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
         }
