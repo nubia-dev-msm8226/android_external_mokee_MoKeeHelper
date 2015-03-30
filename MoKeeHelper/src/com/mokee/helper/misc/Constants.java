@@ -40,9 +40,6 @@ public class Constants {
     public static final int UPDATE_FREQ_TWICE_DAILY = 43200;
     public static final int UPDATE_FREQ_DAILY = 86400;
     public static final int UPDATE_FREQ_TWICE_WEEKLY = 302400;
-    public static final int UPDATE_FREQ_WEEKLY = 604800;
-    public static final int UPDATE_FREQ_BI_WEEKLY = 1209600;
-    public static final int UPDATE_FREQ_MONTHLY = 2419200;
 
     // Update types
     public static final int UPDATE_TYPE_RELEASE = 0;
