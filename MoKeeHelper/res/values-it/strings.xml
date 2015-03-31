@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Annulla</string>
   <string name="dialog_close">Chiudi</string>
   <string name="no_available_updates_intro">L\'ultimo controllo non ha trovato aggiornamenti disponibili. Per verificare manualmente nuovi aggiornamenti, usa il pulsante Aggiorna.</string>
+  <string name="no_available_ota_intro">L\'ultimo controllo non ha trovato eventuali aggiornamenti disponibili. Per controllare manualmente nuovi aggiornamenti, utilizzare il pulsante Aggiorna. Se si esegue una versione che è fuori dal aggiornamento supportato, è necessario deselezionare l\'opzione \"Aggiornamenti incrementali\".</string>
   <string name="no_available_extras_intro">L\'ultimo controllo non ha trovato aggiornamenti disponibili. Per verificare manualmente nuovi extra, usa il pulsante Aggiorna.</string>
   <string name="new_update_summary">Nuova</string>
   <string name="old_update_summary">Vecchia</string>

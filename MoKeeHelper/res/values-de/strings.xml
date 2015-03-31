@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Abbrechen</string>
   <string name="dialog_close">Schließen</string>
   <string name="no_available_updates_intro">Es wurden keine Updates gefunden. Klicken Sie auf\"Aktualisieren\", um manuell auf eine neue Version zu prüfen.</string>
+  <string name="no_available_ota_intro">Die letzte Prüfung ergaben keine verfügbaren Aktualisierungen. Um Manuell nach Aktualisierungen zu suchen, verwenden Sie die Schaltfläche \"Aktualisieren\". Wenn Sie eine Version finden, die aus dem Datumsbereich stammt, sollten Sie die Option \"Inkrementelle Aktualisierungen\" deaktivieren.</string>
   <string name="no_available_extras_intro">Die letzte Prüfung fand keine verfügbaren Updates. Um manuell nach neuen Extras zu suchen, verwenden Sie die Schaltfläche \"aktualisieren\".</string>
   <string name="new_update_summary">Neu</string>
   <string name="old_update_summary">Alt</string>

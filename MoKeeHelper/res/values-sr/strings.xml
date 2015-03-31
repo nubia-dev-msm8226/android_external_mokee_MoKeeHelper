@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Поништи</string>
   <string name="dialog_close">Затвори</string>
   <string name="no_available_updates_intro">Последња провера није пронашла нове надоградње. За ручну проверу користите дугме за освежавање.</string>
+  <string name="no_available_ota_intro">Последњом провером нису пронађена ажурирања. За ручну проверу надоградњи, користите дугме за освежавање. Уколико користите верзију која више није подржана, одштиклирајте опцију \"Incremental updates\".</string>
   <string name="no_available_extras_intro">Последња провера није пронашла надоградње. За ручну проверу додатака притисните дугме за освежавање.</string>
   <string name="new_update_summary">Ново</string>
   <string name="old_update_summary">Старо</string>
