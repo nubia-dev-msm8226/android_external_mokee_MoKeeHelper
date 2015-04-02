@@ -20,8 +20,8 @@ package com.mokee.helper.widget;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.mokee.utils.MoKeeUtils;
 import android.preference.Preference;
+import android.text.format.Formatter;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -259,7 +259,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mSummaryText.setText(mItemInfo.getFileName());
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
-            mFileSizeText.setText(!TextUtils.isEmpty(mItemInfo.getFileSize()) ? MoKeeUtils.formatFileSize(Long.valueOf(mItemInfo.getFileSize())) : "");
+            mFileSizeText.setText(!TextUtils.isEmpty(mItemInfo.getFileSize()) ? Formatter.formatFileSize(this, Long.valueOf(mItemInfo.getFileSize())) : "");
             mTitleText.setVisibility(View.VISIBLE);
             // Show the proper style view
             showStyle();
