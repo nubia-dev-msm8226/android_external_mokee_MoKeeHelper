@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Cancel</string>
   <string name="dialog_close">Close</string>
   <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
+  <string name="no_available_ota_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button. If you are running a version which is out of the supported incremental update date range, you should deselect the \"Incremental updates\" option.</string>
   <string name="no_available_extras_intro">The last check did not find any available updates. To manually check for new extras, use the Refresh button.</string>
   <string name="new_update_summary">New</string>
   <string name="old_update_summary">Old</string>
@@ -134,6 +135,8 @@
   <string name="delete_extras_failure_message">There was an error deleting the extras file</string>
   <string name="delete_extras_noFolder_message">Extras folder not found</string>
   <string name="delete_extras_success_message">All downloaded extras deleted</string>
+  <string name="pref_ota_check">Incremental updates</string>
+  <string name="pref_ota_check_summary">Get incremental updates</string>
   <string name="apply_update_dialog_title">Apply update</string>
   <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n
         \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>

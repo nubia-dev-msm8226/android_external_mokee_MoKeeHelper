@@ -73,7 +73,8 @@
   <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Скасувати</string>
   <string name="dialog_close">Закрити</string>
-  <string name="no_available_updates_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оонвлень вручну, натисніть кнопку \"Оновити\".</string>
+  <string name="no_available_updates_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оновлень власноруч, натисніть кнопку \"Оновити\".</string>
+  <string name="no_available_ota_intro">Остання перевірка не виявила оновлень. Щоб перевірити наявність оновлень власноруч, використовуйте кнопку \"Оновити\". Якщо ви використовуєте версію, яка знаходиться за межами діапазону дат, що підтримуються ОТА оновленнями, вимкніть опцію \"ОТА оновлення\".</string>
   <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність нових доповнень вручну, натисніть кнопку \"Оновити\".</string>
   <string name="new_update_summary">Новий</string>
   <string name="old_update_summary">Старий</string>
@@ -137,7 +138,7 @@
   <string name="pref_ota_check">OTA оновлення</string>
   <string name="pref_ota_check_summary">Отримувати OTA оновлення</string>
   <string name="apply_update_dialog_title">Застосувати оновлення</string>
-  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery.інакше оновлення доведеться встановити вручну.</string>
+  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery,інакше оновлення доведеться встановити вручну.</string>
   <string name="apply_extras_dialog_title">Встановити додаток</string>
   <string name="apply_extras_dialog_text">Ви дійсно бажаєте установити <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Неможливо перезавантажитись у Recovery</string>
