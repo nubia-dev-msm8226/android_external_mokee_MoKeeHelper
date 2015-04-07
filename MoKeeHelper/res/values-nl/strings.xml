@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Annuleren</string>
   <string name="dialog_close">Sluiten</string>
   <string name="no_available_updates_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
+  <string name="no_available_ota_intro">De laatste controle heeft geen beschikbare updates gevonden. Gebruik de knop vernieuwen, om handmatig op nieuwe updates te controleren. Als u een versie gebruikt die niet binnen het \'incrementele update\' datumbereik valt, moet u de \"Incrementele updates\" optie uitschakelen.</string>
   <string name="no_available_extras_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
   <string name="new_update_summary">Nieuw</string>
   <string name="old_update_summary">Oud</string>
@@ -114,6 +115,18 @@
   <string name="not_download_success">Update succesvol gedownload</string>
   <string name="not_download_failure">Downloaden van de update is mislukt</string>
   <string name="not_action_install_update">Herstarten en installeren</string>
+  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart voor het installeren van de update.\n\nNotitie: een ondersteunende Recovery is vereist om de installatie automatisch bij te werken.</string>
+  <string name="not_download_install_notice_with_xposed">De update <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart voor het installeren van de update.\n\nNotitie: een ondersteunende Recovery is vereist om de installatie automatisch bij te werken.\n\nWaarschuwing: We hebben gedetecteerd dat u Xposed Framework gebruikt, als de update mislukt, download en installeer dan de volledige ROM in plaats van de update.</string>
+  <string name="md5_verification_failed">MD5 checksum komt niet overeen</string>
+  <string name="not_extras_download_success">Extras zijn succesvol gedownload</string>
+  <string name="not_extras_download_failure">Extras downloaden is mislukt</string>
+  <string name="not_extras_download_install_notice">De extra <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart, om de extras te installeren.\n\nNote: een ondersteunende Recovery is vereist om de installatie automatisch bij te werken.</string>
+  <string name="not_extras_download_install_notice_apk">De extra <xliff:g id="filename">%s </xliff:g> is succesvol gedownload.</string>
+  <string name="not_apk_action_install_update">Installeren</string>
+  <string name="confirm_delete_dialog_title">Bestand verwijderen</string>
+  <string name="confirm_delete_updates_dialog_message">Verwijder het geselecteerde update-bestand?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Alle gedownloade updatebestanden verwijderen?</string>
+  <string name="confirm_delete_extras_dialog_message">Verwijder het geselecteerde extras-bestand?</string>
   <string name="confirm_delete_extras_all_dialog_message">Verwijderen van alle opgeslagen extra\'s bestanden?</string>
   <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> verwijderd</string>
   <string name="delete_updates_failure_message">Kan update bestand niet verwijderen</string>

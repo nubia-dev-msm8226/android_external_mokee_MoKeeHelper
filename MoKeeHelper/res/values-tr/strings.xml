@@ -75,6 +75,7 @@
   <string name="dialog_cancel">iptal</string>
   <string name="dialog_close">Kapat</string>
   <string name="no_available_updates_intro">Son kontrolde güncelleme bulunamadı. Yeni güncellemeleri elle kontrol etmek için Yenile düğmesini kullanın.</string>
+  <string name="no_available_ota_intro">Son kontorlde herhangi  bir güncelleştirme bulunamadı. Yeni güncelleştirmeleri el ile denetlemek için yenile düğmesini kullanın. Desteklenen tarih aralıkları dşında bir sürüm kullanıyorsanız \"Artımlı güncelleştirmeler\" seçeneğindeki işareti kaldırın.</string>
   <string name="no_available_extras_intro">Son kontrolde güncelleme bulunamadı. Yeni güncellemeleri elle kontrol etmek için Yenile düğmesini kullanın.</string>
   <string name="new_update_summary">Yeni</string>
   <string name="old_update_summary">Eski</string>
