@@ -45,8 +45,7 @@ public class DownloadNotifier {
             mContentTitleID = R.string.not_download_success;
             mTickerID = R.string.not_download_success;
             mActionTitleID = R.string.not_action_install_update;
-            File xposedBackUpFile = new File("/system/bin/app_process.orig");
-            mTextID = xposedBackUpFile.exists() ? R.string.not_download_install_notice_with_xposed : R.string.not_download_install_notice;
+            mTextID = R.string.not_download_install_notice;
         } else {
             mContentTitleID = R.string.not_extras_download_success;
             mTickerID = R.string.not_extras_download_success;
