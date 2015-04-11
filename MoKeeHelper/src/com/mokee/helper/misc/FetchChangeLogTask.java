@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,15 +26,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.ExecutionException;
 
-import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -46,16 +43,12 @@ import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.requests.ChangeLogRequest;
 import com.mokee.helper.utils.Utils;
-import com.mokee.helper.widget.NotifyingWebView;
 
-public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
-        implements DialogInterface.OnDismissListener {
+public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void> {
     private static final String TAG = "FetchChangeLogTask";
 
     private Context mContext;
     private ItemInfo mInfo;
-    private NotifyingWebView mChangeLogView;
-    private AlertDialog mAlertDialog;
 
     public FetchChangeLogTask(Context context) {
         mContext = context;
@@ -74,38 +67,6 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
         return null;
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        final LayoutInflater inflater = LayoutInflater.from(mContext);
-        final View view = inflater.inflate(R.layout.change_log_dialog, null);
-        final View progressContainer = view.findViewById(R.id.progress);
-        mChangeLogView =
-                (NotifyingWebView) view.findViewById(R.id.changelog);
-
-        mChangeLogView.setOnInitialContentReadyListener(
-                new NotifyingWebView.OnInitialContentReadyListener() {
-                    @Override
-                    public void onInitialContentReady(WebView webView) {
-                        progressContainer.setVisibility(View.GONE);
-                        mChangeLogView.setVisibility(View.VISIBLE);
-                    }
-                });
-
-        mChangeLogView.getSettings().setTextZoom(80);
-        mChangeLogView.getSettings().setDefaultTextEncodingName("UTF-8");
-        mChangeLogView.setBackgroundColor(
-                mContext.getResources().getColor(android.R.color.white));
-
-        // Prepare the dialog box
-        mAlertDialog = new AlertDialog.Builder(mContext)
-                .setTitle(R.string.changelog_dialog_title)
-                .setView(view)
-                .setPositiveButton(R.string.dialog_close, null)
-                .create();
-        mAlertDialog.setOnDismissListener(this);
-        mAlertDialog.show();
-    }
 
     @Override
     protected void onPostExecute(Void aVoid) {
@@ -117,7 +78,17 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
             Toast.makeText(mContext, R.string.no_changelog_alert, Toast.LENGTH_SHORT).show();
         } else {
             // Load the url
-            mChangeLogView.loadUrl(Uri.fromFile(changeLog).toString());
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(changeLog), "text/html");
+            intent.putExtra(Intent.EXTRA_TITLE, mContext.getString(R.string.changelog_dialog_title));
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setPackage("com.android.htmlviewer");
+            try {
+                mContext.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Log.e(TAG, "Failed to find viewer", e);
+                showErrorAndFinish();
+            }
         }
     }
     
@@ -128,11 +99,7 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("Error: ", error.getMessage());
-                if (mAlertDialog != null && mAlertDialog.isShowing()) {
-                    mAlertDialog.dismiss();
-                    Toast.makeText(mContext, R.string.no_changelog_alert,
-                            Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(mContext, R.string.no_changelog_alert, Toast.LENGTH_SHORT).show();
             }
         };
         // We need to make a blocking request here
@@ -206,13 +173,8 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
         }
     }
 
-    @Override
-    public void onDismiss(DialogInterface dialogInterface) {
-        // Cancel all pending requests
-        ((MoKeeApplication) mContext.getApplicationContext()).getQueue().cancelAll(TAG);
-        // Clean up
-        mChangeLogView.destroy();
-        mChangeLogView = null;
-        mAlertDialog = null;
+    private void showErrorAndFinish() {
+        Toast.makeText(mContext, R.string.changelog_unavailable, Toast.LENGTH_LONG).show();
     }
+
 }

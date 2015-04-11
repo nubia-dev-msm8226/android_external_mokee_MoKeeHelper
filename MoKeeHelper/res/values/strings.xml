@@ -108,6 +108,7 @@
 
     <!-- ChangeLog -->
     <string name="no_changelog_alert">No changelog available</string>
+    <string name="changelog_unavailable">There is a problem loading the changelog.</string>
     <string name="changelog_dialog_title">Changelog</string>
     <string name="loading_changelog">Loading\u2026</string>
     <string name="check_on_boot">On each reboot</string>

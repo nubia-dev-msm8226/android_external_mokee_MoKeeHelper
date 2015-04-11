@@ -22,6 +22,7 @@ public class Constants {
     // Download related
     public static final String UPDATES_FOLDER = "mkupdater";
     public static final String EXTRAS_FOLDER = "mkextras";
+    public static final String CHANGELOG_FOLDER = "mkchangelog";
 
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
