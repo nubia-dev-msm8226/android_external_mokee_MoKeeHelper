@@ -67,6 +67,11 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void> {
         return null;
     }
 
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        Toast.makeText(mContext, R.string.loading_changelog, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onPostExecute(Void aVoid) {
