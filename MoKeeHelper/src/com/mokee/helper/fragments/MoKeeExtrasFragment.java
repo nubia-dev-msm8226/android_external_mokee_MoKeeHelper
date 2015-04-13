@@ -567,7 +567,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     public void onClick(DialogInterface dialog, int which) {
                         mStartUpdateVisible = false;
                     }
-                }).show();
+                }).setCancelable(false).show();
     }
 
     @Override
