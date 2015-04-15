@@ -32,7 +32,6 @@
   <string name="mokee_changelog_summary">הצג רשימה רשימת שינויים MoKee</string>
   <string name="mokee_build_status_title">מצב הבנייה MoKee</string>
   <string name="mokee_build_status_summary">הצג מצב הבנייה של MoKee</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">בקר ב MoKee Github</string>
   <string name="mokee_translate_title">תרגום MoKee</string>
   <string name="mokee_translate_summary">עזור בתרגום MoKee</string>
@@ -61,8 +60,6 @@
   <string name="menu_delete_all">מחיקת הורדה</string>
   <string name="donate_dialog_title">תרום לנו</string>
   <string name="donate_dialog_message">קהילת MoKee הוא ארגון ללא מטרות רווח. בעזרתך ניתן להפחית את העומס שלנו על שרת עלויות ולקיים פיתוחים עתידיים!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">הסכום שהוזן אינו נכון!</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
@@ -115,7 +112,6 @@
   <string name="not_download_failure">הורדת העדכון נכשלה</string>
   <string name="not_action_install_update">אתחל והתקן</string>
   <string name="not_download_install_notice">עדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. כאשר תלחץ על \'אתחל והתקן\', המכשיר יאתחל את עצמו ויתקין את העדכון.\n\nשים לב:Recovery מתאים נדרש להתקנה אוטומטית.</string>
-  <string name="not_download_install_notice_with_xposed">העדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. בלחיצה על \'אתחל והתקן\' המכשיר יופעל מחדש והעדכון יותקן.\n\nהערה: Recovery מתאים נדרש להתקנה אוטומטית.\n\nאזהרה: זיהינו כי הינך משתמש ב Xposed framework. אם העדכון נכשל, נא הורד והתקן את ה\'רום\' המלא.</string>
   <string name="md5_verification_failed">אי-התאמת checksum MD5</string>
   <string name="not_extras_download_success">התוספות הורדו בהצלחה</string>
   <string name="not_extras_download_failure">הורדת התוספות נכשלה</string>

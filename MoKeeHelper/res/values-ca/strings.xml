@@ -32,11 +32,9 @@
   <string name="mokee_changelog_summary">Veure la llista de canvis.</string>
   <string name="mokee_build_status_title">MoKee estat del Build</string>
   <string name="mokee_build_status_summary">Veure l\'estat del Build</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Visita la MoKee Github</string>
   <string name="mokee_translate_title">Traduir MoKee</string>
   <string name="mokee_translate_summary">Visita la MoKee traducció </string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Mostra la MoKee Wiki</string>
   <string name="mokee_donate_title">Donació a MoKee</string>
   <string name="mokee_donate_summary">Si us plau doneu a suport MoKee OpenSource</string>
@@ -47,10 +45,7 @@
   <string name="mokee_last_check_never">mai</string>
   <string name="mokee_extras_info_title">Informació extra</string>
   <string name="mokee_info_default">Desconeguda</string>
-  <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Històrial</string>
-  <string name="mokee_version_type_experimental">Experimental</string>
-  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">No oficial</string>
   <string name="mokee_version_type_all">Totes</string>
   <string name="downloaded_update_summary">Baixades</string>
@@ -61,8 +56,6 @@
   <string name="menu_delete_all">Suprimir descarregar</string>
   <string name="donate_dialog_title">Donar-nos</string>
   <string name="donate_dialog_message">MoKee OpenSource és una organització sense ànim de lucre. Seva ajuda pot ajudar a reduir la nostra càrrega en costos de servidor i sustentar el futur desenvolupament!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">la quantitat és incorrecte!</string>
   <string name="donate_money_toast_success">Gràcies per la vostra donació!</string>
   <string name="donate_money_name">Donació MoKee OpenSource</string>
@@ -78,7 +71,6 @@
   <string name="new_update_summary">Nova</string>
   <string name="old_update_summary">Antic </string>
   <string name="update_check_title">Freqüència d\'Actualització</string>
-  <string name="check_manual">Manual</string>
   <string name="nightly_alert">Has seleccionat incloure les actualitzacions nigthy en aquesta llista. Aquestes no tenen suport i han de ser utilitzades amb precaució.</string>
   <string name="experimenter_alert">Heu seleccionat per incloure actualitzacions experimentals en aquesta llista. Aquests si dóna suport per provar només, ha de ser utilitzat amb precaució.</string>
   <string name="unofficial_alert">Heu seleccionat per incloure actualitzacions no oficials en aquesta llista. Tingueu en compte que aquestes estan mantinguts pel seu desenvolupador.</string>
@@ -111,12 +103,10 @@
   <string name="download_cancelled">Descàrrega cancel·lada</string>
   <string name="download_already_running">Ja s\'està descarregant</string>
   <string name="unable_to_download_file">Impossible descarregar l\'arxiu d\'actualització</string>
-  <string name="download_not_found">No s\'ha trobat la descàrrega</string>
   <string name="not_download_success">Actualització descarregada satisfactòriament</string>
   <string name="not_download_failure">Descàrrega de l\'actualització fallida</string>
   <string name="not_action_install_update">Reiniciar i instal·lar</string>
   <string name="not_download_install_notice">L\'actualització <xliff:g id="filename">%s</xliff:g> s\'ha descarregat satisfactòriament. Quan apretis \'Reinicia i instal·la\', el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
-  <string name="not_download_install_notice_with_xposed">La descarrega<xliff:g id="filename">%s</xliff:g>s\' ha completat.Pulsi el boto Reiniciar per Instalar,El dispositiu es reiniciara e instalara l\'actualizació.\n\nNota: Necesari Recovery compatible per instal·lació automàtica.\n\n</string>
   <string name="md5_verification_failed">Incompatibilitat suma de MD5</string>
   <string name="not_extras_download_success">Extres descarregats correctament</string>
   <string name="not_extras_download_failure">Descarregar extres no a tingut èxit</string>
@@ -135,9 +125,6 @@
   <string name="delete_extras_failure_message">Hi va haver un error en suprimir l\'arxiu d\'extres</string>
   <string name="delete_extras_noFolder_message">Carpeta d\'extres no trobat</string>
   <string name="delete_extras_success_message">descarregues extres suprimits</string>
-  <string name="pref_check_all_title">totes les Actualitzacions</string>
-  <string name="pref_check_all_summary">Aconseguir totes les versions (inclosos els antics al servidor)</string>
-  <string name="pref_check_all_new_summary">Obtenir noves versions només</string>
   <string name="pref_ota_check">OTA actualitzacions</string>
   <string name="pref_ota_check_summary">Obtenir actualitzacions OTA</string>
   <string name="apply_update_dialog_title">Aplica actualització</string>

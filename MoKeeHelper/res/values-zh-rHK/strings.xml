@@ -32,11 +32,9 @@
   <string name="mokee_changelog_summary">查看 MoKee 更新日誌清單</string>
   <string name="mokee_build_status_title">MoKee 編譯狀態</string>
   <string name="mokee_build_status_summary">查看編譯狀態</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">訪問 MoKee Github</string>
   <string name="mokee_translate_title">MoKee 翻譯</string>
   <string name="mokee_translate_summary">幫手翻譯 MoKee</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">查看 MoKee Wiki</string>
   <string name="mokee_donate_title">捐贈 MoKee</string>
   <string name="mokee_donate_summary">請捐贈以支援 MoKee OpenSource</string>
@@ -115,7 +113,6 @@
   <string name="not_download_failure">更新下載失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
   <string name="not_download_install_notice">已成功下載 <xliff:g id="filename">%s</xliff:g>版本。當輕觸「重新開機並安裝」時， 裝置將自動重新啟動並安裝更新。\n\n注意：你需要一個相容的恢復模式以執行此選項。</string>
-  <string name="not_download_install_notice_with_xposed">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動至Recovery並安裝更新。\n\n註：您必須有一個適用的Recovery才能順利的安裝更新。\n\n警告：我們偵測到您在使用Xposed模組，如果此更新安裝失敗，請下載並安裝完整的安裝包。</string>
   <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>

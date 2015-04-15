@@ -20,23 +20,19 @@
   <string name="mokee_center_title">MoKee  Central</string>
   <string name="mokee_support_title">Suporte</string>
   <string name="mokee_updater_title">Atualizador</string>
-  <string name="mokee_extras_title">Extras</string>
   <string name="tips_help_title">Dicas &amp; ajuda</string>
   <string name="mokee_website_title">O site MoKee</string>
   <string name="mokee_website_summary">Visite o site oficial</string>
   <string name="mokee_forum_title">MoKee Fórum</string>
   <string name="mokee_forum_summary">Visite o fórum MoKee</string>
-  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Visite o bug tracker</string>
   <string name="mokee_changelog_title">MoKee Alterações</string>
   <string name="mokee_changelog_summary">Ver lista de mudanças MoKee</string>
   <string name="mokee_build_status_title">Status de compilação MoKee</string>
   <string name="mokee_build_status_summary">Ver status da compilação</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Visite o MoKee Github</string>
   <string name="mokee_translate_title">Definição da palavra MoKee</string>
   <string name="mokee_translate_summary">Ajude a traduzir MoKee</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Ver a Wiki Mokee</string>
   <string name="mokee_donate_title">Doar para MoKee</string>
   <string name="mokee_donate_summary">Por favor, Doe para apoiar MoKee OpenSource</string>
@@ -49,7 +45,6 @@
   <string name="mokee_info_default">Desconhecido</string>
   <string name="mokee_version_type_release">Lançamento</string>
   <string name="mokee_version_type_history">História</string>
-  <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Noturna</string>
   <string name="mokee_version_type_unofficial">Não oficial</string>
   <string name="mokee_version_type_all">todas</string>
@@ -61,8 +56,6 @@
   <string name="menu_delete_all">Excluir download</string>
   <string name="donate_dialog_title">Doe para nós</string>
   <string name="donate_dialog_message">MoKee OpenSource é uma organização sem fins lucrativos. Sua ajuda pode ajudar a reduzir a carga sobre os custos do servidor e sustentar o desenvolvimento futuro!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">O valor introduzido é incorreto!</string>
   <string name="donate_money_toast_success">Obrigado por sua doação!</string>
   <string name="donate_money_name">Doar para MoKee OpenSource</string>
@@ -70,7 +63,6 @@
   <string name="unknown">Desconhecido</string>
   <string name="dialog_update">Atualização</string>
   <string name="dialog_install">Instalar</string>
-  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Cancelar</string>
   <string name="dialog_close">Fechar</string>
   <string name="no_available_updates_intro">A ultima verificação não encontrou nenhuma atualização. Para verificar manualmente por novas atualizações, use o botão Atualizar.</string>
@@ -78,7 +70,6 @@
   <string name="new_update_summary">Novo</string>
   <string name="old_update_summary">Velho</string>
   <string name="update_check_title">Verificar atualização freq</string>
-  <string name="check_manual">Manual</string>
   <string name="nightly_alert">Você selecionou para incluir atualizações noturnas nesta lista. Estes não são suportados e devem ser usados com cautela.</string>
   <string name="experimenter_alert">Você selecionou para incluir atualizações experimentais nesta lista. Estas não possuem suporte e são destinadas a testes apenas, elas devem ser usadas com cautela.</string>
   <string name="unofficial_alert">Você selecionou para incluir atualizações não oficiais nesta lista. Tenha em mente que estas são suportadas pelo mantenedor do dispositivo.</string>
@@ -115,7 +106,6 @@
   <string name="not_download_failure">Download da atualização foi malsucedido</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
   <string name="not_download_install_notice">A atualização <xliff:g id="filename">%s</xliff:g> foi baixada com sucesso. Ao pressionar \'Reiniciar e instalar\', o dispositivo irá reiniciar sozinho e instalar a atualização.\n\nNota: Uma Recuperação compatível é necessária para a instalação funcionar automaticamente.</string>
-  <string name="not_download_install_notice_with_xposed">A atualização <xliff:g id="filename">%s </xliff:g> foi baixado com sucesso. Quando tocar \'Reiniciar e instalar\', o dispositivo irá reiniciar para instalar a atualização.\n\nNote: uma recuperação compatível é necessária para a instalação funcionar automaticamente.\n\nWarning: detectamos que você está usando um framework Xposed, se a atualização falhar, faça o download e a instalação de uma ROM completa em vez disso.</string>
   <string name="md5_verification_failed">Incompatibilidade de verificação MD5</string>
   <string name="not_extras_download_success">Extras baixados com sucesso</string>
   <string name="not_extras_download_failure">Download de extras malsucedido</string>

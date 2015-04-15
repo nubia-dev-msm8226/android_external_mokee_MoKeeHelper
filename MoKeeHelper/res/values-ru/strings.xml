@@ -32,7 +32,6 @@
   <string name="mokee_changelog_summary">Посмотреть список изменений MoKee</string>
   <string name="mokee_build_status_title">Статус сборки MoKee</string>
   <string name="mokee_build_status_summary">Просмотреть статус сборки</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Посетить MoKee Github</string>
   <string name="mokee_translate_title">Перевод MoKee</string>
   <string name="mokee_translate_summary">Помогите перевести MoKee</string>
@@ -61,8 +60,6 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
   <string name="donate_dialog_message">MoKee OpenSource является некоммерческой организацией. Ваша помощь может способствовать снижению затрат на содержание серверов и обеспечить будущее развитие!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Введено неверное значение!</string>
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>
   <string name="donate_money_name">Пожертвовать MoKee OpenSource</string>
@@ -115,7 +112,6 @@
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>
   <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \"Перезагрузить и установить\", устройство будет перезагружено, для установки обновления.\n\nПримечание: Для установки в автоматическом режиме необходимо совместимое Recovery.</string>
-  <string name="not_download_install_notice_with_xposed">Обновление <xliff:g id="filename">%s</xliff:g> успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.\n\nВНИМАНИЕ: Мы обнаружили, что вы использовали модуль Xposed, который может изменять системные файлы. Если обновление не удается, пожалуйста, скачайте полный пакет ROM для обновления системы.</string>
   <string name="md5_verification_failed">Несовпадение контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополнения успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>

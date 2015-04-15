@@ -32,7 +32,6 @@
   <string name="mokee_changelog_summary">MoKee 체인지로그 목록를 보기</string>
   <string name="mokee_build_status_title">MoKee 빌드 상태</string>
   <string name="mokee_build_status_summary">빌드 상태를 보기</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">MoKee Github를 방문</string>
   <string name="mokee_translate_title">MoKee 번역</string>
   <string name="mokee_translate_summary">협조 번역 MoKee</string>
@@ -61,8 +60,6 @@
   <string name="menu_delete_all">다운로드 삭제</string>
   <string name="donate_dialog_title">우리한테 기부</string>
   <string name="donate_dialog_message">MoKee 오픈 소스는 비영리 단체입니다. 당신의 도움은 우리의 서버 비용을 낮추수 잇고 우리 미래의 발전을 유지할수 있읍니다!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">입력 한 금액이 올바르지 않습니다!</string>
   <string name="donate_money_toast_success">기부 주셔서 감사합니다!</string>
   <string name="donate_money_name">MoKee 오픈 소스 기부</string>

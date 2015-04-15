@@ -51,7 +51,7 @@
   <string name="mokee_version_type_history">Историјат</string>
   <string name="mokee_version_type_experimental">Експериментално</string>
   <string name="mokee_version_type_nightly">Nightly</string>
-  <string name="mokee_version_type_unofficial">Unofficial</string>
+  <string name="mokee_version_type_unofficial">Незванично</string>
   <string name="mokee_version_type_all">Сви</string>
   <string name="downloaded_update_summary"> Преузето</string>
   <string name="installed_update_summary">Инсталирано</string>
@@ -82,7 +82,7 @@
   <string name="check_manual">Ручно</string>
   <string name="nightly_alert">Изабрао си да буду укључена развојна ажурирања у овој листи. Она су неподржана и треба их користи опрезно.</string>
   <string name="experimenter_alert">Изабрао си да буду укључена експериментална ажурирања у овој листи. Она су неподржана и користе се само за тестирање.</string>
-  <string name="unofficial_alert">Изабрао си да буду укључена неподржана ажурирања у овој листи.</string>
+  <string name="unofficial_alert">Изабрали сте да буду укључена неподржана ажурирања у овој листи.</string>
   <string name="all_alert">Изабрали сте све врсте надоградњи са листе. Нека од надоградњи су нестабилна и треба их користити опрезно.</string>
   <string name="alert_title">Опрез</string>
   <string name="update_type_title">Врста надограње</string>
@@ -116,7 +116,6 @@
   <string name="not_download_failure">Ажурирање није успешно преузето</string>
   <string name="not_action_install_update">Рестартуј и инсталирај</string>
   <string name="not_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
-  <string name="not_download_install_notice_with_xposed">Надоградња <xliff:g id="filename">%s</xliff:g> је преузета. Притиском на \'Reboot and install\', уређај ће се рестартовати да би инсталирао исправку.\n\nПажња: неопходан је компатибилан Recovery за аутоматску инсталацију.\n\nУпозорење: детектовано је коришћење Xposed framework-а! Уколико надоградња не буде успешна преузмите и инсталирајте цео РОМ.</string>
   <string name="md5_verification_failed">МД5 чек није усклађен</string>
   <string name="not_extras_download_success">Додатак је преузет</string>
   <string name="not_extras_download_failure">Додатак није преузет</string>

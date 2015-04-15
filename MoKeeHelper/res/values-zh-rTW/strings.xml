@@ -115,8 +115,6 @@
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
   <string name="not_download_install_notice">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
-  <string name="not_download_install_notice_with_xposed">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註：您必須有一個適用的Recovery才能順利的安裝更新。\n\n警告：我們偵測到您在使用Xposed模組，如果此更新安裝失敗，請下載並安裝完整的安裝包。</string>
-  <string name="md5_verification_failed">MD5 checksum mismatch</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
   <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>

@@ -110,7 +110,6 @@
   <string name="not_download_failure">Η λήψη της ενημέρωσης ήταν ανεπιτυχής</string>
   <string name="not_action_install_update">Επανεκκίνηση και εγκατάσταση</string>
   <string name="not_download_install_notice">Η λήψη της ενημέρωσης <xliff:g id="filename">%s</xliff:g> ολοκληρώθηκε με επιτυχία. Αν πατήσετε \'Επανεκκίνηση και εγκατάσταση\', η συσκευή θα κάνει επανεκκίνηση και θα εγκαταστήσει την ενημέρωση.\n\nΣημείωση: Απαιτείται μια συμβατή Recovery για την λειτουργία της αυτόματης εγκατάστασης.</string>
-  <string name="not_download_install_notice_with_xposed">Η ενημέρωση <xliff:g id="filename">%s </xliff:g> μεταφορτώθηκε με επιτυχία. Όταν αγγίξετε «Επανεκκίνηση και εγκατάσταση», η συσκευή θα επανεκκινήσει μόνη της για να εγκαταστήσει την ενημέρωση.\n\nΣυμβουλή: μια συμβατή Recovery είναι απαραίτητη για την αυτόματη εγκατάσταση.\n\nΠροσοχή: εντοπίσαμε ότι χρησιμοποιείτε το Xposed framework, εάν η ενημέρωση αποτύχει, παρακαλούμε να κατεβάσετε και να εγκαταστήσετε ένα πλήρες ROM.</string>
   <string name="md5_verification_failed">Ασυμφωνία MD5 checksum</string>
   <string name="not_apk_action_install_update">Εγκατάσταση</string>
   <string name="confirm_delete_dialog_title">Διαγραφή αρχείου</string>

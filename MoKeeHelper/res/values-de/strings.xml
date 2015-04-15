@@ -17,22 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="mokee_center_title">MoKee Center</string>
   <string name="mokee_support_title">Hilfe &amp; Unterstützung</string>
-  <string name="mokee_updater_title">Updater</string>
-  <string name="mokee_extras_title">Extras</string>
   <string name="tips_help_title">Tipps &amp; Hilfe</string>
   <string name="mokee_website_title">MoKee Webseite</string>
   <string name="mokee_website_summary">Besuchen Sie die offizielle Webseite</string>
-  <string name="mokee_forum_title">MoKee Forum</string>
   <string name="mokee_forum_summary">Besuchen Sie das MoKee-Forum</string>
-  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Besuchen Sie den Bug-Tracker</string>
-  <string name="mokee_changelog_title">MoKee Changelog</string>
   <string name="mokee_changelog_summary">Schauen Sie sich die MoKee Änderungshistorie an</string>
-  <string name="mokee_build_status_title">MoKee Build Status</string>
   <string name="mokee_build_status_summary">Buildstatus anzeigen</string>
-  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Besuchen Sie uns bei GitHub</string>
   <string name="mokee_translate_title">MoKee übersetzen</string>
   <string name="mokee_translate_summary">Helfen Sie MoKee zu übersetzen</string>
@@ -41,7 +33,6 @@
   <string name="mokee_donate_title">Spenden für MoKee</string>
   <string name="mokee_donate_summary">Bitte spenden Sie, um das MoKee Open Source Projekt zu unterstützen</string>
   <string name="mokee_version_info_title">Versionsinformation</string>
-  <string name="mokee_version_title">MoKee Version</string>
   <string name="mokee_version_type_title">Version-Typ</string>
   <string name="mokee_last_check_title">Zuletzt geprüft</string>
   <string name="mokee_last_check_never">Niemals</string>
@@ -61,8 +52,6 @@
   <string name="menu_delete_all">Download löschen</string>
   <string name="donate_dialog_title">Spenden an uns</string>
   <string name="donate_dialog_message">MoKee OpenSource ist eine gemeinnützige Organisation. Ihre Hilfe kann helfen, unsere Belastung der Server-Kosten zu verringern und zukünftige Entwicklung zu fördern!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Der Betrag ist falsch!</string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>
@@ -116,7 +105,6 @@
   <string name="not_download_failure">Update-Download fehlgeschlagen</string>
   <string name="not_action_install_update">Neu starten und installieren</string>
   <string name="not_download_install_notice">Das Update <xliff:g id="filename">%s</xliff:g> wurde erfolgreich heruntergeladen. Beim Bestätigen von \"Neu starten und Installieren\" wird das Gerät neu gestartet, um das Update zu installieren.\n\nHinweis: Für die Installation wird ein kompatibles Recovery-System benötigt.</string>
-  <string name="not_download_install_notice_with_xposed">Das Update <xliff:g id="filename">%s</xliff:g>  wurde erfolgreich heruntergeladen. Drücke \'Neustarten und installieren\', damit das Gerät automatisch neustartet und das Update installiert.\n\nNotiz: Damit das Automatischeinstallieren funktioniert, wird ein Kompatibles Recovery benötigt.\n\nAchtung: Wir haben festgestellt, dass du Xposed framework verwendet, wenn das Update fehlschlägt, lade dir bitte stattdessen die komplette Rom runter und installieren sie.</string>
   <string name="md5_verification_failed">MD5 Prüfsummenfehler</string>
   <string name="not_extras_download_success">Extras erfolgreich heruntergeladen</string>
   <string name="not_extras_download_failure">Update downloaden war nicht erfolgreich</string>

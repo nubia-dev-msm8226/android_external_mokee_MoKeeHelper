@@ -117,7 +117,6 @@
   <string name="not_download_failure">下载更新失败</string>
   <string name="not_action_install_update">重启并安装</string>
   <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击 \'重启并安装\' 时，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序。</string>
-  <string name="not_download_install_notice_with_xposed"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击 \'重启并安装\' 时，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序。\n\n警告：我们检测到您使用过Xposed模块，该模块可能修改系统文件。如果导致更新失败，请您下载完整包更新系统。</string>
   <string name="md5_verification_failed">MD5 检测失败</string>
   <string name="not_extras_download_success">扩展组件已成功下载</string>
   <string name="not_extras_download_failure">下载扩展组件失败</string>

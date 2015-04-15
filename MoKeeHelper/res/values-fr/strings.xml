@@ -26,7 +26,6 @@
   <string name="mokee_website_summary">Visitez le site officiel</string>
   <string name="mokee_forum_title">Forum de MoKee</string>
   <string name="mokee_forum_summary">Visiter le Forum de MoKee</string>
-  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Visitez le bug tracker</string>
   <string name="mokee_changelog_title">Historique des modifications de MoKee</string>
   <string name="mokee_changelog_summary">Voir l\'historique des modifications de MoKee</string>
@@ -36,7 +35,6 @@
   <string name="mokee_github_summary">Visitez le Github de MoKee</string>
   <string name="mokee_translate_title">Définition de MoKee</string>
   <string name="mokee_translate_summary">Aider à traduire MoKee</string>
-  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Découvrez le Wiki de MoKee</string>
   <string name="mokee_donate_title">Faire un don à MoKee</string>
   <string name="mokee_donate_summary">S\'il vous plaît faire un don pour soutenir MoKee OpenSource</string>
@@ -47,10 +45,8 @@
   <string name="mokee_last_check_never">jamais</string>
   <string name="mokee_extras_info_title">Infos bonus</string>
   <string name="mokee_info_default">Inconnu</string>
-  <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Historique</string>
   <string name="mokee_version_type_experimental">Expérimental</string>
-  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Non officiel</string>
   <string name="mokee_version_type_all">Tout</string>
   <string name="downloaded_update_summary">Télécharger</string>
@@ -61,8 +57,6 @@
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="donate_dialog_title">Faite nous un don</string>
   <string name="donate_dialog_message">MoKee OpenSource est un organisme à but non lucratif. Votre aide peut aider à réduire notre charge sur les frais de serveur et de soutenir les développements futurs !</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Le montant saisi est incorrect !</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>
   <string name="donate_money_name">Faire un don au Projet OpenSource MoKee</string>
@@ -70,7 +64,6 @@
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>
   <string name="dialog_install">Installer</string>
-  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Annuler</string>
   <string name="dialog_close">Fermer</string>
   <string name="no_available_updates_intro">Aucune mise à jour disponible lors de la dernière vérification. Pour vérifier manuellement les mises à jour, utilisez le bouton Actualiser.</string>
@@ -115,7 +108,6 @@
   <string name="not_download_failure">Le téléchargement de la mise à jour a échoué</string>
   <string name="not_action_install_update">Redémarrer et installer</string>
   <string name="not_download_install_notice">Téléchargement de la mise à jour <xliff:g id="filename">%s</xliff:g> réussi. Lorsque vous appuierez sur \"Redémarrer et installer\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
-  <string name="not_download_install_notice_with_xposed">La mise à jour <xliff:g id="filename"> %s </xliff:g> a été correctement téléchargée. Lorsque vous touchez « Redémarrer et installer », l\'appareil va redémarrer lui-même pour installer la mise a jour.\n\nNote : Un recovery compatible est requis pour l\'installation afin de fonctionner automatiquement.\n\nAvertissement : nous avons détecté que vous utilisez Xposed framework, si la mise à jour échoue, s\'il vous plaît télécharger et installer une ROM complète au lieu de cela.</string>
   <string name="md5_verification_failed">Incompatibilité de somme de contrôle MD5</string>
   <string name="not_extras_download_success">Extras téléchargés avec succès</string>
   <string name="not_extras_download_failure">Le téléchargement des extras a échoué</string>
