@@ -74,6 +74,7 @@
   <string name="dialog_cancel">Cancelar</string>
   <string name="dialog_close">Cerrar</string>
   <string name="no_available_updates_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
+  <string name="no_available_ota_intro">El último chequeo no encontró ninguna actualización disponible. Para comprobar manualmente nuevas versiones, utilice el botón Actualizar. Si está ejecutando una versión que está fuera del rango de fecha de actualización soportada, deberá deseleccionar la opción \"Actualizaciones incrementales\".</string>
   <string name="no_available_extras_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
   <string name="new_update_summary">Nuevo</string>
   <string name="old_update_summary">Antiguo</string>
