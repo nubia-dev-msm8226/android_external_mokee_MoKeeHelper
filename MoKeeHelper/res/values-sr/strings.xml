@@ -90,9 +90,9 @@
   <string name="changelog_dialog_title">Историја измена</string>
   <string name="loading_changelog">Учитавам\u2026</string>
   <string name="check_on_boot">При сваком рестартовању</string>
-  <string name="check_twice_daily">Двапут сваки дан</string>
-  <string name="check_daily">Једанпут сваки дан</string>
-  <string name="check_twice_weekly">Двапут сваке седмице</string>
+  <string name="check_twice_daily">Двапут дневно</string>
+  <string name="check_daily">Једном дневно</string>
+  <string name="check_twice_weekly">Двапут седмично</string>
   <string name="check_weekly">Једном седмично</string>
   <string name="check_bi_weekly">У 15 дана</string>
   <string name="check_monthly">Једном месечно</string>
@@ -116,13 +116,13 @@
   <string name="not_download_failure">Ажурирање није успешно преузето</string>
   <string name="not_action_install_update">Рестартуј и инсталирај</string>
   <string name="not_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
-  <string name="not_download_install_notice_with_xposed">Надоградња <xliff:g id="filename">%s</xliff:g> је преузета. Притиском на \'Reboot and install\', уређај ће се рестартовати да би инсталирао исправку.\n\nПажња: неопходан је компатибилан Recovery за аутоматску инсталацију.\n\nУпозорење: детектовано је коришћење Xposed framework-а! Уколико надоградња не буде успешна преузмите и инсталирајте цео РОМ.</string>
+  <string name="not_download_install_notice_with_xposed">Надоградња <xliff:g id="filename">%s</xliff:g> је преузета. Притиском на \'Рестарт и инсталација\', уређај ће се рестартовати да би инсталирао исправку.\n\nПажња: неопходан је компатибилан \'Опоравак\' за аутоматску инсталацију.\n\nУпозорење: детектовано је коришћење Xposed framework-а! Уколико надоградња не буде успешна преузмите и инсталирајте цео РОМ.</string>
   <string name="md5_verification_failed">МД5 чек није усклађен</string>
   <string name="not_extras_download_success">Додатак је преузет</string>
   <string name="not_extras_download_failure">Додатак није преузет</string>
   <string name="not_extras_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
   <string name="not_extras_download_install_notice_apk">Додатак <xliff:g id="filename">%s</xliff:g> није преузет.</string>
-  <string name="not_apk_action_install_update">Instaliraj</string>
+  <string name="not_apk_action_install_update">Инсталација</string>
   <string name="confirm_delete_dialog_title">Избриши фајл</string>
   <string name="confirm_delete_updates_dialog_message">Избриши изабрани фајл за ажурирање?</string>
   <string name="confirm_delete_updates_all_dialog_message">Избриши све преузете фајлове ажурирања?</string>
