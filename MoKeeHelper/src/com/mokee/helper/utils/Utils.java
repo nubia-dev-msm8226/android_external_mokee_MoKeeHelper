@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Locale;
 
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -34,9 +35,6 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.SystemProperties;
-import android.os.UserHandle;
-import android.os.storage.StorageManager;
-import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
 
 import com.mokee.helper.R;
@@ -98,7 +96,7 @@ public class Utils {
     public static String getMoKeeVersionType() {
         String MoKeeVersion = Utils.getInstalledVersion();
         String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1,
-                MoKeeVersion.length()).toLowerCase();
+                MoKeeVersion.length()).toLowerCase(Locale.ENGLISH);
         return MoKeeVersionType;
     }
 
@@ -192,13 +190,23 @@ public class Utils {
         }
     }
 
+    public static String getPackageName(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            return pi.packageName;
+        } catch (PackageManager.NameNotFoundException nnfe) {
+            return null;
+        }
+    }
+
     /**
      * 截取日期
      */
     public static String subBuildDate(String name, boolean sameVersion) {
         String[] strs = name.split("-");
         String date;
-        if (name.toLowerCase().startsWith("ota")) {
+        if (name.toLowerCase(Locale.ENGLISH).startsWith("ota")) {
             date = strs[4];
         } else {
             date = strs[2];
@@ -237,7 +245,7 @@ public class Utils {
     public static String subMoKeeVersion(String name) {
         String[] strs = name.split("-");
         String version = strs[0];
-        if (name.toLowerCase().startsWith("ota")) {
+        if (name.toLowerCase(Locale.ENGLISH).startsWith("ota")) {
             version = strs[1];
         }
         version = version.substring(2, version.length());

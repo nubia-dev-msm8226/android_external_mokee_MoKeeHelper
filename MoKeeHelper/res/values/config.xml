@@ -25,6 +25,4 @@
     <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/thread-937699-1-1.html</string>
     <string name="mokee_forum_url" translatable="false">http://bbs.mfunz.com</string>
 
-    <bool name="use_paypal" translatable="false">true</bool>
-
 </resources>
