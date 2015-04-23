@@ -87,16 +87,17 @@
   <string name="alert_title">Опрез</string>
   <string name="update_type_title">Врста надограње</string>
   <string name="no_changelog_alert">Нема информација о изменама</string>
-  <string name="changelog_dialog_title">Историја измена</string>
+  <string name="changelog_unavailable">Дошло је до проблема приликом учитавања евиденције измена.</string>
+  <string name="changelog_dialog_title">Евиденција измена</string>
   <string name="loading_changelog">Учитавам\u2026</string>
   <string name="check_on_boot">При сваком рестартовању</string>
-  <string name="check_twice_daily">Двапут сваки дан</string>
-  <string name="check_daily">Једанпут сваки дан</string>
-  <string name="check_twice_weekly">Двапут сваке седмице</string>
+  <string name="check_twice_daily">Двапут дневно</string>
+  <string name="check_daily">Једном дневно</string>
+  <string name="check_twice_weekly">Двапут седмично</string>
   <string name="check_weekly">Једном седмично</string>
-  <string name="check_bi_weekly">У 15 дана</string>
+  <string name="check_bi_weekly">Једном у 15 дана</string>
   <string name="check_monthly">Једном месечно</string>
-  <string name="checking_for_updates">Провера нове верзије је у току</string>
+  <string name="checking_for_updates">Провера нове верзије</string>
   <string name="no_updates_found">Нису пронађена нова ажурирања</string>
   <string name="checking_for_extras">Провера додатака</string>
   <string name="no_extras_found">Нема нових додатака</string>
@@ -124,7 +125,7 @@
   <string name="not_apk_action_install_update">Instaliraj</string>
   <string name="confirm_delete_dialog_title">Избриши фајл</string>
   <string name="confirm_delete_updates_dialog_message">Избриши изабрани фајл за ажурирање?</string>
-  <string name="confirm_delete_updates_all_dialog_message">Избриши све преузете фајлове ажурирања?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Избрисати све преузете надоградње?</string>
   <string name="confirm_delete_extras_dialog_message">Избрисати изабране додатке?</string>
   <string name="confirm_delete_extras_all_dialog_message">Дошло је до грешке приликом брисања фајла за ажурирање</string>
   <string name="delete_single_update_success_message">Ажурирање <xliff:g id="filename">%s</xliff:g> је избрисано</string>

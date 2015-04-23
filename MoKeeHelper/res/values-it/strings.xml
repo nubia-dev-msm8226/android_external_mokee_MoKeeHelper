@@ -17,6 +17,7 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title">MoKee Centro</string>
   <string name="mokee_support_title">Supporto</string>
   <string name="mokee_updater_title">Aggiornamenti</string>
   <string name="mokee_extras_title">Extra</string>
@@ -46,8 +47,10 @@
   <string name="mokee_last_check_never">Mai</string>
   <string name="mokee_extras_info_title">Extra Info</string>
   <string name="mokee_info_default">Sconosciuto</string>
+  <string name="mokee_version_type_release">Rilascio</string>
   <string name="mokee_version_type_history">Cronologia</string>
   <string name="mokee_version_type_experimental">Sperimentale</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Non ufficiale</string>
   <string name="mokee_version_type_all">Tutte</string>
   <string name="downloaded_update_summary">Scaricato</string>
@@ -58,6 +61,8 @@
   <string name="menu_delete_all">Elimina download</string>
   <string name="donate_dialog_title">Dona e aiuta MoKee</string>
   <string name="donate_dialog_message">MoKee OpenSource è un\'organizzazione non-profit. Il vostro aiuto può aiutare a ridurre il nostro carico sui costi del server e sostenere lo sviluppo futuro!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">L\'importo inserito non è corretto!</string>
   <string name="donate_money_toast_success">Grazie per la tua donazione!</string>
   <string name="donate_money_name">Dona Mokee OpenSource</string>
@@ -65,6 +70,7 @@
   <string name="unknown">Sconosciuto</string>
   <string name="dialog_update">Aggiorna</string>
   <string name="dialog_install">Installa</string>
+  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Annulla</string>
   <string name="dialog_close">Chiudi</string>
   <string name="no_available_updates_intro">L\'ultimo controllo non ha trovato aggiornamenti disponibili. Per verificare manualmente nuovi aggiornamenti, usa il pulsante Aggiorna.</string>
@@ -81,6 +87,7 @@
   <string name="alert_title">Attenzione</string>
   <string name="update_type_title">Tipo di aggiornamento</string>
   <string name="no_changelog_alert">Nessun changelog disponibile</string>
+  <string name="changelog_unavailable">C\'è un problema di caricamento del changelog.</string>
   <string name="changelog_dialog_title">Modifiche di Versione</string>
   <string name="loading_changelog">Caricamento\u2026</string>
   <string name="check_on_boot">Ad ogni riavvio</string>
