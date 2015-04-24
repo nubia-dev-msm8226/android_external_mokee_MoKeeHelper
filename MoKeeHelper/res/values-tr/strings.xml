@@ -32,9 +32,11 @@
   <string name="mokee_changelog_summary">MoKee Değişim Günlüğü Listesi</string>
   <string name="mokee_build_status_title">MoKee Sürüm Durumu</string>
   <string name="mokee_build_status_summary">Sürüm Durumunu İncele</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">MoKee Github\'ını Ziyaret Et</string>
   <string name="mokee_translate_title">MoKee Çeviri</string>
   <string name="mokee_translate_summary">MoKee\'yi Çevirmeye Yardım Et</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">MoKee Wiki sayfasını görüntüle</string>
   <string name="mokee_donate_title">MoKee\'ye bağışta bulun</string>
   <string name="mokee_donate_summary">MoKee Açık Kaynağını desteklemek için lütfen bağışta bulunun</string>
@@ -59,6 +61,7 @@
   <string name="menu_delete_all">İndirmeyi sil</string>
   <string name="donate_dialog_title">Bize bağışta bulunun</string>
   <string name="donate_dialog_message">MoKee OpenSource kâr amacı gütmeyen bir kuruluştur.  Yardımlarınız sunucu maliyetlerimizi azaltabilir ve geliştirmelerin devam etmesini sağlayabilir.</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay
 </string>
   <string name="donate_money_toast_error">Girilen değer hatalıdır!</string>
@@ -72,6 +75,7 @@
   <string name="dialog_cancel">iptal</string>
   <string name="dialog_close">Kapat</string>
   <string name="no_available_updates_intro">Son kontrolde güncelleme bulunamadı. Yeni güncellemeleri elle kontrol etmek için Yenile düğmesini kullanın.</string>
+  <string name="no_available_ota_intro">Son kontorlde herhangi  bir güncelleştirme bulunamadı. Yeni güncelleştirmeleri el ile denetlemek için yenile düğmesini kullanın. Desteklenen tarih aralıkları dşında bir sürüm kullanıyorsanız \"Artımlı güncelleştirmeler\" seçeneğindeki işareti kaldırın.</string>
   <string name="no_available_extras_intro">Son kontrolde güncelleme bulunamadı. Yeni güncellemeleri elle kontrol etmek için Yenile düğmesini kullanın.</string>
   <string name="new_update_summary">Yeni</string>
   <string name="old_update_summary">Eski</string>
@@ -84,6 +88,7 @@
   <string name="alert_title">Dikkat</string>
   <string name="update_type_title">Güncelleme türü</string>
   <string name="no_changelog_alert">Değişiklik kaydı yok</string>
+  <string name="changelog_unavailable">Değişim kaydı yüklenmesinde bir sorun var.</string>
   <string name="changelog_dialog_title">Değişiklik kaydı</string>
   <string name="loading_changelog">Yükleniyor\u2026</string>
   <string name="check_on_boot">Her yeniden açılışta seçili tut</string>
