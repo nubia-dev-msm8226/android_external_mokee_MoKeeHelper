@@ -32,6 +32,7 @@
   <string name="mokee_changelog_summary">Посмотреть список изменений MoKee</string>
   <string name="mokee_build_status_title">Статус сборки MoKee</string>
   <string name="mokee_build_status_summary">Просмотреть статус сборки</string>
+  <string name="mokee_github_title">Github репозиторий MoKee</string>
   <string name="mokee_github_summary">Посетить MoKee Github</string>
   <string name="mokee_translate_title">Перевод MoKee</string>
   <string name="mokee_translate_summary">Помогите перевести MoKee</string>
@@ -60,6 +61,8 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
   <string name="donate_dialog_message">MoKee OpenSource является некоммерческой организацией. Ваша помощь может способствовать снижению затрат на содержание серверов и обеспечить будущее развитие!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Введено неверное значение!</string>
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>
   <string name="donate_money_name">Пожертвовать MoKee OpenSource</string>
@@ -71,6 +74,7 @@
   <string name="dialog_cancel">Нет</string>
   <string name="dialog_close">Закрыть</string>
   <string name="no_available_updates_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить доступные обновления, используйте кнопку \"Обновить\".</string>
+  <string name="no_available_ota_intro">Последняя проверка не обнаружила обновлений. Чтобы проверить наличие обновлений вручную, используйте кнопку \"Обновить\". Если вы используете версию, которая находится за пределами диапазона дат, поддерживаемых ОТА обновлениями, выключите опцию \"ОТА обновления\".</string>
   <string name="no_available_extras_intro">Во время последней проверки не найдено доступных обновлений для дополнений. Чтобы вручную проверить доступные дополнения, используйте кнопку \"Обновить\".</string>
   <string name="new_update_summary">Новое</string>
   <string name="old_update_summary">Устаревшее</string>
@@ -83,6 +87,7 @@
   <string name="alert_title">Осторожно</string>
   <string name="update_type_title">Тип обновления</string>
   <string name="no_changelog_alert">Список изменений недоступен</string>
+  <string name="changelog_unavailable">Проблема с загрузкой списка изменений.</string>
   <string name="changelog_dialog_title">Список изменений</string>
   <string name="loading_changelog">Загрузка\u2026</string>
   <string name="check_on_boot">При каждой перезагрузке</string>
