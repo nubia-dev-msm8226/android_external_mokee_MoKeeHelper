@@ -48,7 +48,7 @@
   <string name="mokee_extras_info_title">Дополнительная информация</string>
   <string name="mokee_info_default">Неизвестно</string>
   <string name="mokee_version_type_release">Релиз</string>
-  <string name="mokee_version_type_history">Наследие</string>
+  <string name="mokee_version_type_history">История версий</string>
   <string name="mokee_version_type_experimental">Экспериментальная</string>
   <string name="mokee_version_type_nightly">Ночная</string>
   <string name="mokee_version_type_unofficial">Неофициальная</string>
@@ -71,7 +71,7 @@
   <string name="dialog_update">Обновление</string>
   <string name="dialog_install">Установить</string>
   <string name="dialog_ok">Да</string>
-  <string name="dialog_cancel">Нет</string>
+  <string name="dialog_cancel">Отмена</string>
   <string name="dialog_close">Закрыть</string>
   <string name="no_available_updates_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить доступные обновления, используйте кнопку \"Обновить\".</string>
   <string name="no_available_ota_intro">Последняя проверка не обнаружила обновлений. Чтобы проверить наличие обновлений вручную, используйте кнопку \"Обновить\". Если вы используете версию, которая находится за пределами диапазона дат, поддерживаемых ОТА обновлениями, выключите опцию \"ОТА обновления\".</string>

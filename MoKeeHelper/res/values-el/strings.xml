@@ -32,9 +32,11 @@
   <string name="mokee_changelog_summary">Προβολή αρχείου αλλαγών MoKee</string>
   <string name="mokee_build_status_title">Κατάσταση δημιουργίας MoKee</string>
   <string name="mokee_build_status_summary">Προβολή κατάστασης χτισίματος</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Επισκεφθείτε το MoKee Github</string>
   <string name="mokee_translate_title">Μετάφραση MoKee</string>
   <string name="mokee_translate_summary">Βοηθήστε να μεταφραστεί το MoKee</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Δείτε το MoKee Wiki</string>
   <string name="mokee_donate_title">Δωρεά στο MoKee</string>
   <string name="mokee_donate_summary">Παρακαλούμε κάντε μια δωρεά για να υποστηρίξετε το MoKee OpenSource</string>
@@ -48,6 +50,7 @@
   <string name="mokee_version_type_release">Έκδοση</string>
   <string name="mokee_version_type_history">Ιστορικό</string>
   <string name="mokee_version_type_experimental">Πειραματική έκδοση</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Ανεπίσημη</string>
   <string name="mokee_version_type_all">Όλα</string>
   <string name="downloaded_update_summary">Λήφθηκε</string>
@@ -58,6 +61,8 @@
   <string name="menu_delete_all">Διαγραφή κατεβασμένου αρχείου</string>
   <string name="donate_dialog_title">Κάντε μας μια δωρεά</string>
   <string name="donate_dialog_message">Το MoKee είναι ένας μη κερδοσκοπικός οργανισμός. Η βοήθειά σας μπορεί να βοηθήσει στη μείωση του κόστους του διακομιστή που έχουμε επιφορτιστεί να συντηρήσει την μελλοντική μας ανάπτυξη!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Το ποσό είναι εσφαλμένο!</string>
   <string name="donate_money_toast_success">Σας ευχαριστούμε για τη δωρεά σας!</string>
   <string name="donate_money_name">Δωρεά σε MoKee OpenSource</string>
@@ -69,6 +74,7 @@
   <string name="dialog_cancel">Ακύρωση</string>
   <string name="dialog_close">Κλείσιμο</string>
   <string name="no_available_updates_intro">Ο τελευταίος έλεγχος δεν βρήκε διαθέσιμες ενημερώσεις. Για να ελέγξετε για νέες ενημερώσεις, πατήστε το κουμπί Ανανέωση.</string>
+  <string name="no_available_ota_intro">Ο τελευταίος έλεγχος δεν βρήκε διαθέσιμες ενημερώσεις. Για να ελέγξετε για νέες ενημερώσεις, χρησιμοποιήστε το κουμπί Ανανέωση. Εάν εκτελείτε μια έκδοση που είναι δεν υποστηρίζεται, πρέπει να απενεργοποιήσετε την επιλογή \"ενημερώσεις ΟΤΑ\".</string>
   <string name="no_available_extras_intro">Ο τελευταίος έλεγχος δεν βρήκε διαθέσιμες ενημερώσεις. Για να ελέγξετε για νέες ενημερώσεις, πατήστε το κουμπί Ανανέωση.</string>
   <string name="new_update_summary">Νέο</string>
   <string name="old_update_summary">Παλιό</string>
@@ -81,6 +87,7 @@
   <string name="alert_title">Προσοχή</string>
   <string name="update_type_title">Τύπος ενημερώσεων</string>
   <string name="no_changelog_alert">Δεν υπάρχει διαθέσιμο αρχείο αλλαγών</string>
+  <string name="changelog_unavailable">Υπάρχει ένα πρόβλημα κατά τη φόρτωση του αρχείου καταγραφής αλλαγών .</string>
   <string name="changelog_dialog_title">Αρχείο καταγραφής αλλαγών</string>
   <string name="loading_changelog">Φόρτωση\u2026</string>
   <string name="check_on_boot">Σε κάθε επανεκκίνηση</string>
@@ -111,15 +118,25 @@
   <string name="not_action_install_update">Επανεκκίνηση και εγκατάσταση</string>
   <string name="not_download_install_notice">Η λήψη της ενημέρωσης <xliff:g id="filename">%s</xliff:g> ολοκληρώθηκε με επιτυχία. Αν πατήσετε \'Επανεκκίνηση και εγκατάσταση\', η συσκευή θα κάνει επανεκκίνηση και θα εγκαταστήσει την ενημέρωση.\n\nΣημείωση: Απαιτείται μια συμβατή Recovery για την λειτουργία της αυτόματης εγκατάστασης.</string>
   <string name="md5_verification_failed">Ασυμφωνία MD5 checksum</string>
+  <string name="not_extras_download_success">Η λήψη των πρόσθετων στοιχείων ήταν επιτυχής</string>
+  <string name="not_extras_download_failure">Η λήψη των πρόσθετων στοιχείων ήταν ανεπιτυχής</string>
+  <string name="not_extras_download_install_notice">Η λήψη της ενημέρωσης <xliff:g id="filename">%s</xliff:g> ολοκληρώθηκε με επιτυχία. Αν πατήσετε \'Επανεκκίνηση και εγκατάσταση\', η συσκευή θα κάνει επανεκκίνηση και θα εγκαταστήσει την ενημέρωση.\n\nΣημείωση: Απαιτείται μια συμβατή Recovery για την λειτουργία της αυτόματης εγκατάστασης.</string>
+  <string name="not_extras_download_install_notice_apk">Η λήψη της ενημέρωσης <xliff:g id="filename">%s</xliff:g> ολοκληρώθηκε με επιτυχία.</string>
   <string name="not_apk_action_install_update">Εγκατάσταση</string>
   <string name="confirm_delete_dialog_title">Διαγραφή αρχείου</string>
   <string name="confirm_delete_updates_dialog_message">Διαγραφή του επιλεγμένου αρχείου ενημέρωσης;</string>
   <string name="confirm_delete_updates_all_dialog_message">Διαγραφή όλων των κατεβασμένων αρχείων ενημερώσεων;</string>
+  <string name="confirm_delete_extras_dialog_message">Διαγραφή του επιλεγμένου επιπλέον στοιχείου;</string>
+  <string name="confirm_delete_extras_all_dialog_message">Διαγραφή όλων των μεταφορτωμένων επιπλέον στοιχείων;</string>
   <string name="delete_single_update_success_message">Η ενημέρωση <xliff:g id="filename">%s</xliff:g> διαγράφηκε</string>
   <string name="delete_updates_failure_message">Υπήρξε ένα σφάλμα κατά τη διαγραφή του αρχείου ενημέρωσης</string>
   <string name="delete_updates_noFolder_message">Ο φάκελος ενημερώσεων δεν βρέθηκε</string>
   <string name="delete_updates_success_message">Όλες οι κατεβασμένες ενημερώσεις διαγράφηκαν</string>
+  <string name="delete_extras_failure_message">Παρουσιάστηκε σφάλμα κατά τη διαγραφή του επιπλέον στοιχείου</string>
+  <string name="delete_extras_noFolder_message">Ο φάκελος των επιπλέον στοιχείων δεν βρέθηκε</string>
+  <string name="delete_extras_success_message">Ολα τα επιπλέον στοιχεία που έχουν ληφθεί διαγράφηκαν</string>
   <string name="pref_ota_check">Ενημερώσεις ΟΤΑ</string>
+  <string name="pref_ota_check_summary">Λάβετε ενημερώσεις ΟΤΑ</string>
   <string name="apply_update_dialog_title">Εφαρμογή ενημέρωσης</string>
   <string name="apply_update_dialog_text">Πρόκειται να αναβαθμίσετε σε <xliff:g id="filename">%s</xliff:g>.\n\nΑν πατήσετε το πλήκτρο Ενημέρωση, η συσκευή θα κάνει επανεκκίνηση σε recovery mode για να εγκαταστήσετε την ενημέρωση.\n\nΣημείωση: Αυτή η λειτουργία απαιτεί συμβατό recovery αλλιώς η ενημέρωση θα πρέπει να εγκατασταθεί χειροκίνητα.</string>
   <string name="apply_extras_dialog_title">Εγκατάσταση έξτρα</string>
