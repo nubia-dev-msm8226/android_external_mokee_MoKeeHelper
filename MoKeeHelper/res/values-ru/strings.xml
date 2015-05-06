@@ -48,7 +48,7 @@
   <string name="mokee_extras_info_title">Дополнительная информация</string>
   <string name="mokee_info_default">Неизвестно</string>
   <string name="mokee_version_type_release">Релиз</string>
-  <string name="mokee_version_type_history">История версий</string>
+  <string name="mokee_version_type_history">Устаревшая версия</string>
   <string name="mokee_version_type_experimental">Экспериментальная</string>
   <string name="mokee_version_type_nightly">Ночная</string>
   <string name="mokee_version_type_unofficial">Неофициальная</string>
