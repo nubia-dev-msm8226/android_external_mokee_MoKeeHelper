@@ -32,6 +32,7 @@
   <string name="mokee_changelog_summary">הצג רשימה רשימת שינויים MoKee</string>
   <string name="mokee_build_status_title">מצב הבנייה MoKee</string>
   <string name="mokee_build_status_summary">הצג מצב הבנייה של MoKee</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">בקר ב MoKee Github</string>
   <string name="mokee_translate_title">תרגום MoKee</string>
   <string name="mokee_translate_summary">עזור בתרגום MoKee</string>
@@ -60,6 +61,8 @@
   <string name="menu_delete_all">מחיקת הורדה</string>
   <string name="donate_dialog_title">תרום לנו</string>
   <string name="donate_dialog_message">קהילת MoKee הוא ארגון ללא מטרות רווח. בעזרתך ניתן להפחית את העומס שלנו על שרת עלויות ולקיים פיתוחים עתידיים!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">הסכום שהוזן אינו נכון!</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
@@ -71,6 +74,7 @@
   <string name="dialog_cancel">ביטול</string>
   <string name="dialog_close">סגור</string>
   <string name="no_available_updates_intro">הבדיקה האחרונה לא מצאה עדכונים זמינים. כדי לבדוק באופן ידני, השתמש במקש הריענון.</string>
+  <string name="no_available_ota_intro">הבדיקה האחרונה לא מצאה עדכונים זמינים. כדי לבדוק אם יש עדכונים חדשים, לחצ/י על כפתור \"רענן\". אם את/ה משתמש בגרסה שאינה בתחום התאריכים של העדכונים המצטברים, בטל/י את האפשרות \"עדכונים מצטברים\".</string>
   <string name="no_available_extras_intro">הבדיקה האחרונה לא מצאה עדכונים זמינים. כדי לבדוק באופן ידני, השתמש במקש הריענון.</string>
   <string name="new_update_summary">חדש</string>
   <string name="old_update_summary">ישן</string>
@@ -83,6 +87,7 @@
   <string name="alert_title">זהירות</string>
   <string name="update_type_title">סוג עדכון</string>
   <string name="no_changelog_alert">תיעוד שינויים לא זמין</string>
+  <string name="changelog_unavailable">יש בעיה בטעינה של רשימת השינויים.</string>
   <string name="changelog_dialog_title">יומן שינויים</string>
   <string name="loading_changelog">טוען\u2026</string>
   <string name="check_on_boot">בכל אתחול מחדש</string>

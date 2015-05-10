@@ -32,6 +32,7 @@
   <string name="mokee_changelog_summary">MoKee 체인지로그 목록를 보기</string>
   <string name="mokee_build_status_title">MoKee 빌드 상태</string>
   <string name="mokee_build_status_summary">빌드 상태를 보기</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">MoKee Github를 방문</string>
   <string name="mokee_translate_title">MoKee 번역</string>
   <string name="mokee_translate_summary">협조 번역 MoKee</string>
@@ -45,7 +46,7 @@
   <string name="mokee_last_check_title">마지막 검사</string>
   <string name="mokee_last_check_never">알리지 않음</string>
   <string name="mokee_extras_info_title">엑스트라 정보</string>
-  <string name="mokee_info_default">미지</string>
+  <string name="mokee_info_default">알 수 없는</string>
   <string name="mokee_version_type_release">해제</string>
   <string name="mokee_version_type_history">역사</string>
   <string name="mokee_version_type_experimental">실험적인 기능</string>
@@ -60,6 +61,8 @@
   <string name="menu_delete_all">다운로드 삭제</string>
   <string name="donate_dialog_title">우리한테 기부</string>
   <string name="donate_dialog_message">MoKee 오픈 소스는 비영리 단체입니다. 당신의 도움은 우리의 서버 비용을 낮추수 잇고 우리 미래의 발전을 유지할수 있읍니다!</string>
+  <string name="donate_dialog_via_paypal">페이팔</string>
+  <string name="donate_dialog_via_alipay">알리페이</string>
   <string name="donate_money_toast_error">입력 한 금액이 올바르지 않습니다!</string>
   <string name="donate_money_toast_success">기부 주셔서 감사합니다!</string>
   <string name="donate_money_name">MoKee 오픈 소스 기부</string>
@@ -71,13 +74,20 @@
   <string name="dialog_cancel">취소</string>
   <string name="dialog_close">닫기</string>
   <string name="no_available_updates_intro">마지막으로 확인했을때, 업데이트를 찾지 못했습니다. 수동으로 새 업데이트를 확인하려면 새로고침 버튼을 누르세요.</string>
+  <string name="no_available_ota_intro">현재 최신의 업데이트 버전이 존재하지 않습니다.  수동으로 새 업데이트를 확인하려면 새로고침 버튼을 눌러주세요.  OTA 업데이트 지원 불가능한 버전을 사용하고 계신다면, OTA 업데이트 기능을 비활성화 해 주세요.</string>
   <string name="no_available_extras_intro">마지막으로 확인했을때, 업데이트를 찾지 못했습니다. 수동으로 새 업데이트를 확인하려면 새로고침 버튼을 누르세요.</string>
+  <string name="new_update_summary">새로운</string>
+  <string name="old_update_summary">이전의</string>
   <string name="update_check_title">업데이트 주파수를 확인</string>
   <string name="check_manual">수동</string>
   <string name="nightly_alert">나이틀리 업데이트를 선택했습니다. 이 버전은 지원되지 않고 주의하며 사용해야합니다.</string>
+  <string name="experimenter_alert">실험적 업데이트를 선택하였습니다.  이 버전은 테스트를 하기 위한 버전이므로 주의가 필요합니다.</string>
+  <string name="unofficial_alert">비공식 업데이트를 선택했습니다. 이 기능은 기기 소유자의 권한이 필요합니다.</string>
+  <string name="all_alert">모든 가능한 업데이트(정식버전, 실험버전) 를 선택했습니다. Nightly 버전은 지원하지 않으며 주의가 필요합니다.</string>
   <string name="alert_title">주의</string>
   <string name="update_type_title">업데이트 유형</string>
   <string name="no_changelog_alert">변경 사항이 없습니다</string>
+  <string name="changelog_unavailable">변화내역(changelog)을 보는데 문제가 생겼습니다.</string>
   <string name="changelog_dialog_title">변경 사항</string>
   <string name="loading_changelog">로딩 중\u2026</string>
   <string name="check_on_boot">시작할때마다</string>
@@ -128,8 +138,12 @@
   <string name="pref_ota_check">OTA 업데이트</string>
   <string name="pref_ota_check_summary">OTA 업데이트 가져</string>
   <string name="apply_update_dialog_title">업데이트 적용</string>
+  <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> 버전으로 업그레이드 합니다. \n\n 업데이트 버튼을 누르면, 이 기기는 자동으로 재시작후, 리커버리 모드로 진입하여 인스톨 합니다.\n
+        \n 주의 : 이 기능은 호환가능한 리커버리가 수동으로 미리 설치되어 있어야 합니다.</string>
   <string name="apply_extras_dialog_title">엑스트라 설치</string>
   <string name="apply_extras_dialog_text"><xliff:g id="filename">%s </xliff:g>를 설치 하 시겠습니까?</string>
   <string name="apply_unable_to_reboot_toast">리커버리로 진입할 수 없습니다.</string>
+  <string name="extras_unsupported_toast">현재 버전에서는 이 확장기능을 지원하지 않습니다.</string>
   <string name="show_exp_on">당신은 실험 모드에있다!</string>
+  <string name="show_exp_already">이미 실험적인 설정입니다.</string>
 </resources>
