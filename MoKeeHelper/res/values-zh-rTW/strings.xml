@@ -74,6 +74,7 @@
   <string name="dialog_cancel">取消</string>
   <string name="dialog_close">關閉</string>
   <string name="no_available_updates_intro">最後一次刷新沒有找到可用的更新。使用刷新按鈕來手動檢查更新。</string>
+  <string name="no_available_ota_intro">最後一次檢查並沒有發現任何可用的更新。若要手動檢查新的更新，請使用刷新按鈕。如果你正在運行一個不支援增量更新日期範圍之內的版本，則應取消選擇\"增量更新\"選項。</string>
   <string name="no_available_extras_intro">最後一次刷新沒有找到可用的更新。使用刷新按鈕來手動檢查更新。</string>
   <string name="new_update_summary">新</string>
   <string name="old_update_summary">舊</string>
@@ -86,6 +87,7 @@
   <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
   <string name="no_changelog_alert">沒有可用的更新日誌</string>
+  <string name="changelog_unavailable">加載更新日誌出現問題</string>
   <string name="changelog_dialog_title">更新日誌</string>
   <string name="loading_changelog">載入中…\u2026</string>
   <string name="check_on_boot">每次重新開機</string>
@@ -115,6 +117,7 @@
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
   <string name="not_download_install_notice">更新 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
+  <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
   <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
