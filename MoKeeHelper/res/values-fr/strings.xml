@@ -26,6 +26,7 @@
   <string name="mokee_website_summary">Visitez le site officiel</string>
   <string name="mokee_forum_title">Forum de MoKee</string>
   <string name="mokee_forum_summary">Visiter le Forum de MoKee</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Visitez le bug tracker</string>
   <string name="mokee_changelog_title">Historique des modifications de MoKee</string>
   <string name="mokee_changelog_summary">Voir l\'historique des modifications de MoKee</string>
@@ -35,6 +36,7 @@
   <string name="mokee_github_summary">Visitez le Github de MoKee</string>
   <string name="mokee_translate_title">Définition de MoKee</string>
   <string name="mokee_translate_summary">Aider à traduire MoKee</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Découvrez le Wiki de MoKee</string>
   <string name="mokee_donate_title">Faire un don à MoKee</string>
   <string name="mokee_donate_summary">S\'il vous plaît faire un don pour soutenir MoKee OpenSource</string>
@@ -45,8 +47,10 @@
   <string name="mokee_last_check_never">jamais</string>
   <string name="mokee_extras_info_title">Infos bonus</string>
   <string name="mokee_info_default">Inconnu</string>
+  <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Historique</string>
   <string name="mokee_version_type_experimental">Expérimental</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Non officiel</string>
   <string name="mokee_version_type_all">Tout</string>
   <string name="downloaded_update_summary">Télécharger</string>
@@ -57,6 +61,8 @@
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="donate_dialog_title">Faite nous un don</string>
   <string name="donate_dialog_message">MoKee OpenSource est un organisme à but non lucratif. Votre aide peut aider à réduire notre charge sur les frais de serveur et de soutenir les développements futurs !</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Le montant saisi est incorrect !</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>
   <string name="donate_money_name">Faire un don au Projet OpenSource MoKee</string>
@@ -64,9 +70,11 @@
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>
   <string name="dialog_install">Installer</string>
+  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Annuler</string>
   <string name="dialog_close">Fermer</string>
   <string name="no_available_updates_intro">Aucune mise à jour disponible lors de la dernière vérification. Pour vérifier manuellement les mises à jour, utilisez le bouton Actualiser.</string>
+  <string name="no_available_ota_intro">Le dernier contrôle n\'a pas trouvé les mises à jour disponibles. Pour vérifier manuellement les nouvelles mises à jour, utilisez le bouton Actualiser. Si vous exécutez une version qui est hors de la plage de dates de prise en charge de mise à jour incrémentielle, vous devriez désélectionner l\'option \"Mises à jour incrémentielles\".</string>
   <string name="no_available_extras_intro">Aucune mise à jour disponible lors de la dernière vérification. Pour vérifier manuellement les mises à jour, utilisez le bouton Actualiser.</string>
   <string name="new_update_summary">Nouveau</string>
   <string name="old_update_summary">Ancien</string>
@@ -79,6 +87,7 @@
   <string name="alert_title">Attention</string>
   <string name="update_type_title">Types de mise à jour</string>
   <string name="no_changelog_alert">Aucun historique des modifications disponible</string>
+  <string name="changelog_unavailable">Il y a un problème de chargement du changelog.</string>
   <string name="changelog_dialog_title">Historique des modifications</string>
   <string name="loading_changelog">Chargement\u2026</string>
   <string name="check_on_boot">À chaque redémarrage</string>
