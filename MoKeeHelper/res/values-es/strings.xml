@@ -20,6 +20,7 @@
   <string name="mokee_center_title">Centro de Mokee</string>
   <string name="mokee_support_title">Soporte</string>
   <string name="mokee_updater_title">Actualizar</string>
+  <string name="mokee_extras_title">Extras</string>
   <string name="tips_help_title">Consejos y ayuda</string>
   <string name="mokee_website_title">Sitio web MoKee</string>
   <string name="mokee_website_summary">Visite el sitio web oficial</string>
@@ -48,6 +49,7 @@
   <string name="mokee_info_default">Desconocido</string>
   <string name="mokee_version_type_release">Versión</string>
   <string name="mokee_version_type_history">Historial</string>
+  <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Nocturna</string>
   <string name="mokee_version_type_unofficial">No Oficial</string>
   <string name="mokee_version_type_all">Todos</string>
@@ -59,6 +61,8 @@
   <string name="menu_delete_all">Eliminar descarga</string>
   <string name="donate_dialog_title">Haznos una donación</string>
   <string name="donate_dialog_message">MoKee OpenSource es una organización sin fines de lucro. Su ayuda puede ayudar a soportar los costos del servidor y sostener desarrollos futuros!</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">La cantidad es incorrecta!</string>
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
@@ -70,10 +74,12 @@
   <string name="dialog_cancel">Cancelar</string>
   <string name="dialog_close">Cerrar</string>
   <string name="no_available_updates_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
+  <string name="no_available_ota_intro">El último chequeo no encontró ninguna actualización disponible. Para comprobar manualmente nuevas versiones, utilice el botón Actualizar. Si está ejecutando una versión que está fuera del rango de fecha de actualización soportada, deberá deseleccionar la opción \"Actualizaciones incrementales\".</string>
   <string name="no_available_extras_intro">No se encontraron actualizaciones en la última comprobación. Pulsa el botón Refrescar para comprobar si existen nuevas actualizaciones.</string>
   <string name="new_update_summary">Nuevo</string>
   <string name="old_update_summary">Antiguo</string>
   <string name="update_check_title">Comprobar la frecuencia de actualización</string>
+  <string name="check_manual">Manual</string>
   <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
   <string name="experimenter_alert">Ha seleccionado incluir versiones experimentales en esta lista. Éstas no tienen soporte al usuario y están destinadas para pruebas solamente, debe utilizarse con precaución.</string>
   <string name="unofficial_alert">Ha seleccionado incluir versiones no oficiales en esta lista. Tenga en cuenta que éstas son apoyadas por el mantenedor del dispositivo.</string>
@@ -81,6 +87,7 @@
   <string name="alert_title">Advertencia</string>
   <string name="update_type_title">Tipo de actualización</string>
   <string name="no_changelog_alert">No hay registro de cambios</string>
+  <string name="changelog_unavailable">Hay un problema cargando el changelog.</string>
   <string name="changelog_dialog_title">Registro de cambios</string>
   <string name="loading_changelog">Cargando\u2026</string>
   <string name="check_on_boot">En cada reinicio del sistema</string>
