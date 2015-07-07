@@ -19,6 +19,7 @@ package com.mokee.helper.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.mokee.utils.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -47,6 +48,7 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String URL_MOKEE_WEBSITE = "http://www.mokeedev.com";
     private static final String URL_MOKEE_FORUM = "http://bbs.mfunz.com";
     private static final String URL_MOKEE_ISSUES = "http://issues.mokeedev.com";
+    private static final String URL_MOKEE_QUESTION = "http://bbs.mfunz.com/forum.php?mod=forumdisplay&amp;fid=24&amp;filter=typeid&amp;typeid=3110";
     private static final String URL_MOKEE_CHANGELOG = "http://changelog.mokeedev.com";
     private static final String URL_MOKEE_BUILD_STATUS = "http://build.mokeedev.com";
     private static final String URL_MOKEE_TRANSLATE = "http://translate.mokeedev.com";
@@ -72,7 +74,7 @@ public class MoKeeSupportFragment extends PreferenceFragment {
         } else if (key.equals(KEY_MOKEE_FORUM)) {
             goToURL(mContext, URL_MOKEE_FORUM);
         } else if (key.equals(KEY_MOKEE_ISSUES)) {
-            goToURL(mContext, URL_MOKEE_ISSUES);
+            goToURL(mContext, MoKeeUtils.isSupportLanguage(false) ? URL_MOKEE_QUESTION : URL_MOKEE_ISSUES);
         } else if (key.equals(KEY_MOKEE_CHANGELOG)) {
             goToURL(mContext, URL_MOKEE_CHANGELOG);
         } else if (key.equals(KEY_MOKEE_BUILD_STATUS)) {
