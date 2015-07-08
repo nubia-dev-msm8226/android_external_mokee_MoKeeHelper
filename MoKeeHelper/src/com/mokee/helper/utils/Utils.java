@@ -56,11 +56,6 @@ public class Utils {
                 Constants.EXTRAS_FOLDER);
     }
 
-    public static File makeChangelogFolder() {
-        return new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
-                Constants.CHANGELOG_FOLDER);
-    }
-
     /**
      * 检测rom是否已下载
      */

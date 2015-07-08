@@ -20,8 +20,6 @@ package com.mokee.helper.misc;
 import java.io.File;
 import java.io.Serializable;
 
-import com.mokee.helper.utils.Utils;
-
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -77,11 +75,7 @@ public class ItemInfo implements Parcelable, Serializable {
     }
 
     public File getChangeLogFile(Context context) {
-        File mChangelogFolder = Utils.makeChangelogFolder();
-        if (!mChangelogFolder.exists()) {
-            mChangelogFolder.mkdir();
-        }
-        return new File(mChangelogFolder, mFileName.replaceAll(".zip", "") + ".html");
+        return new File(context.getCacheDir(), mFileName + ".html");
     }
 
     public static final Parcelable.Creator<ItemInfo> CREATOR = new Parcelable.Creator<ItemInfo>() {
