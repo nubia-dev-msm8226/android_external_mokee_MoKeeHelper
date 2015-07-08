@@ -33,8 +33,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
@@ -51,18 +55,20 @@ public class MoKeeCenter extends FragmentActivity {
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
     public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
     public static final String BR_ONNewIntent = "onNewIntent";
+
     private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
     private static EditText mEditText;
 
+    private AdView adView;
+    private static final String MY_AD_UNIT_ID = "ca-app-pub-1229799408538170/6499678696";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.viewPager);
-        setContentView(mViewPager);
-
+        setContentView(R.layout.main);
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
         bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
@@ -78,6 +84,16 @@ public class MoKeeCenter extends FragmentActivity {
         bar.setSelectedNavigationItem(1);
         // Turn on the Options Menu
         invalidateOptionsMenu();
+
+        // Create Google AdMob
+        adView = new AdView(this, AdSize.BANNER, MY_AD_UNIT_ID);
+        RelativeLayout.LayoutParams adParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        adParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.main);
+        layout.addView(adView, adParams);
+        adView.loadAd(new AdRequest());
     }
 
     @Override
@@ -166,4 +182,13 @@ public class MoKeeCenter extends FragmentActivity {
         intent.putExtra("price", price);
         mContext.startActivity(intent);
     }
+
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
 }
