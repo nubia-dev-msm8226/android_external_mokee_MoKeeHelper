@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 
 package com.mokee.helper.requests;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
@@ -84,13 +85,17 @@ public class UpdatesRequest extends StringRequest {
         // disable ota option at old version
         String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
         SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");
-        long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
-        long nowSystemDate = System.currentTimeMillis();
-        if (!isExperimental || !isHistory || !isUnofficial) {
-            if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
-                prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();;
+        try {
+            long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
+            long nowSystemDate = System.currentTimeMillis();
+            if (!isExperimental || !isHistory || !isUnofficial) {
+                if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
+                    prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();;
+                }
             }
+        } catch (ParseException exception) {
         }
+
         boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         params.put("device_name", Utils.getDeviceType());
         params.put("device_version", Utils.getInstalledVersion());
