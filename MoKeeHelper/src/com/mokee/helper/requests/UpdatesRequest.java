@@ -83,20 +83,23 @@ public class UpdatesRequest extends StringRequest {
             updateType = 0;
         }
         // disable ota option at old version
-        String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
-        SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");
-        try {
-            long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
-            long nowSystemDate = System.currentTimeMillis();
-            if (!isExperimental || !isHistory || !isUnofficial) {
-                if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
-                    prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();;
+        boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
+        if (isOTA) {
+            String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
+            SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");
+            try {
+                long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
+                long nowSystemDate = System.currentTimeMillis();
+                if (!isExperimental || !isHistory || !isUnofficial) {
+                    if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
+                        prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
+                        isOTA = false;
+                    }
                 }
+            } catch (ParseException exception) {
             }
-        } catch (ParseException exception) {
         }
 
-        boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         params.put("device_name", Utils.getDeviceType());
         params.put("device_version", Utils.getInstalledVersion());
         params.put("build_user", Utils.getBuildUser());
