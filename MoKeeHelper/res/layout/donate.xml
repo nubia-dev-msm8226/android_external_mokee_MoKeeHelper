@@ -33,7 +33,7 @@
         android:id="@+id/money_price"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true" />

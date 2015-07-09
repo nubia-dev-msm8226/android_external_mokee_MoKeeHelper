@@ -57,7 +57,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
@@ -105,7 +104,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final int MENU_DELETE_ALL = 1;
     private static final int MENU_DONATE = 2;
 
-    private SharedPreferences mPrefs;
+    private SharedPreferences mPrefs, mDonationPrefs;
     private SwitchPreference mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
@@ -158,6 +157,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         // Load the stored preference data
         mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
+        mDonationPrefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
 
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_INTERVAL_PREF);
@@ -421,11 +421,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
         }
         // Clear the notification if one exists
-        Utils.cancelNotification(MoKeeApplication.getContext());
+        Utils.cancelNotification(mContext);
 
         // Build list of updates
-        final LinkedList<ItemInfo> availableUpdates = State.loadMKState(
-                MoKeeApplication.getContext(), State.UPDATE_FILENAME);
+        final LinkedList<ItemInfo> availableUpdates = State.loadMKState(mContext, State.UPDATE_FILENAME);
 
         if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true)) {
             Collections.sort(availableUpdates, new Comparator<ItemInfo>() {
@@ -502,7 +501,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
         }
-        mUpdatesList.addPreference(new AdmobPreference(getActivity()));
+        // add Google AdMob
+        if (mDonationPrefs.getInt("total", 0) < 100) {
+            mUpdatesList.addPreference(new AdmobPreference(getActivity()));
+        }
     }
 
     private String mapCheckValue(Integer value) {
@@ -532,7 +534,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (mProgressDialog != null) {
             return;
         }
-        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(),
+        State.saveMKState(mContext, new LinkedList<ItemInfo>(),
                 State.UPDATE_FILENAME);// clear
         refreshPreferences(new LinkedList<ItemInfo>());// clear
         // If there is no internet connection, display a message and return.
@@ -551,7 +553,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
                 cancelIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
-                MoKeeApplication.getContext().startServiceAsUser(cancelIntent, UserHandle.CURRENT);
+                mContext.startServiceAsUser(cancelIntent, UserHandle.CURRENT);
                 mProgressDialog = null;
             }
         });
@@ -559,7 +561,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
-        MoKeeApplication.getContext().startServiceAsUser(checkIntent, UserHandle.CURRENT);
+        mContext.startServiceAsUser(checkIntent, UserHandle.CURRENT);
         mProgressDialog.show();
     }
 
@@ -755,7 +757,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
         intent.putExtra(DownLoadService.DOWNLOAD_URL, mPrefs.getString(DownLoadService.DOWNLOAD_URL, ""));
 
-        MoKeeApplication.getContext().startServiceAsUser(intent, UserHandle.CURRENT);
+        mContext.startServiceAsUser(intent, UserHandle.CURRENT);
     }
 
     @Override

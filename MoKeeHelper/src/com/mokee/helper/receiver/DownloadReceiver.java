@@ -31,7 +31,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.misc.Constants;
@@ -90,11 +89,10 @@ public class DownloadReceiver extends BroadcastReceiver {
                     i.setDataAndType(Uri.parse("file://" + Utils.makeExtraFolder().getAbsolutePath() + "/"
                             + fileName), "application/vnd.android.package-archive");
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MoKeeApplication.getContext().startActivity(i);
+                    context.startActivity(i);
                     Utils.cancelNotification(context);
                 } else {
-                    Toast.makeText(MoKeeApplication.getContext(),
-                            R.string.extras_unsupported_toast, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.extras_unsupported_toast, Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -167,7 +165,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         intentService.putExtra(DownLoadService.DOWNLOAD_FILE_PATH, fullFilePath);
         intentService.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
         intentService.putExtra(DownLoadService.DOWNLOAD_ID, downloadId);
-        MoKeeApplication.getContext().startServiceAsUser(intentService, UserHandle.CURRENT);
+        context.startServiceAsUser(intentService, UserHandle.CURRENT);
         Utils.cancelNotification(context);
     }
 

@@ -49,7 +49,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
@@ -247,11 +246,10 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             }
         }
         // Clear the notification if one exists
-        Utils.cancelNotification(MoKeeApplication.getContext());
+        Utils.cancelNotification(mContext);
 
         // Build list of updates
-        final LinkedList<ItemInfo> availableUpdates = State.loadMKState(
-                MoKeeApplication.getContext(), State.EXTRAS_FILENAME);
+        final LinkedList<ItemInfo> availableUpdates = State.loadMKState(mContext, State.EXTRAS_FILENAME);
         // Update the preference list
         refreshExtrasPreferences(availableUpdates);
     }
@@ -325,7 +323,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         if (mProgressDialog != null) {
             return;
         }
-        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(),
+        State.saveMKState(mContext, new LinkedList<ItemInfo>(),
                 State.EXTRAS_FILENAME);
         refreshExtrasPreferences(new LinkedList<ItemInfo>());
         // If there is no internet connection, display a message and return.
@@ -344,7 +342,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
                 cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
                 cancelIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
-                MoKeeApplication.getContext().startServiceAsUser(cancelIntent, UserHandle.CURRENT);
+                mContext.startServiceAsUser(cancelIntent, UserHandle.CURRENT);
                 mProgressDialog = null;
             }
         });
@@ -352,7 +350,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_EXTRAS);
-        MoKeeApplication.getContext().startServiceAsUser(checkIntent, UserHandle.CURRENT);
+        mContext.startServiceAsUser(checkIntent, UserHandle.CURRENT);
         mProgressDialog.show();
     }
 
@@ -524,7 +522,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
         intent.putExtra(DownLoadService.DOWNLOAD_URL, mPrefs.getString(DownLoadService.DOWNLOAD_EXTRAS_URL, ""));
 
-        MoKeeApplication.getContext().startServiceAsUser(intent, UserHandle.CURRENT);
+        mContext.startServiceAsUser(intent, UserHandle.CURRENT);
     }
 
     @Override

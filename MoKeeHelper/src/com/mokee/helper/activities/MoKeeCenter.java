@@ -24,6 +24,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -164,6 +165,8 @@ public class MoKeeCenter extends FragmentActivity {
         intent.putExtra("name", name);
         intent.putExtra("description", description);
         intent.putExtra("price", price);
+        SharedPreferences prefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
+        prefs.edit().putInt("price", channel.equals("alipay") ? Integer.valueOf(price) : Integer.valueOf(price) * 6).apply();
         mContext.startActivity(intent);
     }
 
