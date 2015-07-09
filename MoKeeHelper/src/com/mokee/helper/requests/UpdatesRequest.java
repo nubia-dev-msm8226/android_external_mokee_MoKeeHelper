@@ -17,6 +17,7 @@
 
 package com.mokee.helper.requests;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -66,6 +67,7 @@ public class UpdatesRequest extends StringRequest {
         boolean isNightly = TextUtils.equals(MoKeeVersionType, "nightly");
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
+        boolean isHistory = TextUtils.equals(MoKeeVersionType, "history");
         boolean experimentalShow = prefs.getBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW,
                 isExperimental);
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3
@@ -78,6 +80,16 @@ public class UpdatesRequest extends StringRequest {
         if (!isUnofficial && updateType == 3) {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
+        }
+        // disable ota option at old version
+        String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
+        SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");  
+        long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
+        long nowSystemDate = System.currentTimeMillis();
+        if (!isExperimental || !isHistory || !isUnofficial) {
+            if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
+                prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();;
+            }
         }
         boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         params.put("device_name", Utils.getDeviceType());

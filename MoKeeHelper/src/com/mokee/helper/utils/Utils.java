@@ -95,6 +95,14 @@ public class Utils {
         return MoKeeVersionType;
     }
 
+    public static long getVersionLifeTime(String versionType) {
+        if (versionType.equals("release")) {
+            return 86400000 * 60; 
+        } else if (versionType.equals("nightly")) {
+            return 86400000 * 7;
+        }
+    }
+
     public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
             throws IOException {
         /*
@@ -163,8 +171,7 @@ public class Utils {
         // Get the intent ready
         Intent i = new Intent(context, UpdateCheckService.class);
         i.setAction(UpdateCheckService.ACTION_CHECK);
-        PendingIntent pi = PendingIntent.getService(context, 0, i,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pi = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Clear any old alarms and schedule the new alarm
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
