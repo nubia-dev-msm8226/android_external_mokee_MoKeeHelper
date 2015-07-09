@@ -98,7 +98,7 @@ public class Utils {
     public static long getVersionLifeTime(String versionType) {
         if (versionType.equals("release")) {
             return 86400000 * 60; 
-        } else if (versionType.equals("nightly")) {
+        } else {
             return 86400000 * 7;
         }
     }
