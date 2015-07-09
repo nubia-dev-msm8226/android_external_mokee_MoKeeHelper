@@ -83,7 +83,7 @@ public class UpdatesRequest extends StringRequest {
         }
         // disable ota option at old version
         String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
-        SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");  
+        SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");
         long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
         long nowSystemDate = System.currentTimeMillis();
         if (!isExperimental || !isHistory || !isUnofficial) {
