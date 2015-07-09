@@ -73,6 +73,7 @@ import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
+import com.mokee.helper.widget.AdmobPreference;
 import com.mokee.helper.widget.EmptyListPreferenceStyle;
 import com.mokee.helper.widget.ItemPreference;
 
@@ -501,6 +502,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
         }
+        mUpdatesList.addPreference(new AdmobPreference(getActivity()));
     }
 
     private String mapCheckValue(Integer value) {
