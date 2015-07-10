@@ -18,15 +18,15 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="not_new_updates_found_body">
-    <item quantity="one">Actualización disponible para ser descargada</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> Actualización disponible para ser descargada</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> actualización disponible para descargar</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> actualizaciones disponibles para descargar</item>
   </plurals>
   <plurals name="not_additional_count">
-    <item quantity="one">+ <xliff:g id="count">%d</xliff:g> mas</item>
-    <item quantity="other">+ <xliff:g id="count">%d</xliff:g> mas</item>
+    <item quantity="one">+ <xliff:g id="count">%d</xliff:g> más</item>
+    <item quantity="other">+ <xliff:g id="count">%d</xliff:g> más</item>
   </plurals>
   <plurals name="show_exp_countdown">
-    <item quantity="one">Ahora esta a<xliff:g id="step_count">%1$d</xliff:g>clics de permitir ajustes experimentales.</item>
-    <item quantity="other">Ahora esta a<xliff:g id="step_count">%1$d</xliff:g>clics de permitir ajustes experimentales.</item>
+    <item quantity="one">Ahora estás a <xliff:g id="step_count">%1$d </xliff:g> toque para habilitar las opciones de desarrollo.</item>
+    <item quantity="other">Ahora estás a <xliff:g id="step_count">%1$d </xliff:g> toques para habilitar las opciones de desarrollo.</item>
   </plurals>
 </resources>

@@ -87,7 +87,6 @@
   <string name="alert_title">Опрез</string>
   <string name="update_type_title">Врста надограње</string>
   <string name="no_changelog_alert">Нема информација о изменама</string>
-  <string name="changelog_unavailable">Дошло је до проблема приликом учитавања евиденције измена.</string>
   <string name="changelog_dialog_title">Евиденција измена</string>
   <string name="loading_changelog">Учитавам\u2026</string>
   <string name="check_on_boot">При сваком рестартовању</string>

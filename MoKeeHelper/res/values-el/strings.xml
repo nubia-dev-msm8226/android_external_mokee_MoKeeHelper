@@ -87,7 +87,6 @@
   <string name="alert_title">Προσοχή</string>
   <string name="update_type_title">Τύπος ενημερώσεων</string>
   <string name="no_changelog_alert">Δεν υπάρχει διαθέσιμο αρχείο αλλαγών</string>
-  <string name="changelog_unavailable">Υπάρχει ένα πρόβλημα κατά τη φόρτωση του αρχείου καταγραφής αλλαγών .</string>
   <string name="changelog_dialog_title">Αρχείο καταγραφής αλλαγών</string>
   <string name="loading_changelog">Φόρτωση\u2026</string>
   <string name="check_on_boot">Σε κάθε επανεκκίνηση</string>

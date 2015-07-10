@@ -87,7 +87,6 @@
   <string name="alert_title">Vigyázat</string>
   <string name="update_type_title">Frissítés típusa</string>
   <string name="no_changelog_alert">A változások listája nem elérhető</string>
-  <string name="changelog_unavailable">Probléma lépett fel a változások listájának betöltése közben.</string>
   <string name="changelog_dialog_title">Változások naplója</string>
   <string name="loading_changelog">Betöltés\u2026</string>
   <string name="check_on_boot">Minden újraindításkor</string>

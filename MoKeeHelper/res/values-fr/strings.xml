@@ -87,7 +87,6 @@
   <string name="alert_title">Attention</string>
   <string name="update_type_title">Types de mise à jour</string>
   <string name="no_changelog_alert">Aucun historique des modifications disponible</string>
-  <string name="changelog_unavailable">Il y a un problème de chargement du changelog.</string>
   <string name="changelog_dialog_title">Historique des modifications</string>
   <string name="loading_changelog">Chargement\u2026</string>
   <string name="check_on_boot">À chaque redémarrage</string>

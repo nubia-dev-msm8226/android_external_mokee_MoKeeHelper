@@ -87,7 +87,6 @@
   <string name="alert_title">Cuidado</string>
   <string name="update_type_title">Tipo de atualização</string>
   <string name="no_changelog_alert">Nenhum changelog disponível</string>
-  <string name="changelog_unavailable">Houve um problema ao carregar o changelog.</string>
   <string name="changelog_dialog_title">Registo de alterações</string>
   <string name="loading_changelog">Carregando\u2026</string>
   <string name="check_on_boot">Em cada reinicialização</string>

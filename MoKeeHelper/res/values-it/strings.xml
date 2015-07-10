@@ -87,7 +87,6 @@
   <string name="alert_title">Attenzione</string>
   <string name="update_type_title">Tipo di aggiornamento</string>
   <string name="no_changelog_alert">Nessun changelog disponibile</string>
-  <string name="changelog_unavailable">C\'è un problema di caricamento del changelog.</string>
   <string name="changelog_dialog_title">Modifiche di Versione</string>
   <string name="loading_changelog">Caricamento\u2026</string>
   <string name="check_on_boot">Ad ogni riavvio</string>

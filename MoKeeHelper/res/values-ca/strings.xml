@@ -89,7 +89,6 @@ desactivi aquesta opció.</string>
   <string name="alert_title">Precaució</string>
   <string name="update_type_title">Tipus d\'actualització</string>
   <string name="no_changelog_alert">No hi ha un registre de canvis disponible</string>
-  <string name="changelog_unavailable">va haver-hi un problema carregant el registre de canvis.</string>
   <string name="changelog_dialog_title">Registre de canvis</string>
   <string name="loading_changelog">Carregant\u2026</string>
   <string name="check_on_boot">En cada reinici</string>

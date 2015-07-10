@@ -87,7 +87,6 @@
   <string name="alert_title">Vorsicht</string>
   <string name="update_type_title">Updatetyp</string>
   <string name="no_changelog_alert">Kein Änderungsprotokoll verfügbar</string>
-  <string name="changelog_unavailable">Es gibt ein Problem beim Laden des Changelogs.</string>
   <string name="changelog_dialog_title">Änderungsprotokoll</string>
   <string name="loading_changelog">Lädt\u2026</string>
   <string name="check_on_boot">Bei jedem Neustart</string>

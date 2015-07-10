@@ -87,7 +87,6 @@
   <string name="alert_title">Varování</string>
   <string name="update_type_title">Typ aktualizace</string>
   <string name="no_changelog_alert">Changelog není k dispozici</string>
-  <string name="changelog_unavailable">Došlo k potížím při načítání changelogu.</string>
   <string name="changelog_dialog_title">Changelog</string>
   <string name="loading_changelog">Nahrávám\u2026</string>
   <string name="check_on_boot">Po každém restartu</string>
