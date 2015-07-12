@@ -26,6 +26,8 @@ public class Constants {
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
     public static final String DONATION_PREF = "donation";
+    public static final String ROOT_PREF = "pref_root";
+    public static final String ADMOB_PREF = "pref_admob";
     public static final String UPDATE_INTERVAL_PREF = "pref_update_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
     public static final String OTA_CHECK_PREF = "pref_ota_check";

@@ -16,7 +16,8 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="pref_root" >
 
     <PreferenceCategory android:title="@string/mokee_version_info_title" >
         <PreferenceScreen
@@ -53,4 +54,6 @@
         android:key="updates_category"
         android:title="@string/available_updates_title" />
 
+    <com.mokee.helper.widget.AdmobPreference
+        android:key="pref_admob" />
 </PreferenceScreen>

@@ -105,6 +105,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final int MENU_DONATE = 2;
 
     private SharedPreferences mPrefs, mDonationPrefs;
+    private AdmobPreference mAdmobView;
+    private RootPreference mRootView;
     private SwitchPreference mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
@@ -159,6 +161,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         mDonationPrefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
 
+        mRootView = (PreferenceScreen) findPreference(Constants.ROOT_PREF);
+        mAdmobView = (AdmobPreference) findPreference(Constants.ADMOB_PREF);
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_INTERVAL_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
@@ -240,6 +244,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
                 : TAPS_TO_BE_A_EXPERIMENTER;
         mExpHitToast = null;
+        // add Google AdMob
+        if (mDonationPrefs.getInt("total", 0) >= 100) {
+            mRootView.removePreference(mAdmobView);
+        }
     }
 
     @Override
@@ -500,10 +508,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             pref.setSummary(mUpdateOTA.isChecked() ? R.string.no_available_ota_intro : R.string.no_available_updates_intro);
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
-        }
-        // add Google AdMob
-        if (mDonationPrefs.getInt("total", 0) < 100) {
-            mUpdatesList.addPreference(new AdmobPreference(getActivity()));
         }
     }
 
