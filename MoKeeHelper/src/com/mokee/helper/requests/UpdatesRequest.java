@@ -86,12 +86,12 @@ public class UpdatesRequest extends StringRequest {
         boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         if (isOTA) {
             String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
-            SimpleDateFormat sdf = new SimpleDateFormat("yymmdd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
             try {
                 long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
                 long nowSystemDate = System.currentTimeMillis();
                 if (!isExperimental || !isHistory || !isUnofficial) {
-                    if (nowSystemDate - Utils.getVersionLifeTime(MoKeeVersionType) > nowVersionDate) {
+                    if (nowVersionDate + Utils.getVersionLifeTime(MoKeeVersionType) < nowSystemDate) {
                         prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
                         isOTA = false;
                     }

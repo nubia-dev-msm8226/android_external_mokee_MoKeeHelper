@@ -106,7 +106,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     private SharedPreferences mPrefs, mDonationPrefs;
     private AdmobPreference mAdmobView;
-    private RootPreference mRootView;
+    private PreferenceScreen mRootView;
     private SwitchPreference mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;

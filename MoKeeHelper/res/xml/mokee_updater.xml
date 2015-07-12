@@ -55,5 +55,6 @@
         android:title="@string/available_updates_title" />
 
     <com.mokee.helper.widget.AdmobPreference
-        android:key="pref_admob" />
+        android:key="pref_admob"
+        android:selectable="false" />
 </PreferenceScreen>
