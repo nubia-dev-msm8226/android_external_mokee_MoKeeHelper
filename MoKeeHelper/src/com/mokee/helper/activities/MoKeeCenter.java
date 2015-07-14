@@ -161,7 +161,7 @@ public class MoKeeCenter extends FragmentActivity {
         intent.setComponent(componentName);
         intent.putExtra("packagename", Utils.getPackageName(mContext));
         intent.putExtra("channel", channel);
-        intent.putExtra("type", "donate");
+        intent.putExtra("type", "donation");
         intent.putExtra("name", name);
         intent.putExtra("description", description);
         intent.putExtra("price", price);
