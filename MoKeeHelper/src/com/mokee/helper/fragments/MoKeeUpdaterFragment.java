@@ -923,4 +923,5 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateType.setEntries(entries);
         mUpdateType.setEntryValues(entryValues);
     }
+
 }

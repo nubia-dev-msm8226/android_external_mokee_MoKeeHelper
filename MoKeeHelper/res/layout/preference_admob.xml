@@ -24,9 +24,11 @@
 
     <com.google.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        ads:adSize="BANNER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:gravity="center"
+        ads:adSize="SMART_BANNER"
         ads:adUnitId="ca-app-pub-1229799408538170/6499678696"
         ads:loadAdOnCreate="true" />
 

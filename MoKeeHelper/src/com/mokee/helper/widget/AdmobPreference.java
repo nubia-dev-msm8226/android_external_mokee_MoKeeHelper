@@ -30,6 +30,9 @@ import android.view.ViewGroup;
 
 public class AdmobPreference extends Preference {
 
+    private static AdView adView;
+    private static View admobCustomView;
+
     public AdmobPreference(Context context) {
         super(context);
     }
@@ -44,11 +47,14 @@ public class AdmobPreference extends Preference {
 
     @Override
     protected View onCreateView(ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
-                Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.preference_admob, null);
-        AdView adView = (AdView) view.findViewById(R.id.adView);
-        adView.loadAd(new AdRequest());
-        return view;
+        if (admobCustomView == null) {
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE);
+            admobCustomView = inflater.inflate(R.layout.preference_admob, null);
+            adView = (AdView) admobCustomView.findViewById(R.id.adView);
+            adView.loadAd(new AdRequest());
+        }
+        return admobCustomView;
     }
+
 }
