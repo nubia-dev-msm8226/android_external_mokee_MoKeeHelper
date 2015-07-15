@@ -43,6 +43,8 @@ import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.service.UpdateCheckService;
+import com.mokee.os.Build;
+import com.mokee.security.License;
 
 public class Utils {
 
@@ -331,5 +333,25 @@ public class Utils {
         File newFile = new File(dir.getAbsolutePath() + System.currentTimeMillis());
         dir.renameTo(newFile);
         return newFile.delete();
+    }
+
+    public static int getPaidTotal(Context mContext) {
+        if (new File(Constants.LICENSE_FILE).exists()) {
+            try {
+                String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
+                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
+                    return Integer.valueOf(licenseInfo[licenseInfo.length - 1]);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            return 0;
+        }
+        return 0;
+    }
+
+    public static boolean checkLicensed(Context mContext) {
+        return getPaidTotal(mContext) >= Constants.DONATION_TOTAL;
     }
 }

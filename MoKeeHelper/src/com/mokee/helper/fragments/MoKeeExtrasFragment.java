@@ -159,7 +159,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(getActivity());
+                MoKeeCenter.donateOrRemoveAdsButton(getActivity(), true);
                 return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_EXTRAS);

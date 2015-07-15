@@ -36,6 +36,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.utils.Utils;
+import com.mokee.os.Build;
 
 public class MoKeeApplication extends Application implements
         Application.ActivityLifecycleCallbacks {
@@ -88,7 +89,7 @@ public class MoKeeApplication extends Application implements
         JPushInterface.setDebugMode(false);
         JPushInterface.init(this);
         // Set Alias
-        String alias = Utilities.getUniqueID(this);
+        String alias = Build.getUniqueID(this);
         String prefAlias = prefs.getString(MKPUSH_ALIAS, null);
         if (!alias.equals(prefAlias))
             mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));

@@ -18,13 +18,11 @@
 package com.mokee.helper.receiver;
 
 import com.mokee.helper.R;
-import com.mokee.helper.misc.Constants;
 import com.mokee.helper.utils.Utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.widget.Toast;
 
 public class PaymentReceiver extends BroadcastReceiver {
@@ -37,10 +35,6 @@ public class PaymentReceiver extends BroadcastReceiver {
         if (action.equals(ACTION_PAYMENT_SUCCESS)) {
             String packagename = intent.getStringExtra("packagename");
             if (packagename.equals(Utils.getPackageName(context))) {
-                SharedPreferences prefs = context.getSharedPreferences(Constants.DONATION_PREF, 0);
-                int total = prefs.getInt("total", 0);
-                int price = prefs.getInt("price", 0);
-                prefs.edit().putInt("total", total + price).apply();
                 Toast.makeText(context, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
             }
         }

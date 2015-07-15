@@ -17,6 +17,8 @@
 
 package com.mokee.helper.misc;
 
+import android.os.Environment;
+
 public class Constants {
 
     // Download related
@@ -25,7 +27,6 @@ public class Constants {
 
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
-    public static final String DONATION_PREF = "donation";
     public static final String ROOT_PREF = "pref_root";
     public static final String ADMOB_PREF = "pref_admob";
     public static final String UPDATE_INTERVAL_PREF = "pref_update_interval";
@@ -54,4 +55,14 @@ public class Constants {
     public static final int INTENT_FLAG_GET_UPDATE = 1024;
     public static final int INTENT_FLAG_GET_EXTRAS = 1025;
 
+    // About License
+    public static final String LICENSE_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/mokee.license";
+    public static final int DONATION_TOTAL = 68;
+
+    // Public key
+    public static final String PUB_KEY =
+            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCwN8FdvNOu5A8yP2Bfb7rk1o6N" +
+                    "dXik/DO+Kw6+q7nIZjTh4qpPL3Gyoa7A3MI01gTRKaM+MU2+zkiZND8qoB8EGlF6" +
+                    "BfDfi9BLyFyx+nOTgz3KDEYutLJhopS18DfrdZTohNXsM7+MEsk5y+GHFjYHePXN" +
+                    "oE4fjtfCg3xbtwU29wIDAQAB";
 }

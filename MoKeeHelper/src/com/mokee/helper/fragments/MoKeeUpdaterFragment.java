@@ -103,8 +103,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
     private static final int MENU_DONATE = 2;
+    private static final int MENU_REMOVE_ADS = 3;
 
-    private SharedPreferences mPrefs, mDonationPrefs;
+    private SharedPreferences mPrefs;
     private AdmobPreference mAdmobView;
     private PreferenceScreen mRootView;
     private SwitchPreference mUpdateOTA;
@@ -159,7 +160,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         // Load the stored preference data
         mPrefs = mContext.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
-        mDonationPrefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
 
         mRootView = (PreferenceScreen) findPreference(Constants.ROOT_PREF);
         mAdmobView = (AdmobPreference) findPreference(Constants.ADMOB_PREF);
@@ -241,11 +241,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onResume() {
         super.onResume();
         mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1
-                : TAPS_TO_BE_A_EXPERIMENTER;
+                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
         mExpHitToast = null;
-        // add Google AdMob
-        if (mDonationPrefs.getInt("total", 0) >= 100) {
+        // Remove Google AdMob
+        if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
         }
     }
@@ -312,6 +311,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (!Utils.checkLicensed(mContext)) {
+            menu.add(0, MENU_REMOVE_ADS, 0, R.string.menu_remove_ads).setShowAsActionFlags(
+                    MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        }
         menu.add(0, MENU_DONATE, 0, R.string.menu_donate).setShowAsActionFlags(
                 MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         menu.add(0, MENU_REFRESH, 0, R.string.menu_refresh)
@@ -327,13 +330,16 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(getActivity());
+                MoKeeCenter.donateOrRemoveAdsButton(getActivity(), true);
                 return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
                 return true;
             case MENU_DELETE_ALL:
                 confirmDeleteAll();
+                return true;
+            case MENU_REMOVE_ADS:
+                MoKeeCenter.donateOrRemoveAdsButton(getActivity(), false);
                 return true;
         }
         return true;

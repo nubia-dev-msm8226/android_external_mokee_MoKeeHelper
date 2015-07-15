@@ -73,17 +73,23 @@
     <string name="menu_donate">Donate</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_delete_all">Delete download</string>
+    <string name="menu_remove_ads">Remove ads</string>
 
     <!-- Donate -->
     <string name="donate_dialog_title">Donate to us</string>
     <string name="donate_dialog_message">MoKee OpenSource is a non-profit organization. Your help can help reduce our load on server costs and sustain future development!</string>
-    <string name="donate_dialog_via_paypal">PayPal</string>
-    <string name="donate_dialog_via_alipay">AliPay</string>
-    <string name="donate_money_price" translatable="false">$</string>
+    <string name="donate_dialog_via_paypal">PayPal(USD)</string>
+    <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+    <string name="donate_money_currency" translatable="false">$</string>
     <string name="donate_money_toast_error">The amount entered is incorrect!</string>
     <string name="donate_money_toast_success">Thank you for your donation!</string>
     <string name="donate_money_name">Donate MoKee OpenSource</string>
     <string name="donate_money_description">Donate MoKee OpenSource</string>
+    <string name="remove_adds_name">Remove adds</string>
+    <string name="remove_adds_description">Remove adds</string>
+    <string name="remove_adds_dialog_title">Always remove ads</string>
+    <string name="remove_adds_dialog_message">Your help can help reduce our load on server costs and sustain future development! Please backup mokee.license file when you paid. It\'s in sdcard root. (Only current device)</string>
+    <string name="remove_adds_request_price">paid %1$d ，unpaid %2$d (Currency: CNY)</string>
 
     <!-- Update -->
     <string name="unknown">Unknown</string>

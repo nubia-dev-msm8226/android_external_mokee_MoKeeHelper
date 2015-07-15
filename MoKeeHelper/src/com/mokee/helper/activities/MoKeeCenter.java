@@ -24,7 +24,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -34,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mokee.helper.R;
@@ -56,7 +56,6 @@ public class MoKeeCenter extends FragmentActivity {
     private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
-    private static EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,33 +122,48 @@ public class MoKeeCenter extends FragmentActivity {
         sendBroadcastAsUser(send, UserHandle.CURRENT);
     }
 
-    public static void donateButton(final Activity mContext) {
+    public static void donateOrRemoveAdsButton(final Activity mContext, final boolean isDonate) {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View donateView = inflater.inflate(R.layout.donate, null);
+        final EditText mPrice = (EditText) donateView.findViewById(R.id.price);
+        TextView mCurrency = (TextView) donateView.findViewById(R.id.currency);
+        TextView mRequest = (TextView) donateView.findViewById(R.id.request);
+        int paid = Utils.getPaidTotal(mContext);
+        final int unPaid = Constants.DONATION_TOTAL - paid;
+        if (isDonate) {
+            mPrice.setVisibility(View.VISIBLE);
+            mCurrency.setVisibility(View.VISIBLE);
+            mRequest.setVisibility(View.GONE);
+        } else {
+            mPrice.setVisibility(View.GONE);
+            mCurrency.setVisibility(View.GONE);
+            mRequest.setVisibility(View.VISIBLE);
+            mRequest.setText(String.format(mContext.getString(R.string.remove_adds_request_price), paid, unPaid));
+        }
 
         DialogInterface.OnClickListener mDialogButton = new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = mEditText.getText().toString().trim();
+                String price = isDonate ? mPrice.getText().toString().trim() : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
                 if (TextUtils.isEmpty(price)) {
                     Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
                 } else {
                     switch (which) {
                         case DialogInterface.BUTTON_POSITIVE:
-                            sendPaymentRequest(mContext, "paypal", mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), price);
+                            sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_adds_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_adds_description), price);
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
-                            sendPaymentRequest(mContext, "alipay", mContext.getString(R.string.donate_money_name), mContext.getString(R.string.donate_money_description), price);
+                            sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_adds_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_adds_description), price);
                             break;
                     }
                 }
             }
         };
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View donateView = inflater.inflate(R.layout.donate, null);
-        mEditText = (EditText) donateView.findViewById(R.id.money_price);
+
         new AlertDialog.Builder(mContext)
-                .setTitle(R.string.donate_dialog_title)
-                .setMessage(R.string.donate_dialog_message)
+                .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_adds_dialog_title)
+                .setMessage(isDonate ? R.string.donate_dialog_message : R.string.remove_adds_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
@@ -165,8 +179,6 @@ public class MoKeeCenter extends FragmentActivity {
         intent.putExtra("name", name);
         intent.putExtra("description", description);
         intent.putExtra("price", price);
-        SharedPreferences prefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
-        prefs.edit().putInt("price", channel.equals("alipay") ? Integer.valueOf(price) : Integer.valueOf(price) * 6).apply();
         mContext.startActivity(intent);
     }
 
