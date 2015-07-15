@@ -18,6 +18,7 @@
 package com.mokee.helper.receiver;
 
 import com.mokee.helper.R;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.utils.Utils;
 
 import android.content.BroadcastReceiver;
@@ -36,6 +37,7 @@ public class PaymentReceiver extends BroadcastReceiver {
             String packagename = intent.getStringExtra("packagename");
             if (packagename.equals(Utils.getPackageName(context))) {
                 Toast.makeText(context, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
+                MoKeeUpdaterFragment.refreshMenuOption();
             }
         }
     }

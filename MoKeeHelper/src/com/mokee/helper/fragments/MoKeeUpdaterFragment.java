@@ -79,7 +79,7 @@ import com.mokee.helper.widget.ItemPreference;
 public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
 
-    private Activity mContext;
+    private static Activity mContext;
     private static String TAG = "MoKeeUpdaterFragment";
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
@@ -247,6 +247,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
         }
+    }
+
+    public static void refreshMenuOption() {
+        mContext.invalidateOptionsMenu();
     }
 
     @Override
