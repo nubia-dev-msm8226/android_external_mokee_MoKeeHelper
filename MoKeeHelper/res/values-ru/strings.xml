@@ -61,8 +61,6 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
   <string name="donate_dialog_message">MoKee OpenSource является некоммерческой организацией. Ваша помощь может способствовать снижению затрат на содержание серверов и обеспечить будущее развитие!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">Введено неверное значение!</string>
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>
   <string name="donate_money_name">Пожертвовать MoKee OpenSource</string>

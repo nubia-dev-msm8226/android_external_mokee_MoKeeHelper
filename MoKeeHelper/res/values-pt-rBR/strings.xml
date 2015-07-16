@@ -61,8 +61,6 @@
   <string name="menu_delete_all">Excluir download</string>
   <string name="donate_dialog_title">Doe para nós</string>
   <string name="donate_dialog_message">MoKee OpenSource é uma organização sem fins lucrativos. Sua ajuda pode ajudar a reduzir a carga sobre os custos do servidor e sustentar o desenvolvimento futuro!</string>
-  <string name="donate_dialog_via_paypal">PayPal</string>
-  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_error">O valor introduzido é incorreto!</string>
   <string name="donate_money_toast_success">Obrigado por sua doação!</string>
   <string name="donate_money_name">Doar para MoKee OpenSource</string>
