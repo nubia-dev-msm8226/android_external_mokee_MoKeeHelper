@@ -68,6 +68,12 @@
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
+  <string name="remove_ads_name">Eliminar los anuncios</string>
+  <string name="remove_ads_description">Eliminar los anuncios</string>
+  <string name="remove_ads_dialog_title">Siempre eliminar anuncios</string>
+  <string name="remove_ads_dialog_message">A diferencia de empresas como Cygn o MIUI, MoKee OpenSource es un proyecto puramente sin ánimo de lucro nacido de la entusiasmo y la pasión. Para mantener este proyecto, tenemos que dedicar nuestro propio dinero la mayor parte del tiempo o depender de donaciones y la publicidad. Sus donaciones pueden ayudar a reducir la carga financiera y sostener el desarrollo futuro. Esta opción le permite quitar los anuncios del Centro MoKee, o utilizar la opción \"Donar\" en cambio si prefieres cuotas (los anuncios se eliminaran una vez que el total alcanza el valor especificado). Por favor haz una copia de seguridad del archivo mokee.license  (en el directorio raíz de la sdcard, solo válido para el dispositivo actual) una vez hecha la donación.</string>
+  <string name="remove_ads_request_price">Donado %1$d CNY, pendiente %2$d CNY</string>
+  <string name="ads_blocked_dialog_message">MoKee OpenSource tiene altos costos cada mes para mantener la estructura y servidores de descarga. Por favor no intente bloquear los anuncios, sólo entonces podremos sostener el desarrollo futuro.</string>
   <string name="unknown">Desconocido</string>
   <string name="dialog_update">Actualización</string>
   <string name="dialog_install">Instalar</string>
