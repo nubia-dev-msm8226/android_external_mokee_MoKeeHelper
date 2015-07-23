@@ -80,8 +80,6 @@
     <string name="donate_dialog_message">MoKee OpenSource is a non-profit organization. Your help can help reduce our load on server costs and sustain future development!</string>
     <string name="donate_dialog_via_paypal">PayPal(USD)</string>
     <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
-    <string name="donate_money_currency" translatable="false">$</string>
-    <string name="donate_money_toast_error">The amount entered is incorrect!</string>
     <string name="donate_money_toast_success">Thank you for your donation!</string>
     <string name="donate_money_name">Donate to MoKee OpenSource</string>
     <string name="donate_money_description">Donate to MoKee OpenSource</string>

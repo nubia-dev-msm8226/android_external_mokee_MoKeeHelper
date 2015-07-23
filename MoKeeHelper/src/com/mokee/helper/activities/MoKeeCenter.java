@@ -28,13 +28,14 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
@@ -124,20 +125,36 @@ public class MoKeeCenter extends FragmentActivity {
 
     public static void donateOrRemoveAdsButton(final Activity mContext, final boolean isDonate) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View donateView = inflater.inflate(R.layout.donate, null);
-        final EditText mPrice = (EditText) donateView.findViewById(R.id.price);
-        TextView mCurrency = (TextView) donateView.findViewById(R.id.currency);
-        TextView mRequest = (TextView) donateView.findViewById(R.id.request);
+        LinearLayout donateView = (LinearLayout)inflater.inflate(R.layout.donate, null);
+        final TextView mRequest = (TextView) donateView.findViewById(R.id.request);
+        SeekBar mSeekBar = (SeekBar) donateView.findViewById(R.id.price);
+        mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBar.setProgress(progress / 10 * 10);
+                mRequest.setText(String.valueOf(progress / 10 * 10 + 10));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }});
+        ProgressBar mProgressBar = (ProgressBar) donateView.findViewById(R.id.progress);
         int paid = Utils.getPaidTotal(mContext);
         final int unPaid = Constants.DONATION_TOTAL - paid;
         if (isDonate) {
-            mPrice.setVisibility(View.VISIBLE);
-            mCurrency.setVisibility(View.VISIBLE);
-            mRequest.setVisibility(View.GONE);
+            mSeekBar.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
+            mRequest.setText("10");
         } else {
-            mPrice.setVisibility(View.GONE);
-            mCurrency.setVisibility(View.GONE);
-            mRequest.setVisibility(View.VISIBLE);
+            mSeekBar.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mProgressBar.setMax(Constants.DONATION_TOTAL);
+            mProgressBar.setProgress(paid);
             mRequest.setText(String.format(mContext.getString(R.string.remove_ads_request_price), paid, unPaid));
         }
 
@@ -145,18 +162,14 @@ public class MoKeeCenter extends FragmentActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = isDonate ? mPrice.getText().toString().trim() : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
-                if (TextUtils.isEmpty(price)) {
-                    Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
-                } else {
-                    switch (which) {
-                        case DialogInterface.BUTTON_POSITIVE:
-                            sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
-                            break;
-                        case DialogInterface.BUTTON_NEGATIVE:
-                            sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
-                            break;
-                    }
+                String price = isDonate ? mRequest.getText().toString() : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
+                        break;
                 }
             }
         };
