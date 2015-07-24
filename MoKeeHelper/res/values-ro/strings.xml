@@ -40,6 +40,5 @@
   <string name="available_updates_title">Actualizari disponibile</string>
   <string name="menu_donate">Doneaza</string>
   <string name="menu_refresh">Reimprospatare</string>
-  <string name="donate_money_toast_error">Suma introdusa este incorecta!</string>
   <string name="donate_money_toast_success">Va multumim pentru donatie!</string>
 </resources>

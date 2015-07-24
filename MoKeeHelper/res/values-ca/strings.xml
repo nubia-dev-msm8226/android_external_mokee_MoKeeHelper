@@ -64,7 +64,6 @@
   <string name="donate_dialog_message">MoKee OpenSource és una organització sense ànim de lucre. La seva ajuda pot ajudar a reduir la nostra càrrega en costos de servidor i sostenir el futur desenvolupament!</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
-  <string name="donate_money_toast_error">la quantitat és incorrecta!</string>
   <string name="donate_money_toast_success">Gràcies per la vostra donació!</string>
   <string name="donate_money_name">Donació MoKee OpenSource</string>
   <string name="donate_money_description">Donació MoKee OpenSource</string>
