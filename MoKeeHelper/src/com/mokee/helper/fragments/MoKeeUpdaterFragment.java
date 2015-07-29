@@ -76,6 +76,7 @@ import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.AdmobPreference;
 import com.mokee.helper.widget.EmptyListPreferenceStyle;
 import com.mokee.helper.widget.ItemPreference;
+import com.mokee.os.Build;
 
 public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
@@ -470,7 +471,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Clear the list
         mUpdatesList.removeAll();
         // Convert the installed version name to the associated filename
-        String installedZip = Utils.getInstalledVersion() + ".zip";
+        String installedZip = Build.MOKEE_VERSION + ".zip";
         boolean isNew = true; // 判断新旧版本
         // Add the updates
         for (ItemInfo ui : updates) {
@@ -481,7 +482,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, true)) {
                 isNew = Utils.isNewVersion(ui.getFileName());
             } else {
-                isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Utils.getInstalledVersion(), true));
+                isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Build.MOKEE_VERSION, true));
                 if (!isNew) {
                     break;
                 }

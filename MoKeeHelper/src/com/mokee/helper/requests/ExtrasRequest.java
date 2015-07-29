@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.utils.Utils;
+import com.mokee.os.Build;
 
 public class ExtrasRequest extends StringRequest {
     private String mUserAgent;
@@ -55,7 +56,7 @@ public class ExtrasRequest extends StringRequest {
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         Map<String, String> params = new HashMap<String, String>();
-        params.put("mk_version", String.valueOf(Utils.getInstalledVersion().split("-")[0]));
+        params.put("mk_version", String.valueOf(Build.MOKEE_VERSION.split("-")[0]));
         return params;
     }
 }

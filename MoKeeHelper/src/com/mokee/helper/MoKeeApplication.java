@@ -95,8 +95,8 @@ public class MoKeeApplication extends Application implements
             mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
         // Set Tags
         Set<String> tags = new HashSet<String>();
-        tags.add(Utils.getDeviceType());
-        tags.add(Utilities.getMoKeeVersion().replace(".", ""));
+        tags.add(Build.PRODUCT_NAME);
+        tags.add(Utilities.getMoKeeMajorVersion().replace(".", ""));
         Set<String> prefTags = prefs.getStringSet(MKPUSH_TAGS, null);
         if (!tags.equals(prefTags))
             mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_TAGS, tags));

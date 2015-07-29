@@ -91,7 +91,7 @@ public class Utils {
     }
 
     public static String getMoKeeVersionType() {
-        String MoKeeVersion = Utils.getInstalledVersion();
+        String MoKeeVersion = Build.MOKEE_VERSION;
         String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1,
                 MoKeeVersion.length()).toLowerCase(Locale.ENGLISH);
         return MoKeeVersionType;
@@ -143,26 +143,6 @@ public class Utils {
         // Trigger the reboot
         PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         powerManager.reboot("recovery");
-    }
-
-    public static String getDeviceType() {
-        return SystemProperties.get("ro.mk.device");
-    }
-
-    public static String getBuildUser() {
-        return SystemProperties.get("ro.build.user");
-    }
-
-    public static String getInstalledVersion() {
-        return SystemProperties.get("ro.mk.version");
-    }
-
-    public static int getInstalledApiLevel() {
-        return SystemProperties.getInt("ro.build.version.sdk", 0);
-    }
-
-    public static long getInstalledBuildDate() {
-        return SystemProperties.getLong("ro.build.date.utc", 0);
     }
 
     public static void scheduleUpdateService(Context context, int updateFrequency) {
@@ -260,12 +240,12 @@ public class Utils {
      * 判断版本新旧
      */
     public static boolean isNewVersion(String itemName) {
-        int nowDateLength = getBuildDateLength(Utils.getInstalledVersion());
+        int nowDateLength = getBuildDateLength(Build.MOKEE_VERSION);
         int itemDateLength = getBuildDateLength(itemName);
         boolean sameVersion = (nowDateLength == itemDateLength);
-        int nowDate = Integer.valueOf(subBuildDate(Utils.getInstalledVersion(), sameVersion));
+        int nowDate = Integer.valueOf(subBuildDate(Build.MOKEE_VERSION, sameVersion));
         int itemDate = Integer.valueOf(subBuildDate(itemName, sameVersion));
-        float nowVersion = Float.valueOf(subMoKeeVersion(Utils.getInstalledVersion()));
+        float nowVersion = Float.valueOf(subMoKeeVersion(Build.MOKEE_VERSION));
         float itemVersion = Float.valueOf(subMoKeeVersion(itemName));
         return (itemDate > nowDate && itemVersion >= nowVersion);
     }

@@ -33,6 +33,7 @@ import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.utils.Utils;
+import com.mokee.os.Build;
 
 public class UpdatesRequest extends StringRequest {
     private String mUserAgent;
@@ -85,7 +86,7 @@ public class UpdatesRequest extends StringRequest {
         // disable ota option at old version
         boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
         if (isOTA) {
-            String nowDate = Utils.subBuildDate(Utils.getInstalledVersion(), false);
+            String nowDate = Utils.subBuildDate(Build.MOKEE_VERSION, false);
             SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
             try {
                 long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
@@ -100,9 +101,9 @@ public class UpdatesRequest extends StringRequest {
             }
         }
 
-        params.put("device_name", Utils.getDeviceType());
-        params.put("device_version", Utils.getInstalledVersion());
-        params.put("build_user", Utils.getBuildUser());
+        params.put("device_name", Build.PRODUCT_NAME);
+        params.put("device_version", Build.MOKEE_VERSION);
+        params.put("build_user", Build.BUILD_USER);
         if (!isOTA) {
             params.put("device_officail", String.valueOf(updateType));
             params.put("rom_all", "0");
