@@ -149,8 +149,8 @@ public class MoKeeCenter extends FragmentActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }});
         ProgressBar mProgressBar = (ProgressBar) donateView.findViewById(R.id.progress);
-        int paid = Utils.getPaidTotal(mContext);
-        final int unPaid = Constants.DONATION_TOTAL - paid;
+        Float paid = Utils.getPaidTotal(mContext);
+        final Float unPaid = Constants.DONATION_TOTAL - paid;
         if (isDonate) {
             mSeekBar.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.GONE);
@@ -159,15 +159,15 @@ public class MoKeeCenter extends FragmentActivity {
             mSeekBar.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.VISIBLE);
             mProgressBar.setMax(Constants.DONATION_TOTAL);
-            mProgressBar.setProgress(paid);
-            mRequest.setText(String.format(mContext.getString(R.string.remove_ads_request_price), paid, unPaid));
+            mProgressBar.setProgress(paid.intValue());
+            mRequest.setText(String.format(mContext.getString(R.string.remove_ads_request_price), paid.intValue(), unPaid.intValue()));
         }
 
         DialogInterface.OnClickListener mDialogButton = new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Integer.valueOf(mRequest.getText().toString()) / 6 : mRequest.getText().toString()) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
+                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Float.valueOf(mRequest.getText().toString()) / 6 : mRequest.getText().toString()) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);

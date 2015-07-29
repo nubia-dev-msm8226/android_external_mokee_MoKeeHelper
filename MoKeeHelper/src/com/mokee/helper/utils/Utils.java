@@ -315,20 +315,20 @@ public class Utils {
         return newFile.delete();
     }
 
-    public static int getPaidTotal(Context mContext) {
+    public static Float getPaidTotal(Context mContext) {
         if (new File(Constants.LICENSE_FILE).exists()) {
             try {
                 String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
                 if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
-                    return Integer.valueOf(licenseInfo[licenseInfo.length - 1]);
+                    return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            return 0;
+            return 0f;
         }
-        return 0;
+        return 0f;
     }
 
     public static boolean checkLicensed(Context mContext) {
