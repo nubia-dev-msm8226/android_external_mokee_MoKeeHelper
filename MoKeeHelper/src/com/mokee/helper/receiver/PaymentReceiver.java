@@ -37,7 +37,7 @@ public class PaymentReceiver extends BroadcastReceiver {
             String packagename = intent.getStringExtra("packagename");
             if (packagename.equals(Utils.getPackageName(context))) {
                 Toast.makeText(context, R.string.donate_money_toast_success, Toast.LENGTH_LONG).show();
-                MoKeeUpdaterFragment.refreshMenuOption();
+                MoKeeUpdaterFragment.refreshOption();
             }
         }
     }

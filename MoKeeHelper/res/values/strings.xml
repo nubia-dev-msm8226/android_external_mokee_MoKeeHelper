@@ -89,7 +89,6 @@
     <string name="remove_ads_dialog_title">Always remove ads</string>
     <string name="remove_ads_dialog_message">Unlike companies like Cygn or MIUI, MoKee OpenSource is a purely non-profit project born of hobby and passion. In order to maintain this project, we have to fork out our own money most of the time or rely on donations and advertisements. Your donations can help reduce our financial load and sustain future development! This option allows you to remove the ads in MoKee Center, or use the "Donate" option instead if you prefer installments (ads will be removed once the total has reached the specified value). Please backup the mokee.license file (in the root directory of sdcard, only valid for current device) once you have donated.</string>
     <string name="remove_ads_request_price">Donated CNY %1$d, Pending CNY %2$d</string>
-    <string name="ads_blocked_dialog_message">MoKee OpenSource needs to bear high costs every month in order to maintain the build and download servers. Please do not attempt to block the advertisements, only then future development can be sustained.</string>
 
     <!-- Update -->
     <string name="unknown">Unknown</string>
@@ -146,7 +145,8 @@
     <string name="not_download_success">Update downloaded successfully</string>
     <string name="not_download_failure">Update download was unsuccessful</string>
     <string name="not_action_install_update">Reboot and install</string>
-    <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
+    <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work properly.</string>
+    <string name="not_download_install_ota_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work properly. This is an incremental update, therefore any changes made to system files might cause the update to fail. If this happens, please flash a full ROM instead.</string>
     <string name="md5_verification_failed">MD5 checksum mismatch</string>
     <string name="not_extras_download_success">Extras downloaded successfully</string>
     <string name="not_extras_download_failure">Extras download was unsuccessful</string>
@@ -170,7 +170,8 @@
 
     <!-- pref -->
     <string name="pref_ota_check">Incremental updates</string>
-    <string name="pref_ota_check_summary">Get incremental updates</string>
+    <string name="pref_ota_check_summary">Get incremental updates to save download time and bandwidth</string>
+    <string name="pref_ota_check_donation_request_summary">Get incremental updates to save download time and bandwidth (available after donating CNY %d)</string>
 
     <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">Apply update</string>

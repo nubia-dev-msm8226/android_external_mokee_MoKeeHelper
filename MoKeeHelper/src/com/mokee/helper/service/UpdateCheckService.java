@@ -172,8 +172,7 @@ public class UpdateCheckService extends IntentService
             realUpdates.addAll(availableUpdates);
             if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
                 // ota暂时不进行排序
-                if (!getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(
-                        Constants.OTA_CHECK_PREF, true)) {
+                if (!getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.OTA_CHECK_PREF, false)) {
                     Collections.sort(realUpdates, new Comparator<ItemInfo>() {
                         @Override
                         public int compare(ItemInfo lhs, ItemInfo rhs) {
@@ -236,7 +235,7 @@ public class UpdateCheckService extends IntentService
         URI updateServerUri = null;
         switch (flag) {
             case Constants.INTENT_FLAG_GET_UPDATE:
-                boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.OTA_CHECK_PREF, true);
+                boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.OTA_CHECK_PREF, false);
                 if (!isOTA) {
                     updateServerUri = URI.create(getString(R.string.conf_update_server_url_def));
                 } else {
@@ -276,7 +275,7 @@ public class UpdateCheckService extends IntentService
     private LinkedList<ItemInfo> parseUpdatesJSONObject(String jsonString, int updateType) {
         LinkedList<ItemInfo> updates = new LinkedList<ItemInfo>();
 
-        boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.OTA_CHECK_PREF, true);
+        boolean isOTA = getSharedPreferences(Constants.DOWNLOADER_PREF, 0).getBoolean(Constants.OTA_CHECK_PREF, false);
         try {
             JSONArray[] jsonArrays = new JSONArray[2];
             // 判断全部

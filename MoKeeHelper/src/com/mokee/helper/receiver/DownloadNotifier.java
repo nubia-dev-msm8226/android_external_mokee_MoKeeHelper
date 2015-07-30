@@ -45,7 +45,7 @@ public class DownloadNotifier {
             mContentTitleID = R.string.not_download_success;
             mTickerID = R.string.not_download_success;
             mActionTitleID = R.string.not_action_install_update;
-            mTextID = R.string.not_download_install_notice;
+            mTextID = updateUiName.startsWith("OTA") ? R.string.not_download_install_ota_notice : R.string.not_download_install_notice;
         } else {
             mContentTitleID = R.string.not_extras_download_success;
             mTickerID = R.string.not_extras_download_success;

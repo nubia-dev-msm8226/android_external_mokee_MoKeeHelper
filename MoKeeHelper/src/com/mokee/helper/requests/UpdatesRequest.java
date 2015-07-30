@@ -83,16 +83,17 @@ public class UpdatesRequest extends StringRequest {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
-        // disable ota option at old version
-        boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, true);
+        // disable ota option at old version or never donation
+        boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, false);
         if (isOTA) {
             String nowDate = Utils.subBuildDate(Build.MOKEE_VERSION, false);
             SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
             try {
                 long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
                 long nowSystemDate = System.currentTimeMillis();
+                // 正式版夜版OTA时效性监测
                 if (!isExperimental || !isHistory || !isUnofficial) {
-                    if (nowVersionDate + Utils.getVersionLifeTime(MoKeeVersionType) < nowSystemDate) {
+                    if (nowVersionDate + Utils.getVersionLifeTime(MoKeeVersionType) < nowSystemDate || Utils.getPaidTotal(MoKeeApplication.getContext()) < Constants.DONATION_REQUEST) {
                         prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
                         isOTA = false;
                     }
