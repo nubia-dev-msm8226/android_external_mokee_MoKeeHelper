@@ -37,7 +37,7 @@ public class DownLoadDao {
         this.context = context;
     }
 
-    public static DownLoadDao getInstance() {
+    public static synchronized DownLoadDao getInstance() {
         if (downLoadDao == null) {
             downLoadDao = new DownLoadDao(MoKeeApplication.getContext());
         }

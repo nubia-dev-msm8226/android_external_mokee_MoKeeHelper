@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,6 @@ import android.content.Context;
 import android.mokee.utils.MoKeeUtils;
 import android.os.Handler;
 import android.os.Message;
-import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.mokee.helper.db.DownLoadDao;
@@ -160,7 +159,7 @@ public class DownLoader {
                 if (fileSize < 1048576) {// 1m
                     this.threadCount = 1;
                 } else {// >50m
-                    this.threadCount = 4;
+                    this.threadCount = 3;
                 }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
@@ -188,8 +187,7 @@ public class DownLoader {
      * 判断是否是第一次下载
      */
     private boolean isFirst(String fileUrl) {
-        if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
-        {
+        if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists()) {
             delete(fileUrl);// 清理未完成线程记录
             return true;
         }
@@ -206,8 +204,7 @@ public class DownLoader {
             state = STATUS_DOWNLOADING;
             DownLoadDao.getInstance().updataState(fileUrl, state);
             for (ThreadDownLoadInfo info : downInfoList) {
-                new DonwLoadThread(info.getThreadId(), info.getStartPos(), info.getEndPos(),
-                        info.getDownSize(), info.getUrl()).start();
+                new DonwLoadThread(info.getThreadId(), info.getStartPos(), info.getEndPos(), info.getDownSize(), info.getUrl()).start();
             }
         }
     }
@@ -220,10 +217,9 @@ public class DownLoader {
         private long sectionSize;
         private String fileUrl;
         private int retries = 0;
-        private static final int DEFAULT_TIMEOUT = (int) (20 * DateUtils.SECOND_IN_MILLIS);
 
-        private static final int DEFAULT_REQUEST_TIMEOUT = 10000; // 10 seconds
-        private static final int DEFAULT_REQUEST_MAX_RETRIES = 3;
+        private static final int DEFAULT_REQUEST_TIMEOUT = 5000; // 5 seconds
+        private static final int DEFAULT_REQUEST_MAX_RETRIES = 6;
 
         public DonwLoadThread(int threadId, long startPos, long endPos, long downSize,
                 String fileUrl) {
@@ -241,12 +237,13 @@ public class DownLoader {
                 HttpURLConnection connection = null;
                 RandomAccessFile randomAccessFile = null;
                 InputStream is = null;
+                byte[] buffer = new byte[8192];
                 try {
                     URL url = new URL(fileUrl);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setInstanceFollowRedirects(false);
-                    connection.setConnectTimeout(DEFAULT_TIMEOUT);
-                    connection.setReadTimeout(DEFAULT_TIMEOUT);
+                    connection.setConnectTimeout(DEFAULT_REQUEST_TIMEOUT);
+                    connection.setReadTimeout(DEFAULT_REQUEST_TIMEOUT);
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("Connection", "Keep-Alive");
                     // 设置分段读取范围
@@ -254,30 +251,26 @@ public class DownLoader {
                             + endPos);
                     connection.connect();
                     // 随机存储
-                    randomAccessFile = new RandomAccessFile(localFile, "rwd");
+                    randomAccessFile = new RandomAccessFile(localFile, "rw");
                     randomAccessFile.seek(startPos + downSize);
                     is = connection.getInputStream();
-                    byte[] buffer = new byte[4096];
                     int length = -1;
-                    int i = 0;
-                    while ((length = is.read(buffer)) != -1) { // while ((length = is.read(buffer, 0, 1024)) != -1)
-                        i++;
+                    long currentTime = System.currentTimeMillis();
+                    while ((length = is.read(buffer)) != -1) {
                         randomAccessFile.write(buffer, 0, length);
                         downSize += length;
                         allDownSize += length;
-                        // 线程更新进度
-                        ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
-                        if (state == STATUS_PAUSED || state == STATUS_DELETE
-                                || state == STATUS_ERROR) {
+                        if (state == STATUS_PAUSED || state == STATUS_DELETE || state == STATUS_ERROR) {
                             interrupt();
                             break;
                         }
-                        if (i == 5) {
+                        if (System.currentTimeMillis() > currentTime + 3000) {
+                            // 线程更新进度
+                            currentTime = System.currentTimeMillis();
+                            ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
                             sendMsg(STATUS_DOWNLOADING, fileUrl, length);
-                            i = 0;
                         }
                     }
-                    isFinished();
                 } catch (Exception e) {
                     if (retries <= DEFAULT_REQUEST_MAX_RETRIES) {
                         try {
@@ -287,8 +280,6 @@ public class DownLoader {
                         } catch (InterruptedException e1) {
                             e1.printStackTrace();
                         }
-                    } else {
-                        isFinished();
                     }
                 } finally {
                     try {
@@ -301,6 +292,7 @@ public class DownLoader {
                         e.printStackTrace();
                     }
                     interrupt();
+                    isFinished();
                 }
             } else {
                 isFinished();
@@ -350,14 +342,10 @@ public class DownLoader {
      */
     public synchronized void isFinished() {
         endThreadNum++;
-        System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
-                + ",fileSize=" + fileSize);
         if (endThreadNum == threadCount && allDownSize == fileSize) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         } else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
-            if (state == STATUS_PAUSED) {
-                state = STATUS_PAUSED;
-            } else {
+            if (state != STATUS_PAUSED) {
                 state = STATUS_ERROR;
                 sendMsg(STATUS_ERROR, fileUrl, 0);
             }
