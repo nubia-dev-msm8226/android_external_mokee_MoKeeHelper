@@ -280,8 +280,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     if (mExpHitToast != null) {
                         mExpHitToast.cancel();
                     }
-                    mExpHitToast = Toast
-                            .makeText(mContext, R.string.show_exp_on, Toast.LENGTH_LONG);
+                    mExpHitToast = Toast.makeText(mContext, R.string.show_exp_on, Toast.LENGTH_LONG);
                     mExpHitToast.show();
                     String MoKeeVersionType = Utils.getMoKeeVersionType();
                     boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
@@ -295,9 +294,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     if (mExpHitToast != null) {
                         mExpHitToast.cancel();
                     }
-                    mExpHitToast = Toast.makeText(
-                            mContext,
-                            getResources().getQuantityString(R.plurals.show_exp_countdown,
+                    mExpHitToast = Toast.makeText(mContext, getResources().getQuantityString(R.plurals.show_exp_countdown,
                                     mExpHitCountdown, mExpHitCountdown), Toast.LENGTH_SHORT);
                     mExpHitToast.show();
                 }

@@ -62,6 +62,7 @@ public class DownloadNotifier {
                 .bigText(context.getString(mTextID, updateUiName));
 
         Notification.Builder builder = createBaseContentBuilder(context, updateIntent)
+                .setColor(context.getResources().getColor(com.android.internal.R.color.system_notification_accent_color))
                 .setSmallIcon(R.drawable.ic_mokee_updater)
                 .setContentTitle(context.getString(mContentTitleID))
                 .setContentText(updateUiName)
@@ -89,6 +90,7 @@ public class DownloadNotifier {
     public static void notifyDownloadError(Context context,
             Intent updateIntent, int failureMessageResId) {
         Notification.Builder builder = createBaseContentBuilder(context, updateIntent)
+                .setColor(context.getResources().getColor(com.android.internal.R.color.system_notification_accent_color))
                 .setSmallIcon(android.R.drawable.stat_notify_error)
                 .setContentTitle(context.getString(R.string.not_download_failure))
                 .setContentText(context.getString(failureMessageResId))

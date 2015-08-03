@@ -162,6 +162,7 @@ public class UpdateCheckService extends IntentService
 
             // Get the notification ready
             Notification.Builder builder = new Notification.Builder(this)
+                    .setColor(getResources().getColor(com.android.internal.R.color.system_notification_accent_color))
                     .setSmallIcon(R.drawable.ic_mokee_updater)
                     .setWhen(System.currentTimeMillis())
                     .setTicker(res.getString(R.string.not_new_updates_found_ticker))

@@ -20,6 +20,7 @@ package com.mokee.helper.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -27,9 +28,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
-import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
-import android.util.Log;
 
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
@@ -65,7 +64,7 @@ public class DownLoadService extends NonStopIntentService {
     public static final int STOP = 7;
 
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
-    private static Map<Integer, NotificationCompat.Builder> notifications = new HashMap<Integer, NotificationCompat.Builder>();// 通知队列
+    private static Map<Integer, Notification.Builder> notifications = new HashMap<Integer, Notification.Builder>();// 通知队列
     private static int notificationID = Constants.INTENT_FLAG_GET_UPDATE;
     private NotificationManager manager;
     private SharedPreferences mPrefs;
@@ -142,9 +141,10 @@ public class DownLoadService extends NonStopIntentService {
      * 添加通知
      */
     private void addNotification(int id, int title, int flag) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        Notification.Builder builder = new Notification.Builder(this);
         builder.setContentTitle(getString(title));
         builder.setContentText(getString(R.string.download_running));
+        builder.setColor(getResources().getColor(com.android.internal.R.color.system_notification_accent_color));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
@@ -169,9 +169,8 @@ public class DownLoadService extends NonStopIntentService {
         if (!notifications.containsKey(id)) {
             return;
         }
-        NotificationCompat.Builder notification = notifications.get(id);
-        notification.setContentText(getString(R.string.download_remaining,
-                DateUtils.formatDuration(time)));
+        Notification.Builder notification = notifications.get(id);
+        notification.setContentText(getString(R.string.download_remaining, DateUtils.formatDuration(time)));
         notification.setContentInfo(String.valueOf(progress) + "%");
         notification.setProgress(100, progress, false);
         manager.notify(id, notification.build());
@@ -193,8 +192,7 @@ public class DownLoadService extends NonStopIntentService {
                     if (di != null) {
                         try {
                             long allDownSize;
-                            if (di.downloadedSize != 0)// 除去已緩存
-                            {
+                            if (di.downloadedSize != 0) {// 除去已緩存
                                 allDownSize = di.allDownSize - di.downloadedSize;
                             } else {
                                 allDownSize = di.allDownSize;
