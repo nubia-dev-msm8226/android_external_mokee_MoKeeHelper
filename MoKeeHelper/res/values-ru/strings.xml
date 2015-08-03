@@ -70,6 +70,8 @@
   <string name="remove_ads_name">Убрать рекламу</string>
   <string name="remove_ads_description">Убрать рекламу</string>
   <string name="remove_ads_dialog_title">Всегда скрывать рекламу</string>
+  <string name="remove_ads_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования поддержат развитие проекта! После определенной суммы пожертвований также не будет рекламы в центре MoKee. \n\nОбязательно создайте резервную копию файла mokee.license (в корневом каталоге sdcard, файл действителен только для текущего устройства).</string>
+  <string name="remove_ads_request_price">Пожертвовано: %1$d CNY, Требуется: CNY %2$d</string>
   <string name="unknown">Неизвестно</string>
   <string name="dialog_update">Обновление</string>
   <string name="dialog_install">Установить</string>
@@ -86,6 +88,7 @@
   <string name="nightly_alert">Вы включили в список для поиска обновлений «ночные сборки». Помните, что техническая поддержка по ним не предоставляется и использование «ночных сборок» должно проводиться с осторожностью.</string>
   <string name="experimenter_alert">Вы включили в список для поиска обновлений «экспериментальные обновления». Помните, что техническая поддержка по ним не предоставляется, они предназначены только для тестирования, использование «экспериментальных обновлений» должно проводиться с осторожностью.</string>
   <string name="unofficial_alert">Вы включили в список для поиска обновлений «неофициальные обновления». Помните, что техническая поддержка по ним осуществляется только автором неофициального обновления под Ваше устройство.</string>
+  <string name="all_alert">Вы предпочли включить все обновления (релизы, экспериментальные) в этот список. Обратите внимание, что ночные обновления не имеют поддержки разработчиков и должны использоваться с осторожностью.</string>
   <string name="alert_title">Осторожно</string>
   <string name="update_type_title">Тип обновления</string>
   <string name="no_changelog_alert">Список изменений недоступен</string>
@@ -117,6 +120,8 @@
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
   <string name="not_action_install_update">Перезагрузить и установить</string>
+  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Нажмите \'Перезагрузить и установить\' для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
+  <string name="not_download_install_ota_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Нажмите \'Перезагрузить и установить\' для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery. Это инкрементное обновление, поэтому изменения в системных файлах могут привести к сбою установки обновления. В этом случае, установите полную версию Mokee.</string>
   <string name="md5_verification_failed">Несовпадение контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополнения успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
@@ -136,6 +141,8 @@
   <string name="delete_extras_noFolder_message">Каталог дополнений не найден</string>
   <string name="delete_extras_success_message">Все загруженные дополнения удалены</string>
   <string name="pref_ota_check">OTA обновления</string>
+  <string name="pref_ota_check_summary">Инкрементные обновления для экономии места и трафика</string>
+  <string name="pref_ota_check_donation_request_summary">Инкрементные обновления для экономии места и трафика (доступно после пожертвования в CNY %d)</string>
   <string name="apply_update_dialog_title">Применить обновление</string>
   <string name="apply_update_dialog_text">Вы собираетесь обновиться до<xliff:g id="filename">%s</xliff:g>.\n\nКогда вы нажмёте кнопку \"Обновить\", устройство перезагрузится для установки обновления.\n\nЗаметьте, что эта функция требует совместимое Recovery, иначе обновления придётся устанавливать вручную.</string>
   <string name="apply_extras_dialog_title">Установить дополнение</string>
