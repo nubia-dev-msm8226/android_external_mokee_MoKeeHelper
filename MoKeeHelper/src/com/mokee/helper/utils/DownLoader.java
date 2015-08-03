@@ -216,10 +216,8 @@ public class DownLoader {
         private long downSize;
         private long sectionSize;
         private String fileUrl;
-        private int retries = 0;
 
         private static final int DEFAULT_REQUEST_TIMEOUT = 5000; // 5 seconds
-        private static final int DEFAULT_REQUEST_MAX_RETRIES = 6;
 
         public DonwLoadThread(int threadId, long startPos, long endPos, long downSize,
                 String fileUrl) {
@@ -272,14 +270,11 @@ public class DownLoader {
                         }
                     }
                 } catch (Exception e) {
-                    if (retries <= DEFAULT_REQUEST_MAX_RETRIES) {
-                        try {
-                            sleep(DEFAULT_REQUEST_TIMEOUT);
-                            retries ++;
-                            run();
-                        } catch (InterruptedException e1) {
-                            e1.printStackTrace();
-                        }
+                    try {
+                        sleep(DEFAULT_REQUEST_TIMEOUT);
+                        run();
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
                     }
                 } finally {
                     try {
