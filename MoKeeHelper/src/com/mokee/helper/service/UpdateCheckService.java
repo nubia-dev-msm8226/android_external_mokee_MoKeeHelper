@@ -209,7 +209,7 @@ public class UpdateCheckService extends IntentService
 
             if (count == 1) {
                 i = new Intent(this, DownloadReceiver.class);
-                i.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
+                i.setAction(DownloadReceiver.ACTION_DOWNLOAD_START);
                 i.putExtra(DownLoadService.DOWNLOAD_FLAG, flag);
                 i.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO,
                         (Parcelable) realUpdates.getFirst());

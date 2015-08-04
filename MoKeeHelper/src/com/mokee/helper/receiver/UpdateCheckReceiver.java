@@ -31,7 +31,9 @@ import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.Utils;
 
 public class UpdateCheckReceiver extends BroadcastReceiver {
+
     private static final String TAG = "UpdateCheckReceiver";
+    public static final String ACTION_UPDATE_CHECK = "com.mokee.mkupdater.action.UPDATE_CHECK";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -76,6 +78,11 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
         } else if (updateFrequency > 0) {
             Log.i(TAG, "Scheduling future, repeating update checks.");
             Utils.scheduleUpdateService(context, updateFrequency * 1000);
+        } else if (ACTION_UPDATE_CHECK.equals(action)) {
+            Intent i = new Intent(context, UpdateCheckService.class);
+            i.setAction(UpdateCheckService.ACTION_CHECK);
+            i.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
+            context.startServiceAsUser(i, UserHandle.CURRENT);
         }
     }
 }

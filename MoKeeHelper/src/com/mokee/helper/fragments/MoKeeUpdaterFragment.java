@@ -727,7 +727,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         // Start the download
         Intent intent = new Intent(mContext, DownloadReceiver.class);
-        intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
+        intent.setAction(DownloadReceiver.ACTION_DOWNLOAD_START);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
         intent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);

@@ -45,7 +45,6 @@ public class DownLoadService extends NonStopIntentService {
     }
 
     public static final String ACTION_DOWNLOAD = "download";
-    public static final String ACTION_DOWNLOAD_COMPLETE = "com.mokee.mkupdater.action.DOWNLOAD_COMPLETED";
     public static final String DOWNLOAD_TYPE = "download_type";
     public static final String DOWNLOAD_URL = "download_url";
     public static final String DOWNLOAD_FILE_PATH = "download_filepath";
@@ -229,7 +228,7 @@ public class DownLoadService extends NonStopIntentService {
                     dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
                     if (dli != null) {
                         intent = new Intent();
-                        intent.setAction(ACTION_DOWNLOAD_COMPLETE);
+                        intent.setAction(DownloadReceiver.ACTION_DOWNLOAD_COMPLETE);
                         intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
                         intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
 	                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
@@ -250,7 +249,7 @@ public class DownLoadService extends NonStopIntentService {
                     DownLoadDao.getInstance().updataState(url, msg.what);
                     dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
                     intent = new Intent();
-                    intent.setAction(ACTION_DOWNLOAD_COMPLETE);
+                    intent.setAction(DownloadReceiver.ACTION_DOWNLOAD_COMPLETE);
                     intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
                     intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
                     sendBroadcastAsUser(intent, UserHandle.CURRENT);

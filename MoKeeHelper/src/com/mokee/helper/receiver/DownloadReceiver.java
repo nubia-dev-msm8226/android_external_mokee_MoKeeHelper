@@ -44,7 +44,8 @@ import com.mokee.helper.utils.Utils;
 public class DownloadReceiver extends BroadcastReceiver {
     private static final String TAG = "DownloadReceiver";
 
-    public static final String ACTION_START_DOWNLOAD = "com.mokee.mkupdater.action.START_DOWNLOAD";
+    public static final String ACTION_DOWNLOAD_START = "com.mokee.mkupdater.action.DOWNLOAD_START";
+    public static final String ACTION_DOWNLOAD_COMPLETE = "com.mokee.mkupdater.action.DOWNLOAD_COMPLETED";
     public static final String EXTRA_UPDATE_INFO = "update_info";
     public static final String ACTION_DOWNLOAD_STARTED = "com.mokee.mkupdater.action.DOWNLOAD_STARTED";
     public static final String ACTION_NOTIFICATION_CLICKED = "com.mokee.mkupdater.action.NOTIFICATION_CLICKED";
@@ -57,7 +58,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         int flag = intent.getIntExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
-        if (ACTION_START_DOWNLOAD.equals(action)) {
+        if (ACTION_DOWNLOAD_START.equals(action)) {
             ItemInfo ui = (ItemInfo) intent.getParcelableExtra(EXTRA_UPDATE_INFO);
             handleStartDownload(context, prefs, ui, flag);
         } else if (Intent.ACTION_SHUTDOWN.equals(action)) {
@@ -72,7 +73,7 @@ public class DownloadReceiver extends BroadcastReceiver {
             prefs.edit().remove(DownLoadService.DOWNLOAD_ID).remove(DownLoadService.DOWNLOAD_MD5)
                     .remove(DownLoadService.DOWNLOAD_URL).remove(DownLoadService.DOWNLOAD_EXTRAS_ID)
                     .remove(DownLoadService.DOWNLOAD_EXTRAS_MD5).remove(DownLoadService.DOWNLOAD_EXTRAS_URL).apply();
-        } else if (DownLoadService.ACTION_DOWNLOAD_COMPLETE.equals(action)) { // 接收完成通知
+        } else if (ACTION_DOWNLOAD_COMPLETE.equals(action)) { // 接收完成通知
             long id = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
             handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
