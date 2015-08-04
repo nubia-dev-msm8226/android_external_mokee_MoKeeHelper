@@ -61,7 +61,7 @@
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="menu_remove_ads">Enlever la publicité</string>
   <string name="donate_dialog_title">Faite nous un don</string>
-  <string name="donate_dialog_message">MoKee OpenSource est un organisme à but non lucratif. Votre aide peut aider à réduire notre charge sur les frais de serveur et de soutenir les développements futurs !</string>
+  <string name="donate_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif née de passe-temps et de passion. Afin de maintenir ce projet, il faut débourser de notre propre argent la plupart du temps ou dépendent des dons et des publicités. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces MoKee Centre, ou utilisez l\'option de « Don » au lieu de cela, si vous préférez des versements (annonces seront supprimés une fois que le total a atteint la valeur spécifiée). Veuillez sauvegarder le mokee.license du fichier (dans le répertoire racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donnés.</string>
   <string name="donate_dialog_via_paypal">PayPal (USD)</string>
   <string name="donate_dialog_via_alipay">AliPay (CNY)</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>
@@ -70,7 +70,6 @@
   <string name="remove_ads_name">Enlever la publicité</string>
   <string name="remove_ads_description">Enlever la publicité</string>
   <string name="remove_ads_dialog_title">Retirez toujours les annonces</string>
-  <string name="remove_ads_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif née de passe-temps et de passion. Afin de maintenir ce projet, il faut débourser de notre propre argent la plupart du temps ou dépendent des dons et des publicités. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces MoKee Centre, ou utilisez l\'option de « Don » au lieu de cela, si vous préférez des versements (annonces seront supprimés une fois que le total a atteint la valeur spécifiée). Veuillez sauvegarder le mokee.license du fichier (dans le répertoire racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donnés.</string>
   <string name="remove_ads_request_price">Don %1$d CNY, dans l\'attente de %2$d CNY</string>
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>

@@ -175,7 +175,7 @@ public class MoKeeCenter extends FragmentActivity {
 
         new AlertDialog.Builder(mContext)
                 .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_ads_dialog_title)
-                .setMessage(isDonate ? R.string.donate_dialog_message : R.string.remove_ads_dialog_message)
+                .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();

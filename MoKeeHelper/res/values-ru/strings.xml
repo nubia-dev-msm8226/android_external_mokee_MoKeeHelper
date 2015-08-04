@@ -61,7 +61,7 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="menu_remove_ads">Убрать рекламу</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
-  <string name="donate_dialog_message">MoKee OpenSource является некоммерческой организацией. Ваша помощь может способствовать снижению затрат на содержание серверов и обеспечить будущее развитие!</string>
+  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования поддержат развитие проекта! После определенной суммы пожертвований также не будет рекламы в центре MoKee. \n\nОбязательно создайте резервную копию файла mokee.license (в корневом каталоге sdcard, файл действителен только для текущего устройства).</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>
@@ -70,7 +70,6 @@
   <string name="remove_ads_name">Убрать рекламу</string>
   <string name="remove_ads_description">Убрать рекламу</string>
   <string name="remove_ads_dialog_title">Всегда скрывать рекламу</string>
-  <string name="remove_ads_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования поддержат развитие проекта! После определенной суммы пожертвований также не будет рекламы в центре MoKee. \n\nОбязательно создайте резервную копию файла mokee.license (в корневом каталоге sdcard, файл действителен только для текущего устройства).</string>
   <string name="remove_ads_request_price">Пожертвовано: %1$d CNY, Требуется: CNY %2$d</string>
   <string name="unknown">Неизвестно</string>
   <string name="dialog_update">Обновление</string>
