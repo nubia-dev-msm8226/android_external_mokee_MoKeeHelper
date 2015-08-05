@@ -159,7 +159,7 @@ public class DownLoader {
                 if (fileSize < 1048576) {// 1m
                     this.threadCount = 1;
                 } else {// >50m
-                    this.threadCount = 3;
+                    this.threadCount = 5;
                 }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
@@ -258,24 +258,21 @@ public class DownLoader {
                         randomAccessFile.write(buffer, 0, length);
                         downSize += length;
                         allDownSize += length;
-                        if (state == STATUS_PAUSED || state == STATUS_DELETE || state == STATUS_ERROR) {
-                            interrupt();
-                            break;
-                        }
-                        if (System.currentTimeMillis() > currentTime + 3000) {
+
+                        if (System.currentTimeMillis() > currentTime + 2000) {
                             // 线程更新进度
                             currentTime = System.currentTimeMillis();
                             ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
                             sendMsg(STATUS_DOWNLOADING, fileUrl, length);
                         }
+                        if (state == STATUS_PAUSED || state == STATUS_DELETE || state == STATUS_ERROR) {
+                            interrupt();
+                            break;
+                        }
                     }
+                    ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
                 } catch (Exception e) {
-                    try {
-                        sleep(DEFAULT_REQUEST_TIMEOUT);
-                        run();
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    }
+                    e.printStackTrace();
                 } finally {
                     try {
                         randomAccessFile.close();
@@ -286,8 +283,11 @@ public class DownLoader {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    interrupt();
-                    isFinished();
+                    if (downSize == sectionSize) {
+                        isFinished();
+                    } else {
+                        run();
+                    }
                 }
             } else {
                 isFinished();
@@ -336,14 +336,9 @@ public class DownLoader {
      * 判断线程是否全部完成
      */
     public synchronized void isFinished() {
-        endThreadNum++;
-        if (endThreadNum == threadCount && allDownSize == fileSize) {
+        endThreadNum ++;
+        if (endThreadNum == threadCount) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
-        } else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
-            if (state != STATUS_PAUSED) {
-                state = STATUS_ERROR;
-                sendMsg(STATUS_ERROR, fileUrl, 0);
-            }
         }
     }
 
