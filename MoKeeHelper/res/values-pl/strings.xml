@@ -70,7 +70,7 @@
   <string name="remove_ads_name">Usuń reklamy</string>
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>
-  <string name="remove_ads_request_price">Podarowałeś CNY %1$d, oczekuje CNY %2$d</string>
+  <string name="remove_ads_request_price">Podarowałeś CNY %1$d, brakuje CNY %2$d</string>
   <string name="unknown">Brak informacji</string>
   <string name="dialog_update">Aktualizacja</string>
   <string name="dialog_install">Zainstaluj</string>
