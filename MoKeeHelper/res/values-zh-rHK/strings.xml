@@ -120,6 +120,7 @@
   <string name="not_download_failure">更新下載失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
   <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下載。輕按「重新啓動並安裝」時，裝置將重新啟動並安裝更新。 \n\n注意：自動安裝過程需要相容的恢復程式，不相容的恢復程式可能導致更新失敗。</string>
+  <string name="not_download_install_ota_notice"><xliff:g id="filename">%s</xliff:g> 已成功下載。輕按「重新啓動並安裝」時，裝置將重新啟動並安裝更新。 \n\n注意：自動安裝過程需要相容的恢復程式，不相容的恢復程式可能導致更新失敗。本次為增量更新，人為或擁有超級使用者權限的程式對系統檔案造成的修改可能導致更新失敗，若你遭遇此情形，請嘗試下載完整包進行更新。</string>
   <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
@@ -139,6 +140,8 @@
   <string name="delete_extras_noFolder_message">找不到附加選項所在的資料夾</string>
   <string name="delete_extras_success_message">所有下載的附加選項已刪除</string>
   <string name="pref_ota_check">增量更新</string>
+  <string name="pref_ota_check_summary">取得增量更新以節省下載時間和數據</string>
+  <string name="pref_ota_check_donation_request_summary">取得增量更新以節省下載時間和數據（捐贈 %d 元人民幣後永久可用）</string>
   <string name="apply_update_dialog_title">套用更新</string>
   <string name="apply_update_dialog_text">您將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您選擇更新，您的設備將會重啟到復原模式並安裝更新。\n\n注意：此功能需要一個相容的恢復程式。如果您沒有的話，您將需要手動安裝更新。</string>
   <string name="apply_extras_dialog_title">安裝擴充套件</string>
