@@ -259,7 +259,7 @@ public class DownLoader {
                         downSize += length;
                         allDownSize += length;
 
-                        if (System.currentTimeMillis() > currentTime + 2000) {
+                        if (System.currentTimeMillis() > currentTime + 1000) {
                             // 线程更新进度
                             currentTime = System.currentTimeMillis();
                             ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
