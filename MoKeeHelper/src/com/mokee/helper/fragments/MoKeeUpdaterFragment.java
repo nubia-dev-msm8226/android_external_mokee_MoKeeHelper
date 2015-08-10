@@ -789,7 +789,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
         mStartUpdateVisible = true;
         // Get the message body right
-        String dialogBody = getString(R.string.apply_update_dialog_text, itemInfo.getFileName());
+        String dialogBody = getString(itemInfo.getFileName().startsWith("OTA")? R.string.apply_update_ota_dialog_text : R.string.apply_update_dialog_text, itemInfo.getFileName());
         // Display the dialog
         new AlertDialog.Builder(mContext).setTitle(R.string.apply_update_dialog_title)
                 .setMessage(dialogBody)

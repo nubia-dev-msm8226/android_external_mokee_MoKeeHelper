@@ -47,7 +47,7 @@
     <string name="mokee_donate_title">Donate to MoKee</string>
     <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
     <string name="mokee_news_title">MoKee News</string>
-    <string name="mokee_news_summary">不定期推送有关魔趣开源项目的最新进展</string>
+    <string name="mokee_news_summary">Receive development news from MoKee</string>
 
     <!-- Base Info -->
     <string name="mokee_version_info_title">Version Info</string>
@@ -146,8 +146,8 @@
     <string name="not_download_success">Update downloaded successfully</string>
     <string name="not_download_failure">Update download was unsuccessful</string>
     <string name="not_action_install_update">Reboot and install</string>
-    <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work properly.</string>
-    <string name="not_download_install_ota_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: A compatible Recovery is required for the installation to work properly. This is an incremental update, therefore any changes made to system files might cause the update to fail. If this happens, please flash a full ROM instead.</string>
+    <string name="not_download_install_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+    <string name="not_download_install_ota_notice">The update <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \'Reboot and install\', the device will restart itself to install the update.\n\nNote: This feature requires a compatible Recovery or updates will need to be installed manually.\n\nThis is an incremental update, therefore any changes made to system files might cause the update to fail. If this happens, please flash a full ROM instead.</string>
     <string name="md5_verification_failed">MD5 checksum mismatch</string>
     <string name="not_extras_download_success">Extras downloaded successfully</string>
     <string name="not_extras_download_failure">Extras download was unsuccessful</string>
@@ -176,8 +176,8 @@
 
     <!-- Apply install and update, extras strings -->
     <string name="apply_update_dialog_title">Apply update</string>
-    <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n
-        \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+    <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n\nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+    <string name="apply_update_ota_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>.\n\nIf you press Update, the device will restart itself in recovery mode to install the update.\n\nNote: This feature requires a compatible Recovery or updates will need to be installed manually.\n\nThis is an incremental update, therefore any changes made to system files might cause the update to fail. If this happens, please flash a full ROM instead.</string>
     <string name="apply_extras_dialog_title">Install extra</string>
     <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id="filename">%s</xliff:g> ?</string>
     <string name="apply_unable_to_reboot_toast">Unable to reboot into recovery</string>
