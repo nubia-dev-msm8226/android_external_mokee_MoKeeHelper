@@ -23,6 +23,5 @@
     <string name="conf_update_ota_server_url_def" translatable="false">http://ota.mokeedev.com/ota.php</string>
     <string name="conf_update_extras_server_url_def" translatable="false">http://ota.mokeedev.com/ext.php</string>
     <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/thread-937699-1-1.html</string>
-    <string name="mokee_forum_url" translatable="false">http://bbs.mfunz.com</string>
 
 </resources>
