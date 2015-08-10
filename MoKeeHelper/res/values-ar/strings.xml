@@ -38,8 +38,6 @@
   <string name="mokee_translate_summary">مساعدة ترجمة موكي</string>
   <string name="mokee_wiki_title">موسوعة موكي</string>
   <string name="mokee_wiki_summary">استعراض موسوعة موكي</string>
-  <string name="mokee_donate_title">التبرع لموكي</string>
-  <string name="mokee_donate_summary">الرجاء التبرع لدعم مشروع موكي مفتوح المصدر</string>
   <string name="mokee_version_info_title">معلومات الإصدار</string>
   <string name="mokee_version_title">إصدار موكي</string>
   <string name="mokee_version_type_title">نوع الإصدار</string>

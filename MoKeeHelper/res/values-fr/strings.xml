@@ -38,8 +38,6 @@
   <string name="mokee_translate_summary">Aider à traduire MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Découvrez le Wiki de MoKee</string>
-  <string name="mokee_donate_title">Faire un don à MoKee</string>
-  <string name="mokee_donate_summary">S\'il vous plaît faire un don pour soutenir MoKee OpenSource</string>
   <string name="mokee_version_info_title">Informations de version</string>
   <string name="mokee_version_title">Version de MoKee</string>
   <string name="mokee_version_type_title">Type de version</string>

@@ -38,8 +38,6 @@
   <string name="mokee_translate_summary">協助翻譯 MoKee</string>
   <string name="mokee_wiki_title">MoKee 的 Wiki</string>
   <string name="mokee_wiki_summary">造訪 MoKee Wiki</string>
-  <string name="mokee_donate_title">贊助 MoKee</string>
-  <string name="mokee_donate_summary">請贊助以支援 MoKee OpenSource</string>
   <string name="mokee_version_info_title">版本資訊</string>
   <string name="mokee_version_title">MoKee 版本</string>
   <string name="mokee_version_type_title">版本類型</string>

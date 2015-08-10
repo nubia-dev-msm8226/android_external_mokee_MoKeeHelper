@@ -21,7 +21,6 @@
   <string name="mokee_build_status_title">Build Status</string>
   <string name="mokee_github_title">Mokee Source Code</string>
   <string name="mokee_wiki_title">Wiki</string>
-  <string name="mokee_donate_title">Donate</string>
   <string name="downloaded_update_summary">Downloaded ROM</string>
   <string name="menu_delete_all">Delete downloaded ROMs</string>
   <string name="donate_money_toast_success">Thanks !</string>

@@ -38,8 +38,6 @@
   <string name="mokee_translate_summary">협조 번역 MoKee</string>
   <string name="mokee_wiki_title">MoKee 위키</string>
   <string name="mokee_wiki_summary">MoKee 위키를 보기</string>
-  <string name="mokee_donate_title">MoKee 한테 기부</string>
-  <string name="mokee_donate_summary">MoKee 오픈 소스를 지원 하기 위해 기부 하십시오</string>
   <string name="mokee_version_info_title">버전 정보</string>
   <string name="mokee_version_title">MoKee 버전</string>
   <string name="mokee_version_type_title">버전 유형</string>
