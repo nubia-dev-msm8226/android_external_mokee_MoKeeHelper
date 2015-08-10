@@ -169,6 +169,9 @@ public class MoKeeCenter extends FragmentActivity {
                     case DialogInterface.BUTTON_NEGATIVE:
                         sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
                         break;
+                    case DialogInterface.BUTTON_NEUTRAL:
+                        sendPaymentRequest(mContext, "unionpay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
+                        break;
                 }
             }
         };
@@ -177,6 +180,7 @@ public class MoKeeCenter extends FragmentActivity {
                 .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_ads_dialog_title)
                 .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
+                .setNeutralButton(R.string.donate_dialog_via_unionpay, mDialogButton)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
     }
