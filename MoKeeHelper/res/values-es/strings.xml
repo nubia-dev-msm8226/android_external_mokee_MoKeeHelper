@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Ayudar a traducir MoKee</string>
   <string name="mokee_wiki_title">Wiki de MoKee</string>
   <string name="mokee_wiki_summary">Ver MoKee Wiki</string>
+  <string name="mokee_news_title">Noticias MoKee</string>
+  <string name="mokee_news_summary">Recibir noticias de desarrollo de MoKee</string>
   <string name="mokee_version_info_title">Información de la Versión</string>
   <string name="mokee_version_title">Versión de MoKee</string>
   <string name="mokee_version_type_title">Tipo de versión</string>
@@ -62,6 +64,7 @@
   <string name="donate_dialog_message">A diferencia de empresas como Cygn o MIUI, MoKee OpenSource es un proyecto puramente sin ánimo de lucro nacido de la entusiasmo y la pasión. Para mantener este proyecto, tenemos que dedicar nuestro propio dinero la mayor parte del tiempo o depender de donaciones y la publicidad. Sus donaciones pueden ayudar a reducir la carga financiera y sostener el desarrollo futuro. Esta opción le permite quitar los anuncios del Centro MoKee, o utilizar la opción \"Donar\" en cambio si prefieres cuotas (los anuncios se eliminaran una vez que el total alcanza el valor especificado). Por favor haz una copia de seguridad del archivo mokee.license (en el directorio raíz de la sdcard, solo válido para el dispositivo actual) una vez hecha la donación.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
@@ -142,6 +145,7 @@
   <string name="pref_ota_check_donation_request_summary">Obtener actualizaciones incrementales para ahorrar tiempo de descarga y ancho de banda (disponible después de donar %d CNY)</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>
   <string name="apply_update_dialog_text">Se va a proceder a actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nPulsando sobre \u00ABActualizar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
+  <string name="apply_update_ota_dialog_text">Vas a actualizar a <xliff:g id="filename">%s </xliff:g>. \n\nSi pulsas actualizar, el dispositivo se reiniciará en modo recovery para instalar la actualización.\n\nNota: esta función requiere un recovery compatible o las actualizaciones tendrán que instalarse manualmente.\n\nEsta es una actualización incremental, por lo tanto los cambios realizados en archivos del sistema pueden hacer que la actualización falle. Si esto sucede, instale una ROM completa.</string>
   <string name="apply_extras_dialog_title">Instalar extra</string>
   <string name="apply_extras_dialog_text">¿Está seguro que desea instalar <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Imposible reiniciar en modo recovery</string>

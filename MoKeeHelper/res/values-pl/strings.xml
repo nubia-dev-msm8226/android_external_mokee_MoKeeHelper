@@ -64,6 +64,7 @@
   <string name="donate_dialog_message">W odróżnieniu od firm takich jak Cyanogen lub MIUI, MoKee OpenSource jest projektem czysto non-profit zrodzonym z hobby i pasji. W celu utrzymania tego projektu wydajemy nasze własne pieniądze przez większość czasu lub polegamy na darowiźnie i reklamie. Darowizny mogą pomóc zmniejszyć nasze obciążenie finansowe i utrzymać przyszły rozwój! Opcja ta pozwala na usunięcie reklam w centrum MoKee, można też użyć opcji \"Donate\" Jeśli wolisz raty (reklamy zostaną usunięte, gdy suma osiągnie określoną wartość). Proszę wykonać kopię zapasową pliku mokee.license (w katalogu głównym sdcard, ważne tylko dla bieżącego urządzenia), jeśli dokonałeś wpłaty.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Dziękujemy za wsparcie!</string>
   <string name="donate_money_name">Wspomóż MoKee OpenSource</string>
   <string name="donate_money_description">Wspomóż MoKee OpenSource</string>
@@ -144,6 +145,7 @@
   <string name="pref_ota_check_donation_request_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza (dostępne po wpłaceniu CNY %d)</string>
   <string name="apply_update_dialog_title">Zatwierdź aktualizacje</string>
   <string name="apply_update_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.</string>
+  <string name="apply_update_ota_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.\n\nTo jest aktualizacja przyrostowa, dlatego wszelkie zmiany wprowadzone w systemie mogą spowodować iż aktualizacja nie powiedzie się. W takim przypadku prosimy o instalację pełnego ROMu.</string>
   <string name="apply_extras_dialog_title">Zainstaluj dodatki</string>
   <string name="apply_extras_dialog_text">Czy na pewno chcesz zainstalować <xliff:g id="filename">%s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Nie można przejść do trybu recovery</string>
