@@ -48,7 +48,7 @@
   <string name="mokee_extras_info_title">Дополнительная информация</string>
   <string name="mokee_info_default">Неизвестно</string>
   <string name="mokee_version_type_release">Релиз</string>
-  <string name="mokee_version_type_history">Устаревшая версия</string>
+  <string name="mokee_version_type_history">История версий</string>
   <string name="mokee_version_type_experimental">Экспериментальная</string>
   <string name="mokee_version_type_nightly">Ночная</string>
   <string name="mokee_version_type_unofficial">Неофициальная</string>
@@ -61,7 +61,7 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="menu_remove_ads">Убрать рекламу</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
-  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом, родившимся в результате хобби. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования могут помочь уменьшить нашу финансовую нагрузку и поддержат развитие проекта! Эта опция позволит удалить рекламу в Панели MoKee, или используйте соседнюю опцию «Пожертвовать», если вы предпочитаете рассрочку (реклама будет удалена после достижения указанного значения). Создайте резервную копию файла mokee.license  (находится в корневом каталоге sdcard, действительна только для текущего устройства), после совершения пожертвования.</string>
+  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом, появившимся на свет трудами энтузиастов. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования могут помочь уменьшить нашу финансовую нагрузку и поддержат развитие проекта! Эта опция позволит удалить рекламу в Панели MoKee, или используйте соседнюю опцию «Пожертвовать», если вы предпочитаете рассрочку (реклама будет удалена после достижения указанного значения). Создайте резервную копию файла mokee.license  (находится в корневом каталоге sdcard, действительна только для текущего устройства), после совершения пожертвования.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_dialog_via_unionpay">UnionPay</string>
@@ -125,7 +125,7 @@
   <string name="md5_verification_failed">Несовпадение контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополнения успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
-  <string name="not_extras_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
+  <string name="not_extras_download_install_notice">Дополнение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки дополнения. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
   <string name="not_extras_download_install_notice_apk">Файл дополнения <xliff:g id="filename">%s</xliff:g> был успешно загружен.</string>
   <string name="not_apk_action_install_update">Установить</string>
   <string name="confirm_delete_dialog_title">Удалить файл</string>
@@ -144,7 +144,8 @@
   <string name="pref_ota_check_summary">Инкрементные обновления для экономии места и трафика</string>
   <string name="pref_ota_check_donation_request_summary">Инкрементные обновления для экономии места и трафика (доступно после пожертвования в CNY %d)</string>
   <string name="apply_update_dialog_title">Применить обновление</string>
-  <string name="apply_update_dialog_text">Вы собираетесь обновиться до<xliff:g id="filename">%s</xliff:g>.\n\nКогда вы нажмёте кнопку \"Обновить\", устройство перезагрузится для установки обновления.\n\nЗаметьте, что эта функция требует совместимое Recovery, иначе обновления придётся устанавливать вручную.</string>
+  <string name="apply_update_dialog_text">Будет выполнено обновление до версии «<xliff:g id="filename">%s</xliff:g>».\n\nПри нажатии кнопки «Обновить» устройство перезагрузится в режим восстановления для установки этого обновления. \n\nПримечание: эта функция требует совместимого Recovery. В противном случае обновление будет необходимо установить вручную.</string>
+  <string name="apply_update_ota_dialog_text">Будет выполнено обновление до версии «<xliff:g id="filename">%s</xliff:g>».\n\nПри нажатии кнопки «Обновить» устройство перезагрузится в режим восстановления для установки этого обновления. \n\nПримечание: эта функция требует совместимого Recovery. В противном случае обновление будет необходимо установить вручную.\n\nЭто инкрементное обновление, поэтому изменения в системных файлах могут привести к сбою установки обновления. В этом случае, установите полную версию Mokee.</string>
   <string name="apply_extras_dialog_title">Установить дополнение</string>
   <string name="apply_extras_dialog_text">Вы уверены, что хотите установить <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Невозможно перезагрузиться в режим Recovery</string>
