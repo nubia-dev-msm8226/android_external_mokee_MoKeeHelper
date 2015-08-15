@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Помозите нам у преводу</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Погледајте MoKee Wiki</string>
+  <string name="mokee_news_title">MoKee новости</string>
+  <string name="mokee_news_summary">Примање вести о MoKee развоју</string>
   <string name="mokee_version_info_title">Инфо о верзији</string>
   <string name="mokee_version_title">MoKee верзија</string>
   <string name="mokee_version_type_title">Тип верзије</string>
@@ -62,6 +64,7 @@
   <string name="donate_dialog_message">MoKee OpenSource се разликује од појединих профитних компанија попут Cygn или MIUI у томе што је прави непрофитни пројекат настао из хобија и жеље. У циљу опстанка пројекта, ми смо принуђени да трошимо сопствени новац или користимо донације или зараду од реклама. Ваше донације нам могу помоћи да смањимо трошкове и подржимо будући развој! Ова опција Вам омогућава да уклоните рекламе из МоКее Центра, или можете користити опцију \"Донирај\" (рекламе ће бити уклоњене када сума достигне одређену вредност). Молимо, бекапујте mokee.license фајл (налази се на рут директоријуму СД картице, и важи само за тренутни уређај) пошто донирате.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Хвала на донацији!</string>
   <string name="donate_money_name">Донирајте MoKee OpenSource</string>
   <string name="donate_money_description">Донирајте MoKee OpenSource</string>
@@ -142,6 +145,7 @@
   <string name="pref_ota_check_donation_request_summary">Преузмите постепену надоградњу ради уштеде времена и података (могуће после донације од %d CNY)</string>
   <string name="apply_update_dialog_title">Примени надоградње</string>
   <string name="apply_update_dialog_text">Надоградња на <xliff:g id="filename">%s</xliff:g>.\n\nАко притиснеш Ажурирај, уређај ће се поново покренути у \'Опоравак\' да инсталира ажурирање.\n\nНапомена: Ова функција захтева компатибилни \'Опоравак\' или ћеш морати ажурирање да инсталираш ручно.</string>
+  <string name="apply_update_ota_dialog_text">Надоградићете на <xliff:g id="filename">%s</xliff:g>.\n\n ако притиснете Надоградња. Уређај ће се рестартовати ради инсталације надоградње.\n\nИнфо: Ова функција захтева компатибилни Опоравак или морате ручно инсталирати.\n\nОво је постепена надоградња па може доћи до пада система. Уколико се то деси, инсталирајте комплетан систем.</string>
   <string name="apply_extras_dialog_title">Инсталација додатака</string>
   <string name="apply_extras_dialog_text">Желите ли инсталирати  <xliff:g id="filename">%s</xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Немогуће да се рестартовање у мод опоравка</string>
