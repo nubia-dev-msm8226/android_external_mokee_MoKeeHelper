@@ -18,15 +18,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="not_new_updates_found_body">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> aggiornamento disponibile per il download</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> aggiornamenti disponibili per il download</item>
-  </plurals>
-  <plurals name="not_additional_count">
-    <item quantity="one">+ <xliff:g id="count">%d</xliff:g> altro</item>
-    <item quantity="other">+ <xliff:g id="count">%d</xliff:g> Più</item>
-  </plurals>
-  <plurals name="show_exp_countdown">
-    <item quantity="one">Sei a <xliff:g id="step_count">%1$d</xliff:g> passo per attivare le opzioni sviluppatore.</item>
-    <item quantity="other">Ora sei a <xliff:g id="step_count">%1$d</xliff:g> passo dall\'abilitare la modalità sviluppatore.</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> アップデートがダウンロード可能です</item>
   </plurals>
 </resources>
