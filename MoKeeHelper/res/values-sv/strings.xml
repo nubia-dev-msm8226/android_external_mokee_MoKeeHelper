@@ -17,12 +17,30 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title">MoKee Center</string>
+  <string name="mokee_support_title">Support</string>
+  <string name="tips_help_title">Tips &amp; hjälp</string>
+  <string name="mokee_website_title">MoKee hemsida</string>
   <string name="mokee_website_summary">Besök den officiella hemsidan</string>
+  <string name="mokee_forum_title">MoKee Forum</string>
+  <string name="mokee_forum_summary">Besök MoKee forum</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
+  <string name="mokee_issues_summary">Besök bug tracker</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Besök MoKee-Github</string>
   <string name="mokee_translate_summary">Hjälpa till att översätta MoKee</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
+  <string name="mokee_wiki_summary">Visa på MoKee Wiki</string>
+  <string name="mokee_last_check_never">Aldrig</string>
+  <string name="mokee_info_default">Okänd</string>
+  <string name="mokee_version_type_experimental">Experimentell</string>
+  <string name="mokee_version_type_unofficial">Inofficiella</string>
   <string name="mokee_version_type_all">Alla</string>
+  <string name="installed_update_summary">Installerade</string>
+  <string name="available_updates_title">Tillgängliga uppdateringar</string>
+  <string name="menu_donate">Donera</string>
   <string name="menu_refresh">Uppdatera</string>
+  <string name="menu_delete_all">Radera nedladdning</string>
   <string name="menu_remove_ads">Ta bort annonser</string>
   <string name="donate_dialog_title">Donera till oss</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
@@ -30,9 +48,17 @@
   <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Tack för din donation!</string>
   <string name="donate_money_name">Donera till MoKee OpenSource</string>
+  <string name="donate_money_description">Donera till MoKee OpenSource</string>
+  <string name="remove_ads_name">Ta bort annonser</string>
+  <string name="remove_ads_description">Ta bort annonser</string>
+  <string name="remove_ads_dialog_title">Ta alltid bort annonser</string>
   <string name="unknown">Okänd</string>
+  <string name="dialog_update">Uppdatera</string>
   <string name="dialog_install">Installera</string>
+  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Avbryt</string>
+  <string name="dialog_close">Stäng</string>
+  <string name="no_available_extras_intro">Den senaste kontrollen fann inte några tillgängliga uppdateringar. För att manuellt leta efter nya extras, Använd knappen Uppdatera.</string>
   <string name="loading_changelog">Laddar\u2026</string>
   <string name="check_on_boot">Vid varje omstart</string>
   <string name="check_twice_daily">Två gånger varje dag</string>
@@ -44,5 +70,15 @@
   <string name="not_new_updates_found_ticker">Nya uppdateringar är tillgängliga</string>
   <string name="not_action_download">Hämta</string>
   <string name="data_connection_required">En dataanslutning krävs.</string>
+  <string name="confirm_download_cancelation_dialog_title">Avbryt nedladdning</string>
   <string name="not_action_install_update">Starta om och installera</string>
+  <string name="not_apk_action_install_update">Installera</string>
+  <string name="confirm_delete_dialog_title">Radera fil</string>
+  <string name="confirm_delete_extras_all_dialog_message">Ta bort alla hämtade extra filer?</string>
+  <string name="delete_single_update_success_message">Uppdateringen <xliff:g id="filename">%s</xliff:g> raderades</string>
+  <string name="delete_updates_failure_message">Det skedde ett fel vid borttagning av uppdateringen</string>
+  <string name="apply_update_dialog_title">Installera uppdateringen</string>
+  <string name="apply_extras_dialog_text">Är du säker du vill installera <xliff:g id="filename">%s </xliff:g>?</string>
+  <string name="apply_unable_to_reboot_toast">Kan inte starta om till Recoveryläge</string>
+  <string name="show_exp_already">Inget behov, du redan har aktiverat experimentella inställningarna.</string>
 </resources>
