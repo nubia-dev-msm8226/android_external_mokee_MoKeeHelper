@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">協助翻譯 MoKee</string>
   <string name="mokee_wiki_title">MoKee 的 Wiki</string>
   <string name="mokee_wiki_summary">造訪 MoKee Wiki</string>
+  <string name="mokee_news_title">MoKee新闻</string>
+  <string name="mokee_news_summary">从MoKee接受开发者信息</string>
   <string name="mokee_version_info_title">版本資訊</string>
   <string name="mokee_version_title">MoKee 版本</string>
   <string name="mokee_version_type_title">版本類型</string>
@@ -57,7 +59,11 @@
   <string name="menu_donate">捐贈</string>
   <string name="menu_refresh">刷新</string>
   <string name="menu_delete_all">刪除下載</string>
+  <string name="menu_remove_ads">移除ads</string>
   <string name="donate_dialog_title">捐贈給我們</string>
+  <string name="donate_dialog_message">不同于Cygn或MIUI这样，Mokke的开源代码是为爱好与激情而生的纯公益项目。为了维护这个项目，我们必须付出金钱及我们的大部分时间或者依靠广告与捐助。你的捐助能够减少我们的财务负担以及维持未来发展！此选项允许你在MoKee中心移除广告或者捐助。如果你喜欢分期付款(捐助达到一定数额可以移除广告)。在你捐助后请备份mokee.license文件(在sd卡的根目录下,仅对当前使用的设备有效)。</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">支付宝</string>
   <string name="donate_money_toast_success">謝謝您的捐贈 ！</string>
   <string name="donate_money_name">贊助 MoKee OpenSource</string>
   <string name="donate_money_description">贊助 MoKee OpenSource</string>

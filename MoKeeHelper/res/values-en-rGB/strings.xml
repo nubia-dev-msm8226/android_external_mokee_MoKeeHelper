@@ -17,6 +17,7 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_forum_title">MoKee Forum</string>
   <string name="mokee_changelog_title">Changelog</string>
   <string name="mokee_build_status_title">Build Status</string>
   <string name="mokee_github_title">Mokee Source Code</string>
