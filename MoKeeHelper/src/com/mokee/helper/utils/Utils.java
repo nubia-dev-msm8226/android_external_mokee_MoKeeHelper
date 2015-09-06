@@ -67,32 +67,44 @@ public class Utils {
     }
 
     public static void cancelNotification(Context context) {
-        final NotificationManager nm =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel(R.string.not_new_updates_found_title);
         nm.cancel(R.string.not_download_success);
     }
 
-    public static String getMoKeeVersionTypeString(Context mContext) {
-        String MoKeeVersionType = getMoKeeVersionType();
-        if (MoKeeVersionType.equals("release"))
-            return mContext.getString(R.string.mokee_version_type_release);
-        else if (MoKeeVersionType.equals("experimental"))
-            return mContext.getString(R.string.mokee_version_type_experimental);
-        else if (MoKeeVersionType.equals("history"))
-            return mContext.getString(R.string.mokee_version_type_history);
-        else if (MoKeeVersionType.equals("nightly"))
-            return mContext.getString(R.string.mokee_version_type_nightly);
-        else if (MoKeeVersionType.equals("unofficial"))
-            return mContext.getString(R.string.mokee_version_type_unofficial);
-        else
-            return mContext.getString(R.string.mokee_info_default);
+    public static String getMoKeeVersionTypeString(Context mContext, String MoKeeVersionType) {
+        switch (MoKeeVersionType) {
+            case "release":
+                return mContext.getString(R.string.mokee_version_type_release);
+            case "experimental":
+                return mContext.getString(R.string.mokee_version_type_experimental);
+            case "history":
+                return mContext.getString(R.string.mokee_version_type_history);
+            case "nightly":
+                return mContext.getString(R.string.mokee_version_type_nightly);
+            case "unofficial":
+                return mContext.getString(R.string.mokee_version_type_unofficial);
+            default:
+                return mContext.getString(R.string.mokee_info_default);
+        }
     }
 
     public static String getMoKeeVersionType() {
-        String MoKeeVersion = Build.MOKEE_VERSION;
-        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1, MoKeeVersion.length()).toLowerCase(Locale.ENGLISH);
+        String MoKeeVersionType = Build.MOKEE_VERSION.substring(Build.MOKEE_VERSION.lastIndexOf("-") + 1, Build.MOKEE_VERSION.length()).toLowerCase(Locale.ENGLISH);
         return MoKeeVersionType;
+    }
+
+    public static int getUpdateType(String MoKeeVersionType) {
+        switch (MoKeeVersionType) {
+            case "nightly":
+                return 1;
+            case "experimental":
+                return 2;
+            case "unofficial":
+                return 3;
+            default:
+                return 0;
+        }
     }
 
     public static long getVersionLifeTime(String versionType) {
@@ -264,7 +276,6 @@ public class Utils {
     public static boolean checkGmsVersion(String version) {
         String line = null;
         BufferedReader reader = null;
-
         try {
             reader = new BufferedReader(new FileReader("/system/etc/gprop.mokee"), 512);
             line = reader.readLine();

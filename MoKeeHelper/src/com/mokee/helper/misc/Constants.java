@@ -51,6 +51,8 @@ public class Constants {
     public static final int UPDATE_TYPE_UNOFFICIAL = 3;
     public static final int UPDATE_TYPE_ALL = 4;
 
+    public static final String OTA_CHECK_MANUAL_PREF = "pref_ota_check_manual";
+
     // intentFlag
     public static final int INTENT_FLAG_GET_UPDATE = 1024;
     public static final int INTENT_FLAG_GET_EXTRAS = 1025;

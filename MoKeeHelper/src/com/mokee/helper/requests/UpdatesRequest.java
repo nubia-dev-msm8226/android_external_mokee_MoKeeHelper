@@ -66,32 +66,27 @@ public class UpdatesRequest extends StringRequest {
         // Get the type of update we should check for
         SharedPreferences prefs = MoKeeApplication.getContext().getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
         String MoKeeVersionType = Utils.getMoKeeVersionType();
-        boolean isNightly = TextUtils.equals(MoKeeVersionType, "nightly");
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean isHistory = TextUtils.equals(MoKeeVersionType, "history");
-        boolean experimentalShow = prefs.getBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW,
-                isExperimental);
-        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3
-                : isExperimental ? 2 : isNightly ? 1 : 0);// 版本类型参数
+        boolean experimentalShow = prefs.getBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, isExperimental);
+        int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, Utils.getUpdateType(MoKeeVersionType));// 版本类型参数
         if (updateType == 2 && !experimentalShow) {
-            prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false)
-                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            prefs.edit().putBoolean(MoKeeUpdaterFragment.EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
-        if (!isUnofficial && updateType == 3) {
+        if (updateType == 3 && !isUnofficial) {
             prefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
             updateType = 0;
         }
         // disable ota option at old version or never donation
         boolean isOTA = prefs.getBoolean(Constants.OTA_CHECK_PREF, false);
-        if (isOTA) {
+        if (isOTA && !prefs.getBoolean(Constants.OTA_CHECK_MANUAL_PREF, false)) {
             String nowDate = Utils.subBuildDate(Build.MOKEE_VERSION, false);
             SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
             try {
                 long nowVersionDate = Long.valueOf(sdf.parse(nowDate).getTime());
                 long nowSystemDate = System.currentTimeMillis();
-                // 正式版夜版OTA时效性监测
                 if (!isExperimental || !isHistory || !isUnofficial) {
                     if (nowVersionDate + Utils.getVersionLifeTime(MoKeeVersionType) < nowSystemDate || Utils.getPaidTotal(MoKeeApplication.getContext()) < Constants.DONATION_REQUEST) {
                         prefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
@@ -101,7 +96,7 @@ public class UpdatesRequest extends StringRequest {
             } catch (ParseException exception) {
             }
         }
-
+        prefs.edit().putBoolean(Constants.OTA_CHECK_MANUAL_PREF, false).apply();
         params.put("device_name", Build.PRODUCT_NAME);
         params.put("device_version", Build.MOKEE_VERSION);
         params.put("build_user", Build.BUILD_USER);

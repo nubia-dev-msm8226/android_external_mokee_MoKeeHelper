@@ -90,7 +90,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private boolean mDownloading = false;
     private long mDownloadId;
     private String mFileName;
-    private static String updateTypeString, MoKeeVersionTypeString;
+    private static String updateTypeString, MoKeeVersionType, MoKeeVersionTypeString;
 
     private boolean mStartUpdateVisible = false;
 
@@ -170,17 +170,15 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateOTA = (SwitchPreference) findPreference(Constants.OTA_CHECK_PREF);// OTA更新
 
         // Restore normal type list
-        String MoKeeVersionType = Utils.getMoKeeVersionType();
-        boolean isNightly = TextUtils.equals(MoKeeVersionType, "nightly");
+        MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean experimentalShow = mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental);
-        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : isNightly ? 1 : 0);
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, Utils.getUpdateType(MoKeeVersionType));
         if (type == 2 && !experimentalShow) {
-            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
-                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
         }
-        if (!isUnofficial && type == 3) {
+        if (type == 3 && !isUnofficial) {
             mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
         }
 
@@ -210,7 +208,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             setUpdateTypeSummary(type);
         }
 
-        MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext);
+        MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext, MoKeeVersionType);
         Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, MoKeeVersionTypeString);
 
         if (!Utils.getMoKeeVersionType().equals("history")) {
@@ -258,15 +256,14 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     }
 
     public static void refreshOTAOption() {
-        if (!MoKeeVersionTypeString.equals(updateTypeString)) {
-            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
-            mUpdateOTA.setEnabled(false);
-            mUpdateOTA.setSummary(R.string.pref_ota_check_summary);
-        } else if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST) {
+        if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST) {
             mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
             mUpdateOTA.setEnabled(false);
             mUpdateOTA.setSummary(String.format(mContext.getString(R.string.pref_ota_check_donation_request_summary), Float.valueOf(Constants.DONATION_REQUEST - Utils.getPaidTotal(mContext)).intValue()));
         } else {
+            if (!MoKeeVersionTypeString.equals(updateTypeString)) {
+                mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
+            }
             mUpdateOTA.setEnabled(true);
             mUpdateOTA.setSummary(R.string.pref_ota_check_summary);
         }
@@ -564,8 +561,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (mProgressDialog != null) {
             return;
         }
-        State.saveMKState(mContext, new LinkedList<ItemInfo>(),
-                State.UPDATE_FILENAME);// clear
+        State.saveMKState(mContext, new LinkedList<ItemInfo>(), State.UPDATE_FILENAME);// clear
         refreshPreferences(new LinkedList<ItemInfo>());// clear
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
@@ -585,9 +581,15 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 cancelIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
                 mContext.startServiceAsUser(cancelIntent, UserHandle.CURRENT);
                 mProgressDialog = null;
+                if (mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false)) {
+                    mPrefs.edit().putBoolean(Constants.OTA_CHECK_MANUAL_PREF, false).apply();
+                }
             }
         });
 
+        if (mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false)) {
+            mPrefs.edit().putBoolean(Constants.OTA_CHECK_MANUAL_PREF, mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false)).apply();
+        }
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
         checkIntent.putExtra(DownLoadService.DOWNLOAD_FLAG, Constants.INTENT_FLAG_GET_UPDATE);
@@ -890,9 +892,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
             return true;
         } else if (preference == mUpdateOTA) {
-            boolean value = (Boolean) newValue;
-            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, value).apply();
-            isOTA(value);
+            boolean enabled = (Boolean) newValue;
+            mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, enabled).apply();
+            isOTA(enabled);
+            if (enabled) {
+                updateUpdatesType(Utils.getUpdateType(MoKeeVersionType));
+            }
             checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
             return true;
         }
