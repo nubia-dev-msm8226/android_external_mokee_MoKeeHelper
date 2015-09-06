@@ -34,7 +34,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.os.PowerManager;
-import android.os.SystemProperties;
 import android.preference.PreferenceFragment;
 
 import com.mokee.helper.R;
@@ -92,8 +91,7 @@ public class Utils {
 
     public static String getMoKeeVersionType() {
         String MoKeeVersion = Build.MOKEE_VERSION;
-        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1,
-                MoKeeVersion.length()).toLowerCase(Locale.ENGLISH);
+        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1, MoKeeVersion.length()).toLowerCase(Locale.ENGLISH);
         return MoKeeVersionType;
     }
 

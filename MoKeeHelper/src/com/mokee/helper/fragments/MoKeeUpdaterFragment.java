@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -211,12 +211,18 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext);
-        refreshOTAOption();
-        mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false));
-        mUpdateOTA.setOnPreferenceChangeListener(this);
-        isOTA(mUpdateOTA.isChecked());
-        setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
         Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, MoKeeVersionTypeString);
+
+        if (!Utils.getMoKeeVersionType().equals("history")) {
+            refreshOTAOption();
+            mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false));
+            mUpdateOTA.setOnPreferenceChangeListener(this);
+            isOTA(mUpdateOTA.isChecked());
+        } else {
+            getPreferenceScreen().removePreference(mUpdateOTA);
+        }
+
+        setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
         updateLastCheckPreference();
 
         setHasOptionsMenu(true);
