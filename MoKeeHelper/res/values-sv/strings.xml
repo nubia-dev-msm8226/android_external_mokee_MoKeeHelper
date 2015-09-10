@@ -31,6 +31,8 @@
   <string name="mokee_translate_summary">Hjälpa till att översätta MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Visa på MoKee Wiki</string>
+  <string name="mokee_version_info_title">Versionsinfo</string>
+  <string name="mokee_version_title">MoKee Version</string>
   <string name="mokee_last_check_never">Aldrig</string>
   <string name="mokee_info_default">Okänd</string>
   <string name="mokee_version_type_experimental">Experimentell</string>
@@ -59,6 +61,9 @@
   <string name="dialog_cancel">Avbryt</string>
   <string name="dialog_close">Stäng</string>
   <string name="no_available_extras_intro">Den senaste kontrollen fann inte några tillgängliga uppdateringar. För att manuellt leta efter nya extras, Använd knappen Uppdatera.</string>
+  <string name="update_check_title">Kolla efter uppdateringar</string>
+  <string name="check_manual">Manuellt</string>
+  <string name="alert_title">Varning</string>
   <string name="loading_changelog">Laddar\u2026</string>
   <string name="check_on_boot">Vid varje omstart</string>
   <string name="check_twice_daily">Två gånger varje dag</string>
