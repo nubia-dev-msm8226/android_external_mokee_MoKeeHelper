@@ -71,6 +71,16 @@ public class DownloadNotifier {
                         context.getString(mActionTitleID),
                         createInstallPendingIntent(context, updateFile, flag));
 
+        // Wearable install action
+        NotificationCompat.WearableExtender extender = new NotificationCompat.WearableExtender();
+        NotificationCompat.Action wearInstallAction = new NotificationCompat.Action.Builder(
+                R.drawable.ic_mokee_updater,
+                context.getString(R.string.not_action_install_update),
+                createInstallPendingIntent(context, updateFile, flag))
+                .build();
+        extender.addAction(wearInstallAction);
+        builder.extend(extender);
+
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
                 .notify(mContentTitleID, builder.build());
     }

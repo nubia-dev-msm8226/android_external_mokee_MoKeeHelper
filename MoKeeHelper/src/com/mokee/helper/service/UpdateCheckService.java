@@ -45,7 +45,6 @@ import com.android.volley.Response;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
@@ -215,6 +214,16 @@ public class UpdateCheckService extends IntentService
 
                 builder.addAction(R.drawable.ic_tab_download,
                         res.getString(R.string.not_action_download), downloadIntent);
+
+                // Wearable download action
+                NotificationCompat.WearableExtender extender
+                        = new NotificationCompat.WearableExtender();
+                NotificationCompat.Action wearAction = new NotificationCompat.Action.Builder(
+                        R.drawable.ic_action_download,
+                        res.getString(R.string.not_action_download), downloadIntent)
+                        .build();
+                extender.addAction(wearAction);
+                builder.extend(extender);
             }
 
             // Trigger the notification

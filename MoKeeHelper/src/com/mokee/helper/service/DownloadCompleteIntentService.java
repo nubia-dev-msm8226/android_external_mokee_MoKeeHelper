@@ -22,7 +22,6 @@ import java.io.File;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.UserHandle;
-import android.util.Log;
 
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
