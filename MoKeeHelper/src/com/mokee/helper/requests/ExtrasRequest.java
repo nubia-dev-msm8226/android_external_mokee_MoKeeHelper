@@ -25,7 +25,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mokee.helper.MoKeeApplication;
-import com.mokee.helper.utils.Utils;
 import com.mokee.os.Build;
 
 public class ExtrasRequest extends StringRequest {

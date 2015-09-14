@@ -145,6 +145,7 @@ public class DownLoadService extends NonStopIntentService {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
         builder.setContentText(getString(R.string.download_running));
+        builder.setColor(getResources().getColor(com.android.internal.R.color.system_notification_accent_color));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
