@@ -132,19 +132,8 @@ public class Utils {
         os.write("mkdir -p /cache/recovery/\n".getBytes());
         os.write("echo 'boot-recovery' >/cache/recovery/command\n".getBytes());
 
-        // See if backups are enabled and add the nandroid flag
-        /* TODO: add this back once we have a way of doing backups that is not recovery specific
-           if (mPrefs.getBoolean(Constants.BACKUP_PREF, true)) {
-           os.write("echo '--nandroid'  >> /cache/recovery/command\n".getBytes());
-           }
-           */
-
         // Add the update folder/file name
-        String primaryStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        // If data media rewrite the path to bypass the sd card fuse layer and trigger uncrypt
-        String directPath = Environment.getMediaStorageDirectory().getAbsolutePath();
-        String updatePath = Environment.isExternalStorageEmulated() ? directPath :
-                primaryStoragePath;
+        String updatePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         String cmd = "echo '--update_package=" + updatePath + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
                 + updateFileName + "' >> /cache/recovery/command\n";
         os.write(cmd.getBytes());
