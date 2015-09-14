@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.IntentService;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -36,6 +35,7 @@ import android.content.res.Resources;
 import android.mokee.utils.MoKeeUtils;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -161,8 +161,7 @@ public class UpdateCheckService extends IntentService
                     realUpdateCount, realUpdateCount);
 
             // Get the notification ready
-            Notification.Builder builder = new Notification.Builder(this)
-                    .setColor(getResources().getColor(com.android.internal.R.color.system_notification_accent_color))
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                     .setSmallIcon(R.drawable.ic_mokee_updater)
                     .setWhen(System.currentTimeMillis())
                     .setTicker(res.getString(R.string.not_new_updates_found_ticker))
@@ -190,8 +189,7 @@ public class UpdateCheckService extends IntentService
                     });
                 }
             }
-            Notification.InboxStyle inbox = new Notification.InboxStyle(builder)
-                    .setBigContentTitle(text);
+            NotificationCompat.InboxStyle inbox = new NotificationCompat.InboxStyle(builder).setBigContentTitle(text);
             int added = 0, count = realUpdates.size();
 
             for (ItemInfo ui : realUpdates) {

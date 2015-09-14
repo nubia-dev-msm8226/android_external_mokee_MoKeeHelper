@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@ package com.mokee.helper.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -28,7 +27,10 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
 import android.text.format.DateUtils;
+import android.util.SparseArray;
 
 import com.mokee.helper.R;
 import com.mokee.helper.db.DownLoadDao;
@@ -63,7 +65,7 @@ public class DownLoadService extends NonStopIntentService {
     public static final int STOP = 7;
 
     private static Map<String, DownLoader> downloaders = new HashMap<String, DownLoader>();
-    private static Map<Integer, Notification.Builder> notifications = new HashMap<Integer, Notification.Builder>();// 通知队列
+    private static SparseArray<Builder> notifications = new SparseArray<NotificationCompat.Builder>();// 通知队列
     private static int notificationID = Constants.INTENT_FLAG_GET_UPDATE;
     private NotificationManager manager;
     private SharedPreferences mPrefs;
@@ -106,7 +108,7 @@ public class DownLoadService extends NonStopIntentService {
                     if (loadInfo != null) {
                         // 开始下载
                         downloader.start();
-                        if (!notifications.containsKey(downloader.getNotificationID())) {
+                        if (notifications.get(downloader.getNotificationID()) == null) {
                             addNotification(notificationID, flag == Constants.INTENT_FLAG_GET_UPDATE ? R.string.mokee_updater_title
                                             : R.string.mokee_extras_title, flag);
                             downloader.setNotificationID(notificationID);
@@ -140,10 +142,9 @@ public class DownLoadService extends NonStopIntentService {
      * 添加通知
      */
     private void addNotification(int id, int title, int flag) {
-        Notification.Builder builder = new Notification.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(getString(title));
         builder.setContentText(getString(R.string.download_running));
-        builder.setColor(getResources().getColor(com.android.internal.R.color.system_notification_accent_color));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
         Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
@@ -165,10 +166,10 @@ public class DownLoadService extends NonStopIntentService {
      * 定时更新通知进度
      */
     private void updateNotification(int id, int progress, long time) {
-        if (!notifications.containsKey(id)) {
+        if (notifications.get(id) == null) {
             return;
         }
-        Notification.Builder notification = notifications.get(id);
+        NotificationCompat.Builder notification = notifications.get(id);
         notification.setContentText(getString(R.string.download_remaining, DateUtils.formatDuration(time)));
         notification.setContentInfo(String.valueOf(progress) + "%");
         notification.setProgress(100, progress, false);
@@ -241,7 +242,7 @@ public class DownLoadService extends NonStopIntentService {
                 case DownLoader.STATUS_COMPLETE:
                     di = (DownLoader) msg.obj;
                     url = di.fileUrl;
-                    if (notifications.containsKey(di.getNotificationID())) {
+                    if (notifications.get(di.getNotificationID()) != null) {
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());
                         downloaders.remove(url);
