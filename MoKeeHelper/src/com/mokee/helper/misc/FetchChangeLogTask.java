@@ -130,8 +130,7 @@ public class FetchChangeLogTask extends AsyncTask<ItemInfo, Void, Void>
                 VolleyLog.e("Error: ", error.getMessage());
                 if (mAlertDialog != null && mAlertDialog.isShowing()) {
                     mAlertDialog.dismiss();
-                    Toast.makeText(mContext, R.string.no_changelog_alert,
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, R.string.no_changelog_alert, Toast.LENGTH_SHORT).show();
                 }
             }
         };

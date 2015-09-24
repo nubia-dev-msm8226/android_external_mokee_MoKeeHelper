@@ -107,8 +107,7 @@ public class DownloadReceiver extends BroadcastReceiver {
             Utils.triggerUpdate(context, fileName, isUpdate);
         } catch (IOException e) {
             Log.e(TAG, "Unable to reboot into recovery mode", e);
-            Toast.makeText(context, R.string.apply_unable_to_reboot_toast,
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.apply_unable_to_reboot_toast, Toast.LENGTH_SHORT).show();
         }
     }
 
