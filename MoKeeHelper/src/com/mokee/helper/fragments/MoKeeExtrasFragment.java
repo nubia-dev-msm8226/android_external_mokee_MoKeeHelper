@@ -107,8 +107,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                         mProgressDialog = null;
                         int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
                         if (count == 0) {
-                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.no_extras_found)
-                                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.no_extras_found).colorResource(R.color.theme_primary));
                         } else if (count < 0) {
                             SnackbarManager.show(Snackbar.with(mContext).text(R.string.update_check_failed)
                                     .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
@@ -330,8 +329,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         refreshExtrasPreferences(new LinkedList<ItemInfo>());
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.theme_primary));
             return;
         }
         mProgressDialog = new ProgressDialog(mContext);
@@ -378,16 +376,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             Utils.deleteDir(mExtrasFolder);
             mExtrasFolder.mkdir();
             success = true;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_success_message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_success_message).colorResource(R.color.theme_primary));
         } else if (!mExtrasFolder.exists()) {
             success = false;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_noFolder_message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_noFolder_message).colorResource(R.color.theme_primary));
         } else {
             success = false;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_failure_message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_failure_message).colorResource(R.color.theme_primary));
         }
         return success;
     }
@@ -469,13 +464,11 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public void onStartDownload(ItemPreference pref) {
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.theme_primary));
             return;
         }
         if (mDownloading) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_already_running)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_already_running).colorResource(R.color.theme_primary));
             return;
         }
 
@@ -522,8 +515,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public void onPauseDownload(SharedPreferences prefs) {
         // We are OK to stop download, trigger it
         if (mDownloading)
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_cancelled)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_cancelled).colorResource(R.color.theme_primary));
         resetDownloadState();
         mUpdateHandler.removeCallbacks(mUpdateProgress);
         Intent intent = new Intent(mContext, DownLoadService.class);
@@ -557,8 +549,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                                 Utils.triggerUpdate(mContext, itemInfo.getFileName(), false);
                             } catch (IOException e) {
                                 Log.e(TAG, "Unable to reboot into recovery mode", e);
-                                SnackbarManager.show(Snackbar.with(mContext).text(R.string.apply_unable_to_reboot_toast)
-                                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+                                SnackbarManager.show(Snackbar.with(mContext).text(R.string.apply_unable_to_reboot_toast).colorResource(R.color.theme_primary));
                             }
                         } else if (itemInfo.getFileName().endsWith(".apk")) {
                             Intent i = new Intent(Intent.ACTION_VIEW);
@@ -592,14 +583,11 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             }
 
             String message = getString(R.string.delete_single_update_success_message, fileName);
-            SnackbarManager.show(Snackbar.with(mContext).text(message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(message).colorResource(R.color.theme_primary));
         } else if (!mExtrasFolder.exists()) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_noFolder_message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_noFolder_message).colorResource(R.color.theme_primary));
         } else {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_failure_message)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_extras_failure_message).colorResource(R.color.theme_primary));
         }
 
         // Update the list

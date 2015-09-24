@@ -38,7 +38,6 @@ import android.widget.TextView;
 
 import mokee.support.widget.snackbar.Snackbar;
 import mokee.support.widget.snackbar.SnackbarManager;
-import mokee.support.widget.snackbar.enums.SnackbarType;
 import mokee.support.widget.snackbar.listeners.ActionClickListener;
 
 import com.mokee.helper.R;
@@ -206,8 +205,7 @@ public class MoKeeCenter extends FragmentActivity {
         switch(resultCode) {
             case Activity.RESULT_OK:
                 SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_toast_success)
-                        .duration(5000L).type(SnackbarType.MULTI_LINE)
-                        .actionListener(new ActionClickListener(){
+                        .duration(5000L).actionListener(new ActionClickListener(){
                             @Override
                             public void onActionClicked(Snackbar snackbar) {
                                 donateOrRemoveAdsButton(MoKeeCenter.this, true);
