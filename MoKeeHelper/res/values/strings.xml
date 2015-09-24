@@ -85,6 +85,7 @@
     <string name="donate_money_name">Donate to MoKee OpenSource</string>
     <string name="donate_money_description">Donate to MoKee OpenSource</string>
     <string name="donate_money_currency" translatable="false">%d CNY</string>
+    <string name="donate_money_again">Donate again</string>
     <string name="remove_ads_name">Remove ads</string>
     <string name="remove_ads_description">Remove ads</string>
     <string name="remove_ads_dialog_title">Always remove ads</string>

@@ -23,7 +23,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -39,6 +38,8 @@ import android.widget.TextView;
 
 import mokee.support.widget.snackbar.Snackbar;
 import mokee.support.widget.snackbar.SnackbarManager;
+import mokee.support.widget.snackbar.enums.SnackbarType;
+import mokee.support.widget.snackbar.listeners.ActionClickListener;
 
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
@@ -204,8 +205,14 @@ public class MoKeeCenter extends FragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch(resultCode) {
             case Activity.RESULT_OK:
-                SnackbarManager.show(Snackbar.with(this).text(getString(R.string.donate_money_toast_success))
-                        .duration(Snackbar.SnackbarDuration.LENGTH_LONG).color(Color.parseColor(getString(R.color.theme_primary))));
+                SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_toast_success)
+                        .duration(5000L).type(SnackbarType.MULTI_LINE)
+                        .actionListener(new ActionClickListener(){
+                            @Override
+                            public void onActionClicked(Snackbar snackbar) {
+                                donateOrRemoveAdsButton(MoKeeCenter.this, true);
+                            }
+                        }).actionLabel(R.string.donate_money_again).colorResource(R.color.theme_primary));
                 MoKeeUpdaterFragment.refreshOption();
                 break;
         }
