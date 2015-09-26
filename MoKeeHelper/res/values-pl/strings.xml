@@ -68,6 +68,7 @@
   <string name="donate_money_toast_success">Dziękujemy za wsparcie!</string>
   <string name="donate_money_name">Wspomóż MoKee OpenSource</string>
   <string name="donate_money_description">Wspomóż MoKee OpenSource</string>
+  <string name="donate_money_again">Wesprzyj ponownie</string>
   <string name="remove_ads_name">Usuń reklamy</string>
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>

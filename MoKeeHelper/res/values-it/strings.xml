@@ -68,6 +68,7 @@
   <string name="donate_money_toast_success">Grazie per la tua donazione!</string>
   <string name="donate_money_name">Dona a Mokee OpenSource</string>
   <string name="donate_money_description">Dona a Mokee Opensource</string>
+  <string name="donate_money_again">Dona di nuovo</string>
   <string name="remove_ads_name">Rimuovi pubblicità</string>
   <string name="remove_ads_description">Rimuovi pubblicità</string>
   <string name="remove_ads_dialog_title">Rimuovi sempre pubblicità</string>
