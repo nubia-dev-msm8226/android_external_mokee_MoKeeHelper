@@ -99,7 +99,7 @@ public class UpdatesRequest extends StringRequest {
         prefs.edit().putBoolean(Constants.OTA_CHECK_MANUAL_PREF, false).apply();
         params.put("device_name", Build.PRODUCT_NAME);
         params.put("device_version", Build.MOKEE_VERSION);
-        params.put("build_user", Build.BUILD_USER);
+        params.put("build_user", android.os.Build.USER);
         if (!isOTA) {
             params.put("device_officail", String.valueOf(updateType));
             params.put("rom_all", "0");
