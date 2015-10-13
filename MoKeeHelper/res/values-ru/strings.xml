@@ -68,6 +68,7 @@
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>
   <string name="donate_money_name">Пожертвовать MoKee OpenSource</string>
   <string name="donate_money_description">Пожертвовать MoKee OpenSource</string>
+  <string name="donate_money_again">Пожертвовать снова</string>
   <string name="remove_ads_name">Убрать рекламу</string>
   <string name="remove_ads_description">Убрать рекламу</string>
   <string name="remove_ads_dialog_title">Всегда скрывать рекламу</string>
