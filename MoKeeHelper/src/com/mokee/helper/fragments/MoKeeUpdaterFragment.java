@@ -224,6 +224,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         updateLastCheckPreference();
 
         setHasOptionsMenu(true);
+
+        if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST && MoKeeUtils.isApkInstalledAndEnabled("de.robv.android.xposed.installer", mContext)) {
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.installed_xposed_toast)
+                    .duration(10000L).colorResource(R.color.theme_primary));
+        }
     }
 
     private void setUpdateTypeSummary(int type) {

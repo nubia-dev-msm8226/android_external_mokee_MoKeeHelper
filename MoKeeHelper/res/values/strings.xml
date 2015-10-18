@@ -187,4 +187,6 @@
     <string name="show_exp_on">You have enabled experimental settings!</string>
     <string name="show_exp_already">No need, you have already enabled experimental settings.</string>
 
+    <!-- Xposed framework check -->
+    <string name="installed_xposed_toast">Xposed framework already installed, enable incremental update will be keep framework.</string>
 </resources>

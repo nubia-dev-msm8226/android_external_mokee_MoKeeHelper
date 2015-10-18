@@ -153,4 +153,5 @@
   <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
+  <string name="installed_xposed_toast">检测到系统安装了Xposed框架，启用增量更新可在升级后无需重刷框架。</string>
 </resources>
