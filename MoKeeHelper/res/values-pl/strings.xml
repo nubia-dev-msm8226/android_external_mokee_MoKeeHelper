@@ -153,4 +153,5 @@
   <string name="extras_unsupported_toast">Bieżąca wersja nie obsługuje tego rozszerzenia</string>
   <string name="show_exp_on">Włączyłeś ustawienia eksperymentalne!</string>
   <string name="show_exp_already">Nie trzeba, już włączyłeś ustawienia eksperymentalne.</string>
+  <string name="installed_xposed_toast">Xposed framework jest zainstalowany, włączenie aktualizacji przyrostowych utrzyma framework.</string>
 </resources>
