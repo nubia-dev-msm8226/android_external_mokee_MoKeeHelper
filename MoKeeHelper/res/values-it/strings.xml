@@ -146,11 +146,12 @@
   <string name="pref_ota_check_donation_request_summary">Ottieni gli aggiornamenti incrementali per risparmiare tempo di download e larghezza di banda(disponibile dopo aver donato CNY %d)</string>
   <string name="apply_update_dialog_title">Applica l\'aggiornamento</string>
   <string name="apply_update_dialog_text">Si sta per aggiornare a <xliff:g id="filename">%s</xliff:g>.\n\nPremendo Aggiorna, il dispositivo verrà riavviato in modalità recovery per l\'installazione dell\'aggiornamento\n\nNota: questa caratteristica richiede una recovery compatibile; in caso contrario sarà necessario installare gli aggiornamenti manualmente.</string>
-  <string name="apply_update_ota_dialog_text">Si sta per eseguire l\'aggiornamento a <xliff:g id="filename">%s </xliff:g>. \n\nse si preme aggiornamento, il dispositivo si riavvia in modalità recovery per installare l\'aggiornamento.\n\nNote: questa funzione richiede una recovery compatibile o gli aggiornamenti dovranno essere installati manualmente.\n\nQuesto è un aggiornamento incrementale, pertanto tutte le modifiche apportate ai file di sistema potrebbero causare il fallimento dell\'aggiornamento. Se questo accade, si prega di flashare la ROM completa invece.</string>
+  <string name="apply_update_ota_dialog_text">Si sta per aggiornare a <xliff:g id="filename">%s</xliff:g>.\n\nPremendo Aggiorna, il dispositivo verrà riavviato in modalità recovery per l\'installazione dell\'aggiornamento\n\nNota: questa caratteristica richiede una recovery compatibile; in caso contrario sarà necessario installare gli aggiornamenti manualmente.\n\nQuesto è un aggiornamento incrementale, pertanto tutte le modifiche apportate ai file di sistema potrebbero causare il fallimento dell\'aggiornamento. Se accade questo, si consiglia di flashare la ROM completa.</string>
   <string name="apply_extras_dialog_title">Installare extra</string>
   <string name="apply_extras_dialog_text">Sei sicuro di voler installare <xliff:g id="filename"> %s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Impossibile riavviare in recovery</string>
   <string name="extras_unsupported_toast">La versione attuale non supporta questa estensione</string>
   <string name="show_exp_on">Funzioni sperimentali attivate!</string>
   <string name="show_exp_already">Non c\'è bisogno, le funzioni sperimentali sono già attivate</string>
+  <string name="installed_xposed_toast">Xposed framework già installato, abilitare gli aggiornamenti incrementali manterrà il framework.</string>
 </resources>
