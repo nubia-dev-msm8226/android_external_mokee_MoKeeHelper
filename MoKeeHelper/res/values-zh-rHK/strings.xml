@@ -66,8 +66,9 @@
   <string name="donate_dialog_via_alipay">支付寶</string>
   <string name="donate_dialog_via_unionpay">銀聯</string>
   <string name="donate_money_toast_success">多謝你的捐贈！</string>
-  <string name="donate_money_name">捐贈 MoKee OpenSource</string>
+  <string name="donate_money_name">捐助 MoKee OpenSource</string>
   <string name="donate_money_description">捐贈 MoKee OpenSource</string>
+  <string name="donate_money_again">再次捐贈</string>
   <string name="remove_ads_name">移除廣告</string>
   <string name="remove_ads_description">移除廣告</string>
   <string name="remove_ads_dialog_title">永久移除廣告</string>
@@ -152,4 +153,5 @@
   <string name="extras_unsupported_toast">你目前的版本不支援此副檔名</string>
   <string name="show_exp_on">你已經啟用實驗設定！</string>
   <string name="show_exp_already">不用了，你已經啟用實驗設定。</string>
+  <string name="installed_xposed_toast">經已安裝 Xposed 框架，啟用增量更新將保留框架。</string>
 </resources>
