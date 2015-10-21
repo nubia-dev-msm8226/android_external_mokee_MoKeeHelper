@@ -72,7 +72,7 @@ public class Utils {
         nm.cancel(R.string.not_download_success);
     }
 
-    public static String getMoKeeVersionTypeString(Context mContext, String MoKeeVersionType) {
+    public static String getReleaseVersionTypeString(Context mContext, String MoKeeVersionType) {
         switch (MoKeeVersionType) {
             case "release":
                 return mContext.getString(R.string.mokee_version_type_release);
@@ -89,9 +89,8 @@ public class Utils {
         }
     }
 
-    public static String getMoKeeVersionType() {
-        String MoKeeVersionType = Build.MOKEE_VERSION.substring(Build.MOKEE_VERSION.lastIndexOf("-") + 1, Build.MOKEE_VERSION.length()).toLowerCase(Locale.ENGLISH);
-        return MoKeeVersionType;
+    public static String getReleaseVersionType() {
+        return Build.RELEASE_TYPE.toLowerCase(Locale.ENGLISH);
     }
 
     public static int getUpdateType(String MoKeeVersionType) {
@@ -239,12 +238,12 @@ public class Utils {
      * 判断版本新旧
      */
     public static boolean isNewVersion(String itemName) {
-        int nowDateLength = getBuildDateLength(Build.MOKEE_VERSION);
+        int nowDateLength = getBuildDateLength(Build.VERSION);
         int itemDateLength = getBuildDateLength(itemName);
         boolean sameVersion = (nowDateLength == itemDateLength);
-        int nowDate = Integer.valueOf(subBuildDate(Build.MOKEE_VERSION, sameVersion));
+        int nowDate = Integer.valueOf(subBuildDate(Build.VERSION, sameVersion));
         int itemDate = Integer.valueOf(subBuildDate(itemName, sameVersion));
-        float nowVersion = Float.valueOf(subMoKeeVersion(Build.MOKEE_VERSION));
+        float nowVersion = Float.valueOf(subMoKeeVersion(Build.VERSION));
         float itemVersion = Float.valueOf(subMoKeeVersion(itemName));
         return (itemDate > nowDate && itemVersion >= nowVersion);
     }

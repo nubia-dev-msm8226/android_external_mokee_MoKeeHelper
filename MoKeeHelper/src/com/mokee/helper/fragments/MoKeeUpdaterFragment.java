@@ -170,7 +170,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateOTA = (SwitchPreference) findPreference(Constants.OTA_CHECK_PREF);// OTA更新
 
         // Restore normal type list
-        MoKeeVersionType = Utils.getMoKeeVersionType();
+        MoKeeVersionType = Utils.getReleaseVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
         boolean experimentalShow = mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental);
@@ -208,10 +208,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             setUpdateTypeSummary(type);
         }
 
-        MoKeeVersionTypeString = Utils.getMoKeeVersionTypeString(mContext, MoKeeVersionType);
+        MoKeeVersionTypeString = Utils.getReleaseVersionTypeString(mContext, MoKeeVersionType);
         Utils.setSummaryFromString(this, KEY_MOKEE_VERSION_TYPE, MoKeeVersionTypeString);
 
-        if (!Utils.getMoKeeVersionType().equals("history")) {
+        if (!MoKeeVersionType.equals("history")) {
             refreshOTAOption();
             mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false));
             mUpdateOTA.setOnPreferenceChangeListener(this);
@@ -247,7 +247,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onResume() {
         super.onResume();
         mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
-                TextUtils.equals(Utils.getMoKeeVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
+                TextUtils.equals(Utils.getReleaseVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
         // Remove Google AdMob
         if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
@@ -286,7 +286,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, true).apply();
                     SnackbarManager.show(Snackbar.with(mContext).text(R.string.show_exp_on)
                             .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
-                    String MoKeeVersionType = Utils.getMoKeeVersionType();
+                    String MoKeeVersionType = Utils.getReleaseVersionType();
                     boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
                     if (!isUnofficial) {
                         setExperimentalTypeEntries();
@@ -476,7 +476,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Clear the list
         mUpdatesList.removeAll();
         // Convert the installed version name to the associated filename
-        String installedZip = Build.MOKEE_VERSION + ".zip";
+        String installedZip = Build.VERSION + ".zip";
         boolean isNew = true; // 判断新旧版本
         // Add the updates
         for (ItemInfo ui : updates) {
@@ -487,7 +487,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (!mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false)) {
                 isNew = Utils.isNewVersion(ui.getFileName());
             } else {
-                isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Build.MOKEE_VERSION, true));
+                isNew = Integer.valueOf(Utils.subBuildDate(ui.getFileName(), true)) > Integer.valueOf(Utils.subBuildDate(Build.VERSION, true));
                 if (!isNew) {
                     break;
                 }
