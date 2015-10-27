@@ -27,6 +27,6 @@
   </plurals>
   <plurals name="show_exp_countdown">
     <item quantity="one">Sei a <xliff:g id="step_count">%1$d</xliff:g> passo per attivare le opzioni sviluppatore.</item>
-    <item quantity="other">Sei a <xliff:g id="step_count">%1$d</xliff:g> passi per attivare le opzioni sviluppatore.</item>
+    <item quantity="other">Sei a <xliff:g id="step_count">%1$d</xliff:g> passo per attivare le opzioni sviluppatore.</item>
   </plurals>
 </resources>
