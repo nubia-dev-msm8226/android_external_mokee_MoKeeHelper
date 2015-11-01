@@ -84,8 +84,8 @@
   <string name="no_available_extras_intro">Die letzte Prüfung fand keine verfügbaren Updates. Um manuell nach neuen Extras zu suchen, verwenden Sie die Schaltfläche \"Aktualisieren\".</string>
   <string name="new_update_summary">Neu</string>
   <string name="old_update_summary">Alt</string>
-  <string name="update_check_title">Update-Frequenz Überprüfen</string>
-  <string name="check_manual">Handbuch</string>
+  <string name="update_check_title">Update-Frequenz Festlegen</string>
+  <string name="check_manual">Manuell</string>
   <string name="nightly_alert">Sie haben Nightlies ausgewählt. Bitte Beachten Sie, das diese nicht unterstützt werden und mit Vorsicht verwendet werden sollen.</string>
   <string name="experimenter_alert">Sie haben experimentell ausgewählt. Bitte Beachten Sie, das diese nicht unterstützt werden und nur zum Testen gedacht sind, lassen Sie deshalb Vorsicht walten.</string>
   <string name="unofficial_alert">Sie haben inoffizielle Updates ausgewählt. Bitte Beachten Sie, das diese Versionen ausschließlich vom Gerätehersteller unterstützt werden.</string>
@@ -143,13 +143,13 @@
   <string name="delete_extras_success_message">Alle heruntergeladenen Extras gelöscht</string>
   <string name="pref_ota_check">Inkrementelle updates</string>
   <string name="pref_ota_check_summary">Erhalte Inkrementelle-Updates um Download-Zeit und Bandbreite zu sparen</string>
-  <string name="pref_ota_check_donation_request_summary">Erhalte Ota-Updates um Download-Zeit und Bandbreite zu sparen (möglich nach spenden von CNY %d)</string>
+  <string name="pref_ota_check_donation_request_summary">Erhalte Inkrementelle-Updates um Download-Zeit und Bandbreite zu sparen (möglich nach spenden von CNY %d)</string>
   <string name="apply_update_dialog_title">Update anwenden</string>
-  <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery, anderenfalls muss das Update manuell installiert werden.</string>
-  <string name="apply_update_ota_dialog_text">Sie sind im Begriff, ein upgrade auszuführen auf <xliff:g id="filename">%s </xliff:g>. \n\nWenn Sie Update drücken, startet das Gerät selbst neu ins Recovery für die Installationsroutine.\n\nNote: diese Funktion erfordert ein kompatibles Recovery oder Updates müssen manuell installiert werden.\n\nDas ist ein inkrementelles Update, das Änderungen an Systemdateien beinhaltet, möglicherweise kann die Aktualisierung fehlschlagen. In diesem Fall bitte eine volle ROM Installieren.</string>
+  <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät ins Recovery booten, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery, anderenfalls muss das Update manuell installiert werden.</string>
+  <string name="apply_update_ota_dialog_text">Sie sind im Begriff, ein upgrade auszuführen auf <xliff:g id="filename">%s </xliff:g>. \n\nWenn Sie Update drücken, startet das Gerät selbst neu ins Recovery für die Installationsroutine.\n\nHinweis: diese Funktion erfordert ein kompatibles Recovery oder Updates müssen manuell installiert werden.\n\nDas ist ein inkrementelles Update, das Änderungen an Systemdateien beinhaltet, möglicherweise kann die Aktualisierung fehlschlagen. In diesem Fall bitte eine volle ROM Installieren.</string>
   <string name="apply_extras_dialog_title">Extras installieren</string>
   <string name="apply_extras_dialog_text">Sind Sie sicher, dass Sie <xliff:g id="filename"> %s </xliff:g> installieren möchten?</string>
-  <string name="apply_unable_to_reboot_toast">Neustart in den Recovery-Modus nicht möglich</string>
+  <string name="apply_unable_to_reboot_toast">Neustart ins Recovery nicht möglich</string>
   <string name="extras_unsupported_toast">Die aktuelle Version unterstützt dieser Erweiterung nicht</string>
   <string name="show_exp_on">Experimentelle Einstellungen aktiviert!</string>
   <string name="show_exp_already">Nicht nötig, experimentelle Einstellungen bereits aktiviert.</string>
