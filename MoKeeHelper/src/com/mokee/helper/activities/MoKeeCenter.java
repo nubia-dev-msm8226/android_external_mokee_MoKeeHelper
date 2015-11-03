@@ -136,7 +136,7 @@ public class MoKeeCenter extends FragmentActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekBar.setProgress(progress / 10 * 10);
-                mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), progress / 10 * 10 + 10));
+                mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), progress / 10 * 10 + 30));
             }
 
             @Override
@@ -152,7 +152,7 @@ public class MoKeeCenter extends FragmentActivity {
         if (isDonate) {
             mSeekBar.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.GONE);
-            mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), 10));
+            mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), 30));
         } else {
             mSeekBar.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.VISIBLE);
@@ -165,7 +165,7 @@ public class MoKeeCenter extends FragmentActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Float.valueOf(mSeekBar.getProgress() + 10) / 6 : String.valueOf(mSeekBar.getProgress() + 10)) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
+                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Float.valueOf(mSeekBar.getProgress() + 30) / 6 : String.valueOf(mSeekBar.getProgress() + 30)) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
