@@ -210,7 +210,7 @@ public class MoKeeCenter extends FragmentActivity {
                             public void onActionClicked(Snackbar snackbar) {
                                 donateOrRemoveAdsButton(MoKeeCenter.this, true);
                             }
-                        }).actionLabel(R.string.donate_money_again).colorResource(R.color.theme_primary));
+                        }).actionLabel(R.string.donate_money_again).colorResource(R.color.snackbar_background));
                 MoKeeUpdaterFragment.refreshOption();
                 break;
         }

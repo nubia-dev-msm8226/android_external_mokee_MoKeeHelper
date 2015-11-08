@@ -133,10 +133,10 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         mProgressDialog = null;
                         int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
                         if (count == 0) {
-                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.no_updates_found).colorResource(R.color.theme_primary));
+                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.no_updates_found).colorResource(R.color.snackbar_background));
                         } else if (count < 0) {
                             SnackbarManager.show(Snackbar.with(mContext).text(R.string.update_check_failed)
-                                    .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
+                                    .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.snackbar_background));
                         }
                     }
                     updateLayout();
@@ -227,7 +227,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST && MoKeeUtils.isApkInstalledAndEnabled("de.robv.android.xposed.installer", mContext)) {
             SnackbarManager.show(Snackbar.with(mContext).text(R.string.installed_xposed_toast)
-                    .duration(10000L).colorResource(R.color.theme_primary));
+                    .duration(10000L).colorResource(R.color.snackbar_background));
         }
     }
 
@@ -285,7 +285,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 if (mExpHitCountdown == 0) {
                     mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, true).apply();
                     SnackbarManager.show(Snackbar.with(mContext).text(R.string.show_exp_on)
-                            .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
+                            .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.snackbar_background));
                     String MoKeeVersionType = Utils.getReleaseVersionType();
                     boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
                     if (!isUnofficial) {
@@ -297,11 +297,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         && mExpHitCountdown < (TAPS_TO_BE_A_EXPERIMENTER - 2)) {
                     SnackbarManager.show(Snackbar.with(mContext).text(getResources()
                             .getQuantityString(R.plurals.show_exp_countdown, mExpHitCountdown, mExpHitCountdown))
-                            .colorResource(R.color.theme_primary));
+                            .colorResource(R.color.snackbar_background));
                 }
             } else if (mExpHitCountdown < 0) {
                 SnackbarManager.show(Snackbar.with(mContext).text(R.string.show_exp_already)
-                        .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
+                        .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.snackbar_background));
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -559,7 +559,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         refreshPreferences(new LinkedList<ItemInfo>());// clear
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.snackbar_background));
             return;
         }
         mProgressDialog = new ProgressDialog(mContext);
@@ -612,13 +612,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             Utils.deleteDir(mUpdateFolder);
             mUpdateFolder.mkdir();
             success = true;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_success_message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_success_message).colorResource(R.color.snackbar_background));
         } else if (!mUpdateFolder.exists()) {
             success = false;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_noFolder_message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_noFolder_message).colorResource(R.color.snackbar_background));
         } else {
             success = false;
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_failure_message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_failure_message).colorResource(R.color.snackbar_background));
         }
         return success;
     }
@@ -707,12 +707,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onStartDownload(ItemPreference pref) {
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.data_connection_required).colorResource(R.color.snackbar_background));
             return;
         }
         if (mDownloading) {
             SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_already_running)
-                    .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.theme_primary));
+                    .duration(Snackbar.SnackbarDuration.LENGTH_LONG).colorResource(R.color.snackbar_background));
             return;
         }
 
@@ -771,7 +771,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public void onPauseDownload(SharedPreferences prefs) {
         // We are OK to stop download, trigger it
         if (mDownloading)
-        SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_cancelled).colorResource(R.color.theme_primary));
+        SnackbarManager.show(Snackbar.with(mContext).text(R.string.download_cancelled).colorResource(R.color.snackbar_background));
         resetDownloadState();
         mUpdateHandler.removeCallbacks(mUpdateProgress);
         Intent intent = new Intent(mContext, DownLoadService.class);
@@ -803,7 +803,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                             Utils.triggerUpdate(mContext, itemInfo.getFileName(), true);
                         } catch (IOException e) {
                             Log.e(TAG, "Unable to reboot into recovery mode", e);
-                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.apply_unable_to_reboot_toast).colorResource(R.color.theme_primary));
+                            SnackbarManager.show(Snackbar.with(mContext).text(R.string.apply_unable_to_reboot_toast).colorResource(R.color.snackbar_background));
                         }
                     }
                 }).setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
@@ -829,11 +829,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
 
             String message = getString(R.string.delete_single_update_success_message, fileName);
-            SnackbarManager.show(Snackbar.with(mContext).text(message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(message).colorResource(R.color.snackbar_background));
         } else if (!mUpdateFolder.exists()) {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_noFolder_message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_noFolder_message).colorResource(R.color.snackbar_background));
         } else {
-            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_failure_message).colorResource(R.color.theme_primary));
+            SnackbarManager.show(Snackbar.with(mContext).text(R.string.delete_updates_failure_message).colorResource(R.color.snackbar_background));
         }
 
         // Update the list

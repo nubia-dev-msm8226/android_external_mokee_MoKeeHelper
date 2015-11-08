@@ -34,9 +34,8 @@ import cn.jpush.android.api.TagAliasCallback;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.mokee.helper.activities.MoKeeCenter;
-import com.mokee.helper.utils.Utils;
 import com.mokee.os.Build;
-import com.mokee.os.Build$VERSION;
+import com.mokee.os.Build.VERSION;
 
 public class MoKeeApplication extends Application implements
         Application.ActivityLifecycleCallbacks {
@@ -96,7 +95,7 @@ public class MoKeeApplication extends Application implements
         // Set Tags
         Set<String> tags = new HashSet<String>();
         tags.add(Build.PRODUCT);
-        tags.add(Build$VERSION.CODENAME.replace(".", ""));
+        tags.add(VERSION.CODENAME.replace(".", ""));
         Set<String> prefTags = prefs.getStringSet(MKPUSH_TAGS, null);
         if (!tags.equals(prefTags))
             mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_TAGS, tags));
