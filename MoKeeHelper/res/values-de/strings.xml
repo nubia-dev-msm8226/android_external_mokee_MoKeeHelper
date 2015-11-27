@@ -148,7 +148,8 @@
   <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät ins Recovery booten, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery, andernfalls muss das Update manuell installiert werden.</string>
   <string name="apply_update_ota_dialog_text">Sie sind im Begriff, ein upgrade auszuführen auf <xliff:g id="filename">%s </xliff:g>. \n\nWenn Sie Update drücken, startet das Gerät selbst neu ins Recovery für die Installationsroutine.\n\nHinweis: diese Funktion erfordert ein kompatibles Recovery oder Updates müssen manuell installiert werden.\n\nDas ist ein inkrementelles Update, das Änderungen an Systemdateien beinhaltet, möglicherweise kann die Aktualisierung fehlschlagen. In diesem Fall bitte eine volle ROM Installieren.</string>
   <string name="apply_extras_dialog_title">Extras installieren</string>
-  <string name="apply_extras_dialog_text">Sind Sie sicher, dass Sie <xliff:g id="filename"> %s </xliff:g> installieren möchten?</string>
+  <string name="apply_extras_dialog_text">Achtung! Gapps nicht Installieren wenn Sie bereits andere Gapps verwenden.
+Sind Sie sicher, dass Sie <xliff:g id="filename"> %s </xliff:g> installieren möchten?</string>
   <string name="apply_unable_to_reboot_toast">Neustart ins Recovery nicht möglich</string>
   <string name="extras_unsupported_toast">Die aktuelle Version unterstützt dieser Erweiterung nicht</string>
   <string name="show_exp_on">Experimentelle Einstellungen aktiviert!</string>

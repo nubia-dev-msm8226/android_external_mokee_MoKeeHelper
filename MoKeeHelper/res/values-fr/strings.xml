@@ -44,7 +44,7 @@
   <string name="mokee_version_title">Version de MoKee</string>
   <string name="mokee_version_type_title">Type de version</string>
   <string name="mokee_last_check_title">Dernière vérification</string>
-  <string name="mokee_last_check_never">jamais</string>
+  <string name="mokee_last_check_never">Jamais</string>
   <string name="mokee_extras_info_title">Infos bonus</string>
   <string name="mokee_info_default">Inconnu</string>
   <string name="mokee_version_type_release">Release</string>
@@ -57,10 +57,11 @@
   <string name="installed_update_summary">Installer</string>
   <string name="available_updates_title">Mises à jour disponibles</string>
   <string name="menu_donate">Faire une donation</string>
-  <string name="menu_refresh">actualiser</string>
+  <string name="menu_refresh">Actualiser</string>
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="menu_remove_ads">Enlever la publicité</string>
-  <string name="donate_dialog_title">Faite nous un don</string>
+  <string name="donate_dialog_title">Faites-nous un don</string>
+  <string name="donate_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif né de passe-temps et de passion. Afin de maintenir ce projet, nous devons la plupart du temps investir notre propre argent ou dépendre des dons et de la publicité. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces dans le Centre MoKee, utilisez plutôt l\'option de « Don » si vous préférez des versements (les annonces seront supprimés une fois que la somme a atteint la valeur spécifiée). Veuillez sauvegarder le fichier mokee.license (à la racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donné.</string>
   <string name="donate_dialog_via_paypal">PayPal (USD)</string>
   <string name="donate_dialog_via_alipay">AliPay (CNY)</string>
   <string name="donate_dialog_via_unionpay">UnionPay</string>
