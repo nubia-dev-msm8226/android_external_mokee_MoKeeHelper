@@ -63,7 +63,6 @@
   <string name="donate_dialog_title">Faite nous un don</string>
   <string name="donate_dialog_via_paypal">PayPal (USD)</string>
   <string name="donate_dialog_via_alipay">AliPay (CNY)</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>
   <string name="donate_money_name">Faire un don au Projet OpenSource MoKee</string>
   <string name="donate_money_description">Faire un don au Projet OpenSource MoKee</string>

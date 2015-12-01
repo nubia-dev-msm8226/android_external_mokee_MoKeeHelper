@@ -47,7 +47,6 @@
   <string name="donate_dialog_title">Donera till oss</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Tack för din donation!</string>
   <string name="donate_money_name">Donera till MoKee OpenSource</string>
   <string name="donate_money_description">Donera till MoKee OpenSource</string>

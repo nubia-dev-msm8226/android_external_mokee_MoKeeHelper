@@ -64,7 +64,6 @@
   <string name="donate_dialog_message">Im Gegensatz zu Unternehmen wie CyanogenMod oder MIUI ist MoKee Opensource ein Non-Profit-Projekt, aus einem Hobby und Leidenschaft geboren. Um dieses Projekt zu erhalten, müssen wir die meiste Zeit unser eigenes Geld berappen, wir sind auf Spenden und Werbung angewiesen. Ihre Spende kann dazu beitragen uns finanziell zu entlasten und die zukünftige Entwicklung erhalten! Diese Option ermöglicht ihnen, die Werbung im MoKee Center zu entfernen. Wenn Sie eine Ratenzahlung bevorzugen nutzen Sie bitte die Option “Spenden“ (Werbung wird entfernt sobald der angegebene Schwellenwert erreicht wurde). Bitte sichern Sie die mokee.license Datei (im Root-Verzeichnis der SD-Karte, nur für das aktuelle Gerät gültig), sobald Sie gespendet haben.</string>
   <string name="donate_dialog_via_paypal">PayPal(EUR)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>
   <string name="donate_money_description">Spenden an MoKee OpenSource</string>
