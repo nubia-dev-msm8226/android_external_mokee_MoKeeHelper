@@ -152,4 +152,5 @@
   <string name="extras_unsupported_toast">Ваша версия не поддерживает данное расширение</string>
   <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
   <string name="show_exp_already">Нет необходимости, экспериментальные параметры уже включены.</string>
+  <string name="installed_xposed_toast">Xposed framework уже установлен, включение инкрементного обновления сохранит его.</string>
 </resources>
