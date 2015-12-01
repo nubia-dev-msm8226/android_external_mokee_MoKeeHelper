@@ -62,7 +62,6 @@
   <string name="donate_dialog_title">Ủng hộ chúng tôi</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
-  <string name="donate_dialog_via_unionpay">UnionPay</string>
   <string name="donate_money_toast_success">Cảm ơn sự ủng hộ của bạn!</string>
   <string name="donate_money_name">Ủng hộ cho MoKee mã nguồn mở</string>
   <string name="donate_money_description">Ủng hộ cho MoKee mã nguồn mở</string>
