@@ -39,11 +39,15 @@
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Visa på MoKee Wiki</string>
   <string name="mokee_news_title">MoKee Nyheter</string>
+  <string name="mokee_news_summary">Få utvecklings nyheter från MoKee</string>
   <string name="mokee_version_info_title">Versionsinfo</string>
   <string name="mokee_version_title">MoKee Version</string>
+  <string name="mokee_version_type_title">Versionstyp</string>
+  <string name="mokee_last_check_title">Senaste kontroll</string>
   <string name="mokee_last_check_never">Aldrig</string>
   <string name="mokee_extras_info_title">Extra Info</string>
   <string name="mokee_info_default">Okänd</string>
+  <string name="mokee_version_type_release">Utgåva</string>
   <string name="mokee_version_type_history">Historia</string>
   <string name="mokee_version_type_experimental">Experimentell</string>
   <string name="mokee_version_type_nightly">Nattlig</string>
@@ -112,12 +116,33 @@
   <string name="download_running">Pågår</string>
   <string name="download_cancelled">Nedladdningen avbruten</string>
   <string name="download_already_running">En nedladdning pågår redan</string>
+  <string name="unable_to_download_file">Det gick inte att ladda ner uppdateringsfilen</string>
+  <string name="not_download_success">Uppdateringen laddades ner framgångsrikt</string>
+  <string name="not_download_failure">Nedladdningen misslyckades</string>
   <string name="not_action_install_update">Starta om och installera</string>
+  <string name="not_download_install_notice">Uppdateringen <xliff:g id="filename">%s</xliff:g> laddades ner framgångsrikt. När du väljer \'Starta om och installera\', startas enheten om för att installera uppdateringen.\n\nOBS: Denna funktion kräver en kompatibel \'Recovery\', annars måste uppdateringarna installeras manuellt.</string>
+  <string name="not_download_install_ota_notice">Uppdateringen <xliff:g id="filename">%s</xliff:g> laddades ner framgångsrikt. När du väljer \'Starta om och installera\', startas enheten om för att installera uppdateringen.\n\nOBS: Denna funktion kräver en kompatibel \'Recovery\', annars måste uppdateringarna installeras manuellt.\n\nDetta är in inkrementell uppdatering, därför kan tidigare ändringar på systemfiler göra att uppdateringen misslyckas. Skulle så ske var god installera hela ROMen instället.</string>
+  <string name="md5_verification_failed">MD5-kontrollsumma matchar inte</string>
+  <string name="not_extras_download_success">Tillbehör hämtat framgångsrikt</string>
+  <string name="not_extras_download_failure">Hämtning av tillbehör misslyckades</string>
+  <string name="not_extras_download_install_notice">Uppdateringen <xliff:g id="filename">%s</xliff:g> laddades ned framgångsrikt. När du trycker på \'Starta om och installera\' kommer enheten att starta om för att installera uppdateringen.\n\nObs: En kompatibel \'Recovery\' krävs för att installationen ska fungera automatiskt.</string>
+  <string name="not_extras_download_install_notice_apk">Tillbehören <xliff:g id="filename">%s </xliff:g> laddades ner framgångsrikt.</string>
   <string name="not_apk_action_install_update">Installera</string>
   <string name="confirm_delete_dialog_title">Radera fil</string>
+  <string name="confirm_delete_updates_dialog_message">Radera uppdateringen?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Radera alla nedladdade uppdateringar?</string>
+  <string name="confirm_delete_extras_dialog_message">Radera det valda tillbehöret?</string>
   <string name="confirm_delete_extras_all_dialog_message">Ta bort alla hämtade extra filer?</string>
   <string name="delete_single_update_success_message">Uppdateringen <xliff:g id="filename">%s</xliff:g> raderades</string>
   <string name="delete_updates_failure_message">Det skedde ett fel vid borttagning av uppdateringen</string>
+  <string name="delete_updates_noFolder_message">Uppdaterings-mappen hittades inte</string>
+  <string name="delete_updates_success_message">Alla nedladdade uppdateringar borttagna</string>
+  <string name="delete_extras_failure_message">Det gick inte ta bort tillbehörs-filen</string>
+  <string name="delete_extras_noFolder_message">Tillbehörs-mappen hittades inte</string>
+  <string name="delete_extras_success_message">Alla nedladdade tillbehör borttagna</string>
+  <string name="pref_ota_check">Inkrementella uppdateringar</string>
+  <string name="pref_ota_check_summary">Hämta inkrementella uppdateringar för att spara tid och bandbredd</string>
+  <string name="pref_ota_check_donation_request_summary">Hämta inkrementella uppdateringar för att spara tid och bandbredd (tillgänglig efter donation CNY %d)</string>
   <string name="apply_update_dialog_title">Installera uppdateringen</string>
   <string name="apply_extras_dialog_text">Är du säker du vill installera <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Kan inte starta om till Recoveryläge</string>

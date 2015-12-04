@@ -67,6 +67,7 @@
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
+  <string name="donate_money_again">Donar otra vez</string>
   <string name="remove_ads_name">Eliminar los anuncios</string>
   <string name="remove_ads_description">Eliminar los anuncios</string>
   <string name="remove_ads_dialog_title">Siempre eliminar anuncios</string>
@@ -151,4 +152,5 @@
   <string name="extras_unsupported_toast">Su versión actual no es compatible con esta extensión</string>
   <string name="show_exp_on">Ha activado la configuración experimental!</string>
   <string name="show_exp_already">No hace falta, ya ha activado la configuración experimental.</string>
+  <string name="installed_xposed_toast">El marco Xposed ya está instalado. Activa la actualización incremental para mantenerlo.</string>
 </resources>

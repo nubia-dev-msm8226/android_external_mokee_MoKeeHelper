@@ -28,10 +28,10 @@
   <string name="mokee_forum_summary">Bezoek het MoKee Forum</string>
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Bezoek de bug tracker</string>
-  <string name="mokee_changelog_title">MoKee Wijzigingen</string>
+  <string name="mokee_changelog_title">MoKee Wijzigingslogboek</string>
   <string name="mokee_changelog_summary">Bekijk de lijst van wijzigingen in MoKee</string>
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
-  <string name="mokee_build_status_summary">Build status weergeven</string>
+  <string name="mokee_build_status_summary">Bouw status weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Bezoek de MoKee Github</string>
   <string name="mokee_translate_title">MoKee Vertalingen</string>
@@ -39,7 +39,7 @@
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Bekijk de MoKee Wiki</string>
   <string name="mokee_news_title">MoKee nieuws</string>
-  <string name="mokee_news_summary">Ontvang ontwikkeling nieuws van MoKee</string>
+  <string name="mokee_news_summary">Ontvang ontwikkelings nieuws van MoKee</string>
   <string name="mokee_version_info_title">Versie Info</string>
   <string name="mokee_version_title">MoKee versie</string>
   <string name="mokee_version_type_title">Versie Type</string>
@@ -61,7 +61,8 @@
   <string name="menu_delete_all">Download verwijderen</string>
   <string name="menu_remove_ads">Advertenties verwijderen</string>
   <string name="donate_dialog_title">Doneer aan ons</string>
-  <string name="donate_dialog_message">In tegenstelling tot bedrijven zoals Cygn of MIUI is MoKee OpenSource en een zuiver non-profit project geboren uit een hobby en passie. Om dit project te onderhouden, moeten wij meestal zelf ons eigen geld neerleggen of vertrouwen op donaties en reclame. Uw donaties kunnen helpen van het verminderen van onze financiële belastingen en duurzame toekomstige ontwikkelingen! Dit biedt u de mogelijkheid om advertenties te verwijderen in MoKee Center, of gebruik de \"donatie\" optie als u liever in termijnen betaald (advertenties worden verwijderd wanneer het totaal opgegeven bedrag bereikt is) maak alsjeblieft een kopie van het mokee.license bestand (in de rootdirectory van de sdcard, enkel geldig voor een geldig apparaat) zodra u heeft gedoneerd.</string>
+  <string name="donate_dialog_message">In tegenstelling tot bedrijven zoals Cygn of MIUI is MoKee OpenSource en een zuiver non-profit project geboren uit een hobby en passie. Om dit project te onderhouden, moeten wij meestal zelf ons eigen geld neerleggen of vertrouwen op donaties en reclame. Uw donaties kunnen helpen onze financiële belastingen en duurzame toekomstige ontwikkelingen te verminderen! Dit biedt u de mogelijkheid om advertenties te verwijderen in MoKee Center, of gebruik de \"donatie\" optie als u liever in termijnen betaalt
+(advertenties worden verwijderd wanneer het totaal opgegeven bedrag bereikt is) maak alsjeblieft een kopie van het mokee.license bestand (in de rootdirectory van de sdcard, enkel geldig voor het huidige apparaat) zodra u heeft gedoneerd.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">Dank u voor uw donatie!</string>
@@ -70,7 +71,7 @@
   <string name="donate_money_again">Opnieuw doneren</string>
   <string name="remove_ads_name">Advertenties verwijderen</string>
   <string name="remove_ads_description">Advertenties verwijderen</string>
-  <string name="remove_ads_dialog_title">Verwijderd altijd advertenties</string>
+  <string name="remove_ads_dialog_title">Verwijdert altijd advertenties</string>
   <string name="remove_ads_request_price">Gedoneerd CNY %1$d, in afwachting van CNY %2$d</string>
   <string name="unknown">Onbekend</string>
   <string name="dialog_update">Bijwerken</string>
@@ -88,7 +89,7 @@
   <string name="nightly_alert">U heeft ervoor gekozen ook nachtelijke-updates in de lijst weer te geven. Deze worden niet ondersteund en moeten voorzichtig worden gebruikt.</string>
   <string name="experimenter_alert">U heeft ervoor gekozen ook experimentele-updates in de lijst weer te geven. Deze worden niet ondersteund, zijn enkel bedoeld voor testdoeleinden en moeten voorzichtig worden gebruikt.</string>
   <string name="unofficial_alert">U heeft ervoor gekozen ook onofficiële-updates in de lijst weer te geven. Hou in het achterhoofd dat deze enkel ondersteund worden door de persoon die updates voorziet voor uw toestel.</string>
-  <string name="all_alert">U hebt geselecteerd om alle updates (release, nightly) in deze lijst weer te geven. Stel vast dat nightly updates niet ondersteund worden en met voorzichtigheid gebruikt moet worden.</string>
+  <string name="all_alert">U hebt geselecteerd om alle updates (release, nightly) in deze lijst weer te geven. Bedenk dat nightly updates niet ondersteund worden en met voorzichtigheid gebruikt moet worden.</string>
   <string name="alert_title">Let op</string>
   <string name="update_type_title">Type update</string>
   <string name="no_changelog_alert">Geen logboek beschikbaar</string>
@@ -103,7 +104,7 @@
   <string name="check_monthly">Eenmaal per maand</string>
   <string name="checking_for_updates">Zoeken naar updates</string>
   <string name="no_updates_found">Geen nieuwe updates gevonden</string>
-  <string name="checking_for_extras">Controleren voor extra\'s</string>
+  <string name="checking_for_extras">Controleren op extra\'s</string>
   <string name="no_extras_found">Geen nieuwe extra\'s gevonden</string>
   <string name="not_new_updates_found_ticker">Er zijn nieuwe updates beschikbaar</string>
   <string name="not_new_updates_found_title">Nieuwe updates</string>
@@ -111,7 +112,7 @@
   <string name="not_action_download">Download</string>
   <string name="data_connection_required">Gegevensverbinding vereist.</string>
   <string name="confirm_download_cancelation_dialog_title">Download annuleren</string>
-  <string name="confirm_download_cancelation_dialog_message">Annuleer de huidige download?</string>
+  <string name="confirm_download_cancelation_dialog_message">De huidige download annuleren?</string>
   <string name="download_remaining">nog <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <string name="download_running">In behandeling</string>
   <string name="download_cancelled">Download geannuleeerd</string>
@@ -120,7 +121,7 @@
   <string name="not_download_success">Update succesvol gedownload</string>
   <string name="not_download_failure">Downloaden van de update is mislukt</string>
   <string name="not_action_install_update">Herstarten en installeren</string>
-  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Bij het aanraken van \'Opnieuw opstarten en installeren\', wordt het apparaat uit zich zelf opnieuw opgestart om de installatie te voltooien van de update.\n\nLet op: deze functie vereist een ondersteunende Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
+  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Bij het aanraken van \'Opnieuw opstarten en installeren\', wordt het apparaat uit zichzelf opnieuw opgestart om de installatie van de update te voltooien..\n\nLet op: deze functie vereist een ondersteunende Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
   <string name="not_download_install_ota_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Bij het aanraken van \'Opnieuw opstarten en installeren\', wordt het apparaat uit zich zelf opnieuw opgestart om de update te installeren.\n\nLet op: deze functie vereist een ondersteunende Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\n Dit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
   <string name="md5_verification_failed">MD5 checksum komt niet overeen</string>
   <string name="not_extras_download_success">Extras zijn succesvol gedownload</string>
@@ -152,4 +153,5 @@
   <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige versie</string>
   <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
+  <string name="installed_xposed_toast">Xposed framework al is geïnstalleerd, het inschakelen van incrementele updates behoudt het framework.</string>
 </resources>

@@ -67,10 +67,10 @@
   <string name="donate_money_toast_success">Merci pour votre don!</string>
   <string name="donate_money_name">Faire un don au Projet OpenSource MoKee</string>
   <string name="donate_money_description">Faire un don au Projet OpenSource MoKee</string>
-  <string name="donate_money_again">Faire un don</string>
+  <string name="donate_money_again">Faire un don à nouveau</string>
   <string name="remove_ads_name">Enlever la publicité</string>
   <string name="remove_ads_description">Enlever la publicité</string>
-  <string name="remove_ads_dialog_title">Retirez toujours les annonces</string>
+  <string name="remove_ads_dialog_title">Retirez défintivement les annonces</string>
   <string name="remove_ads_request_price">Don %1$d CNY, dans l\'attente de %2$d CNY</string>
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>
@@ -142,8 +142,10 @@
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
   <string name="pref_ota_check">Mises à jour OTA</string>
   <string name="pref_ota_check_summary">Obtenir des mises à jour incrémentielles pour économiser du temps et de la bande passante</string>
+  <string name="pref_ota_check_donation_request_summary">Activer les mises à jour incrémentielles pour gagner du économiser du temps de téléchargement et de la bande passante (Disponible après avoir effectuer un don CNY %d)</string>
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>
   <string name="apply_update_dialog_text">Vous êtes sur le point de mettre à jour vers  <xliff:g id="filename">%s</xliff:g>.\n\nLorsque vous appuierez sur \"Mettre à jour\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
+  <string name="apply_update_ota_dialog_text">Vous êtes sur le point de mettre à niveau vers <xliff:g id="filename">%s </xliff:g>. \n\nSi vous appuyez sur mise à jour, l\'appareil va redémarrer lui-même en mode de récupération pour installer la mise à jour.\n\nNote : cette fonction nécessite un Recovery compatible ou les mises à jour devront être installées manuellement.\n\nCeci est une mise à jour incrémentielle, donc toutes les modifications apportées aux fichiers système peuvent provoquer l\'échec de la mise à jour. Dans ce cas, s\'il vous plaît flashez une ROM complète à la place.</string>
   <string name="apply_extras_dialog_title">Installer les extras</string>
   <string name="apply_extras_dialog_text">Êtes-vous sûr de vouloir installer <xliff:g id="filename"> %s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Impossible de redémarrer en mode recovery</string>
