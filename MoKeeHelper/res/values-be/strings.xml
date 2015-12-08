@@ -112,7 +112,6 @@
   <string name="data_connection_required">Неабходна злучэнне з Інтэрнэтам.</string>
   <string name="confirm_download_cancelation_dialog_title">Адмянiць спампоўку</string>
   <string name="confirm_download_cancelation_dialog_message">Адмянiць гэтую спампоўку?</string>
-  <string name="download_remaining"> Засталося <xliff:g id="duration" example="3 minutes"></string>
   <string name="download_running">Выконваецца</string>
   <string name="download_cancelled">Спампоўка адменена</string>
   <string name="download_already_running">Спампоўка ўжо адбываецца</string>
