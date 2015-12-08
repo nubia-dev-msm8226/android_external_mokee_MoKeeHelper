@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="mokee_center_title">MoKee Center</string>
-  <string name="mokee_support_title">Ondersteuning</string>
+  <string name="mokee_support_title">Support</string>
   <string name="mokee_updater_title">Updater</string>
   <string name="mokee_extras_title">Extra\'s</string>
   <string name="tips_help_title">Tips &amp; Hulp</string>
@@ -31,15 +31,15 @@
   <string name="mokee_changelog_title">MoKee Wijzigingslogboek</string>
   <string name="mokee_changelog_summary">Bekijk de lijst van wijzigingen in MoKee</string>
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
-  <string name="mokee_build_status_summary">Bouw status weergeven</string>
+  <string name="mokee_build_status_summary">Bouwstatus weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Bezoek de MoKee Github</string>
   <string name="mokee_translate_title">MoKee Vertalingen</string>
-  <string name="mokee_translate_summary">Help MoKee Vertalen</string>
+  <string name="mokee_translate_summary">Help MoKee vertalen</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Bekijk de MoKee Wiki</string>
-  <string name="mokee_news_title">MoKee nieuws</string>
-  <string name="mokee_news_summary">Ontvang ontwikkelings nieuws van MoKee</string>
+  <string name="mokee_news_title">MoKee Nieuws</string>
+  <string name="mokee_news_summary">Ontvang ontwikkelingsnieuws van MoKee</string>
   <string name="mokee_version_info_title">Versie Info</string>
   <string name="mokee_version_title">MoKee versie</string>
   <string name="mokee_version_type_title">Versie Type</string>
