@@ -25,7 +25,7 @@
   <plurals name="not_additional_count">
     <item quantity="one">+ <xliff:g id="count">%d </xliff:g> больше</item>
     <item quantity="few">+ <xliff:g id="count">%d </xliff:g> больше</item>
-    <item quantity="other">+ <xliff:g id="count">%d </xliff:g> больше</item>
+    <item quantity="other">+ ещё <xliff:g id="count">%d</xliff:g></item>
   </plurals>
   <plurals name="show_exp_countdown">
     <item quantity="one">Вы в <xliff:g id="step_count">%1$d</xliff:g> шаге от включения экспериментальных настроек.</item>

@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Pomozte přeložit MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Zobrazit MoKee Wiki</string>
+  <string name="mokee_news_title">MoKee Novinky</string>
+  <string name="mokee_news_summary">Přijímat vývojářské novinky od MoKee</string>
   <string name="mokee_version_info_title">Informace o verzi</string>
   <string name="mokee_version_title">Verze MoKee</string>
   <string name="mokee_version_type_title">Typ verze</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">Přispět</string>
   <string name="menu_refresh">Obnovit</string>
   <string name="menu_delete_all">Odstranit stažené</string>
+  <string name="menu_remove_ads">Odstranit reklamy</string>
   <string name="donate_dialog_title">Přispějte nám</string>
+  <string name="donate_dialog_message">Na rozdíl od společností, jako jsou Cygn nebo MIUI, MoKee OpenSource je ryze neziskový projekt vzniklý z koníčku a vášně. Pro vývoj jsme nuceni pokrýt náklady z vlastních peněz a času nebo se spolehnout na dary a reklamy. Vaše dary mohou pomoci snížit naše finanční zatížení a zajistit udržení budoucího vývoje! Tato možnost Vám umožňuje odstranit reklamy v MoKee centru nebo můžete použít možnost \"Darovat\", pokud radši dáváte přednost splátkám (reklamy budou odstraněny, jakmile celkový součet splátek dosáhne zadané hodnoty). Vytvořte si prosím záložní kopii souboru mokee.license (v kořenovém adresáři sdcard, platné pouze pro toto zařízení), pokud jste již darovali.</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>
+  <string name="donate_money_again">Darovat znovu</string>
+  <string name="remove_ads_name">Odstranit reklamy</string>
+  <string name="remove_ads_description">Odstranit reklamy</string>
+  <string name="remove_ads_dialog_title">Vždy odstranit reklamy</string>
+  <string name="remove_ads_request_price">Darováno %1$d CNY, zbývá CNY %2$d</string>
   <string name="unknown">Neznámá</string>
   <string name="dialog_update">Aktualizovat</string>
   <string name="dialog_install">Instalovat</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">Zvolili jste možnost zahrnout do seznamu i nightly aktualizace. Tyto verze nejsou podporovány a měly by být používány s opatrností.</string>
   <string name="experimenter_alert">Zvolili jste možnost zahrnout do seznamu i experimentální aktualizace. Ty jsou určeny pouze k testování a měly by být používány s opatrností.</string>
   <string name="unofficial_alert">Vybrali jste zařazení neoficiálních aktualizací do seznamu. Berte na vědomí, že jsou podporovány výhradně jejich vývojářem.</string>
+  <string name="all_alert">Vybrali jste všechny aktualizace (release, nightly) do seznamu. Berte na vědomí, že nightly aktualizace nemají podporu a měly by být používány s opatrností.</string>
   <string name="alert_title">Varování</string>
   <string name="update_type_title">Typ aktualizace</string>
   <string name="no_changelog_alert">Changelog není k dispozici</string>
