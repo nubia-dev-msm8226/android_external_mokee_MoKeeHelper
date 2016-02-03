@@ -33,14 +33,14 @@
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
   <string name="mokee_build_status_summary">Bouwstatus weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
-  <string name="mokee_github_summary">Bezoek de MoKee Github</string>
+  <string name="mokee_github_summary">Bezoek de MoKee Github website</string>
   <string name="mokee_translate_title">MoKee Vertalingen</string>
-  <string name="mokee_translate_summary">Help MoKee vertalen</string>
+  <string name="mokee_translate_summary">Help MoKee met vertalen</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
-  <string name="mokee_wiki_summary">Bekijk de MoKee Wiki</string>
+  <string name="mokee_wiki_summary">Bezoek de MoKee Wiki</string>
   <string name="mokee_news_title">MoKee Nieuws</string>
   <string name="mokee_news_summary">Ontvang ontwikkelingsnieuws van MoKee</string>
-  <string name="mokee_version_info_title">Versie Info</string>
+  <string name="mokee_version_info_title">Versie Informatie</string>
   <string name="mokee_version_title">MoKee versie</string>
   <string name="mokee_version_type_title">Versie Type</string>
   <string name="mokee_last_check_title">Laatst gecontroleerd</string>
@@ -50,45 +50,45 @@
   <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Geschiedenis</string>
   <string name="mokee_version_type_experimental">Experimenteel</string>
-  <string name="mokee_version_type_nightly">Nachtelijks</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Onofficieel</string>
   <string name="mokee_version_type_all">Alle</string>
   <string name="downloaded_update_summary">Gedownload</string>
   <string name="installed_update_summary">Geïnstalleerd</string>
   <string name="available_updates_title">Beschikbare updates</string>
   <string name="menu_donate">Doneren</string>
-  <string name="menu_refresh">Vernieuw</string>
+  <string name="menu_refresh">Vernieuwen</string>
   <string name="menu_delete_all">Download verwijderen</string>
   <string name="menu_remove_ads">Advertenties verwijderen</string>
   <string name="donate_dialog_title">Doneer aan ons</string>
-  <string name="donate_dialog_message">In tegenstelling tot bedrijven zoals Cygn of MIUI is MoKee OpenSource en een zuiver non-profit project geboren uit een hobby en passie. Om dit project te onderhouden, moeten wij meestal zelf ons eigen geld neerleggen of vertrouwen op donaties en reclame. Uw donaties kunnen helpen onze financiële belastingen en duurzame toekomstige ontwikkelingen te verminderen! Dit biedt u de mogelijkheid om advertenties te verwijderen in MoKee Center, of gebruik de \"donatie\" optie als u liever in termijnen betaalt
-(advertenties worden verwijderd wanneer het totaal opgegeven bedrag bereikt is) maak alsjeblieft een kopie van het mokee.license bestand (in de rootdirectory van de sdcard, enkel geldig voor het huidige apparaat) zodra u heeft gedoneerd.</string>
+  <string name="donate_dialog_message">In tegenstelling tot bedrijven zoals Cygn of MIUI, is MoKee OpenSource en een zuiver non-profit project ontstaan uit een hobby en passie. Om dit project te onderhouden, moeten wij meestal zelf ons eigen geld neerleggen of vertrouwen op donaties en reclame inkomsten. Uw donaties kunnen helpen om onze financiële belastingen en duurzame toekomstige ontwikkelingen te verminderen! Dit biedt u de mogelijkheid om advertenties te verwijderen in MoKee Center, of gebruik de \"donatie\" optie als u liever in termijnen betaalt (de advertenties worden verwijderd wanneer het totale bedrag bereikt is).
+Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory van de sdcard, alleen geldig voor het huidige apparaat) zodra u heeft gedoneerd.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
-  <string name="donate_money_toast_success">Dank u voor uw donatie!</string>
+  <string name="donate_money_toast_success">Bedankt voor uw donatie!</string>
   <string name="donate_money_name">Donatie aan MoKee OpenSource</string>
   <string name="donate_money_description">Donatie aan MoKee OpenSource</string>
   <string name="donate_money_again">Opnieuw doneren</string>
   <string name="remove_ads_name">Advertenties verwijderen</string>
   <string name="remove_ads_description">Advertenties verwijderen</string>
-  <string name="remove_ads_dialog_title">Verwijdert altijd advertenties</string>
-  <string name="remove_ads_request_price">Gedoneerd CNY %1$d, in afwachting van CNY %2$d</string>
+  <string name="remove_ads_dialog_title">Altijd advertenties verwijderen</string>
+  <string name="remove_ads_request_price">CNY %1$d gedoneerd, CNY %2$d benodigd</string>
   <string name="unknown">Onbekend</string>
   <string name="dialog_update">Bijwerken</string>
   <string name="dialog_install">Installeren</string>
   <string name="dialog_ok">Oké</string>
   <string name="dialog_cancel">Annuleren</string>
   <string name="dialog_close">Sluiten</string>
-  <string name="no_available_updates_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
-  <string name="no_available_ota_intro">De laatste controle heeft geen beschikbare updates gevonden. Gebruik de knop vernieuwen, om handmatig op nieuwe updates te controleren. Als u een versie gebruikt die niet binnen het \'incrementele update\' datumbereik valt, moet u de \"Incrementele updates\" optie uitschakelen.</string>
-  <string name="no_available_extras_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
+  <string name="no_available_updates_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren op nieuwe updates, tikt u op \'Vernieuwen\'.</string>
+  <string name="no_available_ota_intro">Tijdens de laatste controle zijn er geen beschikbare updates gevonden. Gebruik de knop vernieuwen om handmatig op nieuwe updates te controleren. Als u een versie gebruikt die niet binnen het OTA datumbereik valt, zult u de OTA optie moeten uitschakelen.</string>
+  <string name="no_available_extras_intro">Tijdens de laatste controle zijn er geen updates gevonden. Om handmatig te controleren opp updates, tikt u op \'Vernieuwen\'.</string>
   <string name="new_update_summary">Nieuw</string>
   <string name="old_update_summary">Oud</string>
-  <string name="update_check_title">Regelmatig controleren naar updates</string>
-  <string name="check_manual">Manueel</string>
-  <string name="nightly_alert">U heeft ervoor gekozen ook nachtelijke-updates in de lijst weer te geven. Deze worden niet ondersteund en moeten voorzichtig worden gebruikt.</string>
+  <string name="update_check_title">Regelmatig controleren op updates</string>
+  <string name="check_manual">Handmatig</string>
+  <string name="nightly_alert">U heeft ervoor gekozen ook nightly-updates in de lijst weer te geven. Deze worden niet ondersteund en moeten voorzichtig worden gebruikt.</string>
   <string name="experimenter_alert">U heeft ervoor gekozen ook experimentele-updates in de lijst weer te geven. Deze worden niet ondersteund, zijn enkel bedoeld voor testdoeleinden en moeten voorzichtig worden gebruikt.</string>
-  <string name="unofficial_alert">U heeft ervoor gekozen ook onofficiële-updates in de lijst weer te geven. Hou in het achterhoofd dat deze enkel ondersteund worden door de persoon die updates voorziet voor uw toestel.</string>
+  <string name="unofficial_alert">U heeft ervoor gekozen ook onofficiële updates in de lijst weer te geven. Hou in uw achterhoofd dat deze alleen ondersteund worden door de persoon die uw toestel van updates voorziet.</string>
   <string name="all_alert">U hebt geselecteerd om alle updates (release, nightly) in deze lijst weer te geven. Bedenk dat nightly updates niet ondersteund worden en met voorzichtigheid gebruikt moet worden.</string>
   <string name="alert_title">Let op</string>
   <string name="update_type_title">Type update</string>
@@ -100,7 +100,7 @@
   <string name="check_daily">Eenmaal per dag</string>
   <string name="check_twice_weekly">Tweemaal per week</string>
   <string name="check_weekly">Eenmaal per week</string>
-  <string name="check_bi_weekly">Eenmaal om de twee weken</string>
+  <string name="check_bi_weekly">Elke twee weken</string>
   <string name="check_monthly">Eenmaal per maand</string>
   <string name="checking_for_updates">Zoeken naar updates</string>
   <string name="no_updates_found">Geen nieuwe updates gevonden</string>
@@ -108,50 +108,50 @@
   <string name="no_extras_found">Geen nieuwe extra\'s gevonden</string>
   <string name="not_new_updates_found_ticker">Er zijn nieuwe updates beschikbaar</string>
   <string name="not_new_updates_found_title">Nieuwe updates</string>
-  <string name="update_check_failed">Kan niet controleren op updates. Controleer uw internetverbinding en probeer het later opnieuw.</string>
+  <string name="update_check_failed">Kon niet controleren op updates. Controleer uw internetverbinding en probeer het later opnieuw.</string>
   <string name="not_action_download">Download</string>
   <string name="data_connection_required">Gegevensverbinding vereist.</string>
   <string name="confirm_download_cancelation_dialog_title">Download annuleren</string>
-  <string name="confirm_download_cancelation_dialog_message">De huidige download annuleren?</string>
+  <string name="confirm_download_cancelation_dialog_message">Wilt u de huidige download annuleren?</string>
   <string name="download_remaining">nog <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
-  <string name="download_running">In behandeling</string>
+  <string name="download_running">Bezig</string>
   <string name="download_cancelled">Download geannuleeerd</string>
-  <string name="download_already_running">Er is al een andere download bezig</string>
+  <string name="download_already_running">Er is al een download bezig</string>
   <string name="unable_to_download_file">Kan update bestand niet downloaden</string>
   <string name="not_download_success">Update succesvol gedownload</string>
-  <string name="not_download_failure">Downloaden van de update is mislukt</string>
+  <string name="not_download_failure">Het downloaden van de update is mislukt</string>
   <string name="not_action_install_update">Herstarten en installeren</string>
-  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Bij het aanraken van \'Opnieuw opstarten en installeren\', wordt het apparaat uit zichzelf opnieuw opgestart om de installatie van de update te voltooien..\n\nLet op: deze functie vereist een ondersteunende Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
-  <string name="not_download_install_ota_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Bij het aanraken van \'Opnieuw opstarten en installeren\', wordt het apparaat uit zich zelf opnieuw opgestart om de update te installeren.\n\nLet op: deze functie vereist een ondersteunende Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\n Dit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
+  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Opnieuw opstarten en installeren\', wordt het apparaat uit zichzelf opnieuw opgestart om de installatie van de update te voltooien..\n\nLet op: deze functie vereist een ondersteunde Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
+  <string name="not_download_install_ota_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Opnieuw opstarten en installeren\', wordt het apparaat uit zich zelf opnieuw opgestart om de update te installeren.\n\nLet op: deze functie vereist een ondersteunde Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\n Dit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
   <string name="md5_verification_failed">MD5 checksum komt niet overeen</string>
   <string name="not_extras_download_success">Extras zijn succesvol gedownload</string>
-  <string name="not_extras_download_failure">Extras downloaden is mislukt</string>
-  <string name="not_extras_download_install_notice">De extra <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart, om de extras te installeren.\n\nLet op: een ondersteunende Recovery is vereist om de installatie automatisch bij te werken.</string>
+  <string name="not_extras_download_failure">Download van extras is mislukt</string>
+  <string name="not_extras_download_install_notice">De extra <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart om de extras te installeren.\n\nLet op: een ondersteunde Recovery is vereist voor een automatische installatie.</string>
   <string name="not_extras_download_install_notice_apk">De extras <xliff:g id="filename">%s </xliff:g> zijn succesvol gedownload.</string>
   <string name="not_apk_action_install_update">Installeren</string>
   <string name="confirm_delete_dialog_title">Bestand verwijderen</string>
   <string name="confirm_delete_updates_dialog_message">Verwijder het geselecteerde update bestand?</string>
   <string name="confirm_delete_updates_all_dialog_message">Alle gedownloade update bestanden verwijderen?</string>
-  <string name="confirm_delete_extras_dialog_message">Verwijder het geselecteerde extras-bestand?</string>
-  <string name="confirm_delete_extras_all_dialog_message">Verwijderen van alle opgeslagen extra\'s bestanden?</string>
+  <string name="confirm_delete_extras_dialog_message">Verwijder het geselecteerde extra-bestand?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Verwijderen van alle opgeslagen extra bestanden?</string>
   <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> verwijderd</string>
-  <string name="delete_updates_failure_message">Kan update bestand niet verwijderen</string>
-  <string name="delete_updates_noFolder_message">Kan update map niet vinden</string>
-  <string name="delete_updates_success_message">Alle opgeslagen updates zijn verwijderd</string>
-  <string name="delete_extras_failure_message">Er was een fout bij het verwijderen van de extra\'s bestanden</string>
+  <string name="delete_updates_failure_message">Kon update bestand niet verwijderen</string>
+  <string name="delete_updates_noFolder_message">Kon update map niet vinden</string>
+  <string name="delete_updates_success_message">Alle gedownloade updates zijn verwijderd</string>
+  <string name="delete_extras_failure_message">Er was een fout bij het verwijderen van de extra bestanden</string>
   <string name="delete_extras_noFolder_message">Map van extra\'s niet gevonden</string>
   <string name="delete_extras_success_message">Alle opgeslagen extra\'s zijn verwijderd</string>
-  <string name="pref_ota_check">Incrementele updates</string>
-  <string name="pref_ota_check_summary">Haal incrementele updates binnen om de downloadtijd en bandbreedte te besparen</string>
-  <string name="pref_ota_check_donation_request_summary">Haal incrementele updates binnen om de downloadtijd en bandbreedte te besparen (beschikbaar na het doneren van CNY %d)</string>
+  <string name="pref_ota_check">OTA updates</string>
+  <string name="pref_ota_check_summary">Haal OTA updates binnen om downloadtijd en bandbreedte te besparen</string>
+  <string name="pref_ota_check_donation_request_summary">Haal OTA updates binnen om downloadtijd en bandbreedte te besparen (beschikbaar na doneren van CNY %d)</string>
   <string name="apply_update_dialog_title">Update toepassen</string>
-  <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u \'Bijwerken\' selecteert, zal het toestel herstarten om de update te installeren.\n\nLet op: Een ondersteunende recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
-  <string name="apply_update_ota_dialog_text">U staat op het punt om te upgraden naar <xliff:g id="filename">%s </xliff:g>. \n\nals u op Update drukt, wordt het apparaat uit zich zelf opnieuw opgestart in de herstelmodus om de update te installeren.\n\n Let op: deze functie vereist een ondersteunende Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\nDit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
+  <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u op \'Bijwerken\' tikt, zal uw toestel herstarten om de update te installeren.\n\nLet op: Een ondersteunde recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
+  <string name="apply_update_ota_dialog_text">U staat op het punt om te upgraden naar <xliff:g id="filename">%s </xliff:g>. \n\nAls u op Update drukt, wordt het apparaat opnieuw opgestart om de update te installeren.\n\n Let op: deze functie vereist een ondersteunde Recovery, anders zullen de updates handmatig moeten worden geïnstalleerd.\n\nDit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
   <string name="apply_extras_dialog_title">Installeer extra</string>
-  <string name="apply_extras_dialog_text">Ben je zeker om <xliff:g id="filename">%s</xliff:g> te installeren?</string>
-  <string name="apply_unable_to_reboot_toast">Niet mogelijk om te herstarten naar recovery</string>
-  <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige versie</string>
-  <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
-  <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
-  <string name="installed_xposed_toast">Xposed framework al is geïnstalleerd, het inschakelen van incrementele updates behoudt het framework.</string>
+  <string name="apply_extras_dialog_text">Weet u zeker dat u wilt <xliff:g id="filename">%s</xliff:g> installeren?</string>
+  <string name="apply_unable_to_reboot_toast">Niet mogelijk om naar de herstelmodus te herstarten</string>
+  <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige MoKee versie</string>
+  <string name="show_exp_on">U heeft de experimentele instellingen ingeschakeld!</string>
+  <string name="show_exp_already">De experimentele instellingen zijn al ingeschakeld.</string>
+  <string name="installed_xposed_toast">Xposed Framework is al geïnstalleerd, het inschakelen van OTA updates behoudt het framework.</string>
 </resources>

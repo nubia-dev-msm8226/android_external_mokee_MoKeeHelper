@@ -120,6 +120,8 @@
   <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>
+  <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s </xliff:g> byla úspěšně stažena. Stisknutím \"Restartovat a instalovat\", se zařízení restartuje a nainstaluje aktualizace.\n\nPoznámka: Tato funkce vyžaduje kompatibilní recovery, nebo aktualizace bude nutné nainstalovat ručně.</string>
+  <string name="not_download_install_ota_notice">Aktualizace <xliff:g id="filename">%s </xliff:g> byla úspěšně stažena. Stisknutím \"Restartovat a instalovat\", se zařízení restartuje a nainstaluje aktualizace.\n\nPoznámka: Tato funkce vyžaduje kompatibilní recovery, nebo aktualizace bude nutné nainstalovat ručně.\n\nToto je OTA aktualizace, tudíž změny zásahy do sytému mohou způsobit selhání aktualizace. Pokud k tomu dojde, nainstalujte plnou aktualizaci.</string>
   <string name="md5_verification_failed">MD5 součet nesouhlasí</string>
   <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
   <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
@@ -139,12 +141,16 @@
   <string name="delete_extras_noFolder_message">Složka doplňků nenalezena</string>
   <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
   <string name="pref_ota_check">OTA aktualizace</string>
+  <string name="pref_ota_check_summary">Stahovat OTA aktualizace, aby jste ušetřili data a čas</string>
+  <string name="pref_ota_check_donation_request_summary">Stahovat OTA aktualizace, aby jste ušetřili data a čas (dostupné po darování %d CNY)</string>
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
   <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
+  <string name="apply_update_ota_dialog_text">Chystáte se upgradovat na <xliff:g id="filename">%s</xliff:g>\n\nPokud stisknete Aktualizovat, zařízení se restartuje do recovery a nainstaluje se aktualizace\n\nPoznámka: Tato funkce vyžaduje kompatibilní recovery, nebo aktualizace bude nutné nainstalovat ručně.\n\nToto je OTA aktualizace, tudíž změny zásahy do sytému mohou způsobit selhání aktualizace. Pokud k tomu dojde, nainstalujte plnou aktualizaci.</string>
   <string name="apply_extras_dialog_title">Instalovat doplňek</string>
   <string name="apply_extras_dialog_text">Jste si jistí, že chcete nainstalovat <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Nelze restartovat do režimu recovery</string>
   <string name="extras_unsupported_toast">Vaše současná verze nepodporuje toto rozšíření</string>
   <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
   <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
+  <string name="installed_xposed_toast">Xposed framework je již nainstalován, povolte OTA aktualizace, aby se Xposed zachoval.</string>
 </resources>

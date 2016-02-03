@@ -67,6 +67,7 @@
   <string name="donate_money_toast_success">Хвала на донацији!</string>
   <string name="donate_money_name">Донирајте MoKee OpenSource</string>
   <string name="donate_money_description">Донирајте MoKee OpenSource</string>
+  <string name="donate_money_again">Donirajte ponovo</string>
   <string name="remove_ads_name">Уклони рекламе</string>
   <string name="remove_ads_description">Уклони рекламе</string>
   <string name="remove_ads_dialog_title">Увек уклањај рекламе</string>
@@ -151,4 +152,5 @@
   <string name="extras_unsupported_toast">Ваша верзија не подржава овај додатак</string>
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
+  <string name="installed_xposed_toast">Xposed framework је већ инсталиран, омогућавање инкременталног апдејта сачуваће framework.</string>
 </resources>
