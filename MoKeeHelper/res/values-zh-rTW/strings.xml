@@ -67,6 +67,8 @@
   <string name="donate_money_toast_success">謝謝您的捐贈 ！</string>
   <string name="donate_money_name">贊助 MoKee OpenSource</string>
   <string name="donate_money_description">贊助 MoKee OpenSource</string>
+  <string name="remove_ads_name">移除ads</string>
+  <string name="remove_ads_description">移除ads</string>
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
   <string name="dialog_install">安裝</string>

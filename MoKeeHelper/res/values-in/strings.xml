@@ -79,4 +79,5 @@
   <string name="dialog_cancel">Batal</string>
   <string name="dialog_close">Tutup</string>
   <string name="no_available_updates_intro">Cek terakhir tidak menemukan adanya pembaruan yang tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
+  <string name="not_apk_action_install_update">Pasang</string>
 </resources>
