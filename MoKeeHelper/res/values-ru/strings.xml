@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">Панель MoKee</string>
   <string name="mokee_support_title">Поддержка</string>
   <string name="mokee_updater_title">Обновления</string>
   <string name="mokee_extras_title">Дополнения</string>
+  <!-- Tips -->
   <string name="tips_help_title">Советы и помощь</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">Сайт MoKee</string>
   <string name="mokee_website_summary">Посетить официальный веб-сайт</string>
   <string name="mokee_forum_title">Форум MoKee</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Посмотреть Wiki MoKee</string>
   <string name="mokee_news_title">Новости MoKee</string>
   <string name="mokee_news_summary">Получать новости о развитии MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Информация о версии</string>
   <string name="mokee_version_title">Версия MoKee</string>
   <string name="mokee_version_type_title">Тип версии</string>
   <string name="mokee_last_check_title">Последняя проверка</string>
   <string name="mokee_last_check_never">Еще не проводилась</string>
   <string name="mokee_extras_info_title">Дополнительная информация</string>
+  <!-- Version -->
   <string name="mokee_info_default">Неизвестно</string>
   <string name="mokee_version_type_release">Релиз</string>
   <string name="mokee_version_type_history">История версий</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Ночная</string>
   <string name="mokee_version_type_unofficial">Неофициальная</string>
   <string name="mokee_version_type_all">Все</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Загружено</string>
   <string name="installed_update_summary">Установлено</string>
   <string name="available_updates_title">Доступные обновления</string>
+  <!-- Menu -->
   <string name="menu_donate">Пожертвовать</string>
   <string name="menu_refresh">Обновить</string>
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="menu_remove_ads">Убрать рекламу</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Пожертвовать нам</string>
   <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом, появившимся на свет трудами энтузиастов. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования могут помочь уменьшить нашу финансовую нагрузку и поддержат развитие проекта! Эта опция позволит удалить рекламу в Панели MoKee, или используйте соседнюю опцию «Пожертвовать», если вы предпочитаете рассрочку (реклама будет удалена после достижения указанного значения). Создайте резервную копию файла mokee.license  (находится в корневом каталоге sdcard, действительна только для текущего устройства), после совершения пожертвования.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Убрать рекламу</string>
   <string name="remove_ads_dialog_title">Всегда скрывать рекламу</string>
   <string name="remove_ads_request_price">Пожертвовано: %1$d CNY, Требуется: CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">Неизвестно</string>
   <string name="dialog_update">Обновление</string>
   <string name="dialog_install">Установить</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Вы предпочли включить все обновления (релизы, экспериментальные) в этот список. Обратите внимание, что ночные обновления не имеют поддержки разработчиков и должны использоваться с осторожностью.</string>
   <string name="alert_title">Осторожно</string>
   <string name="update_type_title">Тип обновления</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Список изменений недоступен</string>
   <string name="changelog_dialog_title">Список изменений</string>
   <string name="loading_changelog">Загрузка\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">Раз в неделю</string>
   <string name="check_bi_weekly">Раз в две недели</string>
   <string name="check_monthly">Раз в месяц</string>
+  <!-- checking -->
   <string name="checking_for_updates">Проверка наличия обновлений</string>
   <string name="no_updates_found">Новые обновления не найдены</string>
   <string name="checking_for_extras">Проверка наличия новых дополнений</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">Не удалось выполнить проверку обновлений. Пожалуйста, проверьте подключение к Интернету, либо повторите попытку позже.</string>
   <string name="not_action_download">Загрузить</string>
   <string name="data_connection_required">Требуется подключение к Сети.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Отменить загрузку</string>
   <string name="confirm_download_cancelation_dialog_message">Отменить текущую загрузку?</string>
   <string name="download_remaining">Осталось <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">Дополнение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки дополнения. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
   <string name="not_extras_download_install_notice_apk">Файл дополнения <xliff:g id="filename">%s</xliff:g> был успешно загружен.</string>
   <string name="not_apk_action_install_update">Установить</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Удалить файл</string>
   <string name="confirm_delete_updates_dialog_message">Удалить выбранный файл обновления?</string>
   <string name="confirm_delete_updates_all_dialog_message">Удалить все загруженные файлы обновлений?</string>
@@ -140,9 +153,11 @@
   <string name="delete_extras_failure_message">Произошла ошибка при удалении дополнения</string>
   <string name="delete_extras_noFolder_message">Каталог дополнений не найден</string>
   <string name="delete_extras_success_message">Все загруженные дополнения удалены</string>
+  <!-- pref -->
   <string name="pref_ota_check">OTA обновления</string>
   <string name="pref_ota_check_summary">Инкрементные обновления для экономии места и трафика</string>
   <string name="pref_ota_check_donation_request_summary">Инкрементные обновления для экономии места и трафика (доступно после пожертвования в CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Применить обновление</string>
   <string name="apply_update_dialog_text">Будет выполнено обновление до версии «<xliff:g id="filename">%s</xliff:g>».\n\nПри нажатии кнопки «Обновить» устройство перезагрузится в режим восстановления для установки этого обновления. \n\nПримечание: эта функция требует совместимого Recovery. В противном случае обновление будет необходимо установить вручную.</string>
   <string name="apply_update_ota_dialog_text">Будет выполнено обновление до версии «<xliff:g id="filename">%s</xliff:g>».\n\nПри нажатии кнопки «Обновить» устройство перезагрузится в режим восстановления для установки этого обновления. \n\nПримечание: эта функция требует совместимого Recovery. В противном случае обновление будет необходимо установить вручную.\n\nЭто инкрементное обновление, поэтому изменения в системных файлах могут привести к сбою установки обновления. В этом случае, установите полную версию Mokee.</string>
@@ -150,7 +165,9 @@
   <string name="apply_extras_dialog_text">Вы уверены, что хотите установить <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Невозможно перезагрузиться в режим Recovery</string>
   <string name="extras_unsupported_toast">Ваша версия не поддерживает данное расширение</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
   <string name="show_exp_already">Нет необходимости, экспериментальные параметры уже включены.</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">Xposed framework уже установлен, включение инкрементного обновления сохранит его.</string>
 </resources>

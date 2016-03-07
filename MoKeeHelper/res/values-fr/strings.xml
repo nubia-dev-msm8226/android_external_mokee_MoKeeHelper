@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">Centre Mokee</string>
   <string name="mokee_support_title">Assistance</string>
   <string name="mokee_updater_title">Mise à jour</string>
   <string name="mokee_extras_title">Bonus</string>
+  <!-- Tips -->
   <string name="tips_help_title">Conseils &amp; aide</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">Site Web de MoKee</string>
   <string name="mokee_website_summary">Visitez le site officiel</string>
   <string name="mokee_forum_title">Forum de MoKee</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Découvrez le Wiki de MoKee</string>
   <string name="mokee_news_title">News de MoKee</string>
   <string name="mokee_news_summary">Recevoir des infos sur le développement de MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Informations de version</string>
   <string name="mokee_version_title">Version de MoKee</string>
   <string name="mokee_version_type_title">Type de version</string>
   <string name="mokee_last_check_title">Dernière vérification</string>
   <string name="mokee_last_check_never">Jamais</string>
   <string name="mokee_extras_info_title">Infos bonus</string>
+  <!-- Version -->
   <string name="mokee_info_default">Inconnu</string>
   <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Historique</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Non officiel</string>
   <string name="mokee_version_type_all">Tout</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Télécharger</string>
   <string name="installed_update_summary">Installer</string>
   <string name="available_updates_title">Mises à jour disponibles</string>
+  <!-- Menu -->
   <string name="menu_donate">Faire une donation</string>
   <string name="menu_refresh">Actualiser</string>
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="menu_remove_ads">Enlever la publicité</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Faites-nous un don</string>
   <string name="donate_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif né de passe-temps et de passion. Afin de maintenir ce projet, nous devons la plupart du temps investir notre propre argent ou dépendre des dons et de la publicité. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces dans le Centre MoKee, utilisez plutôt l\'option de « Don » si vous préférez des versements (les annonces seront supprimés une fois que la somme a atteint la valeur spécifiée). Veuillez sauvegarder le fichier mokee.license (à la racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donné.</string>
   <string name="donate_dialog_via_paypal">PayPal (USD)</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Enlever la publicité</string>
   <string name="remove_ads_dialog_title">Retirez toujours les annonces</string>
   <string name="remove_ads_request_price">Don %1$d CNY, dans l\'attente de %2$d CNY</string>
+  <!-- Update -->
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>
   <string name="dialog_install">Installer</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Vous avez choisi d\'inclure toutes les mises à jour (release, nightly) dans cette liste. A noter que les nightly ne sont pas supportées et doivent être utilisées avec prudence.</string>
   <string name="alert_title">Attention</string>
   <string name="update_type_title">Types de mise à jour</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Aucun historique des modifications disponible</string>
   <string name="changelog_dialog_title">Historique des modifications</string>
   <string name="loading_changelog">Chargement\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">Une fois par semaine</string>
   <string name="check_bi_weekly">Une fois tous les quinze jours</string>
   <string name="check_monthly">Une fois par mois</string>
+  <!-- checking -->
   <string name="checking_for_updates">Vérifier les mises à jour</string>
   <string name="no_updates_found">Aucune nouvelle mise à jour disponible</string>
   <string name="checking_for_extras">Vérification des extras</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">La vérification de mise à jour a échoué. Veuillez vérifier votre connexion internet et réessayez plus tard.</string>
   <string name="not_action_download">Télécharger</string>
   <string name="data_connection_required">Une connexion internet est nécessaire.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Annuler le téléchargement</string>
   <string name="confirm_download_cancelation_dialog_message">Annuler le téléchargement en cours?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes"> %s </xliff:g> restant</string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">La mise à jour <xliff:g id="filename">%s</xliff:g> a été correctement téléchargée. En cliquant sur  Redémarrer et installer », l\'appareil redémarrera seul afin d\'installer la mise à jour.\n\nNote : Un mode recovery compatible est nécessaire pour que l\'installation fonctionne automatiquement.</string>
   <string name="not_extras_download_install_notice_apk">Les extras <xliff:g id="filename"> %s </xliff:g> a été correctement téléchargers.</string>
   <string name="not_apk_action_install_update">Installer</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Supprimer le fichier</string>
   <string name="confirm_delete_updates_dialog_message">Supprimer le fichier de mise à jour sélectionné?</string>
   <string name="confirm_delete_updates_all_dialog_message">Supprimer tous les fichiers de mise à jour?</string>
@@ -140,14 +153,21 @@
   <string name="delete_extras_failure_message">Une erreur est survenue lors de la suppression du fichier des extras</string>
   <string name="delete_extras_noFolder_message">Dossier \" extras \" introuvable</string>
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
+  <!-- pref -->
   <string name="pref_ota_check">Mises à jour OTA</string>
   <string name="pref_ota_check_summary">Obtenir des mises à jour incrémentielles pour économiser du temps et de la bande passante</string>
+  <string name="pref_ota_check_donation_request_summary">Activer les mises à jour incrémentielles pour gagner du économiser du temps de téléchargement et de la bande passante (Disponible après avoir effectuer un don CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>
   <string name="apply_update_dialog_text">Vous êtes sur le point de mettre à jour vers  <xliff:g id="filename">%s</xliff:g>.\n\nLorsque vous appuierez sur \"Mettre à jour\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
+  <string name="apply_update_ota_dialog_text">Vous êtes sur le point de mettre à niveau vers <xliff:g id="filename">%s </xliff:g>. \n\nSi vous appuyez sur mise à jour, l\'appareil va redémarrer lui-même en mode de récupération pour installer la mise à jour.\n\nNote : cette fonction nécessite un Recovery compatible ou les mises à jour devront être installées manuellement.\n\nCeci est une mise à jour incrémentielle, donc toutes les modifications apportées aux fichiers système peuvent provoquer l\'échec de la mise à jour. Dans ce cas, s\'il vous plaît flashez une ROM complète à la place.</string>
   <string name="apply_extras_dialog_title">Installer les extras</string>
   <string name="apply_extras_dialog_text">Êtes-vous sûr de vouloir installer <xliff:g id="filename"> %s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Impossible de redémarrer en mode recovery</string>
   <string name="extras_unsupported_toast">Votre version actuelle ne supporte pas cette extension</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Vous avez activé les paramètres expérimentaux !</string>
   <string name="show_exp_already">Inutile, vous avez déjà activé les paramètres expérimentaux.</string>
+  <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Le framework Xposed est déjà installé, activez les mises à jour incrémentielles pour le conserver.</string>
 </resources>

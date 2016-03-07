@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Visita la MoKee traducció </string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Mostra la MoKee Wiki</string>
+  <string name="mokee_news_title">Notícies de Mokee</string>
+  <string name="mokee_news_summary">Recebre notícies sobre el desenvolupament de MoKee</string>
   <string name="mokee_version_info_title">Informació de la versió</string>
   <string name="mokee_version_title">Versió MoKee</string>
   <string name="mokee_version_type_title">Tipus de versió</string>
@@ -59,11 +61,13 @@
   <string name="menu_delete_all">Suprimir descàrrega</string>
   <string name="menu_remove_ads">Treu els anuncis</string>
   <string name="donate_dialog_title">Donar-nos</string>
+  <string name="donate_dialog_message">A diferència de les empreses com Cygn o MIUI, MoKee OpenSource és un projecte purament sense ànim de lucre que neix de l\'afició i passió. Per mantenir aquest projecte, hem de tenidor propis diners la majoria del temps o es basen en les donacions i anuncis. Les seves donacions pot ajudar a reduir la nostra càrrega financera i sustentar el futur desenvolupament! Aquesta opció li permet treure els anuncis MoKee centre, o utilitzar l\'opció de \"Donar\" en canvi si preferiu quotes (anuncis es trauran una vegada total ha assolit el valor especificat). Si us plau, el mokee.license de reserva d\'arxiu (en el directori arrel de sdcard, només vàlid per a l\'actual dispositiu) una vegada que heu donat.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_money_toast_success">Gràcies per la vostra donació!</string>
   <string name="donate_money_name">Donació MoKee OpenSource</string>
   <string name="donate_money_description">Donació MoKee OpenSource</string>
+  <string name="donate_money_again">Donar de nou</string>
   <string name="remove_ads_name">Treu els anuncis</string>
   <string name="remove_ads_description">Treu els anuncis</string>
   <string name="remove_ads_dialog_title">Sempre tregui anuncis</string>
@@ -86,6 +90,7 @@ desactivi aquesta opció.</string>
   <string name="nightly_alert">Has seleccionat incloure les actualitzacions nigthy en aquesta llista. Aquestes no tenen suport i han de ser utilitzades amb precaució.</string>
   <string name="experimenter_alert">Heu seleccionat per incloure actualitzacions experimentals en aquesta llista. Aquests si dóna suport per provar només, ha de ser utilitzat amb precaució.</string>
   <string name="unofficial_alert">Heu seleccionat per incloure actualitzacions no oficials en aquesta llista. Tingueu en compte que aquestes estan mantinguts pel seu desenvolupador.</string>
+  <string name="all_alert">Ha seleccionat per incloure totes les actualitzacions (d\'alliberament, experimental) en aquesta llista. Prengui en compte que les actualitzacions experimentales no són compatibles i s\'han d\'usar amb precaució.</string>
   <string name="alert_title">Precaució</string>
   <string name="update_type_title">Tipus d\'actualització</string>
   <string name="no_changelog_alert">No hi ha un registre de canvis disponible</string>
@@ -117,6 +122,8 @@ desactivi aquesta opció.</string>
   <string name="not_download_success">Actualització descarregada satisfactòriament</string>
   <string name="not_download_failure">Descàrrega de l\'actualització fallida</string>
   <string name="not_action_install_update">Reiniciar i instal·lar</string>
+  <string name="not_download_install_notice">L\' actualització <xliff:g id="filename">%s </xliff:g> es descarregava reeixidament. Quan tocant \"Tornar a arrencar i instal·lar\", el mecanisme es reprendrà propi per instal·lar el update.\n\nNote: aquesta característica requereix una recuperació compatible o actualitzacions haurà d\'instal·lar manualment.</string>
+  <string name="not_download_install_ota_notice">L\' actualització <xliff:g id="filename">%s </xliff:g> es descarregava reeixidament. Quan tocant \"Tornar a arrencar i instal·lar\", el mecanisme es reprendrà propi per instal·lar el update.\n\nNote: aquesta característica requereix una recuperació compatible o actualitzacions haurà d\'instal·lar manually.\n\nThis és una actualització incremental, per tant els canvis realitzats en arxius de sistema podria provocar l\'actualització falli. Si això passa, si us plau flaix una ROM de ple en el seu lloc.</string>
   <string name="md5_verification_failed">Incompatibilitat suma de MD5</string>
   <string name="not_extras_download_success">Extres descarregats correctament</string>
   <string name="not_extras_download_failure">Descarregar extres no a tingut èxit</string>
@@ -136,12 +143,16 @@ desactivi aquesta opció.</string>
   <string name="delete_extras_noFolder_message">Carpeta d\'extres no trobat</string>
   <string name="delete_extras_success_message">descarregues extres suprimits</string>
   <string name="pref_ota_check">OTA actualitzacions</string>
+  <string name="pref_ota_check_summary">Obtenir actualitzacions incrementals per estalviar temps de descàrrega i ample de banda</string>
+  <string name="pref_ota_check_donation_request_summary">Obtenir actualitzacions incrementals per estalviar temps de descàrrega i amplada de banda (disponible després de la donació de %d CNY)</string>
   <string name="apply_update_dialog_title">Aplica actualització</string>
   <string name="apply_update_dialog_text">Estàs a punt d\'actualitzar a <xliff:g id="filename">%s</xliff:g>.\n\nSi apretes Actualitza, el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
+  <string name="apply_update_ota_dialog_text">Esteu a punt de millorar a <xliff:g id="filename">%s </xliff:g>. \n\nIf prem actualització, el dispositiu en si es reprendrà en el mode de recuperació per instal·lar el update.\n\nNote: aquesta característica requereix una recuperació compatible o actualitzacions haurà d\'instal·lar manually.\n\nThis és una actualització incremental, per tant els canvis realitzats en arxius de sistema podria provocar l\'actualització falli. Si això passa, si us plau flaix una ROM de ple en el seu lloc.</string>
   <string name="apply_extras_dialog_title">Instal lar extres</string>
   <string name="apply_extras_dialog_text">Esteu segur que voleu instal·lar <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Impossible reiniciar en mode recovery</string>
   <string name="extras_unsupported_toast">La versió actual no dóna suport a aquesta ampliació</string>
   <string name="show_exp_on">Ha permès  paràmetres experimentals.</string>
   <string name="show_exp_already">No hi ha necessitat, ja heu activat paràmetres experimentals.</string>
+  <string name="installed_xposed_toast">Xposed marc ja instal·lat, permetre incremental actualització serà mantenir marc.</string>
 </resources>

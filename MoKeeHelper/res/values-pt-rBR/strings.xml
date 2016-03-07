@@ -67,6 +67,7 @@
   <string name="donate_money_toast_success">Obrigado por sua doação!</string>
   <string name="donate_money_name">Doar para MoKee OpenSource</string>
   <string name="donate_money_description">Doar para MoKee OpenSource</string>
+  <string name="donate_money_again">Doar novamente</string>
   <string name="remove_ads_name">Remover anúncios</string>
   <string name="remove_ads_description">Remover anúncios</string>
   <string name="remove_ads_dialog_title">Sempre remover anúncios</string>
@@ -151,4 +152,5 @@
   <string name="extras_unsupported_toast">Sua versão atual não suporta esta extensão</string>
   <string name="show_exp_on">Você habilitou as configurações experimentais!</string>
   <string name="show_exp_already">Não precisa, você já habilitou as configurações experimentais.</string>
+  <string name="installed_xposed_toast">Xposed framework já instalado, habilitar atualização incremental vai manter o framework.</string>
 </resources>

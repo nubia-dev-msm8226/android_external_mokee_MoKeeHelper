@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">Centrum MoKee</string>
   <string name="mokee_support_title">Wsparcie</string>
   <string name="mokee_updater_title">Aktualizator</string>
   <string name="mokee_extras_title">Dodatki</string>
+  <!-- Tips -->
   <string name="tips_help_title">Wskazówki i pomoc</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">Strona MoKee</string>
   <string name="mokee_website_summary">Odwiedź oficjalną stronę</string>
   <string name="mokee_forum_title">MoKee Forum</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Zobacz MoKee Wiki</string>
   <string name="mokee_news_title">Aktualności MoKee</string>
   <string name="mokee_news_summary">Otrzymuj informacje na temat rozwoju MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Informacje o wersji</string>
   <string name="mokee_version_title">Wersja Mokee</string>
   <string name="mokee_version_type_title">Typ wersji</string>
   <string name="mokee_last_check_title">Ostatnio sprawdzono</string>
   <string name="mokee_last_check_never">Nigdy</string>
   <string name="mokee_extras_info_title">Dodatkowe Informacje</string>
+  <!-- Version -->
   <string name="mokee_info_default">Brak informacji</string>
   <string name="mokee_version_type_release">Wydanie</string>
   <string name="mokee_version_type_history">Historia</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Nocne</string>
   <string name="mokee_version_type_unofficial">Nieoficjalne</string>
   <string name="mokee_version_type_all">Wszystkie</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Pobrane</string>
   <string name="installed_update_summary">Zainstalowane</string>
   <string name="available_updates_title">Dostępne aktualizacje</string>
+  <!-- Menu -->
   <string name="menu_donate">Dotacja</string>
   <string name="menu_refresh">Odśwież</string>
   <string name="menu_delete_all">Usuń pobrane</string>
   <string name="menu_remove_ads">Usuń reklamy</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Wspomóż nas</string>
   <string name="donate_dialog_message">W odróżnieniu od firm takich jak Cyanogen lub MIUI, MoKee OpenSource jest projektem czysto non-profit zrodzonym z hobby i pasji. W celu utrzymania tego projektu wydajemy nasze własne pieniądze przez większość czasu lub polegamy na darowiźnie i reklamie. Darowizny mogą pomóc zmniejszyć nasze obciążenie finansowe i utrzymać przyszły rozwój! Opcja ta pozwala na usunięcie reklam w centrum MoKee, można też użyć opcji \"Donate\" Jeśli wolisz raty (reklamy zostaną usunięte, gdy suma osiągnie określoną wartość). Proszę wykonać kopię zapasową pliku mokee.license (w katalogu głównym sdcard, ważne tylko dla bieżącego urządzenia), jeśli dokonałeś wpłaty.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>
   <string name="remove_ads_request_price">Podarowałeś CNY %1$d, brakuje CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">Brak informacji</string>
   <string name="dialog_update">Aktualizacja</string>
   <string name="dialog_install">Zainstaluj</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Wybrałeś wszystkie aktualizacje z listy (release, nightly). Pamiętaj że wersje nightly nie są wspierane i należy ich używać z ostrożnością.</string>
   <string name="alert_title">Uwaga</string>
   <string name="update_type_title">Rodzaj aktualizacji</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Brak listy zmian</string>
   <string name="changelog_dialog_title">Lista zmian</string>
   <string name="loading_changelog">Ładowanie\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">Raz w tygodniu</string>
   <string name="check_bi_weekly">Co dwa tygodnie</string>
   <string name="check_monthly">Raz w miesiącu</string>
+  <!-- checking -->
   <string name="checking_for_updates">Sprawdzanie aktualizacji</string>
   <string name="no_updates_found">Brak dostępnych aktualizacji</string>
   <string name="checking_for_extras">Sprawdzanie dodatków</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">Nie udało się wyszukać aktualizacji. Proszę sprawdzić połączenie internetowe i spróbować ponownie.</string>
   <string name="not_action_download">Pobierz</string>
   <string name="data_connection_required">Wymagane połączenie z Internetem.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Anuluj pobieranie</string>
   <string name="confirm_download_cancelation_dialog_message">Przerwać bieżące pobieranie?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> zostało do końca</string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">Dodatek <xliff:g id="filename">%s</xliff:g> został pobrany pomyślnie. Po wybraniu \'Uruchom ponownie i zainstaluj\', urządzenie zostanie zrestartowane w celu instalacji.\n\nUwaga: Wymagana jest kompatybilna wersja Recovery, aby proces mógł przebiec automatycznie.</string>
   <string name="not_extras_download_install_notice_apk">Dodatki <xliff:g id="filename">%s </xliff:g> zostały pomyślnie pobrane.</string>
   <string name="not_apk_action_install_update">Zainstaluj</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Usuń plik</string>
   <string name="confirm_delete_updates_dialog_message">Usunąć wybraną aktualizację?</string>
   <string name="confirm_delete_updates_all_dialog_message">Usunąć wszystkie aktualizacje?</string>
@@ -140,9 +153,11 @@
   <string name="delete_extras_failure_message">Wystąpił błąd podczas usuwania plików dodatków</string>
   <string name="delete_extras_noFolder_message">Folder dodatków nie został znaleziony</string>
   <string name="delete_extras_success_message">Wszystkie pobrane dodatki zostały usunięte</string>
+  <!-- pref -->
   <string name="pref_ota_check">Aktualizacje przyrostowe</string>
   <string name="pref_ota_check_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza</string>
   <string name="pref_ota_check_donation_request_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza (dostępne po wpłaceniu CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Zatwierdź aktualizacje</string>
   <string name="apply_update_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.</string>
   <string name="apply_update_ota_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.\n\nTo jest aktualizacja przyrostowa, dlatego wszelkie zmiany wprowadzone w systemie mogą spowodować iż aktualizacja nie powiedzie się. W takim przypadku prosimy o instalację pełnego ROMu.</string>
@@ -150,7 +165,9 @@
   <string name="apply_extras_dialog_text">Czy na pewno chcesz zainstalować <xliff:g id="filename">%s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Nie można przejść do trybu recovery</string>
   <string name="extras_unsupported_toast">Bieżąca wersja nie obsługuje tego rozszerzenia</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Włączyłeś ustawienia eksperymentalne!</string>
   <string name="show_exp_already">Nie trzeba, już włączyłeś ustawienia eksperymentalne.</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">Xposed framework jest zainstalowany, włączenie aktualizacji przyrostowych utrzyma framework.</string>
 </resources>

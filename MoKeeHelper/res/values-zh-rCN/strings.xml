@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">魔趣中心</string>
   <string name="mokee_support_title">支持中心</string>
   <string name="mokee_updater_title">系统更新</string>
   <string name="mokee_extras_title">扩展组件</string>
+  <!-- Tips -->
   <string name="tips_help_title">机油问答</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">项目首页</string>
   <string name="mokee_website_summary">访问魔趣开源计划主页获得最新资讯</string>
   <string name="mokee_forum_title">魔趣论坛</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">魔趣开源计划的百科全书，由大家共同维护</string>
   <string name="mokee_news_title">魔趣新闻</string>
   <string name="mokee_news_summary">订阅有关魔趣的最新开发进展</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">版本信息</string>
   <string name="mokee_version_title">魔趣版本</string>
   <string name="mokee_version_type_title">版本类型</string>
   <string name="mokee_last_check_title">最后检查</string>
   <string name="mokee_last_check_never">从未</string>
   <string name="mokee_extras_info_title">扩展信息</string>
+  <!-- Version -->
   <string name="mokee_info_default">未知</string>
   <string name="mokee_version_type_release">正式发布版</string>
   <string name="mokee_version_type_history">历史存档版</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">每夜编译版</string>
   <string name="mokee_version_type_unofficial">非官方版本</string>
   <string name="mokee_version_type_all">全部版本</string>
+  <!-- State -->
   <string name="downloaded_update_summary">已下载</string>
   <string name="installed_update_summary">已安装</string>
   <string name="available_updates_title">可用更新</string>
+  <!-- Menu -->
   <string name="menu_donate">捐赠</string>
   <string name="menu_refresh">刷新</string>
   <string name="menu_delete_all">删除下载</string>
   <string name="menu_remove_ads">移除广告</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">捐赠我们</string>
   <string name="donate_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的mokee.license文件中，您可以备份它以便意外丢失、格式化存储区后恢复。（仅限当前设备使用）</string>
   <string name="donate_dialog_via_paypal">贝宝</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">永久移除广告</string>
   <string name="remove_ads_dialog_title">永久移除广告</string>
   <string name="remove_ads_request_price">已捐赠 %1$d ，待捐赠 %2$d (货币单位：CNY)</string>
+  <!-- Update -->
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
   <string name="dialog_install">安装</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">你选择了检查全部版本(正式版、每夜版)更新，该列表中的每夜版是一个开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
   <string name="alert_title">警告</string>
   <string name="update_type_title">更新类型</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">无可用的更改记录</string>
   <string name="changelog_dialog_title">更改记录</string>
   <string name="loading_changelog">载入中\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">每周一次</string>
   <string name="check_bi_weekly">两周一次</string>
   <string name="check_monthly">每月一次</string>
+  <!-- checking -->
   <string name="checking_for_updates">正在检查更新</string>
   <string name="no_updates_found">没有找到新的更新</string>
   <string name="checking_for_extras">正在检查扩展组件</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">升级检查失败，请检查你的数据连接并重试。</string>
   <string name="not_action_download">下载</string>
   <string name="data_connection_required">需要一个有效的数据链接</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">取消下载</string>
   <string name="confirm_download_cancelation_dialog_message">取消当前的下载？</string>
   <string name="download_remaining">剩余时间：<xliff:g id="DURATION">%s</xliff:g></string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击 \'重启并安装\' 时，设备将重新启动并安装扩展。\n\n注意：自动安装过程需要一个兼容的恢复程序。</string>
   <string name="not_extras_download_install_notice_apk"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击即可进行安装:)</string>
   <string name="not_apk_action_install_update">安装</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">删除文件</string>
   <string name="confirm_delete_updates_dialog_message">您确定要删除此更新文件？</string>
   <string name="confirm_delete_updates_all_dialog_message">您确定要删除所有已下载的更新文件？</string>
@@ -140,9 +153,11 @@
   <string name="delete_extras_failure_message">删除扩展组件时发生了错误</string>
   <string name="delete_extras_noFolder_message">未找到扩展组件所在的文件夹</string>
   <string name="delete_extras_success_message">所有已下载的扩展组件包已被删除</string>
+  <!-- pref -->
   <string name="pref_ota_check">增量更新</string>
   <string name="pref_ota_check_summary">获取增量更新以节省下载时间和流量</string>
   <string name="pref_ota_check_donation_request_summary">获取增量更新以节约下载时间和流量 (捐赠 %d CNY后永久可用)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">应用更新</string>
   <string name="apply_update_dialog_text">您将要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您选择更新，您的设备将会重启到恢复模式并安装更新。\n\n注意：此功能需要一个兼容的恢复程序。如果您没有的话，您将需要手动安装更新。</string>
   <string name="apply_update_ota_dialog_text">您将要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您选择更新，您的设备将会重启到恢复模式并安装更新。\n\n注意：此功能需要一个兼容的恢复程序。如果您没有的话，您将需要手动安装更新。\n\n本次为增量更新，任何人为或带有ROOT权限的程序对系统文件造成的修改可能导致更新失败，若您遭遇此情形，请尝试下载完整包进行更新。</string>
@@ -150,7 +165,9 @@
   <string name="apply_extras_dialog_text">您确定要安装扩展组件 <xliff:g id="filename">%s</xliff:g> 吗？</string>
   <string name="apply_unable_to_reboot_toast">无法重启到恢复模式</string>
   <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">检测到系统安装了Xposed框架，启用增量更新可在升级后无需重刷框架。</string>
 </resources>
