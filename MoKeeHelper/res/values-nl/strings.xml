@@ -17,21 +17,24 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee Center</string>
-  <string name="mokee_support_title">Support</string>
+  <string name="mokee_support_title">Ondersteuning</string>
   <string name="mokee_updater_title">Updater</string>
   <string name="mokee_extras_title">Extra\'s</string>
+  <!-- Tips -->
   <string name="tips_help_title">Tips &amp; Hulp</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee Website</string>
   <string name="mokee_website_summary">Bezoek de officiële website</string>
   <string name="mokee_forum_title">MoKee Forum</string>
   <string name="mokee_forum_summary">Bezoek het MoKee Forum</string>
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Bezoek de bug tracker</string>
-  <string name="mokee_changelog_title">MoKee Wijzigingslogboek</string>
+  <string name="mokee_changelog_title">MoKee wijzigingen</string>
   <string name="mokee_changelog_summary">Bekijk de lijst van wijzigingen in MoKee</string>
-  <string name="mokee_build_status_title">MoKee Bouwstatus</string>
-  <string name="mokee_build_status_summary">Bouwstatus weergeven</string>
+  <string name="mokee_build_status_title">MoKee Build Status</string>
+  <string name="mokee_build_status_summary">Build Status weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Bezoek de MoKee Github website</string>
   <string name="mokee_translate_title">MoKee Vertalingen</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Bezoek de MoKee Wiki</string>
   <string name="mokee_news_title">MoKee Nieuws</string>
   <string name="mokee_news_summary">Ontvang ontwikkelingsnieuws van MoKee</string>
-  <string name="mokee_version_info_title">Versie Informatie</string>
+  <!-- Base Info -->
+  <string name="mokee_version_info_title">Versie-informatie</string>
   <string name="mokee_version_title">MoKee versie</string>
   <string name="mokee_version_type_title">Versie Type</string>
   <string name="mokee_last_check_title">Laatst gecontroleerd</string>
   <string name="mokee_last_check_never">Nooit</string>
   <string name="mokee_extras_info_title">Extra Info</string>
+  <!-- Version -->
   <string name="mokee_info_default">Onbekend</string>
   <string name="mokee_version_type_release">Release</string>
   <string name="mokee_version_type_history">Geschiedenis</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Onofficieel</string>
   <string name="mokee_version_type_all">Alle</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Gedownload</string>
   <string name="installed_update_summary">Geïnstalleerd</string>
   <string name="available_updates_title">Beschikbare updates</string>
+  <!-- Menu -->
   <string name="menu_donate">Doneren</string>
   <string name="menu_refresh">Vernieuwen</string>
   <string name="menu_delete_all">Download verwijderen</string>
   <string name="menu_remove_ads">Advertenties verwijderen</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Doneer aan ons</string>
   <string name="donate_dialog_message">In tegenstelling tot bedrijven zoals Cygn of MIUI, is MoKee OpenSource en een zuiver non-profit project ontstaan uit een hobby en passie. Om dit project te onderhouden, moeten wij meestal zelf ons eigen geld neerleggen of vertrouwen op donaties en reclame inkomsten. Uw donaties kunnen helpen om onze financiële belastingen en duurzame toekomstige ontwikkelingen te verminderen! Dit biedt u de mogelijkheid om advertenties te verwijderen in MoKee Center, of gebruik de \"donatie\" optie als u liever in termijnen betaalt (de advertenties worden verwijderd wanneer het totale bedrag bereikt is).
 Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory van de sdcard, alleen geldig voor het huidige apparaat) zodra u heeft gedoneerd.</string>
@@ -67,12 +75,13 @@ Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory va
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">Bedankt voor uw donatie!</string>
   <string name="donate_money_name">Donatie aan MoKee OpenSource</string>
-  <string name="donate_money_description">Donatie aan MoKee OpenSource</string>
+  <string name="donate_money_description">Doneer aan MoKee OpenSource</string>
   <string name="donate_money_again">Opnieuw doneren</string>
   <string name="remove_ads_name">Advertenties verwijderen</string>
   <string name="remove_ads_description">Advertenties verwijderen</string>
   <string name="remove_ads_dialog_title">Altijd advertenties verwijderen</string>
   <string name="remove_ads_request_price">CNY %1$d gedoneerd, CNY %2$d benodigd</string>
+  <!-- Update -->
   <string name="unknown">Onbekend</string>
   <string name="dialog_update">Bijwerken</string>
   <string name="dialog_install">Installeren</string>
@@ -92,6 +101,7 @@ Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory va
   <string name="all_alert">U hebt geselecteerd om alle updates (release, nightly) in deze lijst weer te geven. Bedenk dat nightly updates niet ondersteund worden en met voorzichtigheid gebruikt moet worden.</string>
   <string name="alert_title">Let op</string>
   <string name="update_type_title">Type update</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Geen logboek beschikbaar</string>
   <string name="changelog_dialog_title">Logboek</string>
   <string name="loading_changelog">Aan het laden\u2026</string>
@@ -102,6 +112,7 @@ Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory va
   <string name="check_weekly">Eenmaal per week</string>
   <string name="check_bi_weekly">Elke twee weken</string>
   <string name="check_monthly">Eenmaal per maand</string>
+  <!-- checking -->
   <string name="checking_for_updates">Zoeken naar updates</string>
   <string name="no_updates_found">Geen nieuwe updates gevonden</string>
   <string name="checking_for_extras">Controleren op extra\'s</string>
@@ -111,24 +122,26 @@ Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory va
   <string name="update_check_failed">Kon niet controleren op updates. Controleer uw internetverbinding en probeer het later opnieuw.</string>
   <string name="not_action_download">Download</string>
   <string name="data_connection_required">Gegevensverbinding vereist.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Download annuleren</string>
   <string name="confirm_download_cancelation_dialog_message">Wilt u de huidige download annuleren?</string>
-  <string name="download_remaining">nog <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
+  <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> resterend</string>
   <string name="download_running">Bezig</string>
   <string name="download_cancelled">Download geannuleeerd</string>
   <string name="download_already_running">Er is al een download bezig</string>
-  <string name="unable_to_download_file">Kan update bestand niet downloaden</string>
+  <string name="unable_to_download_file">Kon update bestand niet downloaden</string>
   <string name="not_download_success">Update succesvol gedownload</string>
   <string name="not_download_failure">Het downloaden van de update is mislukt</string>
   <string name="not_action_install_update">Herstarten en installeren</string>
-  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Opnieuw opstarten en installeren\', wordt het apparaat uit zichzelf opnieuw opgestart om de installatie van de update te voltooien..\n\nLet op: deze functie vereist een ondersteunde Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
-  <string name="not_download_install_ota_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Opnieuw opstarten en installeren\', wordt het apparaat uit zich zelf opnieuw opgestart om de update te installeren.\n\nLet op: deze functie vereist een ondersteunde Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\n Dit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
+  <string name="not_download_install_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Herstarten en installeren\', wordt het apparaat opnieuw opgestart om de installatie van de update te voltooien..\n\nLet op: deze functie vereist een ondersteunde Recovery of de updates zullen handmatig moeten worden geïnstalleerd.</string>
+  <string name="not_download_install_ota_notice">De update <xliff:g id="filename">%s </xliff:g> werd met succes gedownload. Als u tikt op \'Herstarten en installeren\', wordt het apparaat opnieuw opgestart om de update te installeren.\n\nLet op: deze functie vereist een ondersteunde Recovery anders zullen de updates handmatig moeten worden geïnstalleerd.\n\n Dit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
   <string name="md5_verification_failed">MD5 checksum komt niet overeen</string>
   <string name="not_extras_download_success">Extras zijn succesvol gedownload</string>
   <string name="not_extras_download_failure">Download van extras is mislukt</string>
   <string name="not_extras_download_install_notice">De extra <xliff:g id="filename">%s </xliff:g> is succesvol gedownload. Als u op \'Opnieuw opstarten en installeren\' drukt, wordt het apparaat opnieuw opgestart om de extras te installeren.\n\nLet op: een ondersteunde Recovery is vereist voor een automatische installatie.</string>
   <string name="not_extras_download_install_notice_apk">De extras <xliff:g id="filename">%s </xliff:g> zijn succesvol gedownload.</string>
   <string name="not_apk_action_install_update">Installeren</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Bestand verwijderen</string>
   <string name="confirm_delete_updates_dialog_message">Verwijder het geselecteerde update bestand?</string>
   <string name="confirm_delete_updates_all_dialog_message">Alle gedownloade update bestanden verwijderen?</string>
@@ -141,17 +154,21 @@ Maak alstublieft een kopie van het mokee.license bestand (in de rootdirectory va
   <string name="delete_extras_failure_message">Er was een fout bij het verwijderen van de extra bestanden</string>
   <string name="delete_extras_noFolder_message">Map van extra\'s niet gevonden</string>
   <string name="delete_extras_success_message">Alle opgeslagen extra\'s zijn verwijderd</string>
+  <!-- pref -->
   <string name="pref_ota_check">OTA updates</string>
   <string name="pref_ota_check_summary">Haal OTA updates binnen om downloadtijd en bandbreedte te besparen</string>
   <string name="pref_ota_check_donation_request_summary">Haal OTA updates binnen om downloadtijd en bandbreedte te besparen (beschikbaar na doneren van CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Update toepassen</string>
   <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u op \'Bijwerken\' tikt, zal uw toestel herstarten om de update te installeren.\n\nLet op: Een ondersteunde recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
   <string name="apply_update_ota_dialog_text">U staat op het punt om te upgraden naar <xliff:g id="filename">%s </xliff:g>. \n\nAls u op Update drukt, wordt het apparaat opnieuw opgestart om de update te installeren.\n\n Let op: deze functie vereist een ondersteunde Recovery, anders zullen de updates handmatig moeten worden geïnstalleerd.\n\nDit is een experimentele update, dus wijzigingen in de systeembestanden kunnen er voor zorgen dat de update mislukt. Als dit gebeurt, flash dan alstublieft een volledige ROM.</string>
   <string name="apply_extras_dialog_title">Installeer extra</string>
   <string name="apply_extras_dialog_text">Weet u zeker dat u wilt <xliff:g id="filename">%s</xliff:g> installeren?</string>
-  <string name="apply_unable_to_reboot_toast">Niet mogelijk om naar de herstelmodus te herstarten</string>
+  <string name="apply_unable_to_reboot_toast">Kon niet naar de herstelmodus te herstarten</string>
   <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige MoKee versie</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">U heeft de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">De experimentele instellingen zijn al ingeschakeld.</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">Xposed Framework is al geïnstalleerd, het inschakelen van OTA updates behoudt het framework.</string>
 </resources>
