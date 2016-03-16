@@ -19,6 +19,7 @@ package com.mokee.helper.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.mokee.utils.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -26,10 +27,13 @@ import com.mokee.helper.R;
 
 public class TipsHelp extends Activity {
 
+    private static final String URL_MOKEE_TIPS_HELP = "http://bbs.mfunz.com/forum-280-1.html";
+    private static final String URL_MOKEE_TIPS_HELP_GLOBAL = "http://issues.mokeedev.com";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Uri uri = Uri.parse(getString(R.string.tips_help_url));
+        Uri uri = Uri.parse(MoKeeUtils.isSupportLanguage(false) ? URL_MOKEE_TIPS_HELP : URL_MOKEE_TIPS_HELP_GLOBAL);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
         finish();

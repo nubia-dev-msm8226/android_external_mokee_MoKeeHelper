@@ -18,10 +18,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- MKUpdate Config Strings -->
+    <!-- MoKeeHelper Config -->
     <string name="conf_update_server_url_def" translatable="false">http://ota.mokeedev.com/full.php</string>
     <string name="conf_update_ota_server_url_def" translatable="false">http://ota.mokeedev.com/ota.php</string>
     <string name="conf_update_extras_server_url_def" translatable="false">http://ota.mokeedev.com/ext.php</string>
-    <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/forum-280-1.html</string>
 
 </resources>
