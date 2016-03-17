@@ -136,12 +136,9 @@ public class Utils {
     public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
             throws IOException {
         // Add the update folder/file name
-        File primaryStorage = Environment.getExternalStorageDirectory();
-        // If the path is emulated, translate it, if not return the original path
-        String updatePath = Environment.maybeTranslateEmulatedPathToInternal(
-                primaryStorage).getAbsolutePath();
+        String primaryStorage = Environment.getExternalStorageDirectory().getAbsolutePath();
         // Create the path for the update package
-        String updatePackagePath = updatePath + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/" + updateFileName;
+        String updatePackagePath = primaryStorage + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/" + updateFileName;
 
         // Reboot into recovery and trigger the update
         android.os.RecoverySystem.installPackage(context, new File(updatePackagePath));
