@@ -75,8 +75,11 @@
   <string name="donate_money_toast_success">謝謝您的捐贈 ！</string>
   <string name="donate_money_name">贊助 MoKee OpenSource</string>
   <string name="donate_money_description">贊助 MoKee OpenSource</string>
+  <string name="donate_money_again">繼續捐贈</string>
   <string name="remove_ads_name">移除ads</string>
   <string name="remove_ads_description">移除ads</string>
+  <string name="remove_ads_dialog_title">始終刪除廣告</string>
+  <string name="remove_ads_request_price">捐贈了 ￥ 元 %1$d，掛起 ￥ 元 %2$d</string>
   <!-- Update -->
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
@@ -94,6 +97,7 @@
   <string name="nightly_alert">您在清單中已選取包括每夜版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="experimenter_alert">您在清單中已選取包括試驗版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="unofficial_alert">您在清單中已選取包括非官方更新。這些更新不受支援並應該謹慎使用，如有問題，請不要向我們匯報。</string>
+  <string name="all_alert">You have selected to include all updates (release, nightly) in this list. Take note that nightly updates are unsupported and should be used with caution.</string>
   <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
   <!-- ChangeLog -->
@@ -160,4 +164,5 @@
   <string name="show_exp_on">您已啟用實驗設置 ！</string>
   <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed框架已經安裝，啟用增量更新而保存框架</string>
 </resources>
