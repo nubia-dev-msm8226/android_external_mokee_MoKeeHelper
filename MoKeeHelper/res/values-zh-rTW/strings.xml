@@ -25,30 +25,30 @@
   <!-- Tips -->
   <string name="tips_help_title">玩機專區</string>
   <!-- WebSite -->
-  <string name="mokee_website_title">MoKee 網站</string>
+  <string name="mokee_website_title">魔趣網站</string>
   <string name="mokee_website_summary">造訪官方網站</string>
-  <string name="mokee_forum_title">MoKee 論壇</string>
-  <string name="mokee_forum_summary">造訪 MoKee 論壇</string>
-  <string name="mokee_issues_title">MoKee Bug 追蹤器</string>
+  <string name="mokee_forum_title">魔趣論壇</string>
+  <string name="mokee_forum_summary">造訪魔趣論壇</string>
+  <string name="mokee_issues_title">魔趣 Bug 追蹤器</string>
   <string name="mokee_issues_summary">造訪 bug 追蹤器</string>
-  <string name="mokee_changelog_title">MoKee 更新日誌</string>
-  <string name="mokee_changelog_summary">查看 MoKee 的更新日誌列表</string>
-  <string name="mokee_build_status_title">MoKee 建立狀態</string>
+  <string name="mokee_changelog_title">魔趣變更日誌</string>
+  <string name="mokee_changelog_summary">查看魔趣的更新日誌清單</string>
+  <string name="mokee_build_status_title">魔趣建立狀態</string>
   <string name="mokee_build_status_summary">查看建立狀態</string>
-  <string name="mokee_github_title">MoKee 的 Github</string>
-  <string name="mokee_github_summary">造訪 MoKee Github</string>
-  <string name="mokee_translate_title">MoKee 翻譯</string>
-  <string name="mokee_translate_summary">協助翻譯 MoKee</string>
+  <string name="mokee_github_title">魔趣的 Github</string>
+  <string name="mokee_github_summary">造訪魔趣的 Github</string>
+  <string name="mokee_translate_title">魔趣翻譯</string>
+  <string name="mokee_translate_summary">協助翻譯魔趣</string>
   <string name="mokee_wiki_title">MoKee 的 Wiki</string>
-  <string name="mokee_wiki_summary">造訪 MoKee Wiki</string>
-  <string name="mokee_news_title">MoKee新闻</string>
-  <string name="mokee_news_summary">从MoKee接受开发者信息</string>
+  <string name="mokee_wiki_summary">造訪 MoKee WikI</string>
+  <string name="mokee_news_title">MoKee新聞</string>
+  <string name="mokee_news_summary">從MoKee接收開發者新聞</string>
   <!-- Base Info -->
   <string name="mokee_version_info_title">版本資訊</string>
-  <string name="mokee_version_title">MoKee 版本</string>
+  <string name="mokee_version_title">魔趣版本</string>
   <string name="mokee_version_type_title">版本類型</string>
   <string name="mokee_last_check_title">最後一次檢查時間:</string>
-  <string name="mokee_last_check_never">永不</string>
+  <string name="mokee_last_check_never">從不</string>
   <string name="mokee_extras_info_title">額外資訊</string>
   <!-- Version -->
   <string name="mokee_info_default">未知</string>
@@ -56,7 +56,7 @@
   <string name="mokee_version_type_history">歷史版</string>
   <string name="mokee_version_type_experimental">實驗版</string>
   <string name="mokee_version_type_nightly">每夜版</string>
-  <string name="mokee_version_type_unofficial">非官方版</string>
+  <string name="mokee_version_type_unofficial">非官方版本</string>
   <string name="mokee_version_type_all">所有的</string>
   <!-- State -->
   <string name="downloaded_update_summary">已下載</string>
@@ -75,8 +75,11 @@
   <string name="donate_money_toast_success">謝謝您的捐贈 ！</string>
   <string name="donate_money_name">贊助 MoKee OpenSource</string>
   <string name="donate_money_description">贊助 MoKee OpenSource</string>
+  <string name="donate_money_again">繼續捐贈</string>
   <string name="remove_ads_name">移除ads</string>
   <string name="remove_ads_description">移除ads</string>
+  <string name="remove_ads_dialog_title">始終刪除廣告</string>
+  <string name="remove_ads_request_price">捐贈了 ￥ 元 %1$d，掛起 ￥ 元 %2$d</string>
   <!-- Update -->
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
@@ -94,6 +97,7 @@
   <string name="nightly_alert">您在清單中已選取包括每夜版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="experimenter_alert">您在清單中已選取包括試驗版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="unofficial_alert">您在清單中已選取包括非官方更新。這些更新不受支援並應該謹慎使用，如有問題，請不要向我們匯報。</string>
+  <string name="all_alert">You have selected to include all updates (release, nightly) in this list. Take note that nightly updates are unsupported and should be used with caution.</string>
   <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
   <!-- ChangeLog -->
@@ -160,4 +164,5 @@
   <string name="show_exp_on">您已啟用實驗設置 ！</string>
   <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed框架已經安裝，啟用增量更新而保存框架</string>
 </resources>
