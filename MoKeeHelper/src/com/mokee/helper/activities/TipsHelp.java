@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The MoKee OpenSource Project
+ * Copyright (C) 2014-2016 The MoKee Open Source Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +22,6 @@ import android.content.Intent;
 import android.mokee.utils.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
-
-import com.mokee.helper.R;
 
 public class TipsHelp extends Activity {
 

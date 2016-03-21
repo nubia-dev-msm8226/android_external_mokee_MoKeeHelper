@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 The MoKee OpenSource Project
+ * Copyright (C) 2014-2016 The MoKee Open Source Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Locale;
 
 import android.app.AlarmManager;
@@ -33,7 +32,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
-import android.os.PowerManager;
 import android.preference.PreferenceFragment;
 
 import com.mokee.helper.R;
