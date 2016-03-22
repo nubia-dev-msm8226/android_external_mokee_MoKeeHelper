@@ -133,6 +133,7 @@
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
   <string name="not_download_install_notice">更新檔 <xliff:g id="filename">%s</xliff:g> 已成功下載。點擊\'Reboot and install\'以重新啟動設備來安裝更新。\n\nNote: 此功能需要相容的Recovery程式，否則您需要手動安裝此更新。</string>
+  <string name="not_download_install_ota_notice">更新檔 <xliff:g id="filename">%s </xliff:g> 下載成功。點擊 \'重新開機和安裝\'以重啟設備來安裝更新。\n\nNote ︰ 此功能需要相容的Recovery程式，否則您需要手動安裝該更新。\n\n此更新是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整ROM。</string>
   <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
@@ -154,9 +155,12 @@
   <string name="delete_extras_success_message">所有下載的附加選項已刪除</string>
   <!-- pref -->
   <string name="pref_ota_check">增量更新</string>
+  <string name="pref_ota_check_summary">獲取增量更新以節省時間和流量</string>
+  <string name="pref_ota_check_donation_request_summary">獲取增量更新以節省下載時間和流量 (在捐贈CNY %d之後可用)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">應用更新</string>
   <string name="apply_update_dialog_text">您將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您選擇更新，您的設備將會重啟到復原模式並安裝更新。\n\n注意：此功能需要一個相容的恢復程式。如果您沒有的話，您將需要手動安裝更新。</string>
+  <string name="apply_update_ota_dialog_text">您將要升級到 <xliff:g id="filename">%s </xliff:g>.\n\nIf 如果你選擇升級，設備將會重新啟動並在Recovery模式下安裝 更升級檔.\n\nNote ︰ 此功能需要相容的Recovery程式，否則您需要手動安裝.\n\nThis 是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整ROM。</string>
   <string name="apply_extras_dialog_title">安裝額外軟體</string>
   <string name="apply_extras_dialog_text">你確定你想要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
   <string name="apply_unable_to_reboot_toast">無法重啟到復原模式</string>
