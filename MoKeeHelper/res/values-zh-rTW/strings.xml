@@ -132,6 +132,7 @@
   <string name="not_download_success">更新已成功下載</string>
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
+  <string name="not_download_install_notice">更新檔 <xliff:g id="filename">%s</xliff:g> 已成功下載。點擊\'Reboot and install\'以重新啟動設備來安裝更新。\n\nNote: 此功能需要相容的Recovery程式，否則您需要手動安裝此更新。</string>
   <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
