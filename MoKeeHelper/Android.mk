@@ -24,7 +24,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_JAVA_LIBRARIES := org.apache.http.legacy
-LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 libMoKeePushService libGoogleAdMobAdsSdk volley mokee-support-widget
+LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13 jpush libGoogleAdMobAdsSdk volley mokee-support-widget
 
 LOCAL_SRC_FILES := $(call all-subdir-java-files) \
 
