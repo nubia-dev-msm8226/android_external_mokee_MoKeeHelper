@@ -74,6 +74,7 @@
   <string name="donate_money_toast_success">Bağış için teşekkür ederiz!</string>
   <string name="donate_money_name">MoKee OpenSource\'a bağışta bulunun</string>
   <string name="donate_money_description">MoKee OpenSource\'a bağışta bulunun</string>
+  <string name="donate_money_again">Tekrar bağışla</string>
   <string name="remove_ads_name">Reklamları kaldır</string>
   <string name="remove_ads_description">Reklamları kaldır</string>
   <string name="remove_ads_dialog_title">Daima reklamları kaldır</string>

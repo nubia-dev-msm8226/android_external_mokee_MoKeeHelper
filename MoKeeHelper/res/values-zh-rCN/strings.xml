@@ -79,7 +79,7 @@
   <string name="remove_ads_name">永久移除广告</string>
   <string name="remove_ads_description">永久移除广告</string>
   <string name="remove_ads_dialog_title">永久移除广告</string>
-  <string name="remove_ads_request_price">已捐赠 %1$d ，待捐赠 %2$d (货币单位：CNY)</string>
+  <string name="remove_ads_request_price">已捐赠 %1$d ，还需捐赠 %2$d (货币单位：CNY)</string>
   <!-- Update -->
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>

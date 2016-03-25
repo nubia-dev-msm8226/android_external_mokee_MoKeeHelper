@@ -41,6 +41,8 @@
   <string name="mokee_translate_summary">עזור בתרגום MoKee</string>
   <string name="mokee_wiki_title">וויקי MoKee</string>
   <string name="mokee_wiki_summary">הצג את וויקי MoKee</string>
+  <string name="mokee_news_title">חדשות MoKee</string>
+  <string name="mokee_news_summary">קבל חדשות מפתחים מ MoKee</string>
   <!-- Base Info -->
   <string name="mokee_version_info_title">פרטי הגירסה</string>
   <string name="mokee_version_title">גירסת MoKee</string>
@@ -64,11 +66,18 @@
   <string name="menu_donate">תרום</string>
   <string name="menu_refresh">רענן</string>
   <string name="menu_delete_all">מחיקת הורדה</string>
+  <string name="menu_remove_ads">הסר פרסומות</string>
   <!-- Donate -->
   <string name="donate_dialog_title">תרום לנו</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_description">תרום ל MoKee בקוד פתוח</string>
+  <string name="donate_money_again">תרום שוב</string>
+  <string name="remove_ads_name">הסר פרסומות</string>
+  <string name="remove_ads_description">הסר פרסומות</string>
+  <string name="remove_ads_dialog_title">הסר תמיד מודעות</string>
   <!-- Update -->
   <string name="unknown">לא ידוע</string>
   <string name="dialog_update">עדכן</string>
