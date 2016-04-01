@@ -69,6 +69,7 @@
   <string name="menu_remove_ads">הסר פרסומות</string>
   <!-- Donate -->
   <string name="donate_dialog_title">תרום לנו</string>
+  <string name="donate_dialog_message">שלא כמו חברות כגון CyanogenMod או MIUI, הרום MoKee הוא פרויקט בקוד פתוח וללא מטרות רווח ונולד מתוך תחביב. בשביל לתחזק את הפרויקט, אנחנו צריכים להשיג כסף מתרומות או מפרסומות. התרומה שלך יכולה לעזור לנו בתשלומים ותמוך בפיתוח עתידי! תרומה זו תסיר את הפרסומות ממרכז MoKee, או שתעדיף להשתמש באופצית ה\"תרומה\" במקום אם אתה מעדיך תשלומים (הפרסומות יוסרו שתגיע לערך המינימלי שצויין). לאחר שאתה תורם הקפד לגבות את קובץ הרשיון (mokee.license שנמצא בכרטיס זיכרון בתקיה הראשית, תקף למכשיר זה בלבד).</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
@@ -78,6 +79,7 @@
   <string name="remove_ads_name">הסר פרסומות</string>
   <string name="remove_ads_description">הסר פרסומות</string>
   <string name="remove_ads_dialog_title">הסר תמיד מודעות</string>
+  <string name="remove_ads_request_price">נתרמו %1$d CNY, חסרים %2$d CNY</string>
   <!-- Update -->
   <string name="unknown">לא ידוע</string>
   <string name="dialog_update">עדכן</string>
@@ -95,6 +97,7 @@
   <string name="nightly_alert">בחרת לכלול עדכונים ליליים ברשימה. גרסאות אלה לא נתמכות, השתמש בזהירות.</string>
   <string name="experimenter_alert">בחרת לכלול עדכונים ניסיוניים ברשימה זו. עדכוניםאלה אינם נתמכים והינם למטרות בדיקה בלבד. יש להשתמש בהם בזהירות.</string>
   <string name="unofficial_alert">בחרת לכלול עדכונים לא רשמיים ברשימה זו. זכור כי אלה נתמכים על ידי תחזוקת ההתקן שלך.</string>
+  <string name="all_alert">בחרת לכלול כל העדכונים (שחרור, ליליים) ברשימה זו. שימו לב כי עדכונים \"ליליים\" אינם נתמכים. יש להשתמש בזהירות.</string>
   <string name="alert_title">זהירות</string>
   <string name="update_type_title">סוג עדכון</string>
   <!-- ChangeLog -->
@@ -129,6 +132,8 @@
   <string name="not_download_success">עדכון הורד בהצלחה</string>
   <string name="not_download_failure">הורדת העדכון נכשלה</string>
   <string name="not_action_install_update">אתחל והתקן</string>
+  <string name="not_download_install_notice">העדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. שתבחר \"הפעל מחדש והתקן\", המכשיר יופעל מחדש ויתקין את העדכון.\n\nשים לב: אפשרות זו מצריכה Recovery תומך או שתצטרך להתקין את העדכונים ידנית.</string>
+  <string name="not_download_install_ota_notice">העדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. שתבחר \"הפעל מחדש והתקן\", המכשיר יופעל מחדש ויתקין את העדכון.\n\nשים לב: אפשרות זו מצריכה Recovery תומך או שתצטרך להתקין את העדכונים ידנית.\n\nעדכון זה הוא עדכון מצטבר, לכן כל שינוי שנעשה למחיצת המערכת יכול לגרום לעדכון להכשל. אם זה קורה, התקן את הרום כולו במקום.</string>
   <string name="md5_verification_failed">אי-התאמת checksum MD5</string>
   <string name="not_extras_download_success">התוספות הורדו בהצלחה</string>
   <string name="not_extras_download_failure">הורדת התוספות נכשלה</string>
@@ -150,10 +155,13 @@
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
   <!-- pref -->
   <string name="pref_ota_check">עדכונים OTA</string>
+  <string name="pref_ota_check_summary">קבל עדכונים מצטברים כדי לחסוך בזמני ההורדה ובנתונים</string>
+  <string name="pref_ota_check_donation_request_summary">קבל עדכונים מצטברים כדי לחסוך בזמני ההורדה ובנתונים (זמין לאחר תרומת %d CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
         \nהערה: אפשרות זו דורשת Recovery תואם, או שפעולת התקנת העדכונים תיאלץ להיעשות באופן ידני.</string>
+  <string name="apply_update_ota_dialog_text">אתה עומד לעדכן לגירסה <xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יופעל מחדש ויתקין את העדכון.\n\nשים לב: אפשרות זו מצריכה Recovery תומך או שתצטרך להתקין את העדכונים ידנית.\n\nעדכון זה הוא עדכון מצטבר, לכן כל שינוי שנעשה למחיצת המערכת יכול לגרום לעדכון להכשל. אם זה קורה, התקן את הרום כולו במקום.</string>
   <string name="apply_extras_dialog_title">התקנת תוספת</string>
   <string name="apply_extras_dialog_text">האם אתה בטוח שברצונך להתקין <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">נכשל לאתחל למצב \"Recovery\"</string>
@@ -162,4 +170,5 @@
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">יש לך Xposed Framework מותקן, אפשר עדכוני OTA ולא תצטרך להתקין אותו שוב.</string>
 </resources>
