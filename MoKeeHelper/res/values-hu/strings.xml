@@ -69,6 +69,7 @@
   <string name="menu_remove_ads">Hírdetések eltávolítása</string>
   <!-- Donate -->
   <string name="donate_dialog_title">Támogass minket</string>
+  <string name="donate_dialog_message">Más olyan cégekhez, mint a Cygn vagy a MIUI a MoKee OpenSource egy teljesen nonprofit elveken működő project, mely hobbiból született. A projekt fenntartásához szükséges anyagiakat legtöbbször saját magunk biztosítjuk, vagy adományokra ls hirdetésekre támaszkodunk. Adományoddal segíthetsz a további fejlesztésben! Ez az opció lehetővé teszi a reklámok eltávolítását a MoKee Centerben, de választhatod az \"Adomány\" opciót is, ha részletekben szeretnél segíteni (amint a részletek összege eléri szükséges szintet, a reklámok eltávolításra kerülnek). Készíts biztonsági másolatot a mokee.license fájlról az adományozás után (megtalálható az SD kártya gyökérkönyvtárában, csak egy eszközre használható).</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_money_toast_success">Köszönjük a támogatását!</string>
@@ -78,6 +79,7 @@
   <string name="remove_ads_name">Hírdetések eltávolítása</string>
   <string name="remove_ads_description">Hírdetések eltávolítása</string>
   <string name="remove_ads_dialog_title">Mindig távolítsa el a hirdetéseket</string>
+  <string name="remove_ads_request_price">Adományoztál: %1$d CNY, Hátravan: %2$d CNY</string>
   <!-- Update -->
   <string name="unknown">Ismeretlen</string>
   <string name="dialog_update">Frissítés</string>
@@ -122,6 +124,7 @@
   <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Letöltés megszakítása</string>
   <string name="confirm_download_cancelation_dialog_message">Megszakítja a jelenlegi letöltést?</string>
+  <string name="download_remaining">Hátravan <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <string name="download_running">Folyamatban</string>
   <string name="download_cancelled">Letöltés megszakítva</string>
   <string name="download_already_running">A letöltés jelenleg is fut</string>
@@ -129,6 +132,8 @@
   <string name="not_download_success">Frissítés sikeresen letöltve</string>
   <string name="not_download_failure">Frissítés letöltése sikertelen</string>
   <string name="not_action_install_update">Újraindítás és telepítés</string>
+  <string name="not_download_install_notice">Az alábbi frissítés sikeresen letöltődött: <xliff:g id="filename">%s</xliff:g>. Az \"Újraindítás és telepítés\" gombra koppintva az eszköz újraindul és telepíti a frissítést.\n\nMegjegyzés: Ehhez a funkcióhoz egy kompatibilis recovery-re van szükség, vagy manuálisan kell telepíteni a frissítést.</string>
+  <string name="not_download_install_ota_notice">Az alábbi frissítés sikeresen letöltődött: <xliff:g id="filename">%s</xliff:g>. Az \"Újraindítás és telepítés\" gombra koppintva az eszköz újraindul és telepíti a frissítést.\n\nMegjegyzés: Ehhez a funkcióhoz egy kompatibilis recovery-re van szükség, vagy manuálisan kell telepíteni a frissítést.\n\nEz egy közbenső frissítés. Ha módosított rendzserfájlok találhatók az eszközön, lehetséges, hogy a frissítés sikertelen lesz. Ha ez megtörténik, a teljes ROM-ot kell flashelni.</string>
   <string name="md5_verification_failed">MD5 ellenőrzőkód eltérés</string>
   <string name="not_extras_download_success">Extrák sikeresen letöltve</string>
   <string name="not_extras_download_failure">Extrák letöltése sikertelen</string>
@@ -155,6 +160,7 @@
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Frissítés alkalmazása</string>
   <string name="apply_update_dialog_text">A  <xliff:g id="filename">%s</xliff:g> frissítés telepítését választottad. Ha a Frissítésre nyomsz, a készülék újraindul recovery módba, hogy telepítse a frissítést. \n\nMegjegyzés: Az autómatikus frissítéshez kompatibilis recovery kell, különben manuális telepítésre lesz szükség.</string>
+  <string name="apply_update_ota_dialog_text">Frissítés a következőre: <xliff:g id="filename">%s</xliff:g>.\n\nHa a frissítésre koppintasz, az eszköz újraindul recovery módban és telepíti a frissítést.\n\nMegjegyzés: Ehhez a funkcióhoz egy kompatibilis recovery-re van szükség, vagy manuálisan kell telepíteni a frissítést.\n\nEz egy közbenső frissítés. Ha módosított rendzserfájlok találhatók az eszközön, lehetséges, hogy a frissítés sikertelen lesz. Ha ez megtörténik, a teljes ROM-ot kell flashelni.</string>
   <string name="apply_extras_dialog_title">Extra telepítése</string>
   <string name="apply_extras_dialog_text">Biztosan telepíteni akarod a(z) <xliff:g id="filename">%s</xliff:g>-t ?</string>
   <string name="apply_unable_to_reboot_toast">Nem lehetséges az újraindítás Recovery módban</string>
@@ -163,4 +169,5 @@
   <string name="show_exp_on">Engedélyezted a kísérleti funkciókat!</string>
   <string name="show_exp_already">Már engedélyezted a kísérleti funkciókat.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Az Xposed keretrendszer már telepítve van, a növekményes frissítések engedélyezése.</string>
 </resources>

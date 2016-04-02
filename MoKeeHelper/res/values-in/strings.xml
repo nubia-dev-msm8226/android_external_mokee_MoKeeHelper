@@ -48,7 +48,7 @@
   <string name="mokee_version_title">Versi MoKee</string>
   <string name="mokee_version_type_title">Tipe Versi</string>
   <string name="mokee_last_check_title">Pemeriksaan Terakhir</string>
-  <string name="mokee_last_check_never">Jangan pernah</string>
+  <string name="mokee_last_check_never">Tidak pernah</string>
   <string name="mokee_extras_info_title">Info Ekstra</string>
   <!-- Version -->
   <string name="mokee_info_default">Tidak diketahui</string>
@@ -68,12 +68,12 @@
   <string name="menu_delete_all">Hapus unduhan</string>
   <string name="menu_remove_ads">Hapus iklan</string>
   <!-- Donate -->
-  <string name="donate_dialog_title">Donasi utk kami</string>
-  <string name="donate_dialog_message">Tidak seperti perusahaan seperti Cygn atau MIUI, MoKee OpenSource adalah proyek nirlaba yang murni lahir dari hobi dan gairah. Untuk menjaga proyek ini, kita harus mengeluarkan uang setiap waktunya atau mengandalkan sumbangan dan iklan. Donasi snda dapat membantu mengurangi beban keuangan kami dan menunjang perkembangan kedepannya! Pilihan ini memungkinkan Anda untuk menghapus iklan di pusat MoKee, atau menggunakan opsi \"Donasi\" sebaliknya jika snda memilih cicilan (iklan akan dihapus setelah total mencapai nilai yang tertentu). Mohon cadangkan mokee.license file (dalam direktori root dari sdcard, hanya berlaku untuk perangkat saat ini) setelah snda telah menyumbangkan.</string>
+  <string name="donate_dialog_title">Donasi untuk kami</string>
+  <string name="donate_dialog_message">Tidak seperti perusahaan seperti Cygn atau MIUI, MoKee OpenSource adalah proyek nirlaba yang murni lahir dari hobi dan gairah. Untuk menjaga proyek ini, kita harus mengeluarkan uang setiap waktunya atau mengandalkan sumbangan dan iklan. Donasi anda dapat membantu mengurangi beban keuangan kami dan menunjang perkembangan kedepannya! Pilihan ini memungkinkan anda untuk menghapus iklan di pusat MoKee, atau menggunakan opsi \"Donasi\" sebaliknya jika anda memilih cicilan (iklan akan dihapus setelah total mencapai nilai yang tertentu). Mohon cadangkan mokee.license file (dalam direktori root dari sdcard, hanya berlaku untuk perangkat saat ini) setelah anda telah menyumbangkan.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPayy</string>
   <string name="donate_money_toast_success">Terima kasih atas donasi Anda!</string>
-  <string name="donate_money_name">Donasi utk MoKee OpenSource</string>
+  <string name="donate_money_name">Donasi untuk MoKee OpenSource</string>
   <string name="donate_money_description">Donasi utk MoKee OpenSource</string>
   <string name="donate_money_again">Donasi lagii</string>
   <string name="remove_ads_name">Hapus iklan</string>
@@ -87,7 +87,7 @@
   <string name="dialog_ok">Oke</string>
   <string name="dialog_cancel">Batal</string>
   <string name="dialog_close">Tutup</string>
-  <string name="no_available_updates_intro">Cek terakhir tidak menemukan adanya pembaruan yang tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
+  <string name="no_available_updates_intro">Pemeriksaan tidak menemukan adanya pembaruan tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
   <string name="no_available_ota_intro">Pengecekan terakhir tidak menemukan pembaruan yang tersedia. Untuk memeriksa secara manual update baru, gunakan tombol Refresh. Jika anda menjalankan versi di luar incremental rentang tanggal pembaruan didukung, Anda harus membuang pilihan \"update Incremental\".</string>
   <string name="no_available_extras_intro">Cek terakhir tidak menemukan adanya pembaruan yang tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
   <string name="new_update_summary">Baru</string>
