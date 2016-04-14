@@ -28,13 +28,13 @@
   <string name="mokee_website_title">项目首页</string>
   <string name="mokee_website_summary">访问魔趣开源计划主页</string>
   <string name="mokee_forum_title">魔趣论坛</string>
-  <string name="mokee_forum_summary">前往魔趣论坛寻求帮助或分享心得</string>
+  <string name="mokee_forum_summary">访问魔趣论坛</string>
   <string name="mokee_issues_title">问题反馈</string>
   <string name="mokee_issues_summary">反馈报告手机使用问题以便我们改进系统</string>
   <string name="mokee_changelog_title">更新日志</string>
   <string name="mokee_changelog_summary">查看魔趣开源计划每天的功能改进清单</string>
   <string name="mokee_build_status_title">编译状态</string>
-  <string name="mokee_build_status_summary">查看魔趣当前编译清单及其状态</string>
+  <string name="mokee_build_status_summary">查看魔趣当前编译状态</string>
   <string name="mokee_github_title">开源代码</string>
   <string name="mokee_github_summary">查看和下载魔趣源代码</string>
   <string name="mokee_translate_title">翻译固件</string>
@@ -47,14 +47,14 @@
   <string name="mokee_version_info_title">版本信息</string>
   <string name="mokee_version_title">魔趣版本</string>
   <string name="mokee_version_type_title">版本类型</string>
-  <string name="mokee_last_check_title">最后检查</string>
+  <string name="mokee_last_check_title">上次检查</string>
   <string name="mokee_last_check_never">从未</string>
   <string name="mokee_extras_info_title">扩展信息</string>
   <!-- Version -->
   <string name="mokee_info_default">未知</string>
   <string name="mokee_version_type_release">正式发布版</string>
   <string name="mokee_version_type_history">历史存档版</string>
-  <string name="mokee_version_type_experimental">测试阶段版</string>
+  <string name="mokee_version_type_experimental">测试版</string>
   <string name="mokee_version_type_nightly">每夜编译版</string>
   <string name="mokee_version_type_unofficial">个人开发版本</string>
   <string name="mokee_version_type_all">全部版本</string>

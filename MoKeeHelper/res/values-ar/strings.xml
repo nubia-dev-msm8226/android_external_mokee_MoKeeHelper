@@ -32,7 +32,7 @@
   <string name="mokee_issues_title">متعقب أخطاء موكي</string>
   <string name="mokee_issues_summary">زيارة متعقب الأخطاء</string>
   <string name="mokee_changelog_title">سجل تغييرات موكي</string>
-  <string name="mokee_changelog_summary">استعراض قائمة تغييرات موكي</string>
+  <string name="mokee_changelog_summary">عرض قائمة التغيير موكي</string>
   <string name="mokee_build_status_title">حالات نُسخ موكي</string>
   <string name="mokee_build_status_summary">استعراض حالات النُسخ</string>
   <string name="mokee_github_title">موكي Github</string>
