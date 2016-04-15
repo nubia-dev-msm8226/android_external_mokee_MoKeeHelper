@@ -134,7 +134,6 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             case STYLE_INSTALLED:
                 confirmDelete((Integer) v.getTag());
                 break;
-
             case STYLE_DOWNLOADING:
             case STYLE_NEW:
             case STYLE_EXTRAS_NEW:

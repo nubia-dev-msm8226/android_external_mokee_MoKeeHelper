@@ -286,7 +286,10 @@ public class DownLoader {
                     if (downSize == sectionSize) {
                         isFinished();
                     } else {
-                        run();
+                        // Don't restart when user paused
+                        if (state != STATUS_PAUSED) {
+                            run();
+                        }
                     }
                 }
             } else {
