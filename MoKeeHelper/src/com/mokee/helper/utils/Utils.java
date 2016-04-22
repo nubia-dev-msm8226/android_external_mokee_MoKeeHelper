@@ -297,11 +297,7 @@ public class Utils {
             try {
                 String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
                 if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
-                    if (Long.valueOf(licenseInfo[2]) <= Constants.DONATION_LIMIT_TIME) {
-                        return Float.valueOf(licenseInfo[licenseInfo.length - 1]) + 20;
-                    } else {
-                        return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
-                    }
+                    return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -310,6 +306,22 @@ public class Utils {
             return 0f;
         }
         return 0f;
+    }
+
+    public static long getPaidDate(Context mContext) {
+        if (new File(Constants.LICENSE_FILE).exists()) {
+            try {
+                String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
+                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
+                    return Long.valueOf(licenseInfo[licenseInfo.length - 2]);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            return System.currentTimeMillis();
+        }
+        return System.currentTimeMillis();
     }
 
     public static boolean checkLicensed(Context mContext) {
