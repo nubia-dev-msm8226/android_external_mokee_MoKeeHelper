@@ -20,6 +20,7 @@ package com.mokee.helper.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,6 +41,8 @@ import mokee.support.widget.snackbar.Snackbar;
 import mokee.support.widget.snackbar.SnackbarManager;
 import mokee.support.widget.snackbar.listeners.ActionClickListener;
 
+import java.io.File;
+
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
@@ -54,6 +57,7 @@ public class MoKeeCenter extends FragmentActivity {
 
     public static final String ACTION_MOKEE_CENTER = "com.mokee.mkupdater.action.MOKEE_CENTER";
     private static final String ACTION_PAYMENT_REQUEST = "com.mokee.pay.action.PAYMENT_REQUEST";
+    private static final String ACTION_RESTORE_REQUEST = "com.mokee.pay.action.RESTORE_REQUEST";
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
     public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
     public static final String BR_ONNewIntent = "onNewIntent";
@@ -174,16 +178,28 @@ public class MoKeeCenter extends FragmentActivity {
                     case DialogInterface.BUTTON_NEGATIVE:
                         sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
                         break;
+                    case DialogInterface.BUTTON_NEUTRAL:
+                        restorePaymentRequest(mContext);
+                        break;
                 }
             }
         };
 
-        new AlertDialog.Builder(mContext)
+        Builder builder = new AlertDialog.Builder(mContext)
                 .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_ads_dialog_title)
                 .setMessage(R.string.donate_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
-                .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
+                .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton);
+        if (!new File(Constants.LICENSE_FILE).exists()) {
+            builder.setNeutralButton(R.string.donate_dialog_via_restore, mDialogButton);
+        }
+        builder.show();
+    }
+
+    private static void restorePaymentRequest(Activity mContext) {
+        Intent intent = new Intent(ACTION_RESTORE_REQUEST);
+        mContext.startActivityForResult(intent, 0);
     }
 
     private static void sendPaymentRequest (Activity mContext, String channel, String name, String description, String price) {
@@ -208,9 +224,17 @@ public class MoKeeCenter extends FragmentActivity {
                                 donateOrRemoveAdsButton(MoKeeCenter.this, true);
                             }
                         }).actionLabel(R.string.donate_money_again).colorResource(R.color.snackbar_background));
-                MoKeeUpdaterFragment.refreshOption();
+                break;
+            case 500:
+                SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_restored_failed)
+                        .duration(5000L).colorResource(R.color.snackbar_background));
+                break;
+            case 200:
+                SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_restored_success)
+                        .duration(5000L).colorResource(R.color.snackbar_background));
                 break;
         }
+        MoKeeUpdaterFragment.refreshOption();
     }
 
 }
