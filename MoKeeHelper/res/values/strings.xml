@@ -88,6 +88,7 @@
     <string name="donate_money_again">Donate again</string>
     <string name="donate_money_restored_success">License file restore successful!</string>
     <string name="donate_money_restored_failed">Donation info not found.</string>
+    <string name="donate_money_restored_timeout">Network timeout, please try again.</string>
     <string name="remove_ads_name">Remove ads</string>
     <string name="remove_ads_description">Remove ads</string>
     <string name="remove_ads_dialog_title">Always remove ads</string>

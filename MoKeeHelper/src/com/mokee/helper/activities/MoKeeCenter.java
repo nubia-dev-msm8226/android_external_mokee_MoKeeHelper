@@ -229,6 +229,10 @@ public class MoKeeCenter extends FragmentActivity {
                 SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_restored_failed)
                         .duration(5000L).colorResource(R.color.snackbar_background));
                 break;
+            case 408:
+                SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_restored_timeout)
+                        .duration(5000L).colorResource(R.color.snackbar_background));
+                break;
             case 200:
                 SnackbarManager.show(Snackbar.with(this).text(R.string.donate_money_restored_success)
                         .duration(5000L).colorResource(R.color.snackbar_background));
