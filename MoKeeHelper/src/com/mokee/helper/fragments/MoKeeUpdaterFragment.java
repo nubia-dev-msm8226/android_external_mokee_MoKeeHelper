@@ -260,10 +260,17 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     }
 
     public static void refreshOTAOption() {
-        if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST) {
+        Float currentPaid = Utils.getPaidTotal(mContext);
+        if (currentPaid < Constants.DONATION_REQUEST) {
             mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();
             mUpdateOTA.setEnabled(false);
-            mUpdateOTA.setSummary(String.format(mContext.getString(R.string.pref_ota_check_donation_request_summary), Float.valueOf(Constants.DONATION_REQUEST - Utils.getPaidTotal(mContext)).intValue()));
+            if (currentPaid == 0f) {
+                mUpdateOTA.setSummary(String.format(mContext.getString(R.string.pref_ota_check_donation_request_summary),
+                        Float.valueOf(Constants.DONATION_REQUEST - currentPaid).intValue()));
+            } else {
+                mUpdateOTA.setSummary(String.format(mContext.getString(R.string.pref_ota_check_donation_request_pending_summary),
+                        currentPaid.intValue(), Float.valueOf(Constants.DONATION_REQUEST - currentPaid.intValue()).intValue()));
+            }
         } else {
             if (!MoKeeVersionTypeString.equals(updateTypeString)) {
                 mPrefs.edit().putBoolean(Constants.OTA_CHECK_PREF, false).apply();

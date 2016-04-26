@@ -67,7 +67,8 @@ public class Constants {
     public static final long DONATION_LAST_TIME = Utils.getPaidDate(MoKeeApplication.getContext());
     public static final int DONATION_TOTAL = DONATION_LAST_TIME <= DONATION_LIMIT_TIME && License.timeVerified() ? 68 : 88;
     public static final int DONATION_REQUEST = DONATION_LAST_TIME <= DONATION_LIMIT_TIME && License.timeVerified() ? 30 : 50;
-    public static final int DONATION_MAX = 500;
+    public static final int DONATION_REQUEST_MIN = 10;
+    public static final int DONATION_MAX = 1000;
 
     // Public key
     public static final String PUB_KEY =
