@@ -19,11 +19,15 @@ package com.mokee.helper.fragments;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import mokee.support.widget.snackbar.Snackbar;
 import mokee.support.widget.snackbar.SnackbarManager;
@@ -50,6 +54,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.telecom.Response;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -58,6 +63,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 
+import com.android.volley.Request;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
@@ -68,6 +79,7 @@ import com.mokee.helper.misc.ItemInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ThreadDownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.requests.RankingRequest;
 import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
 import com.mokee.helper.utils.DownLoader;
@@ -86,8 +98,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
     private static final String KEY_MOKEE_UNIQUE_ID = "mokee_unique_id";
+    private static final String KEY_MOKEE_DONATE_INFO = "mokee_donate_info";
     private static final String KEY_MOKEE_VERSION_TYPE = "mokee_version_type";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
+
+    private static final String KEY_DONATE_TOTAL = "donate_total";
+    private static final String KEY_DONATE_RANK = "donate_rank";
+    private static final String KEY_DONATE_AMOUNT = "donate_amount";
 
     private boolean mDownloading = false;
     private long mDownloadId;
@@ -228,9 +245,64 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         setHasOptionsMenu(true);
 
-        if (Utils.getPaidTotal(mContext) < Constants.DONATION_REQUEST && MoKeeUtils.isApkInstalledAndEnabled("de.robv.android.xposed.installer", mContext)) {
+        float paid = Utils.getPaidTotal(mContext);
+        if (paid < Constants.DONATION_REQUEST && MoKeeUtils.isApkInstalledAndEnabled("de.robv.android.xposed.installer", mContext)) {
             SnackbarManager.show(Snackbar.with(mContext).text(R.string.installed_xposed_toast)
                     .duration(10000L).colorResource(R.color.snackbar_background));
+        }
+        if (paid > 0f) {
+            getRanking();
+        }
+    }
+
+    public static void getRanking() {
+        if (MoKeeUtils.isOnline(mContext)) {
+            RankingRequest rankingRequest = new RankingRequest(Request.Method.POST,
+                    URI.create(mContext.getString(R.string.conf_get_ranking_server_url_def)).toASCIIString(), Utils.getUserAgentString(mContext), new Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                if (jsonObject.has("total")) {
+                                    int total = Integer.valueOf(jsonObject.get("total").toString());
+                                    int rank = Integer.valueOf(jsonObject.get("rank").toString());
+                                    float amount = Float.valueOf(jsonObject.get("amount").toString());
+                                    mPrefs.edit().putInt(KEY_DONATE_TOTAL, total)
+                                        .putInt(KEY_DONATE_RANK, rank)
+                                        .putFloat(KEY_DONATE_AMOUNT, amount).apply();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+            }, new ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.e("Error: ", error.getMessage());
+                    VolleyLog.e("Error type: " + error.toString());
+                }
+            });
+            rankingRequest.setTag(TAG);
+            ((MoKeeApplication) mContext.getApplicationContext()).getQueue().add(rankingRequest);
+        }
+    }
+
+    private void setDonatePreference() {
+        Float paid = Utils.getPaidTotal(mContext);
+        Float amount = mPrefs.getFloat(KEY_DONATE_AMOUNT, 0f);
+        if (amount < paid) {
+            amount = paid;
+        }
+        int rank = mPrefs.getInt(KEY_DONATE_RANK, 0);
+        int total = mPrefs.getInt(KEY_DONATE_TOTAL, 0);
+        if (paid == 0f) {
+            Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, getString(R.string.donate_money_info_null));
+        } else if (total != 0) {
+            Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, String.format(mContext.getString(R.string.donate_money_info),
+                    amount.intValue(), String.valueOf((int)(((double)(total - rank) / total) * 100)) + "%"));
+        } else {
+            Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, String.format(mContext.getString(R.string.donate_money_info),
+                    amount.intValue(), "1%"));
         }
     }
 
@@ -255,6 +327,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
         }
+        setDonatePreference();
     }
 
     public static void refreshOption() {
