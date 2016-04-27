@@ -85,6 +85,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static String TAG = "MoKeeUpdaterFragment";
 
     private static final String KEY_MOKEE_VERSION = "mokee_version";
+    private static final String KEY_MOKEE_UNIQUE_ID = "mokee_unique_id";
     private static final String KEY_MOKEE_VERSION_TYPE = "mokee_version_type";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
 
@@ -221,6 +222,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
 
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
+        Utils.setSummaryFromString(this, KEY_MOKEE_UNIQUE_ID, Build.getUniqueID(mContext));
+
         updateLastCheckPreference();
 
         setHasOptionsMenu(true);
