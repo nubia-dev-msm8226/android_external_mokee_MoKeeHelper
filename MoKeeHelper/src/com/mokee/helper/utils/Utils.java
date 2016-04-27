@@ -296,7 +296,8 @@ public class Utils {
         if (new File(Constants.LICENSE_FILE).exists()) {
             try {
                 String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
-                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
+                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))
+                        || licenseInfo[0].equals(Build.getUniqueID(mContext, 1)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
                     return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
                 }
             } catch (Exception e) {
@@ -312,7 +313,8 @@ public class Utils {
         if (new File(Constants.LICENSE_FILE).exists()) {
             try {
                 String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
-                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
+                if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))
+                        || licenseInfo[0].equals(Build.getUniqueID(mContext, 1)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
                     return Long.valueOf(licenseInfo[licenseInfo.length - 2]);
                 }
             } catch (Exception e) {
