@@ -35,7 +35,7 @@
     <string name="mokee_issues_title">MoKee Bug Tracker</string>
     <string name="mokee_issues_summary">Visit the bug tracker</string>
     <string name="mokee_changelog_title">MoKee Changelog</string>
-    <string name="mokee_changelog_summary">View MoKee Changelog List</string>
+    <string name="mokee_changelog_summary">View daily changelog</string>
     <string name="mokee_build_status_title">MoKee Build Status</string>
     <string name="mokee_build_status_summary">View build status</string>
     <string name="mokee_github_title">MoKee Github</string>
@@ -196,5 +196,5 @@
     <string name="show_exp_already">No need, you have already enabled experimental settings.</string>
 
     <!-- Xposed framework check -->
-    <string name="installed_xposed_toast">Xposed framework already installed, enable incremental update will be keep framework.</string>
+    <string name="installed_xposed_toast">Xposed framework installed, no need to reflash framework after applying incremental updates.</string>
 </resources>
