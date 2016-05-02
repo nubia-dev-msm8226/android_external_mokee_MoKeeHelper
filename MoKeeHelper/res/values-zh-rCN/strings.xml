@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">问题反馈</string>
   <string name="mokee_issues_summary">反馈报告手机使用问题以便我们改进系统</string>
   <string name="mokee_changelog_title">更新日志</string>
+  <string name="mokee_changelog_summary">查看魔趣开源计划每天的功能改进清单</string>
   <string name="mokee_build_status_title">编译状态</string>
   <string name="mokee_build_status_summary">查看魔趣当前编译清单和状态</string>
   <string name="mokee_github_title">开源代码</string>
@@ -177,4 +178,5 @@
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">检测到系统安装了Xposed框架，启用增量更新可在升级后无需重刷框架。</string>
 </resources>
