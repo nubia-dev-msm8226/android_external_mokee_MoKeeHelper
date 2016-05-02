@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Bug 追蹤器</string>
   <string name="mokee_issues_summary">造訪 bug 追蹤器</string>
   <string name="mokee_changelog_title">MoKee 更新日誌</string>
-  <string name="mokee_changelog_summary">查看 MoKee 的更新日誌列表</string>
   <string name="mokee_build_status_title">MoKee 建立狀態</string>
   <string name="mokee_build_status_summary">查看建立狀態</string>
   <string name="mokee_github_title">MoKee 的 Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">您已啟用實驗設置 ！</string>
   <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed框架已經安裝，啟用增量更新而保存框架</string>
 </resources>

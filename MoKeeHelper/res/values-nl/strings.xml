@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Bezoek de bug tracker</string>
   <string name="mokee_changelog_title">MoKee Wijzigingen</string>
-  <string name="mokee_changelog_summary">Bekijk de lijst van wijzigingen in MoKee</string>
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
   <string name="mokee_build_status_summary">Build status weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -179,5 +178,4 @@
   <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed Framework is al geïnstalleerd, het inschakelen van OTA updates behoudt het framework.</string>
 </resources>

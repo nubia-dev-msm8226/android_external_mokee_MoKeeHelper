@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">עוקב הבאגים של MoKee</string>
   <string name="mokee_issues_summary">בקר את עוקב הבאגים</string>
   <string name="mokee_changelog_title">רשימת שינויים MoKee</string>
-  <string name="mokee_changelog_summary">הצג רשימה רשימת שינויים MoKee</string>
   <string name="mokee_build_status_title">מצב הבנייה MoKee</string>
   <string name="mokee_build_status_summary">הצג מצב הבנייה של MoKee</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -170,5 +169,4 @@
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">יש לך Xposed Framework מותקן, אפשר עדכוני OTA ולא תצטרך להתקין אותו שוב.</string>
 </resources>

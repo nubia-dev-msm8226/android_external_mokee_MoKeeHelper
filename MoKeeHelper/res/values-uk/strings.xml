@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Баґ-трекер MoKee</string>
   <string name="mokee_issues_summary">Відвідати баґ-трекер</string>
   <string name="mokee_changelog_title">Історія змін MoKee</string>
-  <string name="mokee_changelog_summary">Перегляд списку змін MoKee</string>
   <string name="mokee_build_status_title">Стан збірки MoKee</string>
   <string name="mokee_build_status_summary">Переглянути статус збірки</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Експериментальні установки активовано!</string>
   <string name="show_exp_already">Немає необхідності, експериментальні установки вже активовані.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework вдало встановлено, увімкніть Ota оновлення для підтримки framework.</string>
 </resources>

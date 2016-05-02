@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Hibajelentő</string>
   <string name="mokee_issues_summary">Látogass el hibajelentő oldalunkra</string>
   <string name="mokee_changelog_title">MoKee Changelog</string>
-  <string name="mokee_changelog_summary">MoKee Changelog tartalma</string>
   <string name="mokee_build_status_title">MoKee Buildszám</string>
   <string name="mokee_build_status_summary">Build státus megtekintése</string>
   <string name="mokee_github_title">MoKee GitHub</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Engedélyezted a kísérleti funkciókat!</string>
   <string name="show_exp_already">Már engedélyezted a kísérleti funkciókat.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Az Xposed keretrendszer már telepítve van, a növekményes frissítések engedélyezése.</string>
 </resources>

@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Navštivtit bug tracker</string>
   <string name="mokee_changelog_title">MoKee Changelog</string>
-  <string name="mokee_changelog_summary">Zobrazit MoKee Changelog</string>
   <string name="mokee_build_status_title">MoKee sestavení</string>
   <string name="mokee_build_status_summary">Zobrazit  sestavení</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
   <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework je již nainstalován, povolte OTA aktualizace, aby se Xposed zachoval.</string>
 </resources>

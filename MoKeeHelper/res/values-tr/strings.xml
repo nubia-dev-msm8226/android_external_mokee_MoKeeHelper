@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Hata Takipçisi</string>
   <string name="mokee_issues_summary">Hata takipçisini ziyaret et</string>
   <string name="mokee_changelog_title">MoKee Değişim Günlüğü</string>
-  <string name="mokee_changelog_summary">MoKee Değişim Günlüğü Listesi</string>
   <string name="mokee_build_status_title">MoKee Sürüm Durumu</string>
   <string name="mokee_build_status_summary">Sürüm Durumunu İncele</string>
   <string name="mokee_github_title">MoKee Github</string>

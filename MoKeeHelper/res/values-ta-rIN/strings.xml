@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee பிழை திரட்டப்படுகிறது</string>
   <string name="mokee_issues_summary">MoKee பிழை டிரேக்கர் செல்</string>
   <string name="mokee_changelog_title">MoKee மாற்றம் பதிவு</string>
-  <string name="mokee_changelog_summary">MoKee மாற்றம் பதிவு காண்க</string>
   <string name="mokee_build_status_title">MoKee உருவாக்க நிலை</string>
   <string name="mokee_build_status_summary">உருவாக்க நிலை பார்க்க</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -173,5 +172,4 @@
   <string name="show_exp_on">நீங்கள் சோதனை அமைப்புகளை இயக்கியுள்ளீர்கள்!</string>
   <string name="show_exp_already">தேவை இல்லை, நீங்கள் ஏற்கனவே சோதனை அமைப்புகளை இயக்கியுள்ளீர்கள்.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed கட்டமைப்பை ஏற்கனவே நிறுவப்பட்டுள்ளது. கட்டமைப்பை வைத்து இருக்க விரும்பினால் கூடுதல்முறை புதுப்பிப்பு இருக்க வேண்டும்.</string>
 </resources>

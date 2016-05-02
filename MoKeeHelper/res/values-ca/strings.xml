@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Enviament de Bugs a Mokee</string>
   <string name="mokee_issues_summary">Visita re-portaments de bugs </string>
   <string name="mokee_changelog_title">Canvis (Changelog) de Mokee</string>
-  <string name="mokee_changelog_summary">Veure la llista de canvis.</string>
   <string name="mokee_build_status_title">MoKee estat del Build</string>
   <string name="mokee_build_status_summary">Veure l\'estat del Build</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -171,5 +170,4 @@ desactivi aquesta opció.</string>
   <string name="show_exp_on">Ha permès  paràmetres experimentals.</string>
   <string name="show_exp_already">No hi ha necessitat, ja heu activat paràmetres experimentals.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed marc ja instal·lat, permetre incremental actualització serà mantenir marc.</string>
 </resources>

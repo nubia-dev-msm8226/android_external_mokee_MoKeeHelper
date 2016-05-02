@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Κέντρο σφαλμάτων MoKee</string>
   <string name="mokee_issues_summary">Επισκεφθείτε το bug tracker</string>
   <string name="mokee_changelog_title">Αρχείο καταγραφής αλλαγών MoKee</string>
-  <string name="mokee_changelog_summary">Προβολή αρχείου αλλαγών MoKee</string>
   <string name="mokee_build_status_title">Κατάσταση δημιουργίας MoKee</string>
   <string name="mokee_build_status_summary">Προβολή κατάστασης χτισίματος</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -166,5 +165,4 @@
   <string name="show_exp_on">Έχετε ενεργοποιήσει τις πειραματικές ρυθμίσεις!</string>
   <string name="show_exp_already">Δεν χρειάζεται, έχετε ήδη ενεργοποιήσει τις πειραματικές ρυθμίσεις.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Το Xposed framework είναι ήδη εγκατεστημένο. Με την ενημέρωση το framework θα διατηρηθεί.</string>
 </resources>

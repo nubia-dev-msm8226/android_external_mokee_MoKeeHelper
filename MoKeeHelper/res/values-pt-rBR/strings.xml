@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Visite o bug tracker</string>
   <string name="mokee_changelog_title">Registro de alterações Mokee</string>
-  <string name="mokee_changelog_summary">Ver lista de mudanças MoKee</string>
   <string name="mokee_build_status_title">Status de compilação MoKee</string>
   <string name="mokee_build_status_summary">Ver status da compilação</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Você habilitou as configurações experimentais!</string>
   <string name="show_exp_already">Não precisa, você já habilitou as configurações experimentais.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework já instalado, habilitar atualização incremental vai manter o framework.</string>
 </resources>

@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Công cụ theo dõi lỗi của MoKee</string>
   <string name="mokee_issues_summary">Truy cập vào công cụ theo dõi lỗi</string>
   <string name="mokee_changelog_title">Nhật ký thay đổi MoKee</string>
-  <string name="mokee_changelog_summary">Xem danh sách nhật ký thay đổi MoKee</string>
   <string name="mokee_build_status_title">Tình trạng xây dựng MoKee</string>
   <string name="mokee_build_status_summary">Xem trạng thái xây dựng</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Bạn đã kích hoạt cài đặt thử nghiệm!</string>
   <string name="show_exp_already">Không cần thiết, bạn đã có cho phép cài đặt thử nghiệm.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework đã được cài đặt, bật Cập Nhật bổ sung sẽ là giữ nguyên framework.</string>
 </resources>

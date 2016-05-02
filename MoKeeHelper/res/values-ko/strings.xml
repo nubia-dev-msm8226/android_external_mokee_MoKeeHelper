@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee 버그 추적기</string>
   <string name="mokee_issues_summary">버그 추적기를 방문</string>
   <string name="mokee_changelog_title">MoKee 체인지로그</string>
-  <string name="mokee_changelog_summary">MoKee 체인지로그 목록를 보기</string>
   <string name="mokee_build_status_title">MoKee 빌드 상태</string>
   <string name="mokee_build_status_summary">빌드 상태를 보기</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -170,5 +169,4 @@
   <string name="show_exp_on">당신은 실험 모드에있다!</string>
   <string name="show_exp_already">이미 실험적인 설정입니다.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">이미 설치 된, Xposed 프레임 워크 사용 증분 업데이트 유지 프레임 워크를 될 것입니다.</string>
 </resources>

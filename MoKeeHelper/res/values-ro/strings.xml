@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Erori MoKee</string>
   <string name="mokee_issues_summary">Vizitează site-ul cu erori</string>
   <string name="mokee_changelog_title">Schimbări MoKee</string>
-  <string name="mokee_changelog_summary">Afișează lista cu actualizări MoKee</string>
   <string name="mokee_build_status_title">Starea de update a MoKee</string>
   <string name="mokee_build_status_summary">Afișează starea versiunii update</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Ați activat setările experimentale!</string>
   <string name="show_exp_already">Nu este necesar, deja ați activat setările experimentale.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Modulul Xposed framework este deja instalat, activarea de actualizări incrementale va menține acest framework.</string>
 </resources>

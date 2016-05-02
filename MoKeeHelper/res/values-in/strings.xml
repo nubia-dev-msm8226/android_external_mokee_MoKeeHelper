@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Pelacak Bug</string>
   <string name="mokee_issues_summary">Kunjungi Pelacak Bug</string>
   <string name="mokee_changelog_title">Perubahan MoKee</string>
-  <string name="mokee_changelog_summary">Lihat Daftar Perubahan MoKee</string>
   <string name="mokee_build_status_title">Status Build MoKee</string>
   <string name="mokee_build_status_summary">Lihat build status</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -47,6 +46,7 @@
   <string name="mokee_version_info_title">Info versi</string>
   <string name="mokee_version_title">Versi MoKee</string>
   <string name="mokee_unique_id_title">ID Unik</string>
+  <string name="mokee_donate_info_title">Menyumbangkan Info</string>
   <string name="mokee_version_type_title">Tipe Versi</string>
   <string name="mokee_last_check_title">Pemeriksaan Terakhir</string>
   <string name="mokee_last_check_never">Jangan pernah</string>
@@ -81,6 +81,8 @@
   <string name="donate_money_restored_success">Pemulihan berhasil!</string>
   <string name="donate_money_restored_failed">Tidak ada catatan perangkat ditemukan.</string>
   <string name="donate_money_restored_timeout">Sambungan gagal, silahkan ulangi</string>
+  <string name="donate_money_info">Anda menyumbangkan total CNY %1$d, lebih dari %2$s dari donor secara global!</string>
+  <string name="donate_money_info_null">Anda belum menyumbang</string>
   <string name="remove_ads_name">Hapus iklan</string>
   <string name="remove_ads_description">Hapus iklan</string>
   <string name="remove_ads_dialog_title">Selalu hapus iklan</string>
@@ -175,5 +177,4 @@
   <string name="show_exp_on">Anda telah mengaktifkan pengaturan percobaan!</string>
   <string name="show_exp_already">Tidak perlu, Anda telah mengaktifkan pengaturan eksperimental.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework sudah diinstal, mengaktifkan update incremental framework akan tetap ada.</string>
 </resources>

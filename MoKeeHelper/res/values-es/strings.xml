@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Gestor de Bugs Mokee</string>
   <string name="mokee_issues_summary">Visita el Gestor de Bugs</string>
   <string name="mokee_changelog_title">Registros de cambios Mokee</string>
-  <string name="mokee_changelog_summary">Ver lista de cambios MoKee</string>
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
   <string name="mokee_build_status_summary">Ver estado de la compilación</string>
   <string name="mokee_github_title">Github de MoKee</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Ha activado la configuración experimental!</string>
   <string name="show_exp_already">No hace falta, ya ha activado la configuración experimental.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">El marco Xposed ya está instalado. Activa la actualización incremental para mantenerlo.</string>
 </resources>

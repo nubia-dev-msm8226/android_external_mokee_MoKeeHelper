@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee Bug-Tracker</string>
   <string name="mokee_issues_summary">Besuchen Sie unseren Bug-Tracker</string>
   <string name="mokee_changelog_title">MoKee Änderungshistorie</string>
-  <string name="mokee_changelog_summary">Rufen Sie die MoKee Änderungshistorie auf</string>
   <string name="mokee_build_status_title">MoKee Buildstatus</string>
   <string name="mokee_build_status_summary">Buildstatus aufrufen</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -170,5 +169,4 @@ Sind Sie sicher, dass Sie <xliff:g id="filename"> %s </xliff:g> installieren mö
   <string name="show_exp_on">Experimentelle Einstellungen aktiviert!</string>
   <string name="show_exp_already">Nicht nötig: Experimentelle Einstellungen sind bereits aktiviert.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Das Xposed-Framework ist installiert. Zur Erhaltung erlauben Sie inkrementelle Updates.</string>
 </resources>

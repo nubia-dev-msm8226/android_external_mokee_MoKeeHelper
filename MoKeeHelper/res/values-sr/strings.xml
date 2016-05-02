@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">MoKee отклањање грешака</string>
   <string name="mokee_issues_summary">Погледајте извештај о грешкама</string>
   <string name="mokee_changelog_title">MoKee списак измена</string>
-  <string name="mokee_changelog_summary">Погледајте листу MoKee измена</string>
   <string name="mokee_build_status_title">MoKee статус изградње</string>
   <string name="mokee_build_status_summary">Погледајте статус изградње</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -169,5 +168,4 @@
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework је већ инсталиран, омогућавање инкременталног апдејта сачуваће framework.</string>
 </resources>
