@@ -204,7 +204,7 @@ public class MoKeeCenter extends FragmentActivity {
 
     private static void sendPaymentRequest (Activity mContext, String channel, String name, String description, String price) {
         Intent intent = new Intent(ACTION_PAYMENT_REQUEST);
-        intent.putExtra("packagename", Utils.getPackageName(mContext));
+        intent.putExtra("packagename", mContext.getPackageName());
         intent.putExtra("channel", channel);
         intent.putExtra("type", "donation");
         intent.putExtra("name", name);

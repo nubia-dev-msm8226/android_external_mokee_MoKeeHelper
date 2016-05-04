@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import android.app.Activity;
+import android.app.ActivityThread;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -78,6 +79,7 @@ public class MoKeeApplication extends Application implements
     public void onCreate() {
         super.onCreate();
 
+        if (!ActivityThread.currentProcessName().equals(getPackageName())) return;
         mMainActivityActive = false;
         registerActivityLifecycleCallbacks(this);
         mRequestQueue = Volley.newRequestQueue(this);
