@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Navštivtit bug tracker</string>
   <string name="mokee_changelog_title">MoKee Changelog</string>
+  <string name="mokee_changelog_summary">Zobrazit denní změny</string>
   <string name="mokee_build_status_title">MoKee sestavení</string>
   <string name="mokee_build_status_summary">Zobrazit  sestavení</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Informace o verzi</string>
   <string name="mokee_version_title">Verze MoKee</string>
+  <string name="mokee_unique_id_title">Jedinečné ID</string>
+  <string name="mokee_donate_info_title">Info darování</string>
   <string name="mokee_version_type_title">Typ verze</string>
   <string name="mokee_last_check_title">Poslední kontrola</string>
   <string name="mokee_last_check_never">Nikdy</string>
@@ -71,10 +74,16 @@
   <string name="donate_dialog_message">Na rozdíl od společností, jako jsou Cygn nebo MIUI, MoKee OpenSource je ryze neziskový projekt vzniklý z koníčku a vášně. Pro vývoj jsme nuceni pokrýt náklady z vlastních peněz a času nebo se spolehnout na dary a reklamy. Vaše dary mohou pomoci snížit naše finanční zatížení a zajistit udržení budoucího vývoje! Tato možnost Vám umožňuje odstranit reklamy v MoKee centru nebo můžete použít možnost \"Darovat\", pokud radši dáváte přednost splátkám (reklamy budou odstraněny, jakmile celkový součet splátek dosáhne zadané hodnoty). Vytvořte si prosím záložní kopii souboru mokee.license (v kořenovém adresáři sdcard, platné pouze pro toto zařízení), pokud jste již darovali.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">Obnovení</string>
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>
   <string name="donate_money_again">Darovat znovu</string>
+  <string name="donate_money_restored_success">Úspěšně obnoveno!</string>
+  <string name="donate_money_restored_failed">Žádný záznam zařízení nenalezen.</string>
+  <string name="donate_money_restored_timeout">Připojení vypršelo, zkuste to prosím znovu</string>
+  <string name="donate_money_info">Celkem darováno %1$d CNY, více než %2$s dárců!</string>
+  <string name="donate_money_info_null">Nebylo darováno</string>
   <string name="remove_ads_name">Odstranit reklamy</string>
   <string name="remove_ads_description">Odstranit reklamy</string>
   <string name="remove_ads_dialog_title">Vždy odstranit reklamy</string>

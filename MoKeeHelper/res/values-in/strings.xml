@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Pelacak Bug</string>
   <string name="mokee_issues_summary">Kunjungi Pelacak Bug</string>
   <string name="mokee_changelog_title">Perubahan MoKee</string>
+  <string name="mokee_changelog_summary">Lihat perubahan harian</string>
   <string name="mokee_build_status_title">Status Build MoKee</string>
   <string name="mokee_build_status_summary">Lihat build status</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -177,4 +178,5 @@
   <string name="show_exp_on">Anda telah mengaktifkan pengaturan percobaan!</string>
   <string name="show_exp_already">Tidak perlu, Anda telah mengaktifkan pengaturan eksperimental.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework terpasang, tidak butuh untuk reflash framework setelah menerapkan pembaruan incremental.</string>
 </resources>

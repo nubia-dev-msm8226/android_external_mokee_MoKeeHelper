@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">Bug Tracker di MoKee</string>
   <string name="mokee_issues_summary">Visita il bug tracker</string>
   <string name="mokee_changelog_title">Changelog di Mokee</string>
+  <string name="mokee_changelog_summary">Vedi changelog giornaliero</string>
   <string name="mokee_build_status_title">Stato delle build di MoKee</string>
   <string name="mokee_build_status_summary">Vedi lo stato delle build</string>
   <string name="mokee_github_title">Github di MoKee</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Informazioni versione</string>
   <string name="mokee_version_title">Versione Mokee</string>
+  <string name="mokee_unique_id_title">ID Univoco</string>
+  <string name="mokee_donate_info_title">Fai una donazione ora</string>
   <string name="mokee_version_type_title">Tipo di versione</string>
   <string name="mokee_last_check_title">Ultimo controllo</string>
   <string name="mokee_last_check_never">Mai</string>
@@ -71,10 +74,16 @@
   <string name="donate_dialog_message">A differenza di aziende come Cygn o MIUI, MoKee OpenSource è un progetto puramente non-profit nato per hobby e passione. Al fine di mantenere questo progetto, dobbiamo sborsare nostri soldi la maggior parte delle volte o fare affidamento a donazioni e pubblicità. Le vostre donazioni possono aiutare a ridurre il nostro carico finanziario e sostenere lo sviluppo futuro! Questa opzione consente di rimuovere gli annunci dal centro MoKee, oppure utilizza l\'opzione \"Dona\" invece, se si preferiscono le rate (gli annunci verranno rimossi una volta che il totale ha raggiunto il valore specificato). Si prega di effettuare il backup del file mokee.license (nella directory principale della sdcard, valido solo per il dispositivo corrente) una volta che hai donato.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">Ripristina</string>
   <string name="donate_money_toast_success">Grazie per la tua donazione!</string>
   <string name="donate_money_name">Dona a Mokee OpenSource</string>
   <string name="donate_money_description">Dona a Mokee Opensource</string>
   <string name="donate_money_again">Dona di nuovo</string>
+  <string name="donate_money_restored_success">Ripristinato con successo!</string>
+  <string name="donate_money_restored_failed">Nessun record di dispositivo trovato.</string>
+  <string name="donate_money_restored_timeout">Connessione scaduta, si prega di riprovare</string>
+  <string name="donate_money_info">Donato un totale di %1$d CNY, più di %2$s rispetto a tutti i donatori!</string>
+  <string name="donate_money_info_null">Non hai donato</string>
   <string name="remove_ads_name">Rimuovi pubblicità</string>
   <string name="remove_ads_description">Rimuovi pubblicità</string>
   <string name="remove_ads_dialog_title">Rimuovi sempre pubblicità</string>
@@ -156,6 +165,7 @@
   <string name="pref_ota_check">Aggiornamenti OTA</string>
   <string name="pref_ota_check_summary">Ottieni gli aggiornamenti incrementali per risparmiare tempo di download e larghezza di banda</string>
   <string name="pref_ota_check_donation_request_summary">Ottieni gli aggiornamenti incrementali per risparmiare tempo di download e larghezza di banda(disponibile dopo aver donato CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Scarica aggiornamenti incrementali per risparmiare tempo e banda (Donato %1$d, disponibile a vita dopo una donazione di %2$d , valuta: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Applica l\'aggiornamento</string>
   <string name="apply_update_dialog_text">Si sta per aggiornare a <xliff:g id="filename">%s</xliff:g>.\n\nPremendo Aggiorna, il dispositivo verrà riavviato in modalità recovery per l\'installazione dell\'aggiornamento\n\nNota: questa caratteristica richiede una recovery compatibile; in caso contrario sarà necessario installare gli aggiornamenti manualmente.</string>
@@ -168,4 +178,5 @@
   <string name="show_exp_on">Funzioni sperimentali attivate!</string>
   <string name="show_exp_already">Non c\'è bisogno, le funzioni sperimentali sono già attivate</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework installato, non necessita nuova installazione dopo aggiornamenti incrementali.</string>
 </resources>
