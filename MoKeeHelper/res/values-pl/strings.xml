@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Odwiedź bug tracker</string>
   <string name="mokee_changelog_title">Lista zmian</string>
+  <string name="mokee_changelog_summary">Pokaż dziennik zmian</string>
   <string name="mokee_build_status_title">Stan kompilacji MoKee</string>
   <string name="mokee_build_status_summary">Wyświetl stan kompilacji</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Informacje o wersji</string>
   <string name="mokee_version_title">Wersja Mokee</string>
+  <string name="mokee_unique_id_title">Unikalne ID</string>
+  <string name="mokee_donate_info_title">Informacje o Dotacjach</string>
   <string name="mokee_version_type_title">Typ wersji</string>
   <string name="mokee_last_check_title">Ostatnio sprawdzono</string>
   <string name="mokee_last_check_never">Nigdy</string>
@@ -71,10 +74,13 @@
   <string name="donate_dialog_message">W odróżnieniu od firm takich jak Cyanogen lub MIUI, MoKee OpenSource jest projektem czysto non-profit zrodzonym z hobby i pasji. W celu utrzymania tego projektu wydajemy nasze własne pieniądze przez większość czasu lub polegamy na darowiźnie i reklamie. Darowizny mogą pomóc zmniejszyć nasze obciążenie finansowe i utrzymać przyszły rozwój! Opcja ta pozwala na usunięcie reklam w centrum MoKee, można też użyć opcji \"Donate\" Jeśli wolisz raty (reklamy zostaną usunięte, gdy suma osiągnie określoną wartość). Proszę wykonać kopię zapasową pliku mokee.license (w katalogu głównym sdcard, ważne tylko dla bieżącego urządzenia), jeśli dokonałeś wpłaty.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_restore">Przywróć</string>
   <string name="donate_money_toast_success">Dziękujemy za wsparcie!</string>
   <string name="donate_money_name">Wspomóż MoKee OpenSource</string>
   <string name="donate_money_description">Wspomóż MoKee OpenSource</string>
   <string name="donate_money_again">Wesprzyj ponownie</string>
+  <string name="donate_money_restored_success">Pomyślnie przywrócono!</string>
+  <string name="donate_money_restored_timeout">Połączenie zostało rozłączone, proszę spróbować ponownie</string>
   <string name="remove_ads_name">Usuń reklamy</string>
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>

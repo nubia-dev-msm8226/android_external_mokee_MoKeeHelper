@@ -159,8 +159,14 @@
   <string name="pref_ota_check_donation_request_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць (даступна пасля ахвяравання ў CNY %d)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Прымяніць абнаўленне</string>
+  <string name="apply_update_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўстаноўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную.</string>
+  <string name="apply_update_ota_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўстаноўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную. \n\nГэта інкрыментны абнаўленне, таму змены ў сістэмных файлах могуць прывесці да збою ўстаноўкі абнаўлення. У гэтым выпадку, усталюйце поўную версію Mokee.</string>
   <string name="apply_extras_dialog_title">Устанавіць дапаўненне</string>
+  <string name="apply_extras_dialog_text">Вы ўпэўненыя, што хочаце ўсталяваць <xliff:g id="filename">%s</xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Немагчыма перазагрузіцца у рэжым Recovery</string>
+  <string name="extras_unsupported_toast">Ваша версія не падтрымлівае дадзенае пашырэнне</string>
   <!-- experimenter mode -->
+  <string name="show_exp_on">Вы ўключылі эксперыментальныя параметры!</string>
+  <string name="show_exp_already">Няма неабходнасці, эксперыментальныя параметры ўжо ўключаны.</string>
   <!-- Xposed framework check -->
 </resources>

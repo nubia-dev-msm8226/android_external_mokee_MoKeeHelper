@@ -179,4 +179,5 @@
   <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
   <string name="show_exp_already">Нет необходимости, экспериментальные параметры уже включены.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework установлен, его не нужно переустанавливать после применения OTA-обновлений.</string>
 </resources>
