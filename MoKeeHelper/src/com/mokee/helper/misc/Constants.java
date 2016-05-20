@@ -17,11 +17,10 @@
 
 package com.mokee.helper.misc;
 
-import android.os.Environment;
-
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.utils.Utils;
-import com.mokee.security.License;
+
+import android.os.Environment;
 
 public class Constants {
 
@@ -63,11 +62,11 @@ public class Constants {
 
     // About License
     public static final String LICENSE_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/mokee.license";
-    public static final long DONATION_LIMIT_TIME = 1462032000000L;
-    public static final long DONATION_LAST_TIME = Utils.getPaidDate(MoKeeApplication.getContext());
-    public static final int DONATION_TOTAL = DONATION_LAST_TIME <= DONATION_LIMIT_TIME && License.timeVerified() ? 68 : 88;
-    public static final int DONATION_REQUEST = DONATION_LAST_TIME <= DONATION_LIMIT_TIME && License.timeVerified() ? 30 : 50;
-    public static final int DONATION_REQUEST_MIN = 10;
+//    public static final long DONATION_LIMIT_TIME = 1462032000000L;
+//    public static final long DONATION_LAST_TIME = Utils.getPaidDate(MoKeeApplication.getContext());
+    public static final int DONATION_TOTAL = 68;
+    public static final int DONATION_REQUEST = 30;
+    public static final int DONATION_REQUEST_MIN = Utils.getPaidTotal(MoKeeApplication.getContext()) > 0 ? 10 : DONATION_REQUEST;
     public static final int DONATION_MAX = 1000;
 
     // Public key
