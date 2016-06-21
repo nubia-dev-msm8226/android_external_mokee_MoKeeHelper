@@ -54,11 +54,11 @@
   <string name="mokee_extras_info_title">Informazioni extra</string>
   <!-- Version -->
   <string name="mokee_info_default">Sconosciuto</string>
-  <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_release">Rilascio</string>
   <string name="mokee_version_type_history">Cronologia</string>
   <string name="mokee_version_type_experimental">Sperimentale</string>
-  <string name="mokee_version_type_nightly">Nightly</string>
-  <string name="mokee_version_type_unofficial">Unofficial</string>
+  <string name="mokee_version_type_nightly">Instabile</string>
+  <string name="mokee_version_type_unofficial">Non ufficiale</string>
   <string name="mokee_version_type_all">Tutte</string>
   <!-- State -->
   <string name="downloaded_update_summary">Scaricato</string>
@@ -83,6 +83,7 @@
   <string name="donate_money_restored_failed">Nessun record di dispositivo trovato.</string>
   <string name="donate_money_restored_timeout">Connessione scaduta, si prega di riprovare</string>
   <string name="donate_money_info">Donato un totale di %1$d CNY, più di %2$s rispetto a tutti i donatori!</string>
+  <string name="donate_money_info_with_rank">Hai donato un totale di %1$d, più del %2$s dei donatori a livello mondiale, posizione No. %3$d!</string>
   <string name="donate_money_info_null">Non hai donato</string>
   <string name="remove_ads_name">Rimuovi pubblicità</string>
   <string name="remove_ads_description">Rimuovi pubblicità</string>
