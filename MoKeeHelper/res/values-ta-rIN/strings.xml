@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee பிழை திரட்டப்படுகிறது</string>
   <string name="mokee_issues_summary">MoKee பிழை டிரேக்கர் செல்</string>
   <string name="mokee_changelog_title">MoKee மாற்றம் பதிவு</string>
+  <string name="mokee_changelog_summary">தினசரி மாற்றம் பதிவு காண்</string>
   <string name="mokee_build_status_title">MoKee உருவாக்க நிலை</string>
   <string name="mokee_build_status_summary">உருவாக்க நிலை பார்க்க</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">பதிப்பு தகவல்</string>
   <string name="mokee_version_title">MoKee பதிப்பு</string>
+  <string name="mokee_unique_id_title">பிரத்யேக ID</string>
+  <string name="mokee_donate_info_title">தகவல் நன்கொடையளி</string>
   <string name="mokee_version_type_title">பதிப்பு வகை</string>
   <string name="mokee_last_check_title">கடந்த சோதனை</string>
   <string name="mokee_last_check_never">ஒருபோதுமில்லை</string>
@@ -72,10 +75,17 @@
 (மொத்த குறிப்பிட்ட மதிப்பை அடைந்ததும் விளம்பரங்கள் அகற்றப்பட்டு விடும்). mokee.license கோப்பினை காப்பு பிரதி எடுக்கலாம் (தற்போதைய சாதனத்தில் மட்டுமே செல்லுபடியாகும்).</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">மீட்டெடுத்தல்</string>
   <string name="donate_money_toast_success">உங்கள் நன்கொடை நன்றி!</string>
   <string name="donate_money_name">திறந்த மூல MoKee க்கு நன்கொடை</string>
   <string name="donate_money_description">திறந்த மூல MoKee க்கு நன்கொடை</string>
   <string name="donate_money_again">மீண்டும் நன்கொடை</string>
+  <string name="donate_money_restored_success">வெற்றிகரமாக மீட்டெடுக்கப்பட்டது!</string>
+  <string name="donate_money_restored_failed">சாதனம் சாதனை எதுவும் காணப்படவில்லை.</string>
+  <string name="donate_money_restored_timeout">இணைப்பு தோல்வியுற்றது, மீண்டும் முயற்சித்திடுக</string>
+  <string name="donate_money_info">நீங்கள் மொத்தம் CNY %1$d, உலகளவில் %2$s விட நன்கொடையாக கொடுக்கப்பட்டுள்ளது!</string>
+  <string name="donate_money_info_with_rank">நீங்கள் மொத்தம் CNY %1$d, உலகளவில் %2$s விட நன்கொடையாக கொடுக்கப்பட்டுள்ளது, அந்தஸ்து %3$d!</string>
+  <string name="donate_money_info_null">நீங்கள் நன்கொடையாக இல்லை</string>
   <string name="remove_ads_name">விளம்பரங்களை அகற்று</string>
   <string name="remove_ads_description">விளம்பரங்களை அகற்று</string>
   <string name="remove_ads_dialog_title">எப்போதும் விளம்பரங்களை நீக்க</string>
@@ -160,6 +170,7 @@
   <string name="pref_ota_check">கூடுதல் மேம்படுத்தல்</string>
   <string name="pref_ota_check_summary">பதிவிறக்க நேரத்தை மற்றும் அலைவரிசையை காப்பாற்ற கிடைக்கும் கூடுதல் மேம்படுத்தல்களை பயன்படுத்தவும்</string>
   <string name="pref_ota_check_donation_request_summary">பதிவிறக்க நேரத்தை மற்றும் அலைவரிசையை காப்பாற்ற கிடைக்கும் கூடுதல் மேம்படுத்தல்களை பயன்படுத்தவும் (நன்கொடை CNY %d பிறகு)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">சேமிக்க மிகையான புதுப்பித்தல்களை பெறவும் பதிவிறக்க நேரம் மற்றும் பேண்ட்வித் (நன்கொடை %1$d, மேலும், %2$d செலாவணி கொடுப்பதன் பிறகு கவர்வீர்கள் கிடைக்கிறது: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">மேம்படுத்தல் விண்ணப்பிக்க</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> மேம்படுத்தல் செய்ய போகிறீர்கள்.\n\n மேம்படுத்தல் தொடும்போது சாதனம் recovery மறுதொடக்கம் ஆகும்.\n\nகுறிப்பு: இதற்காக இணக்கமான Recovery வேண்டும். அல்லது மேம்படுத்தல்கள் கைமுறையாக நிறுவ வேண்டும்.</string>
@@ -172,4 +183,5 @@
   <string name="show_exp_on">நீங்கள் சோதனை அமைப்புகளை இயக்கியுள்ளீர்கள்!</string>
   <string name="show_exp_already">தேவை இல்லை, நீங்கள் ஏற்கனவே சோதனை அமைப்புகளை இயக்கியுள்ளீர்கள்.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed நிறுவப்பட்டுள்ளது, மிகையான புதுப்பித்தல் பயன்படுத்துவதற்கு பிறகு கட்டமைப்பு reflash தேவையில்லை.</string>
 </resources>

@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee 버그 추적기</string>
   <string name="mokee_issues_summary">버그 추적기를 방문</string>
   <string name="mokee_changelog_title">MoKee 체인지로그</string>
+  <string name="mokee_changelog_summary">Changelog 보기</string>
   <string name="mokee_build_status_title">MoKee 빌드 상태</string>
   <string name="mokee_build_status_summary">빌드 상태를 보기</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -79,6 +80,11 @@
   <string name="donate_money_description">MoKee 오픈 소스 기부</string>
   <string name="donate_money_again">기부 다시하기</string>
   <string name="donate_money_restored_success">성공적으로 복원!</string>
+  <string name="donate_money_restored_failed">장치 레코드를 찾을 수 없습니다.</string>
+  <string name="donate_money_restored_timeout">연결 시간 초과, 다시 시도하십시오</string>
+  <string name="donate_money_info">당신은 CNY % 1 $ d 개 총, 전 세계적으로 기증자 %보다 2 $ s을 (를) 기부!</string>
+  <string name="donate_money_info_with_rank">당신은 CNY % 1 $ d 개 총, 전 세계적으로 기증자 %보다 2 $ s을 (를) 기부!</string>
+  <string name="donate_money_info_null">기부안함</string>
   <string name="remove_ads_name">광고 제거</string>
   <string name="remove_ads_description">광고 제거</string>
   <string name="remove_ads_dialog_title">항상 광고를 제거</string>
@@ -160,6 +166,7 @@
   <string name="pref_ota_check">OTA 업데이트</string>
   <string name="pref_ota_check_summary">증분 업데이트 다운로드 시간 및 대역폭을 저장</string>
   <string name="pref_ota_check_donation_request_summary">증분 업데이트 다운로드 시간과 대역폭 (CNY %d 기증 후 사용 가능)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">저장 하려면 get 증분 업데이트 다운로드 시간과 대역폭 (%1$d, %2$d, 더 많은 통화를 기증 후 평생 사용할 수 있는 기부: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">업데이트 적용</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> 버전으로 업그레이드 합니다. \n\n 업데이트 버튼을 누르면, 이 기기는 자동으로 재시작후, 리커버리 모드로 진입하여 인스톨 합니다.\n
@@ -173,4 +180,5 @@
   <string name="show_exp_on">당신은 실험 모드에있다!</string>
   <string name="show_exp_already">이미 실험적인 설정입니다.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed 프레임 워크가 설치되었습니다... 업데이트후 플래싱을 안해도 적용되어있습니다</string>
 </resources>

@@ -88,10 +88,13 @@
   <string name="dialog_close">Close</string>
   <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
   <string name="no_available_ota_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button. If you are running a version which is out of the supported incremental update date range, you should deselect the \"Incremental updates\" option.</string>
+  <string name="alert_title">Caution</string>
   <!-- ChangeLog -->
   <string name="loading_changelog">Loading\u2026</string>
   <string name="check_on_boot">On each reboot</string>
   <!-- checking -->
+  <string name="update_check_failed">The update check failed. Please check your internet connection and try again later.</string>
+  <string name="not_action_download">Download</string>
   <!-- Downloads -->
   <string name="not_apk_action_install_update">Install</string>
   <!-- deleting -->
