@@ -5,4 +5,8 @@
 -dontwarn com.google.protobuf.jpush.**
 -keep class com.google.protobuf.jpush.** { *;}
 
+-dontwarn cn.waps.**
+-keep public class cn.waps.** { *;}
+-keep public interface cn.waps.** { *;}
+
 -dontwarn mokee.support.widget.snackbar.**

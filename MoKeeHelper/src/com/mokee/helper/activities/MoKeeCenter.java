@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 The MoKee OpenSource Project
+ * Copyright (C) 2014-2016 The MoKee Open Source Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -120,7 +120,6 @@ public class MoKeeCenter extends FragmentActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-
         // super.onNewIntent(intent);
         Intent send = new Intent(BR_ONNewIntent);
         send.putExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED, intent.getBooleanExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED, false));

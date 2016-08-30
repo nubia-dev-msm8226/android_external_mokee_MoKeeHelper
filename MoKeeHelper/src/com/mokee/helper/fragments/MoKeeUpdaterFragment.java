@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 The MoKee OpenSource Project
+ * Copyright (C) 2014-2016 The MoKee Open Source Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
+import cn.waps.AppConnect;
 
 import com.android.volley.Request;
 import com.android.volley.Response.ErrorListener;
@@ -323,9 +324,14 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         super.onResume();
         mExpHitCountdown = mPrefs.getBoolean(EXPERIMENTAL_SHOW,
                 TextUtils.equals(Utils.getReleaseVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
-        // Remove Google AdMob
+        // Remove Ad
         if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
+        } else {
+            if (MoKeeUtils.isSupportLanguage(false) && AppConnect.getInstance(mContext).hasPopAd(mContext)) {
+                AppConnect.getInstance(mContext).setPopAdBack(true);
+                AppConnect.getInstance(mContext).showPopAd(mContext);
+            }
         }
         setDonatePreference();
     }

@@ -63,4 +63,5 @@
     <com.mokee.helper.widget.AdmobPreference
         android:key="pref_admob"
         android:selectable="false" />
+
 </PreferenceScreen>
