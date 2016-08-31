@@ -24,6 +24,7 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.mokee.utils.MoKeeUtils;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -58,6 +59,7 @@ public class MoKeeCenter extends FragmentActivity {
     public static final String ACTION_MOKEE_CENTER = "com.mokee.mkupdater.action.MOKEE_CENTER";
     private static final String ACTION_PAYMENT_REQUEST = "com.mokee.pay.action.PAYMENT_REQUEST";
     private static final String ACTION_RESTORE_REQUEST = "com.mokee.pay.action.RESTORE_REQUEST";
+    private static final String ACTION_POINT_REQUEST = "com.mokee.pay.action.POINT_REQUEST";
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
     public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
     public static final String BR_ONNewIntent = "onNewIntent";
@@ -178,7 +180,11 @@ public class MoKeeCenter extends FragmentActivity {
                         sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
                         break;
                     case DialogInterface.BUTTON_NEUTRAL:
-                        restorePaymentRequest(mContext);
+                        if (isDonate && MoKeeUtils.isSupportLanguage(false)) {
+                            pointPaymentRequest(mContext);
+                        } else {
+                            restorePaymentRequest(mContext);
+                        }
                         break;
                 }
             }
@@ -190,14 +196,17 @@ public class MoKeeCenter extends FragmentActivity {
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton);
-        if (Utils.getPaidTotal(mContext) == 0f) {
-            builder.setNeutralButton(R.string.donate_dialog_via_restore, mDialogButton);
-        }
+        builder.setNeutralButton(Utils.getPaidTotal(mContext) == 0f && !isDonate ? R.string.donate_dialog_via_restore : R.string.donate_dialog_via_point, mDialogButton);
         builder.show();
     }
 
     private static void restorePaymentRequest(Activity mContext) {
         Intent intent = new Intent(ACTION_RESTORE_REQUEST);
+        mContext.startActivityForResult(intent, 0);
+    }
+
+    private static void pointPaymentRequest(Activity mContext) {
+        Intent intent = new Intent(ACTION_POINT_REQUEST);
         mContext.startActivityForResult(intent, 0);
     }
 
