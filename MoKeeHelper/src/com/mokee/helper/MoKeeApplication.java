@@ -97,7 +97,7 @@ public class MoKeeApplication extends Application implements
         // Set Tags
         Set<String> tags = new HashSet<String>();
         tags.add(Build.PRODUCT);
-        tags.add(VERSION.CODENAME.replace(".", ""));
+        tags.add(VERSION.CODENAME);
         Set<String> prefTags = prefs.getStringSet(MKPUSH_TAGS, null);
         if (!tags.equals(prefTags))
             mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_TAGS, tags));
