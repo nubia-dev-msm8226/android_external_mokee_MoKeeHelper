@@ -196,7 +196,13 @@ public class MoKeeCenter extends FragmentActivity {
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton);
-        builder.setNeutralButton(Utils.getPaidTotal(mContext) == 0f && !isDonate ? R.string.donate_dialog_via_restore : R.string.donate_dialog_via_point, mDialogButton);
+        if (isDonate && MoKeeUtils.isSupportLanguage(false)) {
+            builder.setNeutralButton(R.string.donate_dialog_via_point, mDialogButton);
+        } else {
+            if (Utils.getPaidTotal(mContext) == 0f) {
+                builder.setNeutralButton(R.string.donate_dialog_via_restore, mDialogButton);
+            }
+        }
         builder.show();
     }
 
