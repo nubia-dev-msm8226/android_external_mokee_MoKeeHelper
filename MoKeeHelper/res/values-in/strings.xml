@@ -47,7 +47,7 @@
   <string name="mokee_version_info_title">Info versi</string>
   <string name="mokee_version_title">Versi MoKee</string>
   <string name="mokee_unique_id_title">ID Unik</string>
-  <string name="mokee_donate_info_title">Menyumbangkan Info</string>
+  <string name="mokee_donate_info_title">Info Donasi</string>
   <string name="mokee_version_type_title">Tipe Versi</string>
   <string name="mokee_last_check_title">Pemeriksaan Terakhir</string>
   <string name="mokee_last_check_never">Tidak pernah</string>
@@ -57,7 +57,7 @@
   <string name="mokee_version_type_release">Rilis</string>
   <string name="mokee_version_type_history">Riwayat</string>
   <string name="mokee_version_type_experimental">Eksperimen</string>
-  <string name="mokee_version_type_nightly">Tiap malam</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Tidak Resmi</string>
   <string name="mokee_version_type_all">Semua</string>
   <!-- State -->

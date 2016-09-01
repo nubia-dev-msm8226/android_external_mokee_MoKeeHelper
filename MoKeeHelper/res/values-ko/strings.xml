@@ -82,10 +82,13 @@
   <string name="donate_money_restored_success">성공적으로 복원!</string>
   <string name="donate_money_restored_failed">장치 레코드를 찾을 수 없습니다.</string>
   <string name="donate_money_restored_timeout">연결 시간 초과, 다시 시도하십시오</string>
+  <string name="donate_money_info">You donated a total of CNY %1$d, more than %2$s of donors globally!</string>
+  <string name="donate_money_info_with_rank">You donated a total of CNY %1$d, more than %2$s of donors globally, rank No.%3$d!</string>
   <string name="donate_money_info_null">기부안함</string>
   <string name="remove_ads_name">광고 제거</string>
   <string name="remove_ads_description">광고 제거</string>
   <string name="remove_ads_dialog_title">항상 광고를 제거</string>
+  <string name="remove_ads_request_price">Donated CNY %1$d, Pending CNY %2$d</string>
   <!-- Update -->
   <string name="unknown">미지</string>
   <string name="dialog_update">업데이트</string>
