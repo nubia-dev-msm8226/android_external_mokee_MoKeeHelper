@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Bezoek de bug tracker</string>
   <string name="mokee_changelog_title">MoKee Wijzigingen</string>
+  <string name="mokee_changelog_summary">Bekijk dagelijkse changelog</string>
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
   <string name="mokee_build_status_summary">Build status weergeven</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -82,6 +83,7 @@
   <string name="donate_money_restored_failed">Telefoon niet gevonden.</string>
   <string name="donate_money_restored_timeout">Verbindings- time out, probeer het later opniew</string>
   <string name="donate_money_info">U doneerde in totaal %1$d CNY, dat is %2$s CNY meer dan er wereldwijd gedoneerd wordt!</string>
+  <string name="donate_money_info_with_rank">U geschonk CNY %1$d, in totaal meer dan %2$s van donors wereldwijd, rang No.%3$d!</string>
   <string name="donate_money_info_null">U hebt geen donatie gedaan</string>
   <string name="remove_ads_name">Advertenties verwijderen</string>
   <string name="remove_ads_description">Advertenties verwijderen</string>
@@ -178,4 +180,5 @@
   <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework geïnstalleerd, geen behoefte aan reflash kader na het toepassen van incrementele updates.</string>
 </resources>
