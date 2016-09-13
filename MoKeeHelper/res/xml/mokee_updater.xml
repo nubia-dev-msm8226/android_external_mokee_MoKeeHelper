@@ -19,6 +19,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="pref_root" >
 
+    <com.mokee.helper.widget.AdmobPreference
+        android:key="pref_admob"
+        android:selectable="false" />
+
     <PreferenceCategory android:title="@string/mokee_version_info_title" >
         <PreferenceScreen
             android:key="mokee_version"
@@ -59,9 +63,5 @@
     <PreferenceCategory
         android:key="updates_category"
         android:title="@string/available_updates_title" />
-
-    <com.mokee.helper.widget.AdmobPreference
-        android:key="pref_admob"
-        android:selectable="false" />
 
 </PreferenceScreen>

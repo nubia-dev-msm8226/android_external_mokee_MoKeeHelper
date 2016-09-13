@@ -24,8 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.mokee.helper.R;
 
 public class AdmobPreference extends Preference {
@@ -51,7 +51,7 @@ public class AdmobPreference extends Preference {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             admobCustomView = inflater.inflate(R.layout.preference_admob, null);
             adView = (AdView) admobCustomView.findViewById(R.id.adView);
-            adView.loadAd(new AdRequest());
+            adView.loadAd(new AdRequest.Builder().build());
         }
         return admobCustomView;
     }
