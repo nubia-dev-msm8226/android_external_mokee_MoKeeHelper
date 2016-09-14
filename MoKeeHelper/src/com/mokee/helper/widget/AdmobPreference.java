@@ -55,4 +55,28 @@ public class AdmobPreference extends Preference {
         }
         return admobCustomView;
     }
+
+    public void onAdCreate() {
+        if (adView != null && !adView.isLoading()) {
+            adView.loadAd(new AdRequest.Builder().build());
+        }
+    }
+
+    public void onAdPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+    }
+
+    public void onAdResume() {
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    public void onAdDestory() {
+        if (adView != null) {
+            adView.destroy();
+        }
+    }
 }

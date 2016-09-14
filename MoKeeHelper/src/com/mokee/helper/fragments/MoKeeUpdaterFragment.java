@@ -171,6 +171,22 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     };
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if (mAdmobView != null) {
+            mAdmobView.onAdPause();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mAdmobView != null) {
+            mAdmobView.onAdDestory();
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
@@ -183,6 +199,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
 
         mRootView = (PreferenceScreen) findPreference(Constants.ROOT_PREF);
         mAdmobView = (AdmobPreference) findPreference(Constants.ADMOB_PREF);
+        if (!Utils.checkLicensed(mContext)) {
+            mAdmobView.onAdCreate();
+        }
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_INTERVAL_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
@@ -327,10 +346,17 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Remove Ad
         if (Utils.checkLicensed(mContext)) {
             mRootView.removePreference(mAdmobView);
+            if (mAdmobView != null) {
+                mAdmobView.onAdDestory();
+                mAdmobView = null;
+            }
         } else {
             if (MoKeeUtils.isSupportLanguage(false) && AppConnect.getInstance(mContext).hasPopAd(mContext)) {
                 AppConnect.getInstance(mContext).setPopAdBack(true);
                 AppConnect.getInstance(mContext).showPopAd(mContext);
+            }
+            if (mAdmobView != null) {
+                mAdmobView.onAdResume();
             }
         }
         setDonatePreference();
