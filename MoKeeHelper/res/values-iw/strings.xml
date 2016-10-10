@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">עוקב הבאגים של MoKee</string>
   <string name="mokee_issues_summary">בקר את עוקב הבאגים</string>
   <string name="mokee_changelog_title">רשימת שינויים MoKee</string>
+  <string name="mokee_changelog_summary">ראה יומן שינויים יומי</string>
   <string name="mokee_build_status_title">מצב הבנייה MoKee</string>
   <string name="mokee_build_status_summary">הצג מצב הבנייה של MoKee</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">פרטי הגירסה</string>
   <string name="mokee_version_title">גירסת MoKee</string>
+  <string name="mokee_unique_id_title">מספר מזהה</string>
+  <string name="mokee_donate_info_title">מידע על תרומות</string>
   <string name="mokee_version_type_title">סוג גירסה</string>
   <string name="mokee_last_check_title">בדיקה אחרונה</string>
   <string name="mokee_last_check_never">אף פעם</string>
@@ -71,10 +74,17 @@
   <string name="donate_dialog_message">שלא כמו חברות כגון CyanogenMod או MIUI, הרום MoKee הוא פרויקט בקוד פתוח וללא מטרות רווח ונולד מתוך תחביב. בשביל לתחזק את הפרויקט, אנחנו צריכים להשיג כסף מתרומות או מפרסומות. התרומה שלך יכולה לעזור לנו בתשלומים ותמוך בפיתוח עתידי! תרומה זו תסיר את הפרסומות ממרכז MoKee, או שתעדיף להשתמש באופצית ה\"תרומה\" במקום אם אתה מעדיך תשלומים (הפרסומות יוסרו שתגיע לערך המינימלי שצויין). לאחר שאתה תורם הקפד לגבות את קובץ הרשיון (mokee.license שנמצא בכרטיס זיכרון בתקיה הראשית, תקף למכשיר זה בלבד).</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">שחזר</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_description">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_again">תרום שוב</string>
+  <string name="donate_money_restored_success">השחזור עבר בהצלחה!</string>
+  <string name="donate_money_restored_failed">לא נמצאו רשומות התקן.</string>
+  <string name="donate_money_restored_timeout">תם זמן ניסיון החיבור, אנא נסה שנית</string>
+  <string name="donate_money_info">תרמת סכום של CNY %1$d, יותר %2$s של תורמים באופן גלובלי!</string>
+  <string name="donate_money_info_with_rank">תרמת סך של %1$d CNY, יותר מ%2$s מהתורמים בעולם, דירוג מס\' %3$d!</string>
+  <string name="donate_money_info_null">לא תרמת</string>
   <string name="remove_ads_name">הסר פרסומות</string>
   <string name="remove_ads_description">הסר פרסומות</string>
   <string name="remove_ads_dialog_title">הסר תמיד מודעות</string>
@@ -156,6 +166,7 @@
   <string name="pref_ota_check">עדכונים OTA</string>
   <string name="pref_ota_check_summary">קבל עדכונים מצטברים כדי לחסוך בזמני ההורדה ובנתונים</string>
   <string name="pref_ota_check_donation_request_summary">קבל עדכונים מצטברים כדי לחסוך בזמני ההורדה ובנתונים (זמין לאחר תרומת %d CNY)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">קבל עדכוני OTA כדי לחסוך זמן הורדה ורוחב פס (נתרמו %1$d, זמין לכל החיים לאחר תרומה של %2$d נוספים, מטבע: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
@@ -169,4 +180,5 @@
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">סביבת Xposed מותקנת, אין צורך להתקין מחדש את הסביבה לאחר התקנה של עדכוני OTA.</string>
 </resources>

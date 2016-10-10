@@ -46,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Iнфармацыя аб версіі</string>
   <string name="mokee_version_title">Версiя MoKee</string>
+  <string name="mokee_unique_id_title">Унікальны ідэнтыфікатар</string>
+  <string name="mokee_donate_info_title">Інфармацыя аб ахвяраванні</string>
   <string name="mokee_version_type_title">Тып версii</string>
   <string name="mokee_last_check_title">Апошняя праверка</string>
   <string name="mokee_last_check_never">Ніколі</string>
@@ -72,10 +74,17 @@
   <string name="donate_dialog_message">У адрозненне ад такіх кампаній як Cygn або MIUI, MoKee OpenSource з\'яўляецца чыста некамерцыйным праектам, якi з\'явіўся на свет намаганнямі энтузіястаў. Для таго, каб падтрымліваць гэты праект, мы ўкладваем свае ўласныя сродкі, а таксама сродкі ад ахвяраванняў і рэкламы. Вашы ахвяраванні дапамогуць знізіць нашу фінансавую нагрузку і забяспечыць будучае развіццё! Гэтая опцыя дазваляе выдаліць рэкламу ў Панэлi MoKee, або выкарыстоўвайце опцыю \"Ахвяраваць\" замест гэтага, калі вы аддаеце перавагу растэрміноўцы (рэклама будзе выдалена, як толькі агульная сума дасягнула зададзенага значэння). Калі ласка стварыце рэзервовую копію файла mokee.license (у каранёвым каталогу SDCard, сапраўдна толькі для гэтай прылады), як толькі вы ахвяравалі.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_restore">Аднавіць з рэзервовай копіі</string>
   <string name="donate_money_toast_success">Дзякуй Вам за ахвяраванне!</string>
   <string name="donate_money_name">Ахвяраваць MoKee OpenSource</string>
   <string name="donate_money_description">Ахвяраваць MoKee OpenSource</string>
   <string name="donate_money_again">Ахвяраваць зноў</string>
+  <string name="donate_money_restored_success">Аднаўленне паспяхова завершана!</string>
+  <string name="donate_money_restored_failed">Інфармацыі аб ахвяраваннях не знойдзена.</string>
+  <string name="donate_money_restored_timeout">Спалучэнне дадзеных перарвана, калі ласка паспрабуйце зноў</string>
+  <string name="donate_money_info">Ваша ахвяраванне складае CYN: %1$d. Яно больш, чым %2$s з усіх ахвяравальнікаў!</string>
+  <string name="donate_money_info_with_rank">Ваша ахвяраванне складае CYN: %1$d. Яно больш, чым %2$s з усіх ахвяравальнікаў! Ваш рэйтынг %3$d!</string>
+  <string name="donate_money_info_null">Вы не рабілі ахвяраванняў</string>
   <string name="remove_ads_name">Прыбраць рэкламу</string>
   <string name="remove_ads_description">Прыбраць рэкламу</string>
   <string name="remove_ads_dialog_title">Заўседы прыбiраць рэкламу</string>
@@ -157,6 +166,7 @@
   <string name="pref_ota_check">OTA абнаўленнi</string>
   <string name="pref_ota_check_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць</string>
   <string name="pref_ota_check_donation_request_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць (даступна пасля ахвяравання ў CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Атрымліваць аднауленні малога памеру. Гэта дазваляе эканоміць час і трафік (ахвяраванне: %1$d, атрымліваць такія аднауленні пажыццёва можна пасля ахвяравання %2$d ці больш, Валюта: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Прымяніць абнаўленне</string>
   <string name="apply_update_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўстаноўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную.</string>
@@ -169,4 +179,5 @@
   <string name="show_exp_on">Вы ўключылі эксперыментальныя параметры!</string>
   <string name="show_exp_already">Няма неабходнасці, эксперыментальныя параметры ўжо ўключаны.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Надбудова Xposed усталявана, не патрэбна наладжваць яе зноў, пасля устаноўкі Ota-аднаўленняў.</string>
 </resources>
