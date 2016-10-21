@@ -80,7 +80,11 @@
   <string name="donate_money_description">Wspomóż MoKee OpenSource</string>
   <string name="donate_money_again">Wesprzyj ponownie</string>
   <string name="donate_money_restored_success">Pomyślnie przywrócono!</string>
+  <string name="donate_money_restored_failed">Nie znaleziono rekordu urządzenia.</string>
   <string name="donate_money_restored_timeout">Połączenie zostało rozłączone, proszę spróbować ponownie</string>
+  <string name="donate_money_info">Przekazałeś w sumie CNY %1$d, ponad %2$s przekazujących dotację na całym świecie!</string>
+  <string name="donate_money_info_with_rank">Przekazałeś w sumie CNY %1$d, ponad %2$s przekazujących dotację globalnie, ranga No.%3$d!</string>
+  <string name="donate_money_info_null">Nie przekazałeś dotacji</string>
   <string name="remove_ads_name">Usuń reklamy</string>
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>
@@ -162,6 +166,7 @@
   <string name="pref_ota_check">Aktualizacje przyrostowe</string>
   <string name="pref_ota_check_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza</string>
   <string name="pref_ota_check_donation_request_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza (dostępne po wpłaceniu CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Pobierz aktualizacje przyrostowe, aby skrócić czas pobierania i przepustowości łącza (przekazano %1$d, dostępne jako \"lifetime\" po przekazaniu dotacji %2$d więcej, waluta: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Zatwierdź aktualizacje</string>
   <string name="apply_update_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.</string>
@@ -174,4 +179,5 @@
   <string name="show_exp_on">Włączyłeś ustawienia eksperymentalne!</string>
   <string name="show_exp_already">Nie trzeba, już włączyłeś ustawienia eksperymentalne.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework zainstalowany, nie trzeba przeinstalowywać framework po zastosowaniu aktualizacji przyrostowych.</string>
 </resources>
