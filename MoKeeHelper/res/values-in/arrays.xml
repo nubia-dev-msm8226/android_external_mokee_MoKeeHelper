@@ -24,6 +24,6 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> lainnya</item>
   </plurals>
   <plurals name="show_exp_countdown">
-    <item quantity="other">Anda sekarang berada <xliff:g id="step_count">%1$d</xliff:g> langkah dari pengaktifan opsi pengembang.</item>
+    <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> langkah lagi untuk mengaktifan opsi pengembang.</item>
   </plurals>
 </resources>
