@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
-  <string name="mokee_center_title">MoKee Center</string>
+  <string name="mokee_center_title">Central MoKee</string>
   <string name="mokee_support_title">Suporte</string>
   <string name="mokee_updater_title">Atualizador</string>
   <string name="mokee_extras_title">Extras</string>

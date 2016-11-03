@@ -135,6 +135,7 @@
   <string name="not_download_success">Güncelleme başarıyla indirildi</string>
   <string name="not_download_failure">Güncelleme indirme başarısız oldu</string>
   <string name="not_action_install_update">Yeniden başlat ve yükle</string>
+  <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> isimli güncelleme başarıyla indirildi.\"Yeniden başlat ve yükle\" \' ye dokunduğunuz zaman telefonunuz kendini yeniden başlatacak ve güncellemeyi yüklecek.\n\nNote: Bu özellik uyumlu bir Recovery ye gereksinim duymaktadır veya güncelleştirmelerin elle yüklenmesi gerekmektedir.</string>
   <string name="md5_verification_failed">MD5 doğrulaması hatalı</string>
   <string name="not_extras_download_success">Ek özellikler başarıyla indirildi</string>
   <string name="not_extras_download_failure">Ek özelliklerin indirilmesi başarısız oldu</string>

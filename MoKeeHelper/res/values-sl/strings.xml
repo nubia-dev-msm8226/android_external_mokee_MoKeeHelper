@@ -18,20 +18,107 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
+  <string name="mokee_center_title">MoKee Center</string>
+  <string name="mokee_support_title">Pomoč</string>
+  <string name="mokee_updater_title">Posodobitev</string>
+  <string name="mokee_extras_title">Dodatki</string>
   <!-- Tips -->
+  <string name="tips_help_title">Nasveti in pomoč</string>
   <!-- WebSite -->
+  <string name="mokee_website_title">MoKee spletna stran</string>
+  <string name="mokee_website_summary">Obiščite uradno spletno stran</string>
+  <string name="mokee_forum_title">MoKee Forum</string>
+  <string name="mokee_forum_summary">Obiščite MoKee Forum</string>
+  <string name="mokee_issues_title">MoKee sledenje napak</string>
+  <string name="mokee_issues_summary">Obišči skupnost</string>
+  <string name="mokee_changelog_title">MoKee dnevnik sprememb</string>
+  <string name="mokee_build_status_title">MoKee stanje izdaje</string>
+  <string name="mokee_build_status_summary">Prikaže informacije o izdaji</string>
+  <string name="mokee_github_title">MoKee Github</string>
+  <string name="mokee_github_summary">Obišči MoKee Github</string>
+  <string name="mokee_translate_title">MoKee prevajanje</string>
+  <string name="mokee_translate_summary">Pomagajte prevesti MoKee</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
+  <string name="mokee_wiki_summary">Poglej si MoKee Wiki</string>
+  <string name="mokee_news_title">MoKee novice</string>
+  <string name="mokee_news_summary">Prejmi razvojne novice iz MoKee</string>
   <!-- Base Info -->
+  <string name="mokee_version_info_title">Informacije o različici</string>
+  <string name="mokee_version_title">MoKee različica</string>
+  <string name="mokee_version_type_title">Tip različice</string>
+  <string name="mokee_last_check_title">Zadnje preverjanje</string>
+  <string name="mokee_last_check_never">Nikoli</string>
+  <string name="mokee_extras_info_title">Info o pripomočkih</string>
   <!-- Version -->
+  <string name="mokee_info_default">Neznano</string>
+  <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_history">Zgodovina</string>
+  <string name="mokee_version_type_experimental">Preizkusno</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
+  <string name="mokee_version_type_unofficial">Neuradna</string>
+  <string name="mokee_version_type_all">Vse</string>
   <!-- State -->
+  <string name="downloaded_update_summary">Preneseno</string>
+  <string name="installed_update_summary">Nameščeno</string>
+  <string name="available_updates_title">Posodobitve na voljo</string>
   <!-- Menu -->
+  <string name="menu_donate">Prispevaj</string>
+  <string name="menu_refresh">Osveži</string>
+  <string name="menu_delete_all">Izbriši prenos</string>
+  <string name="menu_remove_ads">Odstrani oglase</string>
   <!-- Donate -->
+  <string name="donate_dialog_title">Prispevajte za nas</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_money_toast_success">Zahvaljujemo se vam za vaš prispevek!</string>
+  <string name="donate_money_name">Prispevam k MoKee OpenSource</string>
+  <string name="donate_money_description">Prispevam k MoKee OpenSource</string>
+  <string name="donate_money_again">Prispevaj ponovno</string>
+  <string name="remove_ads_name">Odstrani oglase</string>
+  <string name="remove_ads_description">Odstrani oglase</string>
+  <string name="remove_ads_dialog_title">Vedno odstrani oglase</string>
+  <string name="remove_ads_request_price">Prispevano CNY %1$d, V teku CNY %2$d</string>
   <!-- Update -->
+  <string name="unknown">Neznano</string>
+  <string name="dialog_update">Posodobitev</string>
+  <string name="dialog_install">Namesti</string>
+  <string name="dialog_ok">V redu</string>
+  <string name="dialog_cancel">Prekliči</string>
+  <string name="dialog_close">Zapri</string>
+  <string name="no_available_updates_intro">Ob zadnjem preverjanju ni bilo najdenih novih posodobitev. Da ročno preverite za posodobitve, uporabite gumb Osveži.</string>
+  <string name="no_available_extras_intro">Ob zadnjem preverjanju ni bilo najdenih novih posodobitev. Da ročno preverite za posodobitve, uporabite gumb Osveži.</string>
+  <string name="new_update_summary">Novo</string>
+  <string name="old_update_summary">Staro</string>
+  <string name="update_check_title">Preverjanja posodobitev</string>
+  <string name="check_manual">Ročno</string>
+  <string name="alert_title">Pozor</string>
+  <string name="update_type_title">Tip posodobitve</string>
   <!-- ChangeLog -->
+  <string name="changelog_dialog_title">Zadnje spremembe</string>
+  <string name="loading_changelog">Nalaganje\u2026</string>
+  <string name="check_on_boot">Pri vsakem zagonu</string>
+  <string name="check_twice_daily">Dvakrat na dan</string>
+  <string name="check_daily">Enkrat na dan</string>
+  <string name="check_twice_weekly">Dvakrat na teden</string>
+  <string name="check_weekly">Enkrat na teden</string>
+  <string name="check_bi_weekly">Enkrat na štirinajst dni</string>
+  <string name="check_monthly">Enkrat na mesec</string>
   <!-- checking -->
+  <string name="checking_for_updates">Preverjam za posodobitve</string>
+  <string name="no_updates_found">Ni novih posodobitev</string>
+  <string name="checking_for_extras">Preverjam za dodatke</string>
   <!-- Downloads -->
+  <string name="not_action_install_update">Ponovni zagon in namestitev</string>
+  <string name="not_apk_action_install_update">Namesti</string>
   <!-- deleting -->
+  <string name="confirm_delete_dialog_title">Izbriši datoteko</string>
   <!-- pref -->
   <!-- Apply install and update, extras strings -->
+  <string name="apply_update_dialog_title">Uveljavi posodbitev</string>
+  <string name="apply_extras_dialog_title">Namesti dodatke</string>
+  <string name="extras_unsupported_toast">Vaša trenutna različica ne podpira te razširitve</string>
   <!-- experimenter mode -->
+  <string name="show_exp_on">Omogočili ste eksperimentalne nastavitve!</string>
+  <string name="show_exp_already">Ni potrebno, ste že omogočili eksperimentalne nastavitve.</string>
   <!-- Xposed framework check -->
 </resources>
