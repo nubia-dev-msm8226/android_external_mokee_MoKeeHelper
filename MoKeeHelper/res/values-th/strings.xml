@@ -48,7 +48,6 @@
   <!-- checking -->
   <!-- Downloads -->
   <string name="download_running">In progress</string>
-  <string name="not_extras_download_install_notice"><xliff:g id="filename"><xliff:g id="filename">%s</xliff:g>\n</string>
   <!-- deleting -->
   <string name="delete_single_update_success_message"><xliff:g id="filename">%s</xliff:g></string>
   <!-- pref -->
