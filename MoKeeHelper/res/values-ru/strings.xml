@@ -26,12 +26,12 @@
   <string name="tips_help_title">Советы и помощь</string>
   <!-- WebSite -->
   <string name="mokee_website_title">Сайт MoKee</string>
-  <string name="mokee_website_summary">Посетить официальный веб-сайт</string>
+  <string name="mokee_website_summary">Посетите официальный веб-сайт</string>
   <string name="mokee_forum_title">Форум MoKee</string>
-  <string name="mokee_forum_summary">Посетить форум MoKee</string>
-  <string name="mokee_issues_title">Отслеживание ошибок MoKee</string>
+  <string name="mokee_forum_summary">Посетите форум MoKee</string>
+  <string name="mokee_issues_title">Центр отслеживания ошибок MoKee</string>
   <string name="mokee_issues_summary">Посетить bug tracker</string>
-  <string name="mokee_changelog_title">Список изменений MoKee</string>
+  <string name="mokee_changelog_title">Список изменений в MoKee</string>
   <string name="mokee_changelog_summary">Посмотреть список изменений</string>
   <string name="mokee_build_status_title">Статус сборки MoKee</string>
   <string name="mokee_build_status_summary">Просмотреть статус сборки</string>

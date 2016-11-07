@@ -19,19 +19,43 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
   <!-- Tips -->
+  <string name="tips_help_title">&amp;&amp;</string>
   <!-- WebSite -->
   <!-- Base Info -->
   <!-- Version -->
   <!-- State -->
+  <string name="downloaded_update_summary">Downloaded</string>
+  <string name="installed_update_summary">Installed</string>
+  <string name="available_updates_title">Available updates</string>
   <!-- Menu -->
+  <string name="menu_donate">Donate</string>
+  <string name="menu_refresh">Refresh</string>
+  <string name="menu_delete_all">Delete download</string>
+  <string name="menu_remove_ads">Remove ads</string>
   <!-- Donate -->
+  <string name="donate_dialog_title">Donate to us</string>
+  <string name="donate_dialog_message">Unlike companies like Cygn or MIUI, MoKee OpenSource is a purely non-profit project born of hobby and passion. In order to maintain this project, we have to fork out our own money most of the time or rely on donations and advertisements. Your donations can help reduce our financial load and sustain future development! This option allows you to remove the ads in MoKee Center, or use the \"Donate\" option instead if you prefer installments (ads will be removed once the total has reached the specified value). (in the root directory of sdcard, only valid for current device) once you have donated.</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_money_toast_success">Thank you for your donation!</string>
+  <string name="remove_ads_request_price">Donated CNY %1$d, Pending CNY %2$d</string>
   <!-- Update -->
+  <string name="dialog_ok">OK</string>
+  <string name="no_available_ota_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button. If you are running a version which is out of the supported incremental update date range, you should deselect the \"Incremental updates\" option.</string>
+  <string name="no_available_extras_intro">The last check did not find any available updates. To manually check for new extras, use the Refresh button.</string>
+  <string name="new_update_summary">New</string>
+  <string name="unofficial_alert">You have selected to include unofficial updates in this list. Keep in mind that these are supported by your device maintainer.</string>
   <!-- ChangeLog -->
   <!-- checking -->
   <!-- Downloads -->
+  <string name="download_running">In progress</string>
+  <string name="not_extras_download_install_notice"><xliff:g id="filename"><xliff:g id="filename">%s</xliff:g>\n</string>
   <!-- deleting -->
+  <string name="delete_single_update_success_message"><xliff:g id="filename">%s</xliff:g></string>
   <!-- pref -->
   <!-- Apply install and update, extras strings -->
+  <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g>\n\n\n\n</string>
+  <string name="apply_update_ota_dialog_text"><xliff:g id="filename">%s</xliff:g></string>
+  <string name="apply_extras_dialog_text"><xliff:g id="filename">%s</xliff:g></string>
   <!-- experimenter mode -->
   <!-- Xposed framework check -->
 </resources>
