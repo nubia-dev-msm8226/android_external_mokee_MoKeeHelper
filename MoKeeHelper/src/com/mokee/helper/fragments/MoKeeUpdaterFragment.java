@@ -345,9 +345,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                 TextUtils.equals(Utils.getReleaseVersionType(), "experimental")) ? -1 : TAPS_TO_BE_A_EXPERIMENTER;
         // Remove Ad
         if (Utils.checkLicensed(mContext)) {
-            mRootView.removePreference(mAdmobView);
             if (mAdmobView != null) {
                 mAdmobView.onAdDestory();
+                mRootView.removePreference(mAdmobView);
                 mAdmobView = null;
             }
         } else {
