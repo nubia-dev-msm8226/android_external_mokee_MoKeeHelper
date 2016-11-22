@@ -19,7 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
   <string name="mokee_center_title">MoKee Center</string>
-  <string name="mokee_support_title">Support</string>
+  <string name="mokee_support_title">Hjälp</string>
   <string name="mokee_updater_title">Uppdatera</string>
   <string name="mokee_extras_title">Extra</string>
   <!-- Tips -->
@@ -158,9 +158,12 @@
   <string name="pref_ota_check_donation_request_summary">Hämta inkrementella uppdateringar för att spara tid och bandbredd (tillgänglig efter donation CNY %d)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Installera uppdateringen</string>
+  <string name="apply_update_dialog_text">Du är på väg att uppdatera till <xliff:g id="filename">%s</xliff:g>.\n\nOm du trycker på Uppdatera kommer enheten att starta om till Recoveryläge för att installera uppdateringen.\n \nObs: Denna funktion kräver ett kompatibelt Recoveryläge. I annat fall måste uppdateringarna installeras manuellt.</string>
+  <string name="apply_extras_dialog_title">Installera extra</string>
   <string name="apply_extras_dialog_text">Är du säker du vill installera <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Kan inte starta om till Recoveryläge</string>
   <!-- experimenter mode -->
+  <string name="show_exp_on">Du har aktiverat experimentella inställningar!</string>
   <string name="show_exp_already">Inget behov, du redan har aktiverat experimentella inställningarna.</string>
   <!-- Xposed framework check -->
 </resources>
