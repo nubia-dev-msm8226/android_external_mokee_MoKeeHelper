@@ -129,6 +129,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private AdmobPreference mAdmobView;
     private PreferenceScreen mRootView;
     private static SwitchPreference mUpdateOTA;
+    private static SwitchPreference mVerifyROM;
+
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
     private PreferenceCategory mUpdatesList;
@@ -206,6 +208,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_INTERVAL_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
         mUpdateOTA = (SwitchPreference) findPreference(Constants.OTA_CHECK_PREF);// OTA更新
+        mVerifyROM = (SwitchPreference) findPreference(Constants.VERIFY_ROM_PREF);
 
         // Restore normal type list
         MoKeeVersionType = Utils.getReleaseVersionType();
@@ -254,8 +257,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             mUpdateOTA.setChecked(mPrefs.getBoolean(Constants.OTA_CHECK_PREF, false));
             mUpdateOTA.setOnPreferenceChangeListener(this);
             isOTA(mUpdateOTA.isChecked());
+            // 安全更新
+            refreshVerifyOption();
+            mVerifyROM.setChecked(mPrefs.getBoolean(Constants.VERIFY_ROM_PREF, false));
+            mVerifyROM.setOnPreferenceChangeListener(this);
         } else {
             getPreferenceScreen().removePreference(mUpdateOTA);
+            getPreferenceScreen().removePreference(mVerifyROM);
         }
 
         setSummaryFromProperty(KEY_MOKEE_VERSION, "ro.mk.version");
@@ -365,6 +373,25 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public static void refreshOption() {
         mContext.invalidateOptionsMenu();
         refreshOTAOption();
+        refreshVerifyOption();
+    }
+
+    public static void refreshVerifyOption() {
+        Float currentPaid = Utils.getPaidTotal(mContext);
+        if (currentPaid < Constants.DONATION_TOTAL) {
+            mPrefs.edit().putBoolean(Constants.VERIFY_ROM_PREF, false).apply();
+            mVerifyROM.setEnabled(false);
+            if (currentPaid == 0f) {
+                mVerifyROM.setSummary(String.format(mContext.getString(R.string.pref_verify_rom_donation_request_summary),
+                        Float.valueOf(Constants.DONATION_TOTAL - currentPaid).intValue()));
+            } else {
+                mVerifyROM.setSummary(String.format(mContext.getString(R.string.pref_verify_rom_donation_request_pending_summary),
+                        currentPaid.intValue(), Float.valueOf(Constants.DONATION_TOTAL - currentPaid.intValue()).intValue()));
+            }
+        } else {
+            mVerifyROM.setEnabled(true);
+            mVerifyROM.setSummary(R.string.pref_verify_rom_summary);
+        }
     }
 
     public static void refreshOTAOption() {
@@ -1005,6 +1032,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (enabled) {
                 updateUpdatesType(Utils.getUpdateType(MoKeeVersionType));
             }
+            checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
+            return true;
+        } else if (preference == mVerifyROM) {
+            boolean enabled = (Boolean) newValue;
+            mPrefs.edit().putBoolean(Constants.VERIFY_ROM_PREF, enabled).apply();
             checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
             return true;
         }
