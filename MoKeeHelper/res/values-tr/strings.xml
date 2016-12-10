@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Hata Takipçisi</string>
   <string name="mokee_issues_summary">Hata takipçisini ziyaret et</string>
   <string name="mokee_changelog_title">MoKee Değişim Günlüğü</string>
+  <string name="mokee_changelog_summary">Günlük değişikliği görüntüle</string>
   <string name="mokee_build_status_title">MoKee Sürüm Durumu</string>
   <string name="mokee_build_status_summary">Sürüm Durumunu İncele</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,7 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Versiyon Bilgisi</string>
   <string name="mokee_version_title">MoKee Versiyonu</string>
+  <string name="mokee_unique_id_title">Benzersiz kimlik</string>
   <string name="mokee_donate_info_title">Bağış bilgisi</string>
   <string name="mokee_version_type_title">Versiyon türü</string>
   <string name="mokee_last_check_title">Son kontrol</string>
@@ -69,6 +71,7 @@
   <string name="menu_remove_ads">Reklamları kaldır</string>
   <!-- Donate -->
   <string name="donate_dialog_title">Bize bağışta bulunun</string>
+  <string name="donate_dialog_message">Cygn veya MIUI gibi şirketlerin aksine, MoKee OpenSource hobiden ve tutkudan doğan tamamen kar amacı gütmeyen bir projedir. Bu projeyi sürdürebilmek için, çoğu zaman kendi paramızı ödemek veya bağış ve reklamlara güvenmek zorundayız. Bağışlarınız mali yükümüzü düşürüp gelecekteki gelişimi sürdürebilir! Bu seçenek, MoKee Merkezi\'ndeki reklamları kaldırmanıza veya taksitleri tercih ederseniz bunun yerine \"Bağış\" seçeneğini kullanmanıza izin verir (Toplam, belirtilen değerin üzerine ulaştığında reklamlar kaldırılır). Bağış yapıldığında (Sdcard\'ın kök dizininde, yalnızca geçerli cihaz için geçerlidir). geçerlidir.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_dialog_via_restore">Geri yükle</string>
@@ -79,10 +82,13 @@
   <string name="donate_money_restored_success">Geri yükleme Başarılı</string>
   <string name="donate_money_restored_failed">Aygıt bulunamadı</string>
   <string name="donate_money_restored_timeout">Bağlantı zaman aşımına ugradı lütfen tekrar deneyiniz</string>
+  <string name="donate_money_info">Toplamda bağışta bulundun CNY %1$d, daha fazla bağış %2$s toplam hibe!</string>
+  <string name="donate_money_info_with_rank">Toplamda CNY %1$d bağışta bulundun, diğer bağışçılaradan %2$s daha fazla bağışta bulundun, sıra no %3$d!</string>
   <string name="donate_money_info_null">Bağiş Yapılmadı</string>
   <string name="remove_ads_name">Reklamları kaldır</string>
   <string name="remove_ads_description">Reklamları kaldır</string>
   <string name="remove_ads_dialog_title">Daima reklamları kaldır</string>
+  <string name="remove_ads_request_price">Bağışlanan CNY %1$d, Ödeme bekleyen CNY %2$d</string>
   <!-- Update -->
   <string name="unknown">Bilinmiyor</string>
   <string name="dialog_update">Güncelle</string>
@@ -136,6 +142,7 @@
   <string name="not_download_failure">Güncelleme indirme başarısız oldu</string>
   <string name="not_action_install_update">Yeniden başlat ve yükle</string>
   <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> isimli güncelleme başarıyla indirildi.\"Yeniden başlat ve yükle\" \' ye dokunduğunuz zaman telefonunuz kendini yeniden başlatacak ve güncellemeyi yüklecek.\n\nNote: Bu özellik uyumlu bir Recovery ye gereksinim duymaktadır veya güncelleştirmelerin elle yüklenmesi gerekmektedir.</string>
+  <string name="not_download_install_ota_notice">Güncelleştirme <xliff:g id="filename">%s </xliff:g> başarılı bir şekilde karşıdan yüklenmiştir. \'Yeniden başlat ve yükle\'ye dokunulduğunda, cihaz güncellemeyi yüklemek için kendini yeniden başlatacaktır.\n\nNote yüklemek için yeniden başlar: Bu özellik uyumlu bir Kurtarma Modu gerektirir veya güncellemelerin manuel olarak kurulması gerekecektir.\n\nBu, artımlı bir güncelleştirmedir; bu nedenle, sistem dosyalarında yapılan değişiklikler güncellemenin başarısız olmasına neden olabilir.Bu durumda, lütfen bunun yerine tam bir ROM\'u flash edin.</string>
   <string name="md5_verification_failed">MD5 doğrulaması hatalı</string>
   <string name="not_extras_download_success">Ek özellikler başarıyla indirildi</string>
   <string name="not_extras_download_failure">Ek özelliklerin indirilmesi başarısız oldu</string>
@@ -158,6 +165,12 @@
   <!-- pref -->
   <string name="pref_ota_check">OTA güncellemeleri</string>
   <string name="pref_ota_check_summary">Yükleme süresi ve veri tasarrufu için ek -ota güncelleştirmeleri alın</string>
+  <string name="pref_ota_check_donation_request_summary">İndirme zamanını ve bant genişliğini azaltmak için artımlı güncelleştirmeler yapın (Bağışta bulunulduktan sonra kullanılabilir CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">İndirme zamanını ve bant genişliğini azaltmak için artımlı güncelleştirmeler yapın ( %1$d bağışlandı, %2$d daha fazla bağış yaptıktan sonra ömür boyunca kulanılabilir, Para Birimi: CNY)</string>
+  <string name="pref_verify_rom">Doğrulanmış güncellemeler</string>
+  <string name="pref_verify_rom_summary">Yalnızca diğer kullanıcılar tarafından doğrulanan güncellemeleri görüntüleyin</string>
+  <string name="pref_verify_rom_donation_request_summary">Yalnızca diğer kullanıcılar tarafından doğrulanan güncellemeleri görüntüleyin (CN %d bağışta bulunarak kullanılabilir)</string>
+  <string name="pref_verify_rom_donation_request_pending_summary">Yalnızca diğer kullanıcılar tarafından doğrulanan güncellemeleri görüntüleyin (%1$d bağışlandı,%2$d daha bağışta bulunarak ömür boyu kullanılabilir hale getirildi, Para Birimi:CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Güncellemeyi uygula</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> güncellemesi yapılacak.\n\nGüncelleye bastığınızda, güncellemeyi kurmak için cihaz kurtarma modunda yeniden başlatılacak.\n\nNot: Bu özellik, uyumlu bir Kurtarma bölümü gerektirir, aksi takdirde güncellemelerin elle kurulması gerekir.</string>
@@ -170,4 +183,5 @@
   <string name="show_exp_on">Deneysel ayarları etkinleştirildiniz!</string>
   <string name="show_exp_already">Gerek yok, zaten deneysel ayarları etkinleştirdiniz.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework yüklü, Artımlı güncellemeler uygulandıktan sonra framework\'ü yeniden başlatma ihtiyacı duymuyor.</string>
 </resources>
