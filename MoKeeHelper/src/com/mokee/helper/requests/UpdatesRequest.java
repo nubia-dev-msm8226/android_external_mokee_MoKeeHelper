@@ -117,6 +117,14 @@ public class UpdatesRequest extends StringRequest {
             params.put("device_officail", String.valueOf(updateType));
             params.put("rom_all", "0");
         }
+        if (Utils.getPaidTotal(MoKeeApplication.getContext()) >= 10) {
+            String unique_id = Build.getUniqueID(MoKeeApplication.getContext());
+            params.put("user_id", unique_id);
+            String unique_id_external = Build.getUniqueID(MoKeeApplication.getContext(), 0);
+            if (!TextUtils.equals(unique_id, unique_id_external)) {
+                params.put("user_id_external", unique_id_external);
+            }
+        }
         return params;
     }
 }
