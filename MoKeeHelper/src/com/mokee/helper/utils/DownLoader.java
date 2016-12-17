@@ -63,7 +63,7 @@ public class DownLoader {
             Handler mHandler, long startDown, Context mContext) {
         this.fileUrl = fileUrl;
         this.localFile = localfile;
-        // this.threadCount = threadcount;
+        this.threadCount = Utils.checkMinLicensed(mContext) ? 8 : 2;
         this.mHandler = mHandler;
         this.startDown = startDown;
         this.mContext = mContext;
@@ -156,11 +156,6 @@ public class DownLoader {
             fileSize = connection.getContentLength();
             connection.disconnect();
             if (fileSize > 0) {
-                if (fileSize < 1048576) {// 1m
-                    this.threadCount = 1;
-                } else {// >50m
-                    this.threadCount = 5;
-                }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
                 if (!file.exists()) {

@@ -319,4 +319,9 @@ public class Utils {
     public static boolean checkLicensed(Context mContext) {
         return getPaidTotal(mContext) >= Constants.DONATION_TOTAL;
     }
+
+    public static boolean checkMinLicensed(Context mContext) {
+        return getPaidTotal(mContext) >= Constants.DONATION_REQUEST;
+    }
+
 }
