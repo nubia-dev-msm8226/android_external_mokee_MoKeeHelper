@@ -137,6 +137,7 @@
   <string name="download_running">Выполняется</string>
   <string name="download_cancelled">Загрузка отменена</string>
   <string name="download_already_running">Загрузка уже выполняется</string>
+  <string name="download_limited_mode">Ваша скорость загрузки ограничена. Вы можете сделать пожертвование, чтобы перейти на неограниченную скорость.</string>
   <string name="unable_to_download_file">Невозможно загрузить файл обновления</string>
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
