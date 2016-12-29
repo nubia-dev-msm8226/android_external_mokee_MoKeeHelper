@@ -137,6 +137,7 @@
   <string name="download_running">In Bearbeitung</string>
   <string name="download_cancelled">Download abgebrochen</string>
   <string name="download_already_running">Es ist bereits ein Download aktiv</string>
+  <string name="download_limited_mode">Begrenzter Download, bitte Spenden für volle Geschwindigkeit.</string>
   <string name="unable_to_download_file">Update konnte nicht heruntergeladen werden</string>
   <string name="not_download_success">Update erfolgreich heruntergeladen</string>
   <string name="not_download_failure">Download fehlgeschlagen</string>
