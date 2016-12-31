@@ -42,7 +42,7 @@
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Переглянути MoKee Wiki</string>
   <string name="mokee_news_title">MoKee Новини</string>
-  <string name="mokee_news_summary">Отримувати щодо розробки від MoKee</string>
+  <string name="mokee_news_summary">Отримувати новини розробки від MoKee</string>
   <!-- Base Info -->
   <string name="mokee_version_info_title">Інформація про версію</string>
   <string name="mokee_version_title">Версія MoKee</string>
@@ -51,7 +51,7 @@
   <string name="mokee_version_type_title">Тип версії</string>
   <string name="mokee_last_check_title">Остання перевірка</string>
   <string name="mokee_last_check_never">Ніколи</string>
-  <string name="mokee_extras_info_title">Інформація про доповнення</string>
+  <string name="mokee_extras_info_title">Додаткова інформація</string>
   <!-- Version -->
   <string name="mokee_info_default">Невідомо</string>
   <string name="mokee_version_type_release">Реліз</string>
@@ -61,7 +61,7 @@
   <string name="mokee_version_type_unofficial">Неофіційна</string>
   <string name="mokee_version_type_all">Усі</string>
   <!-- State -->
-  <string name="downloaded_update_summary">Завантажене</string>
+  <string name="downloaded_update_summary">Завантажено</string>
   <string name="installed_update_summary">Встановлено</string>
   <string name="available_updates_title">Доступні оновлення</string>
   <!-- Menu -->
@@ -83,7 +83,7 @@
   <string name="donate_money_restored_failed">Не знайдено запису про пристрій.</string>
   <string name="donate_money_restored_timeout">Таймаут з\'єднання, будь ласка, повторіть спробу</string>
   <string name="donate_money_info">Ви пожертвували всього CNY %1$d, це більше, ніж %2$s людей!</string>
-  <string name="donate_money_info_with_rank">Ви пожертвували всього CNY %1$d, це більше, ніж %2$s людей всього, Ваш ранг %3$d!</string>
+  <string name="donate_money_info_with_rank">Ви пожертвували всього CNY %1$d, це більше, ніж %2$s людей всього, Ваш рейтинг %3$d!</string>
   <string name="donate_money_info_null">Ви не пожертвували</string>
   <string name="remove_ads_name">Прибрати рекламу</string>
   <string name="remove_ads_description">Прибрати рекламу</string>
@@ -104,9 +104,9 @@
   <string name="update_check_title">Інтервал перевірки оновлень</string>
   <string name="check_manual">Вручну</string>
   <string name="nightly_alert">Ви обрали нічні (nightly) оновлення в цьому списку. Вони не є стабільними і ви повинні використовувати їх з обережністю.</string>
-  <string name="experimenter_alert">Ви обралиі експериментальні оновлення в цьому списку. Вони не підтримуються і призначені  тільки для тестування, тому користовуватися потрібно з обережністю.</string>
+  <string name="experimenter_alert">Ви обрали експериментальні оновлення в цьому списку. Вони не підтримуються і призначені тільки для тестування, тому використовувати їх потрібно з обережністю.</string>
   <string name="unofficial_alert">Ви обрали неофіційні оновлення в цьому списку. Майте на увазі, що вони підтримуються тільки людиною, котра їх зробила.</string>
-  <string name="all_alert">Ви обрали всі оновлення (реліз, нічні) в цьому списку. Зверніть увагу, що нічні оновлення не підтримуються і слід використовувати іх з обачністю.</string>
+  <string name="all_alert">Ви обрали всі оновлення (реліз, нічні) в цьому списку. Зверніть увагу, що нічні оновлення не підтримуються і слід використовувати іх з обережністю.</string>
   <string name="alert_title">Увага</string>
   <string name="update_type_title">Тип оновлення</string>
   <!-- ChangeLog -->
@@ -143,46 +143,46 @@
   <string name="not_download_failure">Не вдалося завантажити оновлення</string>
   <string name="not_action_install_update">Перезавантажити та встановити</string>
   <string name="not_download_install_notice">Оновлення <xliff:g id="filename">%s </xliff:g> успішно завантажено. Натисніть \'Перезавантажити та встановити\', щоб встановити оновлення.\n\nЗауваження: для цієї функції потрібне сумісне Recovery.</string>
-  <string name="not_download_install_ota_notice">Оновлення <xliff:g id="filename">%s</xliff:g> було вдало завантажено. Коли натиснете \"Перезавантаження та встановлення\", ваш пристрій перезавантажиться, для встановлення оновлення.\n\n Примітка: Для цього необхідно встановлене сумісне Recovery, або встановлення буде необхідно встановлювати вручну.\n\n Це ОТА оновлення, тому будь-які зміни, внесені дл системних файлів можуть призвести до сбою при встановленні оновлення. Якщо це сталося, будь-ласка, встановіть ROM не як OTA оновлення.</string>
+  <string name="not_download_install_ota_notice">Оновлення <xliff:g id="filename">%s</xliff:g> було вдало завантажено. Коли натиснете \"Перезавантаження та встановлення\", ваш пристрій перезавантажиться, для встановлення оновлення.\n\n Примітка: Для цього необхідно встановлене сумісне Recovery, або оновлення буде необхідно встановлювати вручну.\n\n Це ОТА оновлення, тому будь-які зміни, внесені до системних файлів можуть призвести до збою при встановленні оновлення. Якщо це сталося, будь-ласка, встановіть ROM не як OTA оновлення.</string>
   <string name="md5_verification_failed">Помилка контрольної суми MD5</string>
-  <string name="not_extras_download_success">Додаткові функції успішно завантажено</string>
-  <string name="not_extras_download_failure">Не вдалося завантажити додаткові функції </string>
-  <string name="not_extras_download_install_notice">Додаток <xliff:g id="filename">%s</xliff:g> був успішно завантажен. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити оновлення.\n\nЗауважте, що для автоматичного встановлення  необхідне сумісне Recovery.</string>
-  <string name="not_extras_download_install_notice_apk">Додаткові функції <xliff:g id="filename"> %s </xliff:g> успішно завантажено.</string>
+  <string name="not_extras_download_success">Доповнення успішно завантажено</string>
+  <string name="not_extras_download_failure">Не вдалося завантажити доповнення</string>
+  <string name="not_extras_download_install_notice">Доповнення <xliff:g id="filename">%s</xliff:g> було успішно завантажено. Коли ви натиснете \'Перезавантажити і встановити\', пристрій перезавантажиться, щоб встановити доповлення.\n\nЗауважте, що для автоматичного встановлення необхідне сумісне Recovery.</string>
+  <string name="not_extras_download_install_notice_apk">Доповнення <xliff:g id="filename"> %s </xliff:g> успішно завантажено.</string>
   <string name="not_apk_action_install_update">Встановити</string>
   <!-- deleting -->
   <string name="confirm_delete_dialog_title">Видалити файл</string>
   <string name="confirm_delete_updates_dialog_message">Видалити обраний файл оновлення?</string>
   <string name="confirm_delete_updates_all_dialog_message">Видалити усі завантажені файли оновлення?</string>
-  <string name="confirm_delete_extras_dialog_message">Видалити обрані  файли додаткових функцій?</string>
-  <string name="confirm_delete_extras_all_dialog_message">Видалити всі файли завантажені додатки?</string>
+  <string name="confirm_delete_extras_dialog_message">Видалити обрані файли доповнень?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Видалити всі файли завантажених доповнень?</string>
   <string name="delete_single_update_success_message">Оновлення <xliff:g id="filename">%s</xliff:g> видалено</string>
   <string name="delete_updates_failure_message">Виникла помилка при видаленні файлу оновлення</string>
   <string name="delete_updates_noFolder_message">Каталог з оновленнями не знайдено</string>
   <string name="delete_updates_success_message">Всі завантажені оновлення видалені</string>
-  <string name="delete_extras_failure_message">Помилка видалення файлу додаткових послуг</string>
-  <string name="delete_extras_noFolder_message">Каталог додатків не знайдено</string>
-  <string name="delete_extras_success_message">Всі завантажені Допоміжні елементи видалені</string>
+  <string name="delete_extras_failure_message">Помилка видалення файлу доповнень</string>
+  <string name="delete_extras_noFolder_message">Каталог доповнень не знайдено</string>
+  <string name="delete_extras_success_message">Всі завантажені доповнення видалені</string>
   <!-- pref -->
   <string name="pref_ota_check">OTA оновлення</string>
   <string name="pref_ota_check_summary">ОТА оновлення для заощадження часу завантаження та трафіку</string>
   <string name="pref_ota_check_donation_request_summary">ОТА оновлення для заощадження часу завантаження та трафіку(доступні після пожертвування CNY %d)</string>
-  <string name="pref_ota_check_donation_request_pending_summary">Отримувати часткові оновлення для економії часу завантаження і трафіку (пожертвувано %1$d, буде доступно пожиттєво після пожертви ще %2$d, валюта: CNY)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Отримувати ОТА оновлення для економії часу завантаження і трафіку (пожертвувано %1$d, буде доступно пожиттєво після пожертви ще %2$d, валюта: CNY)</string>
   <string name="pref_verify_rom">Перевірені оновлення</string>
   <string name="pref_verify_rom_summary">Показувати лише оновлення, підтверджені іншими користувачами</string>
   <string name="pref_verify_rom_donation_request_summary">Показувати лише оновлення, які перевіряються іншими користувачами (доступно після пожертвування CNY %d)</string>
   <string name="pref_verify_rom_donation_request_pending_summary">Відображати лише оновлення, які перевірені іншими користувачами (пожертвувано %1$d, потрібно пожертвувати ще %2$d, валюта: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Застосувати оновлення</string>
-  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery.інакше оновлення доведеться встановити вручну.</string>
-  <string name="apply_update_ota_dialog_text">Ви хочете виконати оновлення до <xliff:g id="filename">%s</xliff:g>.\n\n Якщо ви натиснете \"Оновлення\", ваш пристрій будет перезавантажений в режим Recovery, для встановлення оновлення.\n\n Примітка: Для цього необхідно встановлене сумісне Recovery, або встановлення буде необхідно встановлювати вручну.\n\n Це ОТА оновлення, тому будь-які зміни, внесені дл системних файлів можуть призвести до сбою при встановленні оновлення. Якщо це сталося, будь-ласка, встановіть ROM не як OTA оновлення.</string>
+  <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery, інакше оновлення доведеться встановити вручну.</string>
+  <string name="apply_update_ota_dialog_text">Ви хочете виконати оновлення до <xliff:g id="filename">%s</xliff:g>.\n\n Якщо ви натиснете \"Оновлення\", ваш пристрій будет перезавантажений в режим Recovery, для встановлення оновлення.\n\n Примітка: Для цього необхідно встановлене сумісне Recovery, або оновлення буде необхідно встановлювати вручну.\n\n Це ОТА оновлення, тому будь-які зміни, внесені до системних файлів можуть призвести до збою при встановленні оновлення. Якщо це сталося, будь-ласка, встановіть ROM не як OTA оновлення.</string>
   <string name="apply_extras_dialog_title">Встановити додаток</string>
-  <string name="apply_extras_dialog_text">Ви дійсно бажаєте установити <xliff:g id="filename"> %s </xliff:g>?</string>
+  <string name="apply_extras_dialog_text">Ви дійсно бажаєте встановити <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Неможливо перезавантажитись у Recovery</string>
   <string name="extras_unsupported_toast">Поточна версія не підтримує це розширення</string>
   <!-- experimenter mode -->
-  <string name="show_exp_on">Експериментальні установки активовано!</string>
-  <string name="show_exp_already">Немає необхідності, експериментальні установки вже активовані.</string>
+  <string name="show_exp_on">Експериментальні налаштування активовано!</string>
+  <string name="show_exp_already">Немає необхідності, експериментальні налаштування вже активовані.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Фреймворк Xposed встановлено, нема необхідності перевстановлювати його після застосування часткових оновлень.</string>
+  <string name="installed_xposed_toast">Фреймворк Xposed встановлено, немає необхідності перевстановлювати його після застосування часткових оновлень.</string>
 </resources>

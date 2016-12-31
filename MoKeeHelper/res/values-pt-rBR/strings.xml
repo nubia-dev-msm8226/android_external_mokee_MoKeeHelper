@@ -29,7 +29,7 @@
   <string name="mokee_website_summary">Visite o site oficial</string>
   <string name="mokee_forum_title">MoKee Fórum</string>
   <string name="mokee_forum_summary">Visite o fórum MoKee</string>
-  <string name="mokee_issues_title">MoKee Bug Tracker</string>
+  <string name="mokee_issues_title">MoKee Rastreador de Bug</string>
   <string name="mokee_issues_summary">Visite o bug tracker</string>
   <string name="mokee_changelog_title">Registro de alterações Mokee</string>
   <string name="mokee_changelog_summary">Ver Lista de mudanças Diaria</string>
@@ -54,10 +54,10 @@
   <string name="mokee_extras_info_title">Informações de extras</string>
   <!-- Version -->
   <string name="mokee_info_default">Desconhecido</string>
-  <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_release">Lançamento</string>
   <string name="mokee_version_type_history">Histórico</string>
   <string name="mokee_version_type_experimental">Experimental</string>
-  <string name="mokee_version_type_nightly">Nightly</string>
+  <string name="mokee_version_type_nightly">Noturna</string>
   <string name="mokee_version_type_unofficial">Não oficial</string>
   <string name="mokee_version_type_all">Todas</string>
   <!-- State -->
@@ -184,5 +184,5 @@
   <string name="show_exp_on">Você habilitou as configurações experimentais!</string>
   <string name="show_exp_already">Não precisa, você já habilitou as configurações experimentais.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework instalado, sem necessidade de reflash quadro depois de aplicar atualizações incrementais.</string>
+  <string name="installed_xposed_toast">Xposed framework instalado, sem necessidade de reflash framework após a aplicação de atualizações incrementais.</string>
 </resources>
