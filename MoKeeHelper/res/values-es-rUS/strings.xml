@@ -137,6 +137,7 @@
   <string name="download_running">En progreso</string>
   <string name="download_cancelled">Descarga cancelada</string>
   <string name="download_already_running">Hay una descarga en curso</string>
+  <string name="download_limited_mode">Descargando a velocidad limitada, por favor done para disfrutar de máxima velocidad.</string>
   <string name="unable_to_download_file">Error al descargar la actualización</string>
   <string name="not_download_success">Actualización descargada exitosamente</string>
   <string name="not_download_failure">Actualización no descargada</string>
