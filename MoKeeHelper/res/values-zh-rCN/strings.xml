@@ -26,7 +26,7 @@
   <string name="tips_help_title">机油问答</string>
   <!-- WebSite -->
   <string name="mokee_website_title">项目首页</string>
-  <string name="mokee_website_summary">访问魔趣开源计划主页获得最新资讯</string>
+  <string name="mokee_website_summary">访问魔趣开源计划主页以获得最新资讯</string>
   <string name="mokee_forum_title">魔趣论坛</string>
   <string name="mokee_forum_summary">前往魔趣论坛寻求帮助或分享心得</string>
   <string name="mokee_issues_title">问题反馈</string>
@@ -71,7 +71,7 @@
   <string name="menu_remove_ads">移除广告</string>
   <!-- Donate -->
   <string name="donate_dialog_title">捐赠我们</string>
-  <string name="donate_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的mokee. license文件中。（仅限当前设备使用）</string>
+  <string name="donate_dialog_message">和 Cyanogen 等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、加入广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的 mokee. license 文件中（仅限当前设备使用）。</string>
   <string name="donate_dialog_via_paypal">贝宝</string>
   <string name="donate_dialog_via_alipay">支付宝</string>
   <string name="donate_dialog_via_restore">恢复授权</string>
@@ -82,13 +82,13 @@
   <string name="donate_money_restored_success">授权文件已成功恢复！</string>
   <string name="donate_money_restored_failed">没有找到这台设备的捐赠记录。</string>
   <string name="donate_money_restored_timeout">网络连接超时，请再试一次。</string>
-  <string name="donate_money_info">您捐赠了 %1$d CNY, 打败了全球 %2$s 的用户！</string>
-  <string name="donate_money_info_with_rank">您捐赠了 %1$d CNY, 打败了全球 %2$s 的用户, 排名第 %3$d!</string>
-  <string name="donate_money_info_null">让牛干活也得先让牛吃草, 您还没有过光荣的捐赠行为。</string>
+  <string name="donate_money_info">您捐赠了 %1$d CNY，打败了全球 %2$s 的用户！</string>
+  <string name="donate_money_info_with_rank">您捐赠了 %1$d CNY，打败了全球 %2$s 的用户，排名第 %3$d！</string>
+  <string name="donate_money_info_null">让牛干活也得先让牛吃草，您还没有过光荣的捐赠行为。</string>
   <string name="remove_ads_name">永久移除广告</string>
   <string name="remove_ads_description">永久移除广告</string>
   <string name="remove_ads_dialog_title">永久移除广告</string>
-  <string name="remove_ads_request_price">已捐赠 %1$d, 待捐赠 %2$d (货币单位：CNY)</string>
+  <string name="remove_ads_request_price">已捐赠 %1$d，待捐赠 %2$d （货币单位：CNY）</string>
   <!-- Update -->
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
@@ -96,9 +96,9 @@
   <string name="dialog_ok">确认</string>
   <string name="dialog_cancel">取消</string>
   <string name="dialog_close">关闭</string>
-  <string name="no_available_updates_intro">最后一次检测并未找到可用的更新，请使用刷新按钮来手动检查更新试试。</string>
-  <string name="no_available_ota_intro">最后一次检测并未找到可用的更新，请使用刷新按钮来手动检查更新试试。如果您当前在运行一个超出增量更新支持的早期版本，您需要取消增量更新的勾选。</string>
-  <string name="no_available_extras_intro">最后一次检测并未找到可用的扩展，请使用刷新按钮来手动检查更新试试。</string>
+  <string name="no_available_updates_intro">最后一次检测并未找到可用的更新，请使用刷新按钮尝试手动检查更新。</string>
+  <string name="no_available_ota_intro">最后一次检测并未找到可用的更新，请使用刷新按钮尝试手动检查更新。如果您正在使用一个超出增量更新支持的早期版本，您需要取消“增量更新”的勾选。</string>
+  <string name="no_available_extras_intro">最后一次检测并未找到可用的扩展，请使用刷新按钮尝试手动检查更新。</string>
   <string name="new_update_summary">比当前版本新</string>
   <string name="old_update_summary">比当前版本旧</string>
   <string name="update_check_title">检查更新频率</string>
@@ -170,8 +170,8 @@
   <string name="pref_ota_check_donation_request_pending_summary">下载仅有完整包5%%大小的补丁快速更新 (已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY)</string>
   <string name="pref_verify_rom">放心刷™</string>
   <string name="pref_verify_rom_summary">仅显示经过其它用户验证可用的版本</string>
-  <string name="pref_verify_rom_donation_request_summary">仅显示经过其它用户验证可用的版本 (捐赠 %d CNY后永久可用)</string>
-  <string name="pref_verify_rom_donation_request_pending_summary">仅显示经过其它用户验证可用的版本 (已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY)</string>
+  <string name="pref_verify_rom_donation_request_summary">仅提供经过用户测试的可靠的版本（捐赠 %d CNY后永久可用）</string>
+  <string name="pref_verify_rom_donation_request_pending_summary">仅提供经过用户测试的可靠的版本（已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY）</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">应用更新</string>
   <string name="apply_update_dialog_text">您将要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您选择更新，您的设备将会重启到恢复模式并安装更新。\n\n注意：此功能需要一个兼容的恢复程序。如果您没有的话，您将需要手动安装更新。</string>
@@ -184,5 +184,5 @@
   <string name="show_exp_on">您现在处于测试者模式！</string>
   <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">检测到系统安装了Xposed框架，启用增量更新可在升级后无需重刷框架。</string>
+  <string name="installed_xposed_toast">检测到系统安装了Xposed框架，使用增量更新并不需要在升级后重刷框架。</string>
 </resources>

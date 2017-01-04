@@ -71,7 +71,7 @@
   <string name="menu_remove_ads">Hapus iklan</string>
   <!-- Donate -->
   <string name="donate_dialog_title">Donasi untuk kami</string>
-  <string name="donate_dialog_message">Tidak seperti perusahaan seperti Cygn atau MIUI, MoKee OpenSource adalah proyek nirlaba yang murni lahir dari hobi dan gairah. Untuk menjaga proyek ini, kita harus mengeluarkan uang setiap waktunya atau mengandalkan sumbangan dan iklan. Donasi Anda dapat membantu mengurangi beban keuangan kami dan menunjang perkembangan kedepannya! Pilihan ini memungkinkan Anda untuk menghapus iklan di pusat MoKee, atau menggunakan opsi \"Donasi\" sebaliknya jika Anda memilih cicilan (iklan akan dihapus setelah total mencapai nilai yang tertentu). Mohon cadangkan mokee.license file (dalam direktori root dari sdcard, hanya berlaku untuk perangkat saat ini) setelah Anda telah menyumbangkan.</string>
+  <string name="donate_dialog_message">Tidak seperti perusahaan seperti Cygn atau MIUI, MoKee OpenSource adalah proyek nirlaba yang murni lahir dari hobi dan semangat. Untuk menjaga proyek ini, kita harus mengeluarkan uang setiap waktunya atau mengandalkan donasi dan iklan. Donasi anda dapat membantu mengurangi beban keuangan kami dan menunjang perkembangan kedepannya! Pilihan ini memungkinkan anda untuk menghapus iklan di Pusat MoKee, atau gunakan \"Donasi\", sebaliknya jika anda memilih cicilan klan akan dihapus setelah total mencapai nilai yang ditentukan). Silahkan cadangkan berkas mokee. license (dalam direktori root di sdcard, hanya berlaku untuk perangkat saat ini) setelah anda melakukan donasi.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_restore">Pulihkan</string>
@@ -84,11 +84,11 @@
   <string name="donate_money_restored_timeout">Sambungan gagal, silahkan ulangi</string>
   <string name="donate_money_info">Total donasi anda CNY %1$d, lebih dari %2$s dari donatur secara global!</string>
   <string name="donate_money_info_with_rank">Total donasi anda CNY %1$d, lebih dari %2$s dari para donatur global, peringkat No.%3$d!</string>
-  <string name="donate_money_info_null">Anda belum mendonasikan</string>
+  <string name="donate_money_info_null">Anda belum melakukan donasi</string>
   <string name="remove_ads_name">Hapus iklan</string>
   <string name="remove_ads_description">Hapus iklan</string>
   <string name="remove_ads_dialog_title">Selalu hapus iklan</string>
-  <string name="remove_ads_request_price">Donasikan CNY %1$d, tertunda CNY %2$d</string>
+  <string name="remove_ads_request_price">Didonasikan CNY %1$d, tertunda CNY %2$d</string>
   <!-- Update -->
   <string name="unknown">Tidak diketahui</string>
   <string name="dialog_update">Perbarui</string>
@@ -98,15 +98,15 @@
   <string name="dialog_close">Tutup</string>
   <string name="no_available_updates_intro">Pemeriksaan tidak menemukan adanya pembaruan tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
   <string name="no_available_ota_intro">Pemeriksaan terakhir tidak menemukan pembaruan tersedia. Untuk memeriksa pembaruan terbaru secara manual, gunakan tombol Segarkan. Jika anda saat ini menggunakan di luar versi incremental, anda harus membuang pilihan \"pembaruan Incremental\".</string>
-  <string name="no_available_extras_intro">Pemeriksaan terakhir tidak menemukan adanya pembaruan yang tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
+  <string name="no_available_extras_intro">Pemeriksaan terakhir tidak menemukan adanya pembaruan baru tersedia. Untuk memeriksa secara manual pembaruan terkini, gunakan tombol Segarkan.</string>
   <string name="new_update_summary">Baru</string>
   <string name="old_update_summary">Lama</string>
-  <string name="update_check_title">Frekuensi pemeriksaan pembaruan</string>
+  <string name="update_check_title">Frekuensi pemeriksaan</string>
   <string name="check_manual">Manual</string>
-  <string name="nightly_alert">Anda telah memilih untuk menyertakan pembaruan nightly dalam daftar ini. Ini tidak didukung dan harus digunakan dengan hati-hati.</string>
-  <string name="experimenter_alert">Anda telah memilih untuk menyertakan pembaruan eksperimental dalam daftar ini. Ini tidak didukung dan dimaksudkan untuk pengujian saja, dan harus digunakan dengan hati-hati.</string>
-  <string name="unofficial_alert">Anda telah memilih untuk menyertakan pembaruan resmi dalam daftar ini. Perlu diingat bahwa ini didukung oleh pengelola perangkat anda.</string>
-  <string name="all_alert">Anda telah memilih untuk menyertakan semua pembaruan (release, nightly) dalam daftar ini. Perhatikan bahwa pembaruan nightly tidak resmi didukung dan harus digunakan dengan hati-hati.</string>
+  <string name="nightly_alert">Anda telah memilih untuk menyertakan pembaruan nightly dalam daftar ini. Ini belum didukung resmi dan harus digunakan dengan hati-hati.</string>
+  <string name="experimenter_alert">Anda telah memilih untuk menyertakan pembaruan eksperimental dalam daftar ini. Ini belum didukung resmi dan dimaksudkan untuk pengujian saja, dan harus digunakan dengan hati-hati.</string>
+  <string name="unofficial_alert">Anda telah memilih untuk menyertakan pembaruan resmi dalam daftar ini. Perlu diingat bahwa ini didukung langsung oleh pengelola perangkat anda.</string>
+  <string name="all_alert">Anda telah memilih untuk menyertakan semua pembaruan (release, nightly) dalam daftar ini. Perhatikan bahwa pembaruan nightly belum didukung resmi dan harus digunakan dengan hati-hati.</string>
   <string name="alert_title">Peringatan</string>
   <string name="update_type_title">Tipe pembaruan</string>
   <!-- ChangeLog -->
@@ -174,8 +174,8 @@
   <string name="pref_verify_rom_donation_request_pending_summary">Hanya menampilkan pembaruan yang diverifikasi oleh pengguna lain (donasi %1$d, tersedia untuk seumur hidup setelah donasi %2$d lain, mata uang: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Terapkan pembaruan</string>
-  <string name="apply_update_dialog_text">Anda akan meningkatkan ke <xliff:g id="filename">%s</xliff:g>.\n\nJika anda menekan Perbarui, perangkat akan dimulai ulang dalam modus pemulihan untuk memasang pembaruan.\n\nCatatan: Fitur ini memerlukan Pemulihan yang kompatibel atau pembaruan harus dipasang secara manual.</string>
-  <string name="apply_update_ota_dialog_text">Anda akan meningkatkan ke <xliff:g id="filename">%s </xliff:g>. \n\nJika anda menekan perbarui, perangkat akan memulai ulang dan berada dalam mode pemulihan untuk memasang pembaruan.\n\nCatatan: fitur ini memerlukan recovery yang kompatibel atau pembaruan akan dipasang manual.\n\nIni adalah sebuah pembaruan incremental, oleh karena itu setiap perubahan file di system mungkin menyebabkan pembaruan gagal. Jika ini terjadi, silakan flash full ROM sebagai gantinya.</string>
+  <string name="apply_update_dialog_text">Anda akan meningkatkan ke <xliff:g id="filename">%s</xliff:g>.\n\nJika anda menekan Perbarui, perangkat akan dimulai ulang dalam mode recovery untuk memasang pembaruan.\n\nCatatan: Fitur ini memerlukan recovery yang kompatibel atau pembaruan harus dipasang secara manual.</string>
+  <string name="apply_update_ota_dialog_text">Anda akan meningkatkan ke <xliff:g id="filename">%s </xliff:g>. \n\nJika anda menekan perbarui, perangkat akan memulai ulang dan berada dalam mode recovery untuk memasang pembaruan.\n\nCatatan: fitur ini memerlukan recovery yang kompatibel atau pembaruan akan dipasang manual.\n\nIni adalah sebuah pembaruan incremental, oleh karena itu setiap perubahan file di system mungkin menyebabkan pembaruan gagal. Jika ini terjadi, silakan flash full ROM sebagai gantinya.</string>
   <string name="apply_extras_dialog_title">Menginstal tambahan</string>
   <string name="apply_extras_dialog_text">Apakah anda yakin ingin memasang <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Tidak dapat memulai ulang ke mode pemulihan</string>
