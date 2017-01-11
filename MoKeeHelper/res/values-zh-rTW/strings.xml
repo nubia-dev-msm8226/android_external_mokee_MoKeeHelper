@@ -23,7 +23,7 @@
   <string name="mokee_updater_title">更新程式</string>
   <string name="mokee_extras_title">附加選項</string>
   <!-- Tips -->
-  <string name="tips_help_title">玩機專區</string>
+  <string name="tips_help_title">提示與說明</string>
   <!-- WebSite -->
   <string name="mokee_website_title">MoKee 網站</string>
   <string name="mokee_website_summary">造訪官方網站</string>
@@ -42,19 +42,19 @@
   <string name="mokee_wiki_title">MoKee 的 Wiki</string>
   <string name="mokee_wiki_summary">造訪 MoKee Wiki</string>
   <string name="mokee_news_title">MoKee 新聞</string>
-  <string name="mokee_news_summary">從 MoKee 接收開發者新聞</string>
+  <string name="mokee_news_summary">從 MoKee 接收開發人員新聞</string>
   <!-- Base Info -->
   <string name="mokee_version_info_title">版本資訊</string>
   <string name="mokee_version_title">MoKee 版本</string>
-  <string name="mokee_unique_id_title">設備識別碼</string>
+  <string name="mokee_unique_id_title">唯一識別碼</string>
   <string name="mokee_donate_info_title">捐贈資訊</string>
   <string name="mokee_version_type_title">版本類型</string>
-  <string name="mokee_last_check_title">最後一次檢查時間:</string>
+  <string name="mokee_last_check_title">最後一次檢查時間：</string>
   <string name="mokee_last_check_never">永不</string>
   <string name="mokee_extras_info_title">額外資訊</string>
   <!-- Version -->
   <string name="mokee_info_default">未知</string>
-  <string name="mokee_version_type_release">釋放版</string>
+  <string name="mokee_version_type_release">釋出版</string>
   <string name="mokee_version_type_history">歷史版</string>
   <string name="mokee_version_type_experimental">實驗版</string>
   <string name="mokee_version_type_nightly">每夜版</string>
@@ -71,7 +71,7 @@
   <string name="menu_remove_ads">移除廣告</string>
   <!-- Donate -->
   <string name="donate_dialog_title">捐贈給我們</string>
-  <string name="donate_dialog_message">不同於Cygn或MIUI這樣，Mokke的開放原始碼為愛好與激情而生的純公益專案。為了維護這個專案，我們必須付出金錢及我們的大部分時間或者依靠廣告與捐助。你的捐助能夠減少我們的財務負擔以及維持未來發展！此選項允許你在MoKee中心移除廣告或者捐助。如果你喜歡分期付款(捐助達到一定數額可以移除廣告)。在你捐助後請備份mokee.license檔案(在sd卡的根目錄下，僅對當前使用的設備有效)。</string>
+  <string name="donate_dialog_message">不同於 Cygn 或 MIUI 這樣，Mokke 的開放原始碼為愛好與激情而生的純公益專案。為了維護這個專案，我們必須付出金錢及我們的大部分時間或者依靠廣告與捐助。你的捐助能夠減少我們的財務負擔以及維持未來發展！此選項允許你在 MoKee 中心移除廣告或者捐助。如果你喜歡分期付款 (捐助達到一定數額可以移除廣告)。在你捐助後請備份 mokee.license 檔案 (在 sd 卡的根目錄下，僅對當前使用的設備有效)。</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">支付寶</string>
   <string name="donate_dialog_via_restore">恢複</string>
@@ -87,7 +87,7 @@
   <string name="donate_money_info_null">您還沒捐</string>
   <string name="remove_ads_name">移除廣告</string>
   <string name="remove_ads_description">移除廣告</string>
-  <string name="remove_ads_dialog_title">始終刪除廣告</string>
+  <string name="remove_ads_dialog_title">一律刪除廣告</string>
   <string name="remove_ads_request_price">捐贈了 ￥ 元 %1$d，掛起 ￥ 元 %2$d</string>
   <!-- Update -->
   <string name="unknown">未知</string>
@@ -112,7 +112,7 @@
   <!-- ChangeLog -->
   <string name="no_changelog_alert">沒有可用的更新日誌</string>
   <string name="changelog_dialog_title">更新日誌</string>
-  <string name="loading_changelog">載入中…\u2026</string>
+  <string name="loading_changelog">載入中\u2026</string>
   <string name="check_on_boot">每次重新開機</string>
   <string name="check_twice_daily">每天兩次</string>
   <string name="check_daily">每天一次</string>
@@ -142,12 +142,12 @@
   <string name="not_download_success">更新已成功下載</string>
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
-  <string name="not_download_install_notice">更新檔 <xliff:g id="filename">%s</xliff:g> 已成功下載。點擊\'Reboot and install\'以重新啟動設備來安裝更新。\n\nNote: 此功能需要相容的Recovery程式，否則您需要手動安裝此更新。</string>
-  <string name="not_download_install_ota_notice">更新檔 <xliff:g id="filename">%s </xliff:g> 下載成功。點擊 \'重新開機和安裝\'以重啟設備來安裝更新。\n\nNote ︰ 此功能需要相容的Recovery程式，否則您需要手動安裝該更新。\n\n此更新是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整ROM。</string>
+  <string name="not_download_install_notice">更新檔 <xliff:g id="filename">%s</xliff:g> 已成功下載。點選「重新啟動並安裝」以重新啟動裝置來安裝更新。\n\n注意︰此功能需要相容的 Recovery 程式，否則您需要手動安裝此更新。</string>
+  <string name="not_download_install_ota_notice">更新檔 <xliff:g id="filename">%s </xliff:g> 下載成功。點選「重新啟動並安裝」以重新啟動裝置來安裝更新。\n\n注意︰ 此功能需要相容的 Recovery 程式，否則您需要手動安裝該更新。\n\n此更新是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整 ROM。</string>
   <string name="md5_verification_failed">MD5 校驗不符合</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
-  <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選\"重新啟動並安裝\"，裝置便會重新啟動並安裝跟新。\n\n註:您必須有一個適用的Recovery才能順利的安裝更新。</string>
+  <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當點選「重新啟動並安裝」，裝置便會重新啟動並安裝跟新。\n\n註：您必須有一個適用的 Recovery 才能順利的安裝更新。</string>
   <string name="not_extras_download_install_notice_apk">附加選項 <xliff:g id="filename">%s</xliff:g> 已下載完成</string>
   <string name="not_apk_action_install_update">安裝</string>
   <!-- deleting -->
@@ -173,16 +173,16 @@
   <string name="pref_verify_rom_donation_request_summary">僅檢查經過其它使用者驗證的新版本 (捐贈 %d CNY後永久可用)</string>
   <string name="pref_verify_rom_donation_request_pending_summary">僅檢查經過其它使用者驗證的新版本 (已捐贈 %1$d，再捐贈 %2$d 後永久可用，貨幣單位：CNY)</string>
   <!-- Apply install and update, extras strings -->
-  <string name="apply_update_dialog_title">應用更新</string>
-  <string name="apply_update_dialog_text">您將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您選擇更新，您的設備將會重啟到復原模式並安裝更新。\n\n注意：此功能需要一個相容的恢復程式。如果您沒有的話，您將需要手動安裝更新。</string>
-  <string name="apply_update_ota_dialog_text">您將要升級到 <xliff:g id="filename">%s </xliff:g>.\n\nIf 如果你選擇升級，設備將會重新啟動並在Recovery模式下安裝 更升級檔.\n\nNote ︰ 此功能需要相容的Recovery程式，否則您需要手動安裝.\n\nThis 是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整ROM。</string>
+  <string name="apply_update_dialog_title">套用更新</string>
+  <string name="apply_update_dialog_text">您將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您選擇更新，您的裝置將會重新啟動到 Recovery 模式並安裝更新。\n\n注意：此功能需要一個相容的 Recovery 程式。如果您沒有的話，您將需要手動安裝更新。</string>
+  <string name="apply_update_ota_dialog_text">您將要升級到 <xliff:g id="filename">%s </xliff:g>。\n\nIf 如果你選擇升級，裝置將會重新啟動並在 Recovery 模式下安裝更升級檔。\n\n注意︰ 此功能需要相容的 Recovery 程式，否則您需要手動安裝。\n\n這是增量更新，因此對系統檔所做的任何更改可能會導致更新失敗。如果發生這種情況，請刷入完整 ROM。</string>
   <string name="apply_extras_dialog_title">安裝額外軟體</string>
   <string name="apply_extras_dialog_text">你確定你想要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
-  <string name="apply_unable_to_reboot_toast">無法重啟到復原模式</string>
-  <string name="extras_unsupported_toast">您的當前版本不支援此副檔名</string>
+  <string name="apply_unable_to_reboot_toast">無法重新啟動至 Recovery 模式</string>
+  <string name="extras_unsupported_toast">您的目前版本不支援此副檔名</string>
   <!-- experimenter mode -->
-  <string name="show_exp_on">您已啟用實驗設定 ！</string>
-  <string name="show_exp_already">不用了，您已經啟用了實驗設置。</string>
+  <string name="show_exp_on">您已啟用實驗性設定 ！</string>
+  <string name="show_exp_already">不用了，您已經啟用了實驗性設定。</string>
   <!-- Xposed framework check -->
   <string name="installed_xposed_toast">Xposed 框架已安裝，在應用程式增量更新後無需重新刷新框架。</string>
 </resources>
