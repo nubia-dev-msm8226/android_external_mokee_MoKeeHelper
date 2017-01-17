@@ -125,7 +125,7 @@
   <string name="no_updates_found">没有找到新的更新</string>
   <string name="checking_for_extras">正在检查扩展组件</string>
   <string name="no_extras_found">没有找到新的扩展组件</string>
-  <string name="not_new_updates_found_ticker">找到了可用的系统更新</string>
+  <string name="not_new_updates_found_ticker">有可用的系统更新</string>
   <string name="not_new_updates_found_title">新的系统更新</string>
   <string name="update_check_failed">更新检查失败，请检查您的数据连接并重试。</string>
   <string name="not_action_download">下载</string>
@@ -142,12 +142,12 @@
   <string name="not_download_success">更新已成功下载</string>
   <string name="not_download_failure">下载更新失败</string>
   <string name="not_action_install_update">重启并安装</string>
-  <string name="not_download_install_notice">当激活超级用户时在状态栏显示图标</string>
+  <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击“重启并安装”后，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。</string>
   <string name="not_download_install_ota_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击“重启并安装”后，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。\n\n本次为增量更新，任何人为或带有ROOT权限的程序对系统文件造成的修改可能导致更新失败，如果您遭遇此情形，请尝试下载完整包进行更新。</string>
   <string name="md5_verification_failed">MD5 检测失败</string>
   <string name="not_extras_download_success">扩展组件已成功下载</string>
   <string name="not_extras_download_failure">扩展组件下载失败</string>
-  <string name="not_extras_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击“重启并安装”时，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。</string>
+  <string name="not_extras_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击“重启并安装”后，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。</string>
   <string name="not_extras_download_install_notice_apk"><xliff:g id="filename">%s</xliff:g> 已成功下载。</string>
   <string name="not_apk_action_install_update">安装</string>
   <!-- deleting -->
@@ -169,9 +169,9 @@
   <string name="pref_ota_check_donation_request_summary">下载仅有完整包5%%大小的补丁快速更新（捐赠 %d CNY后永久可用）</string>
   <string name="pref_ota_check_donation_request_pending_summary">下载仅有完整包5%%大小的补丁快速更新（已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY）</string>
   <string name="pref_verify_rom">放心刷™</string>
-  <string name="pref_verify_rom_summary">仅提供经过用户测试的可靠的版本</string>
-  <string name="pref_verify_rom_donation_request_summary">仅提供经过用户测试的可靠的版本（捐赠 %d CNY后永久可用）</string>
-  <string name="pref_verify_rom_donation_request_pending_summary">仅提供经过用户测试的可靠的版本（已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY）</string>
+  <string name="pref_verify_rom_summary">仅向您推荐其他用户测试可靠的版本</string>
+  <string name="pref_verify_rom_donation_request_summary">仅向您推荐其他用户测试可靠的版本（捐赠 %d CNY后永久可用）</string>
+  <string name="pref_verify_rom_donation_request_pending_summary">仅向您推荐其他用户测试可靠的版本（已捐赠 %1$d，再捐赠 %2$d 后永久可用，货币单位：CNY）</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">应用更新</string>
   <string name="apply_update_dialog_text">您将要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您选择更新，您的设备将会重启到恢复模式并安装更新。\n\n注意：此功能需要一个兼容的恢复程序。如果您没有的话，您将需要手动安装更新。</string>
