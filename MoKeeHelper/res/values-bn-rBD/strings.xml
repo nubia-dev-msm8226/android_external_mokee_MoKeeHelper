@@ -70,6 +70,7 @@
   <string name="menu_delete_all">ডাউনলোড মুছে ফেলুন</string>
   <!-- Donate -->
   <!-- Update -->
+  <string name="unknown">Unknown</string>
   <string name="old_update_summary">পুরাতন</string>
   <string name="update_check_title">আপডেট পুনরাবৃত্তি চেক করুন।</string>
   <string name="check_manual">নির্দেশিকা</string>
